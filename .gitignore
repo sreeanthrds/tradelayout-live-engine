@@ -76,3 +76,11 @@ dmypy.json
 # Large binaries
 clickhouse
 clickhouse-*
+
+# Large data files
+tick_capture_output/*.jsonl
+*.jsonl
+backtest_data/
+store/
+*.rdb
+
