@@ -87,8 +87,8 @@ class LiveBacktestRunner:
             # Update status to running
             session.status = "running"
             
-            # Run backtest (synchronous but will feed events)
-            await asyncio.get_event_loop().run_in_executor(None, engine.run)
+            # Run backtest (engine.run() is now async)
+            await engine.run()
             
             # Mark BOTH sessions as completed
             session.status = "completed"
@@ -292,7 +292,7 @@ class LiveBacktestEngineWithSSE(CentralizedBacktestEngine):
         
         return result
         
-    def _process_ticks_centralized(self, ticks: list):
+    async def _process_ticks_centralized(self, ticks: list):
         """
         Override to feed events to SSE as ticks are processed.
         """

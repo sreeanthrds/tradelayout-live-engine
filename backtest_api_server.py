@@ -1248,9 +1248,15 @@ async def get_live_trading_dashboard(user_id: str):
         
         for session_id, session in sse_manager.sessions.items():
             if session.user_id == user_id:
-                # Include all sessions: ready, starting, running (exclude only completed/stopped)
-                if session.status in ["completed", "stopped", "error"]:
-                    continue  # Skip completed/stopped/error sessions
+                # Include running sessions and completed queue sessions (for View Trades)
+                # Skip only stopped/error sessions
+                if session.status in ["stopped", "error"]:
+                    continue  # Skip stopped/error sessions
+                
+                # Skip completed non-queue sessions (manual starts)
+                # Keep completed queue sessions visible (identified by session_id prefix)
+                if session.status == "completed" and not session_id.startswith("queue-"):
+                    continue
                 
                 if session.status == "running":
                     active_count += 1
@@ -3264,15 +3270,32 @@ async def execute_queue(
         
         # Queue processed - ready for ticks
         
-        # Start historical tick processor with session IDs for live updates
-        asyncio.create_task(
-            _run_historical_tick_processor(
-                instance_type=queue_type,
-                backtest_date=backtest_date,
-                speed_multiplier=speed_multiplier,
-                session_ids=session_ids
-            )
-        )
+        # Launch live backtest for each strategy (same as /api/v1/live/start)
+        # This ensures View Trades modal gets proper position/trade data
+        for entry in queue_entries:
+            user_id = entry['user_id']
+            strategy_id = entry['strategy_id']
+            
+            # Find the session_id for this strategy
+            session_id = None
+            for sid in session_ids:
+                session = sse_manager.get_session(sid)
+                if session and session.strategy_id == strategy_id:
+                    session_id = sid
+                    break
+            
+            if session_id:
+                # Launch backtest using the WORKING LiveBacktestRunner approach
+                asyncio.create_task(
+                    run_live_backtest(
+                        session_id=session_id,
+                        strategy_id=strategy_id,
+                        user_id=user_id,
+                        start_date=backtest_date,
+                        speed_multiplier=speed_multiplier
+                    )
+                )
+                print(f"🚀 Launched live backtest for {strategy_id[:8]}... in session {session_id}")
         
         return {
             "started": True,
