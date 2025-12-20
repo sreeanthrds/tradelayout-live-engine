@@ -50,19 +50,13 @@ def main():
     
     # Configuration
     config = BacktestConfig(
-        strategy_id='26dfab6a-cf25-4c4e-9b42-e32d6274117e',  # Update with your strategy ID
-        user_id='user_2yfjTGEKjL7XkklQyBaMP6SN2Lc',
-        backtest_date=datetime(2024, 10, 1),
-        
-        # Debug settings
-        debug_breakpoint_time=None,  # Set to "HH:MM:SS" for debugging or None to disable
-        debug_breakpoint_tick=None,
-        debug_node_testing=False,
-        debug_test_ticks=[]
+        strategy_ids=['5708424d-5962-4629-978c-05b3a174e104'],  # List of strategy IDs
+        backtest_date=datetime(2024, 10, 29),
+        debug_mode=None  # 'snapshots', 'breakpoint', or None
     )
     
     print(f"📅 Date: {config.backtest_date.date()}")
-    print(f"🎯 Strategy: {config.strategy_id}")
+    print(f"🎯 Strategy: {config.strategy_ids[0]}")
     print()
     
     # Run backtest

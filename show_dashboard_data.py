@@ -64,9 +64,9 @@ def track_add(self, pos_id, entry_data, tick_time=None):
         'option_type': opt_type,
         'expiry': expiry,
         'entry_price': entry_data.get('price', 0),
+        'actual_quantity': entry_data.get('actual_quantity', 0),
         'quantity': entry_data.get('quantity', 0),
-        'lot_size': entry_data.get('lot_size', 1),
-        'lots': entry_data.get('lots', 1),
+        'multiplier': entry_data.get('multiplier', 1),
         'side': entry_data.get('side', 'BUY'),
         'order_type': entry_data.get('order_type', 'MARKET'),
         'order_id': entry_data.get('order_id', 'N/A'),
@@ -113,7 +113,7 @@ def track_close(self, pos_id, exit_data, tick_time=None):
         if position_entry:
             ep = pos.get('entry_price', 0)
             xp = exit_data.get('price', 0)
-            qty = pos.get('quantity', 0)
+            qty = pos.get('actual_quantity', 0)  # Use actual_quantity for P&L calculation
             side = pos.get('side', 'BUY')
             
             # Calculate P&L
@@ -154,31 +154,48 @@ def track_close(self, pos_id, exit_data, tick_time=None):
 GlobalPositionStore.add_position = track_add
 GlobalPositionStore.close_position = track_close
 
-def run_dashboard_backtest(strategy_id: str, backtest_date):
+def run_dashboard_backtest(strategy_id: str, backtest_date, strategy_scale: float = 1.0):
     """
     Run a backtest for a specific strategy and date, returning dashboard data.
     
     Args:
         strategy_id: UUID string of the strategy
         backtest_date: date object for the backtest
+        strategy_scale: Scaling factor for position quantities (default: 1.0)
         
     Returns:
         Dictionary with strategy_id, positions, and summary
     """
+    print(f"\n{'='*80}")
+    print(f"[run_dashboard_backtest] STARTING")
+    print(f"   Strategy ID: {strategy_id}")
+    print(f"   Date: {backtest_date}")
+    print(f"   Strategy Scale: {strategy_scale}")
+    print(f"{'='*80}\n")
+    
     # Reset dashboard_data for this run
     dashboard_data['positions'] = []
     dashboard_data['strategy_id'] = strategy_id
     dashboard_data['backtest_date'] = backtest_date.strftime('%Y-%m-%d') if hasattr(backtest_date, 'strftime') else str(backtest_date)
     
+    print(f"[run_dashboard_backtest] Dashboard data reset. Current positions: {len(dashboard_data['positions'])}")
+    
     # Run the backtest
     config = BacktestConfig(
         strategy_ids=[strategy_id],
         backtest_date=backtest_date if isinstance(backtest_date, date) else date.fromisoformat(str(backtest_date)),
-        debug_mode=None
+        debug_mode=None,
+        strategy_scale=strategy_scale
     )
     
+    print(f"[run_dashboard_backtest] Config created with strategy_scale: {config.strategy_scale}")
+    
     engine = CentralizedBacktestEngine(config)
+    print(f"[run_dashboard_backtest] Engine created. Running backtest...")
+    
     engine.run()
+    
+    print(f"[run_dashboard_backtest] Backtest complete. Captured positions: {len(dashboard_data['positions'])}")
     
     # Extract diagnostics from engine
     diagnostics_export = {}
@@ -296,9 +313,10 @@ if __name__ == "__main__":
     print('='*80)
 
     config = BacktestConfig(
-        strategy_ids=['4a7a1a31-e209-4b23-891a-3899fb8e4c28'],
-        backtest_date=date(2024, 10, 1),
-        debug_mode=None
+        strategy_ids=['5708424d-5962-4629-978c-05b3a174e104'],
+        backtest_date=date(2024, 10, 29),
+        debug_mode=None,
+        strategy_scale=1.0  # Default: no scaling
     )
 
     engine = CentralizedBacktestEngine(config)
@@ -353,7 +371,7 @@ if __name__ == "__main__":
         print(f"   Strike: {pos['strike']} {pos['option_type']}")
         print(f"   Entry Node: {pos['entry_node_id']} @ {pos['entry_timestamp']}")
         print(f"   Entry Price: ₹{pos['entry_price']:.2f}")
-        print(f"   Quantity: {pos['quantity']} ({pos['lots']} lots × {pos['lot_size']})")
+        print(f"   Quantity: {pos['actual_quantity']} ({pos['quantity']} lots × {pos['multiplier']})")
         print(f"   NIFTY Spot: ₹{pos['nifty_spot_at_entry']:.2f}")
         
         if pos['status'] == 'CLOSED':

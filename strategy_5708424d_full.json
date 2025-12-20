@@ -1,0 +1,1662 @@
+{
+  "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+  "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+  "strategy_name": "My New Strategy5",
+  "name": "My New Strategy5",
+  "strategy_description": "17 nodes \u2022 4 exit Signals, 4 exits, 4 re Entry Signals, 2 entry Signals, 2 entrys, 1 square Off \u2022 SI configured",
+  "strategy_status": "active",
+  "strategy_version": 1,
+  "created_at": "2025-11-30T13:25:52.782927+00:00",
+  "updated_at": "2025-11-30T13:25:52.782927+00:00",
+  "edges": [
+    {
+      "id": "e-strategy-controller-entry-condition-1",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "strategy-controller",
+      "target": "entry-condition-1",
+      "animated": true,
+      "selected": false
+    },
+    {
+      "id": "e-entry-condition-1-entry-2",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "entry-condition-1",
+      "target": "entry-2",
+      "animated": true,
+      "selected": false
+    },
+    {
+      "id": "e-entry-2-exit-condition-1",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "entry-2",
+      "target": "exit-condition-1",
+      "animated": true,
+      "selected": false
+    },
+    {
+      "id": "e-exit-condition-1-exit-2",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "exit-condition-1",
+      "target": "exit-2",
+      "animated": true,
+      "selected": false
+    },
+    {
+      "id": "e-strategy-controller-square-off-1",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "strategy-controller",
+      "target": "square-off-1",
+      "animated": true
+    },
+    {
+      "id": "e-exit-2-re-entry-signal-1",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "exit-2",
+      "target": "re-entry-signal-1",
+      "animated": true,
+      "selected": false
+    },
+    {
+      "id": "e-re-entry-signal-1-entry-2",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "re-entry-signal-1",
+      "target": "entry-2",
+      "animated": true,
+      "selected": false
+    },
+    {
+      "id": "e-1",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "exit-condition-2",
+      "target": "exit-3",
+      "animated": true,
+      "selected": false
+    },
+    {
+      "id": "e-2",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "exit-3",
+      "target": "re-entry-signal-2",
+      "animated": true,
+      "selected": false
+    },
+    {
+      "id": "e-3",
+      "type": "default",
+      "source": "entry-2",
+      "target": "exit-condition-2"
+    },
+    {
+      "id": "e-re-entry-signal-2-entry-2",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "re-entry-signal-2",
+      "target": "entry-2",
+      "animated": true
+    },
+    {
+      "id": "e-4",
+      "type": "default",
+      "source": "strategy-controller",
+      "target": "entry-condition-2"
+    },
+    {
+      "id": "e-entry-condition-2-entry-3",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "entry-condition-2",
+      "target": "entry-3",
+      "animated": true
+    },
+    {
+      "id": "e-entry-3-exit-condition-3",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "entry-3",
+      "target": "exit-condition-3",
+      "animated": true
+    },
+    {
+      "id": "e-entry-3-exit-condition-4",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "entry-3",
+      "target": "exit-condition-4",
+      "animated": true
+    },
+    {
+      "id": "e-exit-condition-3-exit-5",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "exit-condition-3",
+      "target": "exit-5",
+      "animated": true
+    },
+    {
+      "id": "e-exit-condition-4-exit-6",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "exit-condition-4",
+      "target": "exit-6",
+      "animated": true
+    },
+    {
+      "id": "e-exit-5-re-entry-signal-3",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "exit-5",
+      "target": "re-entry-signal-3",
+      "animated": true
+    },
+    {
+      "id": "e-5",
+      "type": "default",
+      "source": "exit-6",
+      "target": "re-entry-signal-4"
+    },
+    {
+      "id": "e-re-entry-signal-3-entry-3",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "re-entry-signal-3",
+      "target": "entry-3",
+      "animated": true
+    },
+    {
+      "id": "e-re-entry-signal-4-entry-3",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "re-entry-signal-4",
+      "target": "entry-3",
+      "animated": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "strategy-controller",
+      "data": {
+        "label": "Start",
+        "exchange": "NSE",
+        "_lastUpdated": 1764838911448,
+        "runningVariables": {
+          "variables": {}
+        },
+        "tradingInstrument": {
+          "type": "options",
+          "underlyingType": "index"
+        },
+        "tradingInstrumentConfig": {
+          "type": "options",
+          "symbol": "NIFTY",
+          "timeframes": [
+            {
+              "id": "1m",
+              "unit": "minutes",
+              "number": 1,
+              "timeframe": "1m",
+              "indicators": {
+                "rsi_1764509210372": {
+                  "length": 14,
+                  "price_field": "close",
+                  "display_name": "rsi(14,close)",
+                  "indicator_name": "rsi"
+                }
+              }
+            }
+          ]
+        },
+        "supportingInstrumentConfig": {
+          "type": "stock",
+          "symbol": "",
+          "timeframes": []
+        },
+        "supportingInstrumentEnabled": false
+      },
+      "type": "startNode",
+      "measured": {
+        "width": 184,
+        "height": 263
+      },
+      "position": {
+        "x": 923.5,
+        "y": 115
+      },
+      "selected": true,
+      "parents": [],
+      "children": [
+        "entry-condition-1",
+        "square-off-1",
+        "entry-condition-2"
+      ]
+    },
+    {
+      "id": "entry-condition-1",
+      "data": {
+        "label": "Entry condition - Bullish",
+        "variables": [
+          {
+            "id": "var-1764509521541",
+            "name": "SignalLow",
+            "nodeId": "entry-condition-1",
+            "expression": {
+              "type": "candle_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "condition-1764509271923-4iuojj88l",
+                "lhs": {
+                  "type": "current_time"
+                },
+                "rhs": {
+                  "type": "time_function",
+                  "timeValue": "09:17"
+                },
+                "operator": ">="
+              },
+              {
+                "id": "condition-1764509344540-651dro19e",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 30,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": "<"
+              },
+              {
+                "id": "condition-1764509562322-9oetjd4qx",
+                "lhs": {
+                  "type": "live_data",
+                  "field": "underlying_ltp",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "candle_data",
+                  "field": "High",
+                  "offset": -1,
+                  "dataField": "High",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "_lastUpdated": 1764608832719,
+        "conditionsPreview": "Current Time >= 09:17 AND Previous[TI.1m.rsi(14,close)] < 30 AND TI.underlying_ltp > Previous[TI.1m.High]"
+      },
+      "type": "entrySignalNode",
+      "style": {
+        "zIndex": 1
+      },
+      "dragging": false,
+      "measured": {
+        "width": 207,
+        "height": 169
+      },
+      "position": {
+        "x": 414,
+        "y": 668
+      },
+      "selected": false,
+      "parents": [
+        "strategy-controller"
+      ],
+      "children": [
+        "entry-2"
+      ]
+    },
+    {
+      "id": "entry-2",
+      "data": {
+        "label": "Entry 2 -Bullish",
+        "positions": [
+          {
+            "vpi": "entry-2-pos1",
+            "vpt": "",
+            "priority": 1,
+            "quantity": 1,
+            "orderType": "market",
+            "maxEntries": 9,
+            "multiplier": 75,
+            "productType": "intraday",
+            "_lastUpdated": 1764509411006,
+            "positionType": "sell",
+            "optionDetails": {
+              "expiry": "W1",
+              "optionType": "PE",
+              "strikeType": "ATM"
+            }
+          }
+        ],
+        "variables": [],
+        "actionType": "entry",
+        "instrument": "NIFTY",
+        "_lastUpdated": 1764680406139
+      },
+      "type": "entryNode",
+      "style": {
+        "zIndex": 2
+      },
+      "dragging": false,
+      "measured": {
+        "width": 160,
+        "height": 160
+      },
+      "position": {
+        "x": 437.5,
+        "y": 1127.5
+      },
+      "selected": false,
+      "parents": [
+        "entry-condition-1",
+        "re-entry-signal-1",
+        "re-entry-signal-2"
+      ],
+      "children": [
+        "exit-condition-1",
+        "exit-condition-2"
+      ]
+    },
+    {
+      "id": "exit-condition-1",
+      "data": {
+        "label": "Exit condition - Target",
+        "conditions": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "condition-1764509613772-a7in2awlu",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "_lastUpdated": 1764536759501,
+        "conditionsPreview": "Previous[TI.1m.rsi(14,close)] > 70",
+        "reEntryExitConditions": [
+          {
+            "id": "condition-1764510108684-33245yjkb",
+            "conditions": [
+              {
+                "id": "condition-1764510108684-l5bvh6ps5",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "hasReEntryExitConditions": true,
+        "reEntryExitConditionsPreview": "Previous[TI.1m.rsi(14,close)] > 70"
+      },
+      "type": "exitSignalNode",
+      "style": {
+        "zIndex": 3
+      },
+      "measured": {
+        "width": 207,
+        "height": 133
+      },
+      "position": {
+        "x": 165,
+        "y": 1595
+      },
+      "selected": false,
+      "parents": [
+        "entry-2"
+      ],
+      "children": [
+        "exit-2"
+      ]
+    },
+    {
+      "id": "exit-2",
+      "data": {
+        "label": "Exit 2 -Target",
+        "exitType": "specific",
+        "positions": [],
+        "actionType": "exit",
+        "instrument": "NIFTY",
+        "_lastUpdated": 1764716098350,
+        "exitNodeData": {
+          "orderConfig": {
+            "orderType": "market",
+            "targetPositionVpi": "entry-2-pos1"
+          },
+          "_initialized": true,
+          "reEntryConfig": {
+            "enabled": false,
+            "maxReEntries": 1
+          },
+          "postExecutionConfig": {
+            "stopLoss": {
+              "enabled": false,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "stopPercentage": 2
+            },
+            "takeProfit": {
+              "enabled": false,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "targetPercentage": 5
+            },
+            "trailingStop": {
+              "enabled": false,
+              "stepSize": 0.5,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "initialDistance": 2
+            }
+          }
+        },
+        "exitCondition": {
+          "type": "positionExit",
+          "params": {}
+        }
+      },
+      "type": "exitNode",
+      "style": {
+        "zIndex": 4
+      },
+      "measured": {
+        "width": 150,
+        "height": 120
+      },
+      "position": {
+        "x": 193.5,
+        "y": 2036.5
+      },
+      "selected": false,
+      "parents": [
+        "exit-condition-1"
+      ],
+      "children": [
+        "re-entry-signal-1"
+      ]
+    },
+    {
+      "id": "square-off-1",
+      "data": {
+        "label": "Square off off",
+        "message": "Strategy forcibly stopped - all positions closed",
+        "_lastUpdated": 1764509858796,
+        "endConditions": {
+          "immediateExit": {
+            "enabled": false
+          },
+          "timeBasedExit": {
+            "enabled": true,
+            "exitTime": "",
+            "exitAtMarketClose": true,
+            "minutesBeforeClose": 5
+          },
+          "positionClosure": {
+            "orderType": "market",
+            "forceClose": true
+          },
+          "alertNotification": {
+            "enabled": false
+          },
+          "performanceBasedExit": {
+            "enabled": false
+          }
+        }
+      },
+      "type": "squareOffNode",
+      "style": {
+        "zIndex": 5
+      },
+      "measured": {
+        "width": 209,
+        "height": 120
+      },
+      "position": {
+        "x": 911,
+        "y": 692.5
+      },
+      "selected": false,
+      "parents": [
+        "strategy-controller"
+      ],
+      "children": []
+    },
+    {
+      "id": "re-entry-signal-1",
+      "data": {
+        "label": "Re-Entry node - target",
+        "variables": [],
+        "conditions": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "s96hx3uo9",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 30,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": "<"
+              },
+              {
+                "id": "hjexh0ynx",
+                "lhs": {
+                  "type": "live_data",
+                  "field": "underlying_ltp",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "candle_data",
+                  "field": "High",
+                  "offset": -1,
+                  "dataField": "High",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "retryConfig": {
+          "groupNumber": 1,
+          "maxReEntries": 10
+        },
+        "_lastUpdated": 1764537300266,
+        "conditionsPreview": "Previous[TI.1m.rsi(14,close)] < 30 AND TI.underlying_ltp > Previous[TI.1m.High]",
+        "targetEntryNodeId": "entry-2"
+      },
+      "type": "reEntrySignalNode",
+      "style": {
+        "zIndex": 6
+      },
+      "measured": {
+        "width": 207,
+        "height": 168
+      },
+      "position": {
+        "x": 165,
+        "y": 2446.5
+      },
+      "selected": false,
+      "parents": [
+        "exit-2"
+      ],
+      "children": [
+        "entry-2"
+      ]
+    },
+    {
+      "id": "exit-condition-2",
+      "data": {
+        "label": "Exit condition - SL",
+        "conditions": [
+          {
+            "id": "cond-milrsrsc-jflew",
+            "conditions": [
+              {
+                "id": "cond-milrsrsc-5fh9l",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 30,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": "<"
+              },
+              {
+                "id": "cond-milrsrsc-iz2e3",
+                "lhs": {
+                  "type": "candle_data",
+                  "field": "Close",
+                  "offset": -1,
+                  "dataField": "Close",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "entry-condition-1",
+                  "variableName": "SignalLow"
+                },
+                "operator": "<"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "_lastUpdated": 1764537360034,
+        "conditionsPreview": "Previous[TI.1m.rsi(14,close)] < 30 AND Previous[TI.1m.Close] < entry_condition_1.SignalLow",
+        "reEntryExitConditions": [
+          {
+            "id": "condition-1764510108684-33245yjkb",
+            "conditions": [
+              {
+                "id": "condition-1764510108684-l5bvh6ps5",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 30,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": "<"
+              },
+              {
+                "id": "condition-1764510108685-uvi1773vf",
+                "lhs": {
+                  "type": "candle_data",
+                  "field": "Close",
+                  "offset": -1,
+                  "dataField": "Close",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "re-entry-signal-2",
+                  "variableName": "SignalLow"
+                },
+                "operator": "<"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "hasReEntryExitConditions": true,
+        "reEntryExitConditionsPreview": "Previous[TI.1m.rsi(14,close)] < 30 AND Previous[TI.1m.Close] < re_entry_signal_2.SignalLow"
+      },
+      "type": "exitSignalNode",
+      "style": {
+        "zIndex": 3
+      },
+      "measured": {
+        "width": 207,
+        "height": 169
+      },
+      "position": {
+        "x": 662,
+        "y": 1577
+      },
+      "selected": false,
+      "parents": [
+        "entry-2"
+      ],
+      "children": [
+        "exit-3"
+      ]
+    },
+    {
+      "id": "exit-3",
+      "data": {
+        "label": "Exit 3 - SL",
+        "exitType": "specific",
+        "positions": [],
+        "actionType": "exit",
+        "instrument": "NIFTY",
+        "_lastUpdated": 1764758570350,
+        "exitNodeData": {
+          "orderConfig": {
+            "orderType": "market",
+            "targetPositionVpi": "entry-2-pos1"
+          },
+          "_initialized": true,
+          "reEntryConfig": {
+            "enabled": false,
+            "maxReEntries": 1
+          },
+          "postExecutionConfig": {
+            "stopLoss": {
+              "enabled": false,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "stopPercentage": 2
+            },
+            "takeProfit": {
+              "enabled": false,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "targetPercentage": 5
+            },
+            "trailingStop": {
+              "enabled": false,
+              "stepSize": 0.5,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "initialDistance": 2
+            }
+          }
+        },
+        "exitCondition": {
+          "type": "positionExit",
+          "params": {}
+        }
+      },
+      "type": "exitNode",
+      "style": {
+        "zIndex": 4
+      },
+      "measured": {
+        "width": 150,
+        "height": 120
+      },
+      "position": {
+        "x": 690.5,
+        "y": 2036.5
+      },
+      "selected": false,
+      "parents": [
+        "exit-condition-2"
+      ],
+      "children": [
+        "re-entry-signal-2"
+      ]
+    },
+    {
+      "id": "re-entry-signal-2",
+      "data": {
+        "label": "Re-Entry node - SL",
+        "variables": [
+          {
+            "id": "var-1764510043919",
+            "name": "SignalLow",
+            "nodeId": "re-entry-signal-1",
+            "expression": {
+              "type": "candle_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "id": "cond-milrsrsc-6tabn",
+            "conditions": [
+              {
+                "id": "cond-milrsrsc-p6oyc",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 30,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": "<"
+              },
+              {
+                "id": "cond-milrsrsc-9h15u",
+                "lhs": {
+                  "type": "live_data",
+                  "field": "underlying_ltp",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "candle_data",
+                  "field": "High",
+                  "offset": -1,
+                  "dataField": "High",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "retryConfig": {
+          "groupNumber": 1,
+          "maxReEntries": 10
+        },
+        "_lastUpdated": 1764535001053,
+        "conditionsPreview": "Previous[TI.1m.rsi(14,close)] < 30 AND TI.underlying_ltp > Previous[TI.1m.High]",
+        "targetEntryNodeId": "entry-2"
+      },
+      "type": "reEntrySignalNode",
+      "style": {
+        "zIndex": 6
+      },
+      "measured": {
+        "width": 207,
+        "height": 168
+      },
+      "position": {
+        "x": 662,
+        "y": 2446.5
+      },
+      "selected": false,
+      "parents": [
+        "exit-3"
+      ],
+      "children": [
+        "entry-2"
+      ]
+    },
+    {
+      "id": "entry-condition-2",
+      "data": {
+        "label": "Entry condition - Bearish",
+        "variables": [
+          {
+            "id": "var-1764509521541",
+            "name": "SignalHigh",
+            "nodeId": "entry-condition-1",
+            "expression": {
+              "type": "candle_data",
+              "field": "High",
+              "offset": -1,
+              "dataField": "High",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "id": "cond-milrzt80-bpa46",
+            "conditions": [
+              {
+                "id": "cond-milrzt80-3ga03",
+                "lhs": {
+                  "type": "current_time"
+                },
+                "rhs": {
+                  "type": "time_function",
+                  "timeValue": "09:17"
+                },
+                "operator": ">="
+              },
+              {
+                "id": "cond-milrzt80-tfhum",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              },
+              {
+                "id": "cond-milrzt80-1vgpy",
+                "lhs": {
+                  "type": "live_data",
+                  "field": "underlying_ltp",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "candle_data",
+                  "field": "Low",
+                  "offset": -1,
+                  "dataField": "Low",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "operator": "<"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "_lastUpdated": 1764536925806,
+        "conditionsPreview": "Current Time >= 09:17 AND Previous[TI.1m.rsi(14,close)] > 70 AND TI.underlying_ltp < Previous[TI.1m.Low]"
+      },
+      "type": "entrySignalNode",
+      "style": {
+        "zIndex": 1
+      },
+      "dragging": false,
+      "measured": {
+        "width": 207,
+        "height": 169
+      },
+      "position": {
+        "x": 1410,
+        "y": 668
+      },
+      "selected": false,
+      "parents": [
+        "strategy-controller"
+      ],
+      "children": [
+        "entry-3"
+      ]
+    },
+    {
+      "id": "entry-3",
+      "data": {
+        "label": "Entry 3 -Barish",
+        "positions": [
+          {
+            "vpi": "entry-3-pos1",
+            "vpt": "",
+            "priority": 1,
+            "quantity": 1,
+            "orderType": "market",
+            "maxEntries": 10,
+            "multiplier": 75,
+            "productType": "intraday",
+            "_lastUpdated": 1764510704435,
+            "positionType": "sell",
+            "optionDetails": {
+              "expiry": "W1",
+              "optionType": "CE",
+              "strikeType": "ATM"
+            }
+          }
+        ],
+        "actionType": "entry",
+        "_lastUpdated": 1764679709357
+      },
+      "type": "entryNode",
+      "style": {
+        "zIndex": 7
+      },
+      "measured": {
+        "width": 161,
+        "height": 160
+      },
+      "position": {
+        "x": 1433,
+        "y": 1127.5
+      },
+      "selected": false,
+      "parents": [
+        "entry-condition-2",
+        "re-entry-signal-3",
+        "re-entry-signal-4"
+      ],
+      "children": [
+        "exit-condition-3",
+        "exit-condition-4"
+      ]
+    },
+    {
+      "id": "exit-condition-3",
+      "data": {
+        "label": "Exit condition - Target",
+        "conditions": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "jm3ufhpev",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 30,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": "<"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "_lastUpdated": 1764536969982,
+        "conditionsPreview": "Previous[TI.1m.rsi(14,close)] < 30",
+        "reEntryExitConditions": [
+          {
+            "id": "condition-1764536969680-xrxwisj9r",
+            "conditions": [
+              {
+                "id": "condition-1764536969680-hlv78k9qx",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 30,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": "<"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "hasReEntryExitConditions": true,
+        "reEntryExitConditionsPreview": "Previous[TI.1m.rsi(14,close)] < 30"
+      },
+      "type": "exitSignalNode",
+      "style": {
+        "zIndex": 8
+      },
+      "measured": {
+        "width": 207,
+        "height": 133
+      },
+      "position": {
+        "x": 1161,
+        "y": 1595
+      },
+      "selected": false,
+      "parents": [
+        "entry-3"
+      ],
+      "children": [
+        "exit-5"
+      ]
+    },
+    {
+      "id": "exit-condition-4",
+      "data": {
+        "label": "Exit condition - SL",
+        "conditions": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "xb5wq1493",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              },
+              {
+                "id": "a1mm5pqv3",
+                "lhs": {
+                  "type": "candle_data",
+                  "field": "Close",
+                  "offset": -1,
+                  "dataField": "Close",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "entry-condition-2",
+                  "variableName": "SignalHigh"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "_lastUpdated": 1764537237909,
+        "conditionsPreview": "Previous[TI.1m.rsi(14,close)] > 70 AND Previous[TI.1m.Close] > entry_condition_2.SignalHigh",
+        "reEntryExitConditions": [
+          {
+            "id": "condition-1764537000078-eef96fkyj",
+            "conditions": [
+              {
+                "id": "condition-1764537000078-d6m2atvll",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              },
+              {
+                "id": "condition-1764537000078-jm8qc1c85",
+                "lhs": {
+                  "type": "candle_data",
+                  "field": "Close",
+                  "offset": -1,
+                  "dataField": "Close",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "re-entry-signal-4",
+                  "variableName": "SignalHigh"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "hasReEntryExitConditions": true,
+        "reEntryExitConditionsPreview": "Previous[TI.1m.rsi(14,close)] > 70 AND Previous[TI.1m.Close] > re_entry_signal_4.SignalHigh"
+      },
+      "type": "exitSignalNode",
+      "style": {
+        "zIndex": 9
+      },
+      "measured": {
+        "width": 207,
+        "height": 169
+      },
+      "position": {
+        "x": 1658,
+        "y": 1577
+      },
+      "selected": false,
+      "parents": [
+        "entry-3"
+      ],
+      "children": [
+        "exit-6"
+      ]
+    },
+    {
+      "id": "exit-5",
+      "data": {
+        "label": "Exit 5 - SL",
+        "exitType": "specific",
+        "positions": [],
+        "actionType": "exit",
+        "_lastUpdated": 1764537197801,
+        "exitNodeData": {
+          "orderConfig": {
+            "quantity": "all",
+            "orderType": "market",
+            "targetPositionVpi": "entry-3-pos1"
+          },
+          "_initialized": true,
+          "reEntryConfig": {
+            "enabled": false,
+            "maxReEntries": 1
+          },
+          "postExecutionConfig": {
+            "stopLoss": {
+              "enabled": false,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "stopPercentage": 2
+            },
+            "takeProfit": {
+              "enabled": false,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "targetPercentage": 5
+            },
+            "trailingStop": {
+              "enabled": false,
+              "stepSize": 0.5,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "initialDistance": 2
+            }
+          }
+        },
+        "exitCondition": {
+          "type": "positionExit",
+          "params": {}
+        }
+      },
+      "type": "exitNode",
+      "style": {
+        "zIndex": 10
+      },
+      "measured": {
+        "width": 150,
+        "height": 120
+      },
+      "position": {
+        "x": 1189.5,
+        "y": 2036.5
+      },
+      "selected": false,
+      "parents": [
+        "exit-condition-3"
+      ],
+      "children": [
+        "re-entry-signal-3"
+      ]
+    },
+    {
+      "id": "exit-6",
+      "data": {
+        "label": "Exit 6 - SL",
+        "exitType": "specific",
+        "positions": [],
+        "actionType": "exit",
+        "_lastUpdated": 1764602859148,
+        "exitNodeData": {
+          "orderConfig": {
+            "orderType": "market",
+            "targetPositionVpi": "entry-3-pos1"
+          },
+          "_initialized": true,
+          "reEntryConfig": {
+            "enabled": false,
+            "maxReEntries": 1
+          },
+          "postExecutionConfig": {
+            "stopLoss": {
+              "enabled": false,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "stopPercentage": 2
+            },
+            "takeProfit": {
+              "enabled": false,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "targetPercentage": 5
+            },
+            "trailingStop": {
+              "enabled": false,
+              "stepSize": 0.5,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "initialDistance": 2
+            }
+          }
+        },
+        "exitCondition": {
+          "type": "positionExit",
+          "params": {}
+        }
+      },
+      "type": "exitNode",
+      "style": {
+        "zIndex": 11
+      },
+      "measured": {
+        "width": 150,
+        "height": 120
+      },
+      "position": {
+        "x": 1686.5,
+        "y": 2036.5
+      },
+      "selected": false,
+      "parents": [
+        "exit-condition-4"
+      ],
+      "children": [
+        "re-entry-signal-4"
+      ]
+    },
+    {
+      "id": "re-entry-signal-3",
+      "data": {
+        "label": "Re-Entry node - Target",
+        "variables": [],
+        "conditions": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "kpy4oryao",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              },
+              {
+                "id": "fyi95jri9",
+                "lhs": {
+                  "type": "live_data",
+                  "field": "underlying_ltp",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "candle_data",
+                  "field": "Low",
+                  "offset": -1,
+                  "dataField": "Low",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "retryConfig": {
+          "maxEntries": 1,
+          "groupNumber": 1,
+          "maxReEntries": 10
+        },
+        "_lastUpdated": 1764679690912,
+        "conditionsPreview": "Previous[TI.1m.rsi(14,close)] > 70 AND TI.underlying_ltp > Previous[TI.1m.Low]",
+        "targetEntryNodeId": "entry-3"
+      },
+      "type": "reEntrySignalNode",
+      "style": {
+        "zIndex": 12
+      },
+      "measured": {
+        "width": 207,
+        "height": 168
+      },
+      "position": {
+        "x": 1161,
+        "y": 2446.5
+      },
+      "selected": false,
+      "parents": [
+        "exit-5"
+      ],
+      "children": [
+        "entry-3"
+      ]
+    },
+    {
+      "id": "re-entry-signal-4",
+      "data": {
+        "label": "Re-Entry node - SL",
+        "variables": [
+          {
+            "id": "var-1764537100109",
+            "name": "SignalHigh",
+            "nodeId": "re-entry-signal-4",
+            "expression": {
+              "type": "candle_data",
+              "field": "High",
+              "offset": -1,
+              "dataField": "High",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "id": "cond-mim793ll-4wfke",
+            "conditions": [
+              {
+                "id": "cond-mim793ll-7rcu2",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              },
+              {
+                "id": "cond-mim793ll-1e6xe",
+                "lhs": {
+                  "type": "live_data",
+                  "field": "underlying_ltp",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "candle_data",
+                  "field": "Low",
+                  "offset": -1,
+                  "dataField": "Low",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "operator": "<"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "retryConfig": {
+          "groupNumber": 1,
+          "maxReEntries": 10
+        },
+        "_lastUpdated": 1764537207026,
+        "conditionsPreview": "Previous[TI.1m.rsi(14,close)] > 70 AND TI.underlying_ltp < Previous[TI.1m.Low]",
+        "targetEntryNodeId": "entry-3"
+      },
+      "type": "reEntrySignalNode",
+      "style": {
+        "zIndex": 12
+      },
+      "measured": {
+        "width": 207,
+        "height": 168
+      },
+      "position": {
+        "x": 1658,
+        "y": 2446.5
+      },
+      "selected": false,
+      "parents": [
+        "exit-6"
+      ],
+      "children": [
+        "entry-3"
+      ]
+    },
+    {
+      "id": "strategy-overview-virtual",
+      "data": {
+        "label": "Strategy Overview",
+        "isVirtual": true,
+        "isStrategyOverview": true
+      },
+      "type": "strategyOverview",
+      "hidden": true,
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "deletable": false,
+      "draggable": false,
+      "selectable": false,
+      "parents": [],
+      "children": []
+    }
+  ],
+  "metadata": {
+    "created": "2025-12-04T09:02:13.948Z",
+    "lastModified": "2025-12-04T09:02:13.948Z"
+  }
+}

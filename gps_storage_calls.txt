@@ -1,0 +1,30 @@
+[2025-12-04 09:37:28] [INFO] [logger.py:86] GPS: add_position entry-2-pos1 reEntryNum=0 txns_count=1
+[2025-12-04 09:37:28] [INFO] [logger.py:86] EntryNode entry-2: stored position entry-2-pos1, reEntryNum=0, txns_count=1
+[2025-12-04 09:37:28] [INFO] [logger.py:86] GPS: close_position entry-2-pos1 reEntryNum=0 txns_count=1
+[2025-12-04 09:37:28] [INFO] [logger.py:86] GPS close summary | position_id=entry-2-pos1 reEntryNum=0 side=sell qty=1 entry_time=2024-10-29T09:19:00 entry_price=181.6 exit_time=2024-10-29T09:37:00 exit_price=214.55 txn_pnl=-32.95000000000002
+[2025-12-04 09:37:28] [INFO] [logger.py:86] GPS: add_position entry-2-pos1 reEntryNum=1 txns_count=2
+[2025-12-04 09:37:28] [INFO] [logger.py:86] EntryNode entry-2: stored position entry-2-pos1, reEntryNum=1, txns_count=2
+[2025-12-04 09:37:28] [INFO] [logger.py:86] GPS: close_position entry-2-pos1 reEntryNum=1 txns_count=2
+[2025-12-04 09:37:28] [INFO] [logger.py:86] GPS close summary | position_id=entry-2-pos1 reEntryNum=1 side=sell qty=1 entry_time=2024-10-29T09:37:58 entry_price=210.4 exit_time=2024-10-29T09:40:00 exit_price=218.9 txn_pnl=-8.5
+[2025-12-04 09:37:29] [INFO] [logger.py:86] GPS: add_position entry-2-pos1 reEntryNum=2 txns_count=3
+[2025-12-04 09:37:29] [INFO] [logger.py:86] EntryNode entry-2: stored position entry-2-pos1, reEntryNum=2, txns_count=3
+[2025-12-04 09:37:30] [INFO] [logger.py:86] GPS: close_position entry-2-pos1 reEntryNum=2 txns_count=3
+[2025-12-04 09:37:30] [INFO] [logger.py:86] GPS close summary | position_id=entry-2-pos1 reEntryNum=2 side=sell qty=1 entry_time=2024-10-29T10:09:10 entry_price=205.4 exit_time=2024-10-29T10:28:00 exit_price=166.7 txn_pnl=38.70000000000002
+[2025-12-04 09:37:30] [INFO] [logger.py:86] GPS: add_position entry-2-pos1 reEntryNum=3 txns_count=4
+[2025-12-04 09:37:30] [INFO] [logger.py:86] EntryNode entry-2: stored position entry-2-pos1, reEntryNum=3, txns_count=4
+[2025-12-04 09:37:30] [INFO] [logger.py:86] GPS: close_position entry-2-pos1 reEntryNum=3 txns_count=4
+[2025-12-04 09:37:30] [INFO] [logger.py:86] GPS close summary | position_id=entry-2-pos1 reEntryNum=3 side=sell qty=1 entry_time=2024-10-29T10:36:50 entry_price=210.8 exit_time=2024-10-29T10:46:00 exit_price=231.3 txn_pnl=-20.5
+[2025-12-04 09:37:30] [INFO] [logger.py:86] GPS: add_position entry-2-pos1 reEntryNum=4 txns_count=5
+[2025-12-04 09:37:30] [INFO] [logger.py:86] EntryNode entry-2: stored position entry-2-pos1, reEntryNum=4, txns_count=5
+[2025-12-04 09:37:31] [INFO] [logger.py:86] GPS: close_position entry-2-pos1 reEntryNum=4 txns_count=5
+[2025-12-04 09:37:31] [INFO] [logger.py:86] GPS close summary | position_id=entry-2-pos1 reEntryNum=4 side=sell qty=1 entry_time=2024-10-29T10:49:03 entry_price=212.4 exit_time=2024-10-29T11:39:00 exit_price=178.0 txn_pnl=34.400000000000006
+[2025-12-04 09:37:31] [INFO] [logger.py:86] GPS: add_position entry-3-pos1 reEntryNum=0 txns_count=1
+[2025-12-04 09:37:31] [INFO] [logger.py:86] EntryNode entry-3: stored position entry-3-pos1, reEntryNum=0, txns_count=1
+[2025-12-04 09:37:32] [INFO] [logger.py:86] GPS: close_position entry-3-pos1 reEntryNum=0 txns_count=1
+[2025-12-04 09:37:32] [INFO] [logger.py:86] GPS close summary | position_id=entry-3-pos1 reEntryNum=0 side=sell qty=1 entry_time=2024-10-29T11:42:00 entry_price=262.05 exit_time=2024-10-29T12:03:00 exit_price=280.6 txn_pnl=-18.55000000000001
+[2025-12-04 09:37:32] [INFO] [logger.py:86] GPS: add_position entry-3-pos1 reEntryNum=1 txns_count=2
+[2025-12-04 09:37:32] [INFO] [logger.py:86] EntryNode entry-3: stored position entry-3-pos1, reEntryNum=1, txns_count=2
+[2025-12-04 09:37:32] [INFO] [logger.py:86] GPS: close_position entry-3-pos1 reEntryNum=1 txns_count=2
+[2025-12-04 09:37:32] [INFO] [logger.py:86] GPS close summary | position_id=entry-3-pos1 reEntryNum=1 side=sell qty=1 entry_time=2024-10-29T12:05:08 entry_price=254.15 exit_time=2024-10-29T12:15:00 exit_price=263.45 txn_pnl=-9.299999999999983
+[2025-12-04 09:37:32] [INFO] [logger.py:86] GPS: add_position entry-3-pos1 reEntryNum=2 txns_count=3
+[2025-12-04 09:37:32] [INFO] [logger.py:86] EntryNode entry-3: stored position entry-3-pos1, reEntryNum=2, txns_count=3

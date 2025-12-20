@@ -1,0 +1,58 @@
+{
+  "events_history": {
+    "exec-100-Entry": {
+      "execution_id": "exec-100-Entry",
+      "node_id": "entry-condition-1",
+      "node_type": "EntryNode",
+      "timestamp": "2024-12-14T09:16:39",
+      "event_type": "logic_completed",
+      "evaluation_data": {
+        "action": "entry_placed",
+        "symbol": "NIFTY28DEC2525000CE",
+        "quantity": 50,
+        "price": 150.0
+      }
+    },
+    "exec-500-Exit": {
+      "execution_id": "exec-500-Exit",
+      "node_id": "exit-condition-1",
+      "node_type": "ExitNode",
+      "timestamp": "2024-12-14T09:23:19",
+      "event_type": "logic_completed",
+      "evaluation_data": {
+        "action": "exit_placed",
+        "symbol": "NIFTY28DEC2525000CE",
+        "quantity": 50,
+        "price": 190.0
+      }
+    }
+  },
+  "current_state": {
+    "entry-condition-1": {
+      "execution_id": "exec-100-Entry",
+      "node_id": "entry-condition-1",
+      "node_type": "EntryNode",
+      "timestamp": "2024-12-14T09:16:39",
+      "event_type": "logic_completed",
+      "evaluation_data": {
+        "action": "entry_placed",
+        "symbol": "NIFTY28DEC2525000CE",
+        "quantity": 50,
+        "price": 150.0
+      }
+    },
+    "exit-condition-1": {
+      "execution_id": "exec-500-Exit",
+      "node_id": "exit-condition-1",
+      "node_type": "ExitNode",
+      "timestamp": "2024-12-14T09:23:19",
+      "event_type": "logic_completed",
+      "evaluation_data": {
+        "action": "exit_placed",
+        "symbol": "NIFTY28DEC2525000CE",
+        "quantity": 50,
+        "price": 190.0
+      }
+    }
+  }
+}

@@ -39,6 +39,9 @@ class BacktestConfig:
     # Optional - Performance optimization
     strategies_agg: Optional[dict] = None  # Pre-built metadata (optional optimization)
     
+    # Optional - Strategy scaling
+    strategy_scale: float = 1.0  # Multiply all position quantities by this factor (default: 1.0)
+    
     def __post_init__(self):
         """Validate configuration after initialization."""
         if not self.strategy_ids:

@@ -952,7 +952,8 @@ class DataManager:
                 user=ClickHouseConfig.USER,
                 password=ClickHouseConfig.PASSWORD,
                 secure=ClickHouseConfig.SECURE,
-                database=ClickHouseConfig.DATABASE
+                database=ClickHouseConfig.DATABASE,
+                server_host_name='UTC'  # Force UTC timezone - data is stored in UTC
             )
             
             # Test if required table exists
@@ -1031,7 +1032,7 @@ class DataManager:
         
         # Check if already loaded
         if contract_key in self.option_tick_buffers:
-            print(f"   ℹ️  Option contract already loaded: {contract_key}")
+            # print(f"   ℹ️  Option contract already loaded: {contract_key}")
             return self.ltp.get(contract_key)
         
         if not self.clickhouse_client:
@@ -1276,6 +1277,9 @@ class DataManager:
         
         try:
             for timeframe in strategy.get_timeframes():
+                from src.config.clickhouse_config import ClickHouseConfig
+                market_open, _ = ClickHouseConfig.get_market_hours()
+                
                 query = f"""
                     SELECT 
                         timestamp,
@@ -1289,7 +1293,7 @@ class DataManager:
                     FROM nse_ohlcv_indices
                     WHERE symbol IN ({','.join(f"'{s}'" for s in strategy.get_symbols())})
                       AND timeframe = '{timeframe}'
-                      AND timestamp < '{backtest_date.strftime('%Y-%m-%d')} 09:15:00'
+                      AND timestamp < '{backtest_date.strftime('%Y-%m-%d')} {market_open}'
                     ORDER BY timestamp DESC
                     LIMIT 500
                 """
@@ -1410,6 +1414,9 @@ class DataManager:
                 # Define loader function for SharedDataCache
                 def load_candles(sym: str, tf: str) -> pd.DataFrame:
                     """Load candles from ClickHouse."""
+                    from src.config.clickhouse_config import ClickHouseConfig
+                    market_open, _ = ClickHouseConfig.get_market_hours()
+                    
                     query = f"""
                         SELECT 
                             timestamp,
@@ -1423,7 +1430,7 @@ class DataManager:
                         FROM nse_ohlcv_indices
                         WHERE symbol = '{sym}'
                           AND timeframe = '{tf}'
-                          AND timestamp < '{backtest_date.strftime('%Y-%m-%d')} 09:15:00'
+                          AND timestamp < '{backtest_date.strftime('%Y-%m-%d')} {market_open}'
                         ORDER BY timestamp DESC
                         LIMIT 500
                     """
@@ -1467,6 +1474,9 @@ class DataManager:
 
         symbol_list = ','.join(f"'{s}'" for s in symbols)
 
+        from src.config.clickhouse_config import ClickHouseConfig
+        market_open, market_close = ClickHouseConfig.get_market_hours()
+        
         query = f"""
             SELECT 
                 symbol,
@@ -1476,8 +1486,8 @@ class DataManager:
                 oi
             FROM nse_ticks_indices
             WHERE trading_day = '{trading_day}'
-              AND timestamp >= '{trading_day} 09:15:00'
-              AND timestamp <= '{trading_day} 15:30:00'
+              AND timestamp >= '{trading_day} {market_open}'
+              AND timestamp <= '{trading_day} {market_close}'
               AND symbol IN ({symbol_list})
             ORDER BY timestamp ASC
         """
@@ -1516,11 +1526,18 @@ class DataManager:
         Returns:
             List of aggregated tick dictionaries (OHLC format)
         """
+        from src.config.clickhouse_config import ClickHouseConfig
+        
         trading_day = date.strftime('%Y-%m-%d')
         logger.info(f"📥 Loading aggregated ticks (OHLC/second) from ClickHouse for {trading_day}...")
         logger.info(f"   Symbols: {symbols}")
+        logger.info(f"   Data timezone: {ClickHouseConfig.DATA_TIMEZONE}")
 
         symbol_list = ','.join(f"'{s}'" for s in symbols)
+        
+        # Get timezone-aware market hours
+        market_open, market_close = ClickHouseConfig.get_market_hours()
+        logger.info(f"   Market hours: {market_open} - {market_close}")
 
         # Aggregate in ClickHouse - MUCH faster than Python!
         # Use groupArray to collect all ltps, then pick first/last for open/close
@@ -1537,8 +1554,8 @@ class DataManager:
                 groupArray(oi)[-1] as oi               -- Last OI in second
             FROM nse_ticks_indices
             WHERE trading_day = '{trading_day}'
-              AND timestamp >= '{trading_day} 09:15:00'
-              AND timestamp <= '{trading_day} 15:30:00'
+              AND timestamp >= '{trading_day} {market_open}'
+              AND timestamp <= '{trading_day} {market_close}'
               AND symbol IN ({symbol_list})
             GROUP BY symbol, toDateTime(toInt64(timestamp))
             ORDER BY second ASC
@@ -1552,6 +1569,7 @@ class DataManager:
         for row in result.result_rows:
             # close and ltp are the same value (last traded price)
             close_ltp = float(row[5]) if row[5] else None
+            
             tick = {
                 'symbol': row[0],
                 'timestamp': row[1],

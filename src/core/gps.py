@@ -82,6 +82,16 @@ class GlobalPositionStore:
         
         # Add position_num to entry_data
         entry_data['position_num'] = position_num
+        
+        # Validate and calculate actual quantity (quantity × multiplier) for P&L
+        multiplier = entry_data.get("multiplier", 1)
+        quantity = entry_data.get("quantity", 1)
+        actual_quantity = quantity * multiplier  # Always calculate to ensure correctness
+        
+        # Verify entry_data['actual_quantity'] matches calculation, or override
+        if entry_data.get("actual_quantity", 0) != actual_quantity:
+            log_info(f"GPS: Correcting actual_quantity from {entry_data.get('actual_quantity', 0)} to {actual_quantity} (quantity={quantity} × multiplier={multiplier})")
+            entry_data['actual_quantity'] = actual_quantity
 
         # Initialize container if new position
         if position_id not in self.positions:
@@ -92,9 +102,9 @@ class GlobalPositionStore:
                 "exit_time": None,  # MANDATORY: Updated on exit
                 "close_reason": None,  # MANDATORY: Updated on exit
                 "pnl": None,  # MANDATORY: Updated on exit (realized + unrealized)
-                "quantity": entry_data.get("quantity", 0),  # MANDATORY: Actual traded quantity (lots × lot_size) for PNL calculation
-                "lot_size": entry_data.get("lot_size", 1),  # Lot size multiplier (e.g., 50 for NIFTY)
-                "lots": entry_data.get("lots", 1),  # Number of lots traded
+                "actual_quantity": actual_quantity,  # MANDATORY: Actual traded quantity (quantity × multiplier) for orders and P&L
+                "quantity": quantity,  # Number of lots (F&O) or stocks (equity) from strategy config
+                "multiplier": multiplier,  # Lot size from strategy config (e.g., 75 for NIFTY)
                 "entry_price": entry_data.get("price", 0),
                 "exit_price": None,  # MANDATORY: Updated on exit
                 "current_price": None,  # MANDATORY: Updated every tick
@@ -149,16 +159,7 @@ class GlobalPositionStore:
         # Increment counter for next position
         self.position_counters[position_id] += 1
         
-        
-        try:
-            log_info(f"GPS: add_position {position_id} reEntryNum={txn.get('reEntryNum')} txns_count={len(position['transactions'])}")
-        except Exception as e:
-            from src.utils.error_handler import handle_exception
-            handle_exception(e, "gps_add_position_logging", {
-                "position_id": position_id,
-                "reEntryNum": txn.get('reEntryNum'),
-                "txns_count": len(position['transactions'])
-            }, is_critical=False, continue_execution=True)
+        log_info(f"GPS: add_position {position_id} reEntryNum={txn.get('reEntryNum')} txns_count={len(position['transactions'])}")
 
         # Mirror latest transaction to top-level for backward compatibility
         position["position_id"] = position_id  # MANDATORY: Position ID
@@ -167,9 +168,9 @@ class GlobalPositionStore:
         position["exit_time"] = None  # MANDATORY: Will be updated on exit
         position["close_reason"] = None  # MANDATORY: Will be updated on exit
         position["pnl"] = None  # MANDATORY: Will be updated (realized + unrealized)
-        position["quantity"] = entry_data.get("quantity", 0)  # MANDATORY: Actual traded quantity (lots × lot_size)
-        position["lot_size"] = entry_data.get("lot_size", 1)  # Lot size multiplier
-        position["lots"] = entry_data.get("lots", 1)  # Number of lots
+        position["actual_quantity"] = actual_quantity  # MANDATORY: Actual traded quantity (quantity × multiplier) for orders and P&L
+        position["quantity"] = quantity  # Number of lots (F&O) or stocks (equity)
+        position["multiplier"] = multiplier  # Lot size from strategy config
         position["entry_price"] = entry_data.get("price", 0)
         position["exit_price"] = None  # MANDATORY: Will be updated on exit
         position["current_price"] = entry_data.get("price", 0)  # MANDATORY: Initialize with entry price, update every tick
@@ -221,42 +222,25 @@ class GlobalPositionStore:
         last_txn["exit"] = exit_data
         last_txn["status"] = "closed"
         last_txn["exit_time"] = exit_timestamp.isoformat() if hasattr(exit_timestamp, 'isoformat') else str(exit_timestamp)
-        try:
-            log_info(f"GPS: close_position {position_id} reEntryNum={last_txn.get('reEntryNum')} txns_count={len(position['transactions'])}")
-        except Exception as e:
-            from src.utils.error_handler import handle_exception
-            handle_exception(e, "gps_close_position_logging", {
-                "position_id": position_id,
-                "reEntryNum": last_txn.get('reEntryNum'),
-                "txns_count": len(position['transactions'])
-            }, is_critical=False, continue_execution=True)
+        log_info(f"GPS: close_position {position_id} reEntryNum={last_txn.get('reEntryNum')} txns_count={len(position['transactions'])}")
 
-        # Calculate PnL based on entry/exit
+        # Calculate PnL based on entry/exit using actual_quantity
         entry_price = position.get("entry_price") or last_txn.get("entry", {}).get("price")
         exit_price = exit_data.get("price", 0)
-        quantity = position.get("quantity") or last_txn.get("entry", {}).get("quantity", 0)
+        actual_quantity = position.get("actual_quantity") or last_txn.get("entry", {}).get("actual_quantity", 0)
         side = last_txn.get("entry", {}).get("side", "buy").lower()
-        if entry_price and exit_price and quantity:
+        if entry_price and exit_price and actual_quantity:
             if side == "buy":
-                last_txn["pnl"] = (exit_price - entry_price) * quantity
+                last_txn["pnl"] = (exit_price - entry_price) * actual_quantity
             else:
-                last_txn["pnl"] = (entry_price - exit_price) * quantity
+                last_txn["pnl"] = (entry_price - exit_price) * actual_quantity
 
         # Debug-only: emit a detailed close summary for verification
-        try:
-            log_info(
-                f"GPS close summary | position_id={position_id} reEntryNum={last_txn.get('reEntryNum')} "
-                f"side={side} qty={quantity} entry_time={last_txn.get('entry_time')} entry_price={entry_price} "
-                f"exit_time={last_txn.get('exit_time')} exit_price={exit_price} txn_pnl={last_txn.get('pnl')}"
-            )
-        except Exception as e:
-            from src.utils.error_handler import handle_exception
-            handle_exception(e, "gps_close_summary_logging", {
-                "position_id": position_id,
-                "reEntryNum": last_txn.get('reEntryNum'),
-                "side": side,
-                "quantity": quantity
-            }, is_critical=False, continue_execution=True)
+        log_info(
+            f"GPS close summary | position_id={position_id} reEntryNum={last_txn.get('reEntryNum')} "
+            f"side={side} actual_qty={actual_quantity} entry_time={last_txn.get('entry_time')} entry_price={entry_price} "
+            f"exit_time={last_txn.get('exit_time')} exit_price={exit_price} txn_pnl={last_txn.get('pnl')}"
+        )
 
         # Mirror latest transaction to top-level
         position["status"] = "closed"
@@ -264,25 +248,15 @@ class GlobalPositionStore:
         position["close_reason"] = exit_data.get("reason", "unknown")  # MANDATORY: Updated on exit
         position["exit_price"] = exit_price  # MANDATORY: Updated on exit
         # Calculate TOTAL realized P&L from ALL transactions (not just last one)
-        try:
-            transactions = position.get("transactions", [])
-            total_pnl = 0.0
-            for txn in transactions:
-                txn_pnl = txn.get("pnl")
-                if txn_pnl is not None:
-                    total_pnl += float(txn_pnl)
-            position["pnl"] = total_pnl
-            position["realized_pnl"] = total_pnl
-            log_info(f"✅ Position {position_id} total PNL: {total_pnl} (from {len(transactions)} transactions)")
-        except Exception as e:
-            log_error(f"❌ Error calculating position PNL: {e}")
-            import traceback
-            log_error(traceback.format_exc())
-            from src.utils.error_handler import handle_exception
-            handle_exception(e, "gps_pnl_conversion", {
-                "position_id": position_id,
-                "transactions_count": len(position.get("transactions", []))
-            }, is_critical=False, continue_execution=True)
+        transactions = position.get("transactions", [])
+        total_pnl = 0.0
+        for txn in transactions:
+            txn_pnl = txn.get("pnl")
+            if txn_pnl is not None:
+                total_pnl += float(txn_pnl)
+        position["pnl"] = total_pnl
+        position["realized_pnl"] = total_pnl
+        log_info(f"✅ Position {position_id} total PNL: {total_pnl} (from {len(transactions)} transactions)")
         if "reEntryNum" in exit_data:
             position["reEntryNum"] = exit_data.get("reEntryNum")
         
@@ -319,12 +293,13 @@ class GlobalPositionStore:
             if current_ltp:
                 position["current_price"] = current_ltp
                 
-                # Calculate and update unrealized_pnl (MANDATORY: every tick)
-                if entry_price and quantity:
+                # Calculate and update unrealized_pnl (MANDATORY: every tick) using actual_quantity
+                actual_quantity = position.get("actual_quantity", 0)
+                if entry_price and actual_quantity:
                     if side == "buy":
-                        position["unrealized_pnl"] = (current_ltp - entry_price) * quantity
+                        position["unrealized_pnl"] = (current_ltp - entry_price) * actual_quantity
                     else:
-                        position["unrealized_pnl"] = (entry_price - current_ltp) * quantity
+                        position["unrealized_pnl"] = (entry_price - current_ltp) * actual_quantity
                     
                     # Update total pnl (realized + unrealized)
                     realized = position.get("realized_pnl") or 0.0

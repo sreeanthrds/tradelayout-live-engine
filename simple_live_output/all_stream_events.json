@@ -1,0 +1,31 @@
+[
+  {
+    "date": "2024-10-29",
+    "day_number": 1,
+    "total_days": 1
+  },
+  {
+    "date": "2024-10-29",
+    "day_number": 1,
+    "total_days": 1,
+    "summary": {
+      "total_trades": 9,
+      "total_pnl": "-168.40",
+      "winning_trades": 1,
+      "losing_trades": 8,
+      "win_rate": "11.11"
+    },
+    "has_detail_data": true
+  },
+  {
+    "backtest_id": "5708424d-5962-4629-978c-05b3a174e104_2024-10-29_2024-10-29",
+    "overall_summary": {
+      "total_days": 1,
+      "total_trades": 9,
+      "total_pnl": "-168.40",
+      "win_rate": "11.11",
+      "largest_win": "5.10",
+      "largest_loss": "-78.45"
+    }
+  }
+]

@@ -1,0 +1,1315 @@
+{
+  "summary": {
+    "total_days": 23,
+    "trading_days": 22,
+    "total_transactions": 164,
+    "total_pnl": -264.5499999999997,
+    "profit_days": 10,
+    "loss_days": 12,
+    "breakeven_days": 0
+  },
+  "daily_results": [
+    {
+      "date": "2024-10-01",
+      "transactions": 7,
+      "pnl": 140.60000000000002,
+      "positions": [
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-01T09:18:41",
+          "exit_time": "2024-10-01T10:20:00",
+          "pnl": 57.25
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-01T11:49:25",
+          "exit_time": "2024-10-01T12:32:00",
+          "pnl": 16.05000000000001
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-01T13:24:25",
+          "exit_time": "2024-10-01T14:24:00",
+          "pnl": 22.55000000000001
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-01T15:05:41",
+          "exit_time": "2024-10-01T15:25:00",
+          "pnl": 9.0
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-01T10:34:29",
+          "exit_time": "2024-10-01T10:36:00",
+          "pnl": -17.44999999999999
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-01T10:37:01",
+          "exit_time": "2024-10-01T11:46:00",
+          "pnl": 39.10000000000001
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-01T12:34:24",
+          "exit_time": "2024-10-01T13:23:00",
+          "pnl": 14.099999999999994
+        }
+      ]
+    },
+    {
+      "date": "2024-10-03",
+      "transactions": 9,
+      "pnl": -79.04999999999998,
+      "positions": [
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-03T09:17:07",
+          "exit_time": "2024-10-03T10:17:00",
+          "pnl": -10.599999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-03T10:19:21",
+          "exit_time": "2024-10-03T11:17:00",
+          "pnl": -20.05000000000001
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-03T11:25:16",
+          "exit_time": "2024-10-03T11:27:00",
+          "pnl": -9.550000000000011
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-03T11:30:17",
+          "exit_time": "2024-10-03T11:35:00",
+          "pnl": -12.349999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-03T13:04:52",
+          "exit_time": "2024-10-03T13:07:00",
+          "pnl": -7.5
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 6,
+          "entry_time": "2024-10-03T13:12:28",
+          "exit_time": "2024-10-03T13:18:00",
+          "pnl": -7.800000000000011
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 7,
+          "entry_time": "2024-10-03T13:22:00",
+          "exit_time": "2024-10-03T13:24:00",
+          "pnl": -2.299999999999983
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 8,
+          "entry_time": "2024-10-03T13:25:37",
+          "exit_time": "2024-10-03T13:27:00",
+          "pnl": -4.099999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 9,
+          "entry_time": "2024-10-03T13:29:00",
+          "exit_time": "2024-10-03T13:36:00",
+          "pnl": -4.799999999999983
+        }
+      ]
+    },
+    {
+      "date": "2024-10-04",
+      "transactions": 10,
+      "pnl": -28.650000000000063,
+      "positions": [
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-04T09:19:14",
+          "exit_time": "2024-10-04T09:20:00",
+          "pnl": -9.599999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-04T09:21:00",
+          "exit_time": "2024-10-04T09:25:00",
+          "pnl": -8.199999999999989
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-04T09:29:01",
+          "exit_time": "2024-10-04T09:32:00",
+          "pnl": -9.299999999999983
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-04T09:33:07",
+          "exit_time": "2024-10-04T10:45:00",
+          "pnl": 56.95000000000002
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-04T12:45:14",
+          "exit_time": "2024-10-04T13:01:00",
+          "pnl": -52.35000000000002
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 6,
+          "entry_time": "2024-10-04T13:03:08",
+          "exit_time": "2024-10-04T15:25:00",
+          "pnl": -33.900000000000006
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-04T10:47:23",
+          "exit_time": "2024-10-04T10:52:00",
+          "pnl": -14.450000000000045
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-04T12:01:36",
+          "exit_time": "2024-10-04T12:09:00",
+          "pnl": -10.700000000000045
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-04T12:12:08",
+          "exit_time": "2024-10-04T12:15:00",
+          "pnl": -8.699999999999989
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-04T12:15:38",
+          "exit_time": "2024-10-04T12:39:00",
+          "pnl": 61.599999999999994
+        }
+      ]
+    },
+    {
+      "date": "2024-10-07",
+      "transactions": 8,
+      "pnl": 3.55000000000004,
+      "positions": [
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-07T09:19:00",
+          "exit_time": "2024-10-07T10:40:00",
+          "pnl": 59.60000000000002
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-07T14:52:14",
+          "exit_time": "2024-10-07T15:25:00",
+          "pnl": 15.850000000000023
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-07T10:41:47",
+          "exit_time": "2024-10-07T10:46:00",
+          "pnl": -28.849999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-07T10:50:15",
+          "exit_time": "2024-10-07T10:53:00",
+          "pnl": -17.150000000000006
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-07T10:54:20",
+          "exit_time": "2024-10-07T11:03:00",
+          "pnl": -20.30000000000001
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-07T11:07:27",
+          "exit_time": "2024-10-07T13:03:00",
+          "pnl": -11.25
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-07T13:04:53",
+          "exit_time": "2024-10-07T13:41:00",
+          "pnl": -31.75
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 6,
+          "entry_time": "2024-10-07T13:43:14",
+          "exit_time": "2024-10-07T14:46:00",
+          "pnl": 37.400000000000006
+        }
+      ]
+    },
+    {
+      "date": "2024-10-08",
+      "transactions": 11,
+      "pnl": 7.350000000000023,
+      "positions": [
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-08T10:35:23",
+          "exit_time": "2024-10-08T10:40:00",
+          "pnl": -9.75
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-08T10:44:22",
+          "exit_time": "2024-10-08T11:25:00",
+          "pnl": -15.350000000000023
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-08T11:27:41",
+          "exit_time": "2024-10-08T11:31:00",
+          "pnl": -13.75
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-08T11:33:08",
+          "exit_time": "2024-10-08T11:58:00",
+          "pnl": 41.150000000000006
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-08T13:11:05",
+          "exit_time": "2024-10-08T13:33:00",
+          "pnl": -9.099999999999966
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 6,
+          "entry_time": "2024-10-08T13:41:01",
+          "exit_time": "2024-10-08T13:49:00",
+          "pnl": -13.850000000000023
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 7,
+          "entry_time": "2024-10-08T13:50:52",
+          "exit_time": "2024-10-08T14:08:00",
+          "pnl": -16.899999999999977
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 8,
+          "entry_time": "2024-10-08T14:08:45",
+          "exit_time": "2024-10-08T14:36:00",
+          "pnl": 35.95000000000002
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-08T14:39:28",
+          "exit_time": "2024-10-08T14:45:00",
+          "pnl": -14.550000000000011
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-08T14:46:25",
+          "exit_time": "2024-10-08T14:54:00",
+          "pnl": -20.349999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-08T14:55:12",
+          "exit_time": "2024-10-08T15:25:00",
+          "pnl": 43.849999999999994
+        }
+      ]
+    },
+    {
+      "date": "2024-10-09",
+      "transactions": 11,
+      "pnl": -126.25000000000003,
+      "positions": [
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-09T09:48:53",
+          "exit_time": "2024-10-09T10:09:00",
+          "pnl": -33.0
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-09T10:11:05",
+          "exit_time": "2024-10-09T10:49:00",
+          "pnl": -17.25
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-09T11:46:05",
+          "exit_time": "2024-10-09T11:49:01",
+          "pnl": -10.050000000000011
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-09T11:56:27",
+          "exit_time": "2024-10-09T11:59:00",
+          "pnl": -8.099999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-09T12:00:00",
+          "exit_time": "2024-10-09T12:01:00",
+          "pnl": -8.650000000000006
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-09T12:02:38",
+          "exit_time": "2024-10-09T13:21:00",
+          "pnl": -20.80000000000001
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-09T13:22:13",
+          "exit_time": "2024-10-09T14:24:00",
+          "pnl": -9.200000000000017
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 6,
+          "entry_time": "2024-10-09T14:26:05",
+          "exit_time": "2024-10-09T14:30:00",
+          "pnl": -8.75
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 7,
+          "entry_time": "2024-10-09T14:30:25",
+          "exit_time": "2024-10-09T14:45:00",
+          "pnl": -13.349999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 8,
+          "entry_time": "2024-10-09T14:46:01",
+          "exit_time": "2024-10-09T15:01:00",
+          "pnl": -20.94999999999999
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 9,
+          "entry_time": "2024-10-09T15:05:05",
+          "exit_time": "2024-10-09T15:25:00",
+          "pnl": 23.849999999999994
+        }
+      ]
+    },
+    {
+      "date": "2024-10-10",
+      "transactions": 6,
+      "pnl": -48.94999999999999,
+      "positions": [
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-10T09:17:25",
+          "exit_time": "2024-10-10T09:58:00",
+          "pnl": 2.4000000000000057
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-10T10:00:37",
+          "exit_time": "2024-10-10T10:06:00",
+          "pnl": -28.05000000000001
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-10T10:08:07",
+          "exit_time": "2024-10-10T10:13:00",
+          "pnl": -8.699999999999989
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-10T10:14:06",
+          "exit_time": "2024-10-10T10:16:00",
+          "pnl": -4.400000000000006
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-10T11:15:10",
+          "exit_time": "2024-10-10T11:19:00",
+          "pnl": -4.349999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-10T11:20:15",
+          "exit_time": "2024-10-10T15:00:00",
+          "pnl": -5.849999999999994
+        }
+      ]
+    },
+    {
+      "date": "2024-10-11",
+      "transactions": 2,
+      "pnl": 29.149999999999977,
+      "positions": [
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-11T09:19:53",
+          "exit_time": "2024-10-11T13:20:00",
+          "pnl": 18.0
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-11T13:20:10",
+          "exit_time": "2024-10-11T15:25:00",
+          "pnl": 11.149999999999977
+        }
+      ]
+    },
+    {
+      "date": "2024-10-14",
+      "transactions": 6,
+      "pnl": -9.80000000000004,
+      "positions": [
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-14T09:18:30",
+          "exit_time": "2024-10-14T09:45:00",
+          "pnl": -21.700000000000017
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-14T09:47:08",
+          "exit_time": "2024-10-14T11:39:00",
+          "pnl": -6.450000000000017
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-14T11:42:24",
+          "exit_time": "2024-10-14T11:48:00",
+          "pnl": -5.050000000000011
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-14T11:49:41",
+          "exit_time": "2024-10-14T11:55:00",
+          "pnl": -4.300000000000011
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-14T11:56:08",
+          "exit_time": "2024-10-14T13:01:00",
+          "pnl": 22.099999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-14T14:59:33",
+          "exit_time": "2024-10-14T15:25:00",
+          "pnl": 5.600000000000023
+        }
+      ]
+    },
+    {
+      "date": "2024-10-15",
+      "transactions": 5,
+      "pnl": -22.099999999999994,
+      "positions": [
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-15T09:17:04",
+          "exit_time": "2024-10-15T09:47:00",
+          "pnl": 21.75
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-15T09:48:11",
+          "exit_time": "2024-10-15T09:50:00",
+          "pnl": -13.449999999999989
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-15T10:04:46",
+          "exit_time": "2024-10-15T10:30:00",
+          "pnl": -15.400000000000006
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-15T13:04:09",
+          "exit_time": "2024-10-15T13:04:11",
+          "pnl": -0.5999999999999943
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-15T13:04:11",
+          "exit_time": "2024-10-15T13:06:00",
+          "pnl": -14.400000000000006
+        }
+      ]
+    },
+    {
+      "date": "2024-10-16",
+      "transactions": 10,
+      "pnl": -14.200000000000003,
+      "positions": [
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-16T11:19:29",
+          "exit_time": "2024-10-16T11:30:00",
+          "pnl": -12.950000000000017
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-16T11:32:01",
+          "exit_time": "2024-10-16T11:41:00",
+          "pnl": -5.199999999999989
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-16T11:43:44",
+          "exit_time": "2024-10-16T11:46:00",
+          "pnl": -3.1999999999999886
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-16T11:50:00",
+          "exit_time": "2024-10-16T13:06:00",
+          "pnl": 29.049999999999997
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-16T14:52:03",
+          "exit_time": "2024-10-16T15:25:00",
+          "pnl": -8.599999999999994
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-16T13:07:05",
+          "exit_time": "2024-10-16T13:13:00",
+          "pnl": -6.900000000000006
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-16T13:15:04",
+          "exit_time": "2024-10-16T13:16:00",
+          "pnl": 0.5
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-16T13:16:11",
+          "exit_time": "2024-10-16T14:05:00",
+          "pnl": -17.450000000000017
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-16T14:08:14",
+          "exit_time": "2024-10-16T14:28:00",
+          "pnl": -32.0
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-16T14:29:00",
+          "exit_time": "2024-10-16T14:51:00",
+          "pnl": 42.55000000000001
+        }
+      ]
+    },
+    {
+      "date": "2024-10-17",
+      "transactions": 5,
+      "pnl": -37.95000000000002,
+      "positions": [
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-17T09:37:31",
+          "exit_time": "2024-10-17T09:38:00",
+          "pnl": -9.5
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-17T09:41:46",
+          "exit_time": "2024-10-17T09:46:00",
+          "pnl": -23.30000000000001
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-17T09:47:00",
+          "exit_time": "2024-10-17T11:15:00",
+          "pnl": -13.099999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-17T12:48:52",
+          "exit_time": "2024-10-17T13:54:00",
+          "pnl": -10.75
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-17T13:54:54",
+          "exit_time": "2024-10-17T14:29:00",
+          "pnl": 18.69999999999999
+        }
+      ]
+    },
+    {
+      "date": "2024-10-18",
+      "transactions": 11,
+      "pnl": 29.10000000000005,
+      "positions": [
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-18T09:25:01",
+          "exit_time": "2024-10-18T09:30:00",
+          "pnl": -3.25
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-18T09:30:19",
+          "exit_time": "2024-10-18T10:31:00",
+          "pnl": 69.4
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-18T10:32:29",
+          "exit_time": "2024-10-18T10:34:00",
+          "pnl": -9.75
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-18T10:35:31",
+          "exit_time": "2024-10-18T11:39:00",
+          "pnl": -10.399999999999977
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-18T11:43:37",
+          "exit_time": "2024-10-18T12:04:00",
+          "pnl": -3.8999999999999773
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-18T12:07:06",
+          "exit_time": "2024-10-18T12:09:00",
+          "pnl": -4.649999999999977
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-18T12:09:12",
+          "exit_time": "2024-10-18T12:26:00",
+          "pnl": -12.699999999999989
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 6,
+          "entry_time": "2024-10-18T12:30:17",
+          "exit_time": "2024-10-18T12:31:00",
+          "pnl": -5.550000000000011
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 7,
+          "entry_time": "2024-10-18T12:35:10",
+          "exit_time": "2024-10-18T12:36:00",
+          "pnl": -5.699999999999989
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 8,
+          "entry_time": "2024-10-18T12:38:52",
+          "exit_time": "2024-10-18T13:47:00",
+          "pnl": -20.600000000000023
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 9,
+          "entry_time": "2024-10-18T13:47:50",
+          "exit_time": "2024-10-18T15:08:00",
+          "pnl": 36.19999999999999
+        }
+      ]
+    },
+    {
+      "date": "2024-10-21",
+      "transactions": 9,
+      "pnl": 142.65000000000003,
+      "positions": [
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-21T09:17:45",
+          "exit_time": "2024-10-21T09:35:00",
+          "pnl": 59.55000000000001
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-21T10:09:47",
+          "exit_time": "2024-10-21T11:33:00",
+          "pnl": 46.25
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-21T13:22:08",
+          "exit_time": "2024-10-21T15:04:00",
+          "pnl": 21.05000000000001
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-21T09:37:28",
+          "exit_time": "2024-10-21T09:39:00",
+          "pnl": -15.649999999999977
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-21T09:41:02",
+          "exit_time": "2024-10-21T09:42:00",
+          "pnl": -11.050000000000011
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-21T09:44:01",
+          "exit_time": "2024-10-21T09:50:00",
+          "pnl": -30.399999999999977
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-21T09:53:07",
+          "exit_time": "2024-10-21T10:09:00",
+          "pnl": 79.4
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-21T11:36:57",
+          "exit_time": "2024-10-21T13:18:00",
+          "pnl": 8.599999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 6,
+          "entry_time": "2024-10-21T15:06:00",
+          "exit_time": "2024-10-21T15:25:00",
+          "pnl": -15.100000000000023
+        }
+      ]
+    },
+    {
+      "date": "2024-10-22",
+      "transactions": 6,
+      "pnl": -62.55000000000001,
+      "positions": [
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-22T09:21:25",
+          "exit_time": "2024-10-22T10:14:00",
+          "pnl": 41.099999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-22T10:15:33",
+          "exit_time": "2024-10-22T10:17:00",
+          "pnl": -20.25
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-22T10:20:22",
+          "exit_time": "2024-10-22T10:27:00",
+          "pnl": -24.0
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-22T10:30:35",
+          "exit_time": "2024-10-22T14:55:00",
+          "pnl": -60.64999999999998
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-22T15:07:09",
+          "exit_time": "2024-10-22T15:12:00",
+          "pnl": -5.100000000000023
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-22T15:15:24",
+          "exit_time": "2024-10-22T15:25:00",
+          "pnl": 6.349999999999994
+        }
+      ]
+    },
+    {
+      "date": "2024-10-23",
+      "transactions": 5,
+      "pnl": 21.700000000000017,
+      "positions": [
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-23T11:05:57",
+          "exit_time": "2024-10-23T12:14:00",
+          "pnl": 43.599999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-23T12:14:50",
+          "exit_time": "2024-10-23T12:16:00",
+          "pnl": -12.449999999999989
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-23T12:18:03",
+          "exit_time": "2024-10-23T14:15:00",
+          "pnl": -10.050000000000011
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-23T14:16:19",
+          "exit_time": "2024-10-23T14:17:00",
+          "pnl": -5.099999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-23T14:25:02",
+          "exit_time": "2024-10-23T15:25:00",
+          "pnl": 5.700000000000017
+        }
+      ]
+    },
+    {
+      "date": "2024-10-24",
+      "transactions": 1,
+      "pnl": 38.69999999999999,
+      "positions": [
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-24T09:44:28",
+          "exit_time": "2024-10-24T15:25:00",
+          "pnl": 38.69999999999999
+        }
+      ]
+    },
+    {
+      "date": "2024-10-25",
+      "transactions": 9,
+      "pnl": -144.45,
+      "positions": [
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-25T09:41:46",
+          "exit_time": "2024-10-25T09:44:00",
+          "pnl": -18.0
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-25T10:00:09",
+          "exit_time": "2024-10-25T10:30:00",
+          "pnl": -23.900000000000006
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-25T10:46:42",
+          "exit_time": "2024-10-25T10:48:00",
+          "pnl": -3.6500000000000057
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-25T10:50:23",
+          "exit_time": "2024-10-25T10:55:00",
+          "pnl": -15.050000000000011
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-25T10:56:51",
+          "exit_time": "2024-10-25T14:24:00",
+          "pnl": -42.14999999999998
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-25T14:51:25",
+          "exit_time": "2024-10-25T15:12:00",
+          "pnl": -26.25
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-25T15:18:09",
+          "exit_time": "2024-10-25T15:19:00",
+          "pnl": -2.0500000000000114
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-25T15:20:02",
+          "exit_time": "2024-10-25T15:21:00",
+          "pnl": -11.149999999999977
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-25T15:22:12",
+          "exit_time": "2024-10-25T15:24:00",
+          "pnl": -2.25
+        }
+      ]
+    },
+    {
+      "date": "2024-10-28",
+      "transactions": 12,
+      "pnl": -30.999999999999915,
+      "positions": [
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-28T09:18:00",
+          "exit_time": "2024-10-28T09:23:00",
+          "pnl": -10.899999999999977
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-28T09:25:49",
+          "exit_time": "2024-10-28T09:44:00",
+          "pnl": 31.850000000000023
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-28T09:59:04",
+          "exit_time": "2024-10-28T09:59:05",
+          "pnl": 0.20000000000004547
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-28T09:59:06",
+          "exit_time": "2024-10-28T10:17:00",
+          "pnl": -16.30000000000001
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-28T10:24:00",
+          "exit_time": "2024-10-28T10:25:00",
+          "pnl": -7.5
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 6,
+          "entry_time": "2024-10-28T10:26:29",
+          "exit_time": "2024-10-28T10:37:00",
+          "pnl": -15.000000000000028
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 7,
+          "entry_time": "2024-10-28T10:39:09",
+          "exit_time": "2024-10-28T10:41:00",
+          "pnl": -7.800000000000011
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 8,
+          "entry_time": "2024-10-28T10:42:08",
+          "exit_time": "2024-10-28T10:47:00",
+          "pnl": -6.449999999999989
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 9,
+          "entry_time": "2024-10-28T10:48:06",
+          "exit_time": "2024-10-28T12:14:00",
+          "pnl": -20.69999999999999
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 10,
+          "entry_time": "2024-10-28T12:16:03",
+          "exit_time": "2024-10-28T12:35:00",
+          "pnl": -9.599999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-28T09:46:03",
+          "exit_time": "2024-10-28T09:56:00",
+          "pnl": 53.05000000000001
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-28T12:52:15",
+          "exit_time": "2024-10-28T15:25:00",
+          "pnl": -21.849999999999994
+        }
+      ]
+    },
+    {
+      "date": "2024-10-29",
+      "transactions": 9,
+      "pnl": -167.84999999999994,
+      "positions": [
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-29T09:19:00",
+          "exit_time": "2024-10-29T10:48:00",
+          "pnl": -78.45000000000002
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-29T11:42:00",
+          "exit_time": "2024-10-29T12:04:00",
+          "pnl": -25.75
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-29T12:05:08",
+          "exit_time": "2024-10-29T12:15:00",
+          "pnl": -9.299999999999983
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-29T12:17:52",
+          "exit_time": "2024-10-29T12:52:00",
+          "pnl": -12.899999999999977
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-29T12:53:48",
+          "exit_time": "2024-10-29T13:03:00",
+          "pnl": -13.199999999999989
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-29T13:05:49",
+          "exit_time": "2024-10-29T14:03:00",
+          "pnl": -10.650000000000034
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 6,
+          "entry_time": "2024-10-29T14:13:24",
+          "exit_time": "2024-10-29T14:15:00",
+          "pnl": -6.599999999999966
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 7,
+          "entry_time": "2024-10-29T14:19:31",
+          "exit_time": "2024-10-29T15:08:00",
+          "pnl": -16.099999999999966
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 8,
+          "entry_time": "2024-10-29T15:09:24",
+          "exit_time": "2024-10-29T15:25:00",
+          "pnl": 5.099999999999994
+        }
+      ]
+    },
+    {
+      "date": "2024-10-30",
+      "transactions": 5,
+      "pnl": 94.35,
+      "positions": [
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-30T09:18:58",
+          "exit_time": "2024-10-30T10:55:00",
+          "pnl": 25.69999999999999
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-30T12:07:11",
+          "exit_time": "2024-10-30T13:07:00",
+          "pnl": 30.099999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-30T13:19:02",
+          "exit_time": "2024-10-30T15:25:00",
+          "pnl": -4.350000000000023
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-30T11:00:04",
+          "exit_time": "2024-10-30T11:25:00",
+          "pnl": -12.449999999999989
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-30T13:08:24",
+          "exit_time": "2024-10-30T13:17:00",
+          "pnl": 55.35000000000002
+        }
+      ]
+    },
+    {
+      "date": "2024-10-31",
+      "transactions": 7,
+      "pnl": 1.1000000000000227,
+      "positions": [
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-31T09:33:38",
+          "exit_time": "2024-10-31T09:38:00",
+          "pnl": -10.099999999999994
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 2,
+          "entry_time": "2024-10-31T12:28:51",
+          "exit_time": "2024-10-31T12:42:00",
+          "pnl": -9.75
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 3,
+          "entry_time": "2024-10-31T12:46:49",
+          "exit_time": "2024-10-31T12:50:00",
+          "pnl": -3.6500000000000057
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 4,
+          "entry_time": "2024-10-31T12:50:39",
+          "exit_time": "2024-10-31T13:46:00",
+          "pnl": 21.450000000000017
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 5,
+          "entry_time": "2024-10-31T14:12:56",
+          "exit_time": "2024-10-31T14:12:57",
+          "pnl": 0.0
+        },
+        {
+          "position_id": "entry-2-pos1",
+          "position_num": 6,
+          "entry_time": "2024-10-31T14:15:14",
+          "exit_time": "2024-10-31T14:44:00",
+          "pnl": 18.55000000000001
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "position_num": 1,
+          "entry_time": "2024-10-31T14:46:45",
+          "exit_time": "2024-10-31T15:25:00",
+          "pnl": -15.400000000000006
+        }
+      ]
+    }
+  ]
+}

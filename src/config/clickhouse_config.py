@@ -24,9 +24,29 @@ class ClickHouseConfig:
     BATCH_SIZE = int(os.getenv('CLICKHOUSE_BATCH_SIZE', '10000'))
     QUERY_TIMEOUT = int(os.getenv('CLICKHOUSE_QUERY_TIMEOUT', '300'))  # seconds
     
-    # Market hours (IST)
-    MARKET_OPEN_TIME = '09:15:00'
-    MARKET_CLOSE_TIME = '15:30:00'
+    # Timezone configuration
+    # BACKUP_SHIFTED: For Dec 6 backup (data stored with +5:30 hour shift)
+    # IST: For live trading data (correct timezone)
+    DATA_TIMEZONE = os.getenv('CLICKHOUSE_DATA_TIMEZONE', 'IST')
+    
+    # Market hours for different data sources
+    # BACKUP_SHIFTED: IST times + 5:30 hours
+    #   09:15:00 + 5:30 = 14:45:00
+    #   15:30:00 + 5:30 = 21:00:00
+    MARKET_OPEN_TIME_BACKUP = '14:45:00'
+    MARKET_CLOSE_TIME_BACKUP = '21:00:00'
+    
+    # IST: Correct market hours for live trading
+    MARKET_OPEN_TIME_IST = '09:15:00'
+    MARKET_CLOSE_TIME_IST = '15:30:00'
+    
+    @classmethod
+    def get_market_hours(cls) -> tuple:
+        """Get market hours based on configured timezone."""
+        if cls.DATA_TIMEZONE == 'BACKUP_SHIFTED':
+            return (cls.MARKET_OPEN_TIME_BACKUP, cls.MARKET_CLOSE_TIME_BACKUP)
+        else:
+            return (cls.MARKET_OPEN_TIME_IST, cls.MARKET_CLOSE_TIME_IST)
     
     @classmethod
     def get_connection_config(cls) -> Dict[str, Any]:

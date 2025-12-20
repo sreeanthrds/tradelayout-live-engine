@@ -1,0 +1,59 @@
+
+================================================================================
+FETCHING VALID STRATEGIES FROM SUPABASE
+================================================================================
+
+❌ No strategies found for user 4a7a1a31-e209-4b23-891a-3899fb8e4c28
+
+Trying to find ANY strategies in the database...
+
+Found 10 strategies (any user):
+
+1. User ID: 571a44ab-d738-42d7-91eb-c884fbe17d64
+   Strategy ID: c5eaeb0d-f978-4664-b686-48419fdcaafe
+   Name: My New Strategy3
+
+2. User ID: user_325qHJnpgZ57iDByNPzavRwQR9m
+   Strategy ID: 135f536e-c595-479b-999d-6cbd9f9ede8b
+   Name: NIfty_1
+
+3. User ID: user_2ywvXhjUxa4V3bMCl8Hk3wGlTDK
+   Strategy ID: 83d5dff4-1a79-4b64-9d36-71e7a7ddccd1
+   Name: Test02092025
+
+4. User ID: user_2zT0EnCiY4E0ouNKaME0deVlaEq
+   Strategy ID: 991abeaf-d6b0-4d57-8ff0-ca885886a0cf
+   Name: My New Strategy3
+
+5. User ID: user_32BNwiJN5KBJI9tzW0AIITbcQTE
+   Strategy ID: 793a07d9-bdee-4449-8ebc-b94889fd7367
+   Name: My New Strategy
+
+6. User ID: test_user
+   Strategy ID: 6c2684a5-80c0-45c0-b4b2-e35d292f7a3a
+   Name: Test Strategy
+
+7. User ID: test_user
+   Strategy ID: 012b5b89-4fea-41b3-b424-f3c603993dd4
+   Name: Multi-Timeframe Test Strategy
+
+8. User ID: user_2yfjTGEKjL7XkklQyBaMP6SN2Lc
+   Strategy ID: 5708424d-5962-4629-978c-05b3a174e104
+   Name: My New Strategy5
+
+9. User ID: user_325qHJnpgZ57iDByNPzavRwQR9m
+   Strategy ID: f00ae5b1-3773-4fb9-9671-bf79c50809e5
+   Name: My New Strategy1
+
+10. User ID: user_325qHJnpgZ57iDByNPzavRwQR9m
+   Strategy ID: d08cffd9-460f-4088-9f82-1fd0a44dfd73
+   Name: My New Strategy
+
+================================================================================
+RECOMMENDATION: Use this strategy
+================================================================================
+
+strategy_id = 'c5eaeb0d-f978-4664-b686-48419fdcaafe'
+user_id = '571a44ab-d738-42d7-91eb-c884fbe17d64'
+
+Update run_clean_backtest.py with these values!

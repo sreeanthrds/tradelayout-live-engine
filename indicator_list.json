@@ -1,0 +1,999 @@
+{
+  "total": 141,
+  "categories": {
+    "Momentum": 8,
+    "Trend": 31,
+    "Volatility": 6,
+    "Volume": 8,
+    "Other": 88
+  },
+  "indicators": [
+    {
+      "name": "aberration",
+      "class": "ABERRATIONIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Aberration - Volatility bands with ATR"
+    },
+    {
+      "name": "accbands",
+      "class": "ACCBANDSIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Acceleration Bands"
+    },
+    {
+      "name": "ad",
+      "class": "ADIndicator",
+      "category": "Volume",
+      "params": {},
+      "doc": "Accumulation/Distribution (AD)"
+    },
+    {
+      "name": "adosc",
+      "class": "ADOSCIndicator",
+      "category": "Volume",
+      "params": {},
+      "doc": "Chaikin A/D Oscillator (ADOSC)"
+    },
+    {
+      "name": "adx",
+      "class": "ADXIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Average Directional Index (ADX)"
+    },
+    {
+      "name": "alligator",
+      "class": "ALLIGATORIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Bill Williams Alligator"
+    },
+    {
+      "name": "alma",
+      "class": "ALMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Arnaud Legoux Moving Average (ALMA)"
+    },
+    {
+      "name": "amat",
+      "class": "AMATIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Archer Moving Averages Trends"
+    },
+    {
+      "name": "anchored_vwap",
+      "class": "AnchoredVWAPIndicator",
+      "category": "Volume",
+      "params": {},
+      "doc": "Anchored VWAP"
+    },
+    {
+      "name": "anchoredvwap",
+      "class": "AnchoredVWAPIndicator",
+      "category": "Volume",
+      "params": {},
+      "doc": "Anchored VWAP"
+    },
+    {
+      "name": "ao",
+      "class": "AOIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Awesome Oscillator"
+    },
+    {
+      "name": "aobv",
+      "class": "AOBVIndicator",
+      "category": "Volume",
+      "params": {},
+      "doc": "Archer On-Balance Volume"
+    },
+    {
+      "name": "apo",
+      "class": "APOIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Absolute Price Oscillator"
+    },
+    {
+      "name": "aroon",
+      "class": "AROONIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Aroon Indicator"
+    },
+    {
+      "name": "atr",
+      "class": "ATRIndicator",
+      "category": "Volatility",
+      "params": {},
+      "doc": "Average True Range (ATR)"
+    },
+    {
+      "name": "atrts",
+      "class": "ATRTSIndicator",
+      "category": "Volatility",
+      "params": {},
+      "doc": "ATR Trailing Stop"
+    },
+    {
+      "name": "bbands",
+      "class": "BBANDSIndicator",
+      "category": "Volatility",
+      "params": {},
+      "doc": "Bollinger Bands"
+    },
+    {
+      "name": "bias",
+      "class": "BIASIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Bias - Distance from MA"
+    },
+    {
+      "name": "bop",
+      "class": "BOPIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Balance of Power"
+    },
+    {
+      "name": "brar",
+      "class": "BRARIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "BR/AR Indicator"
+    },
+    {
+      "name": "camarilla",
+      "class": "CAMARILLAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Camarilla Pivot Points"
+    },
+    {
+      "name": "cci",
+      "class": "CCIIndicator",
+      "category": "Momentum",
+      "params": {},
+      "doc": "Commodity Channel Index (CCI)"
+    },
+    {
+      "name": "cdldoji",
+      "class": "CDLDOJIIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Doji Pattern"
+    },
+    {
+      "name": "cdlinside",
+      "class": "CDLINSIDEIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Inside Bar Pattern"
+    },
+    {
+      "name": "cdlpattern",
+      "class": "CDLPATTERNIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Comprehensive Candlestick Patterns"
+    },
+    {
+      "name": "cfo",
+      "class": "CFOIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Chande Forecast Oscillator"
+    },
+    {
+      "name": "cg",
+      "class": "CGIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Center of Gravity"
+    },
+    {
+      "name": "chandelierexit",
+      "class": "CHANDELIEREXITIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Chandelier Exit"
+    },
+    {
+      "name": "chop",
+      "class": "CHOPIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Choppiness Index"
+    },
+    {
+      "name": "cksp",
+      "class": "CKSPIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Chande Kroll Stop"
+    },
+    {
+      "name": "cmf",
+      "class": "CMFIndicator",
+      "category": "Volume",
+      "params": {},
+      "doc": "Chaikin Money Flow (CMF)"
+    },
+    {
+      "name": "cmo",
+      "class": "CMOIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Chande Momentum Oscillator (CMO)"
+    },
+    {
+      "name": "coppock",
+      "class": "COPPOCKIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Coppock Curve"
+    },
+    {
+      "name": "cpr",
+      "class": "CPRIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Central Pivot Range (CPR)"
+    },
+    {
+      "name": "cti",
+      "class": "CTIIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Correlation Trend Indicator"
+    },
+    {
+      "name": "decay",
+      "class": "DECAYIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Linear Decay"
+    },
+    {
+      "name": "dema",
+      "class": "DEMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Double Exponential Moving Average (DEMA)"
+    },
+    {
+      "name": "dm",
+      "class": "DMIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Directional Movement (DM)"
+    },
+    {
+      "name": "donchian",
+      "class": "DONCHIANIndicator",
+      "category": "Volatility",
+      "params": {},
+      "doc": "Donchian Channels"
+    },
+    {
+      "name": "dpo",
+      "class": "DPOIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Detrended Price Oscillator"
+    },
+    {
+      "name": "drawdown",
+      "class": "DRAWDOWNIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Drawdown from Peak"
+    },
+    {
+      "name": "efi",
+      "class": "EFIIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Elder's Force Index (EFI)"
+    },
+    {
+      "name": "elder_ray",
+      "class": "ElderRayIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Elder Ray (Bull Power & Bear Power)"
+    },
+    {
+      "name": "elderray",
+      "class": "ElderRayIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Elder Ray (Bull Power & Bear Power)"
+    },
+    {
+      "name": "ema",
+      "class": "EMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Exponential Moving Average (EMA)"
+    },
+    {
+      "name": "entropy",
+      "class": "ENTROPYIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Shannon Entropy"
+    },
+    {
+      "name": "eom",
+      "class": "EOMIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Ease of Movement"
+    },
+    {
+      "name": "er",
+      "class": "ERIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Efficiency Ratio"
+    },
+    {
+      "name": "fibonaccipivot",
+      "class": "FIBONACCIPIVOTIndicator",
+      "category": "Momentum",
+      "params": {},
+      "doc": "Fibonacci Pivot Points"
+    },
+    {
+      "name": "fisher",
+      "class": "FISHERIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Fisher Transform"
+    },
+    {
+      "name": "fwma",
+      "class": "FWMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Fibonacci Weighted Moving Average"
+    },
+    {
+      "name": "ha",
+      "class": "HAIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Heikin Ashi"
+    },
+    {
+      "name": "heikin_ashi",
+      "class": "HeikinAshiIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Heikin Ashi Candles"
+    },
+    {
+      "name": "heikinashi",
+      "class": "HeikinAshiIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Heikin Ashi Candles"
+    },
+    {
+      "name": "hma",
+      "class": "HMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Hull Moving Average (HMA)"
+    },
+    {
+      "name": "httrendline",
+      "class": "HTTRENDLINEIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Hilbert Transform Trendline (simplified)"
+    },
+    {
+      "name": "hwc",
+      "class": "HWCIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Holt-Winter Channel (simplified)"
+    },
+    {
+      "name": "hwma",
+      "class": "HWMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Holt-Winter Moving Average"
+    },
+    {
+      "name": "hybrid",
+      "class": "HybridIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Abstract base class for hybrid indicators."
+    },
+    {
+      "name": "ichimoku",
+      "class": "IchimokuIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Ichimoku Kinko Hyo (Ichimoku Cloud)"
+    },
+    {
+      "name": "inertia",
+      "class": "INERTIAIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Inertia"
+    },
+    {
+      "name": "jma",
+      "class": "JMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Jurik Moving Average (simplified)"
+    },
+    {
+      "name": "kama",
+      "class": "KAMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Kaufman's Adaptive Moving Average (KAMA)"
+    },
+    {
+      "name": "kc",
+      "class": "KCIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Keltner Channels"
+    },
+    {
+      "name": "kdj",
+      "class": "KDJIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "KDJ Indicator"
+    },
+    {
+      "name": "kst",
+      "class": "KSTIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Know Sure Thing"
+    },
+    {
+      "name": "kurtosis",
+      "class": "KURTOSISIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Kurtosis"
+    },
+    {
+      "name": "kvo",
+      "class": "KVOIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Klinger Volume Oscillator"
+    },
+    {
+      "name": "linreg",
+      "class": "LINREGIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Linear Regression"
+    },
+    {
+      "name": "logreturn",
+      "class": "LOGRETURNIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Logarithmic Return"
+    },
+    {
+      "name": "macd",
+      "class": "MACDIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Moving Average Convergence Divergence (MACD)"
+    },
+    {
+      "name": "mad",
+      "class": "MADIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Mean Absolute Deviation"
+    },
+    {
+      "name": "massi",
+      "class": "MASSIIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Mass Index"
+    },
+    {
+      "name": "median",
+      "class": "MEDIANIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Median"
+    },
+    {
+      "name": "mfi",
+      "class": "MFIIndicator",
+      "category": "Momentum",
+      "params": {},
+      "doc": "Money Flow Index (MFI)"
+    },
+    {
+      "name": "midpoint",
+      "class": "MIDPOINTIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Midpoint"
+    },
+    {
+      "name": "midprice",
+      "class": "MIDPRICEIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Midprice"
+    },
+    {
+      "name": "mom",
+      "class": "MOMIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Momentum (MOM)"
+    },
+    {
+      "name": "natr",
+      "class": "NATRIndicator",
+      "category": "Volatility",
+      "params": {},
+      "doc": "Normalized ATR (NATR)"
+    },
+    {
+      "name": "nvi",
+      "class": "NVIIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Negative Volume Index (NVI)"
+    },
+    {
+      "name": "obv",
+      "class": "OBVIndicator",
+      "category": "Volume",
+      "params": {},
+      "doc": "On-Balance Volume (OBV)"
+    },
+    {
+      "name": "percentreturn",
+      "class": "PERCENTRETURNIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Percentage Return"
+    },
+    {
+      "name": "pgo",
+      "class": "PGOIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Pretty Good Oscillator"
+    },
+    {
+      "name": "pivot",
+      "class": "PIVOTIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Standard Pivot Points"
+    },
+    {
+      "name": "ppo",
+      "class": "PPOIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Percentage Price Oscillator (PPO)"
+    },
+    {
+      "name": "psar",
+      "class": "PSARIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Parabolic SAR"
+    },
+    {
+      "name": "psl",
+      "class": "PSLIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Psychological Line"
+    },
+    {
+      "name": "pvi",
+      "class": "PVIIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Positive Volume Index (PVI)"
+    },
+    {
+      "name": "pvo",
+      "class": "PVOIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Percentage Volume Oscillator (PVO)"
+    },
+    {
+      "name": "pvol",
+      "class": "PVOLIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Price Volume"
+    },
+    {
+      "name": "pvr",
+      "class": "PVRIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Price Volume Rank"
+    },
+    {
+      "name": "pvt",
+      "class": "PVTIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Price Volume Trend (PVT)"
+    },
+    {
+      "name": "pwma",
+      "class": "PWMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Pascal's Weighted Moving Average"
+    },
+    {
+      "name": "qqe",
+      "class": "QQEIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Quantitative Qualitative Estimation"
+    },
+    {
+      "name": "qstick",
+      "class": "QSTICKIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Qstick"
+    },
+    {
+      "name": "quantile",
+      "class": "QUANTILEIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Quantile"
+    },
+    {
+      "name": "renko",
+      "class": "RenkoIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Renko Bars"
+    },
+    {
+      "name": "rma",
+      "class": "RMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Wilder's Moving Average (RMA)"
+    },
+    {
+      "name": "roc",
+      "class": "ROCIndicator",
+      "category": "Momentum",
+      "params": {},
+      "doc": "Rate of Change (ROC)"
+    },
+    {
+      "name": "rsi",
+      "class": "RSIIndicator",
+      "category": "Momentum",
+      "params": {},
+      "doc": "Relative Strength Index (RSI)"
+    },
+    {
+      "name": "rsx",
+      "class": "RSXIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Relative Strength Xtra"
+    },
+    {
+      "name": "rvgi",
+      "class": "RVGIIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Relative Vigor Index"
+    },
+    {
+      "name": "rvi",
+      "class": "RVIIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Relative Volatility Index"
+    },
+    {
+      "name": "sinwma",
+      "class": "SINWMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Sine Weighted Moving Average"
+    },
+    {
+      "name": "skew",
+      "class": "SKEWIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Skewness"
+    },
+    {
+      "name": "slope",
+      "class": "SLOPEIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Linear Regression Slope"
+    },
+    {
+      "name": "sma",
+      "class": "SMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Simple Moving Average (SMA)"
+    },
+    {
+      "name": "smi",
+      "class": "SMIIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Stochastic Momentum Index"
+    },
+    {
+      "name": "squeeze",
+      "class": "SQUEEZEIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Squeeze Momentum"
+    },
+    {
+      "name": "stc",
+      "class": "STCIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Schaff Trend Cycle"
+    },
+    {
+      "name": "stdev",
+      "class": "STDEVIndicator",
+      "category": "Volatility",
+      "params": {},
+      "doc": "Standard Deviation"
+    },
+    {
+      "name": "stoch",
+      "class": "STOCHIndicator",
+      "category": "Momentum",
+      "params": {},
+      "doc": "Stochastic Oscillator"
+    },
+    {
+      "name": "stochrsi",
+      "class": "STOCHRSIIndicator",
+      "category": "Momentum",
+      "params": {},
+      "doc": "Stochastic RSI"
+    },
+    {
+      "name": "supertrend",
+      "class": "SUPERTRENDIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "SuperTrend"
+    },
+    {
+      "name": "support_resistance",
+      "class": "SupportResistanceIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Support and Resistance"
+    },
+    {
+      "name": "supportresistance",
+      "class": "SupportResistanceIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Support and Resistance"
+    },
+    {
+      "name": "swma",
+      "class": "SWMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Symmetric Weighted Moving Average"
+    },
+    {
+      "name": "t3",
+      "class": "T3Indicator",
+      "category": "Other",
+      "params": {},
+      "doc": "T3 Moving Average"
+    },
+    {
+      "name": "tema",
+      "class": "TEMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Triple Exponential Moving Average (TEMA)"
+    },
+    {
+      "name": "thermo",
+      "class": "THERMOIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Elders Thermometer"
+    },
+    {
+      "name": "trima",
+      "class": "TRIMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Triangular Moving Average"
+    },
+    {
+      "name": "trix",
+      "class": "TRIXIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Triple Exponential Average"
+    },
+    {
+      "name": "truerange",
+      "class": "TRUERANGEIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "True Range"
+    },
+    {
+      "name": "tsi",
+      "class": "TSIIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "True Strength Index"
+    },
+    {
+      "name": "tsv",
+      "class": "TSVIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Time Segmented Volume"
+    },
+    {
+      "name": "ttmtrend",
+      "class": "TTMTRENDIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "TTM Trend"
+    },
+    {
+      "name": "ui",
+      "class": "UIIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Ulcer Index"
+    },
+    {
+      "name": "uo",
+      "class": "UOIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Ultimate Oscillator"
+    },
+    {
+      "name": "variance",
+      "class": "VARIANCEIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Variance"
+    },
+    {
+      "name": "vhf",
+      "class": "VHFIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Vertical Horizontal Filter"
+    },
+    {
+      "name": "vidya",
+      "class": "VIDYAIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Variable Index Dynamic Average"
+    },
+    {
+      "name": "vortex",
+      "class": "VORTEXIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Vortex Indicator"
+    },
+    {
+      "name": "vp",
+      "class": "VPIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Volume Profile (simplified)"
+    },
+    {
+      "name": "vwap",
+      "class": "VWAPIndicator",
+      "category": "Volume",
+      "params": {},
+      "doc": "Volume Weighted Average Price (VWAP)"
+    },
+    {
+      "name": "vwma",
+      "class": "VWMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Volume Weighted Moving Average (VWMA)"
+    },
+    {
+      "name": "willr",
+      "class": "WILLRIndicator",
+      "category": "Momentum",
+      "params": {},
+      "doc": "Williams %R"
+    },
+    {
+      "name": "wma",
+      "class": "WMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Weighted Moving Average (WMA)"
+    },
+    {
+      "name": "zigzag",
+      "class": "ZIGZAGIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "ZigZag"
+    },
+    {
+      "name": "zlema",
+      "class": "ZLEMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Zero-Lag Exponential Moving Average (ZLEMA)"
+    },
+    {
+      "name": "zlma",
+      "class": "ZLMAIndicator",
+      "category": "Trend",
+      "params": {},
+      "doc": "Zero Lag Moving Average"
+    },
+    {
+      "name": "zscore",
+      "class": "ZSCOREIndicator",
+      "category": "Other",
+      "params": {},
+      "doc": "Z-Score"
+    }
+  ]
+}

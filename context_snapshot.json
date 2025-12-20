@@ -1,0 +1,108 @@
+{
+  "session_id": "sim-98601b7d61be",
+  "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+  "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+  "backtest_date": "2024-10-29",
+  "speed_multiplier": 4.0,
+  "status": "running",
+  "started_at": "2025-12-07T06:58:37.642560",
+  "completed_at": null,
+  "node_states": {
+    "strategy-controller": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "entry-condition-1": {
+      "status": "Active",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "entry-2": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "exit-condition-1": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "exit-2": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "square-off-1": {
+      "status": "Active",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "re-entry-signal-1": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "exit-condition-2": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "exit-3": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "re-entry-signal-2": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "entry-condition-2": {
+      "status": "Active",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "entry-3": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "exit-condition-3": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "exit-condition-4": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "exit-5": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "exit-6": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "re-entry-signal-3": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    },
+    "re-entry-signal-4": {
+      "status": "Inactive",
+      "visited": true,
+      "reEntryNum": 0
+    }
+  },
+  "ltp_store": {},
+  "gps": null,
+  "live_variables": {},
+  "timestamp": "2024-10-29T09:15:09+05:30",
+  "ticks_processed": 25,
+  "total_ticks": 44754
+}

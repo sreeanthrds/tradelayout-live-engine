@@ -1,0 +1,79 @@
+====================================================================================================
+CLICKHOUSE LOCAL DATABASE SETUP
+====================================================================================================
+
+Your ClickHouse is now configured to use LOCALHOST instead of cloud.
+
+✅ COMPLETED SETUP:
+  1. ClickHouse server running on localhost:9000
+  2. Database 'tradelayout' created
+  3. Tables created:
+     - nse_ticks_indices (NIFTY/BANKNIFTY)
+     - nse_ticks_options (Option contracts)
+     - nse_ticks_stocks (Individual stocks)
+  4. .env updated to use localhost
+
+====================================================================================================
+QUICK COMMANDS:
+====================================================================================================
+
+# Check if ClickHouse is running:
+ps aux | grep clickhouse | grep -v grep
+
+# Start ClickHouse (if not running):
+clickhouse server --daemon
+
+# Stop ClickHouse:
+killall clickhouse-server
+
+# Connect to database:
+clickhouse client --host localhost --port 9000 --user default --database tradelayout
+
+# Run setup again (if needed):
+./setup_clickhouse_db.sh
+
+# Check table row counts:
+clickhouse client --host localhost --port 9000 --user default --database tradelayout --query "
+SELECT 
+    'nse_ticks_indices' as table, count(*) as rows FROM nse_ticks_indices
+UNION ALL
+SELECT 
+    'nse_ticks_options' as table, count(*) as rows FROM nse_ticks_options
+UNION ALL
+SELECT 
+    'nse_ticks_stocks' as table, count(*) as rows FROM nse_ticks_stocks
+"
+
+====================================================================================================
+CONFIGURATION (.env file):
+====================================================================================================
+
+CLICKHOUSE_HOST=localhost
+CLICKHOUSE_PORT=9000
+CLICKHOUSE_USER=default
+CLICKHOUSE_PASSWORD=
+CLICKHOUSE_DATABASE=tradelayout
+CLICKHOUSE_SECURE=false
+
+====================================================================================================
+NEXT STEPS:
+====================================================================================================
+
+1. Import your tick data into ClickHouse tables
+2. Run backtests using the local database
+3. All existing backtest scripts will now use localhost automatically
+
+====================================================================================================
+TROUBLESHOOTING:
+====================================================================================================
+
+If connection fails:
+1. Check if server is running: ps aux | grep clickhouse
+2. Check logs: tail -f /opt/homebrew/var/log/clickhouse-server/clickhouse-server.err.log
+3. Restart server: killall clickhouse-server && clickhouse server --daemon
+
+If port 9000 is in use:
+- Check what's using it: lsof -i :9000
+- Change port in .env file and restart
+
+====================================================================================================

@@ -1,0 +1,21 @@
+{
+  "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+  "backtest_date": "2024-10-01",
+  "positions": [],
+  "summary": {
+    "total_positions": 0,
+    "closed_positions": 0,
+    "open_positions": 0,
+    "total_pnl": 0,
+    "winning_trades": 0,
+    "losing_trades": 0,
+    "breakeven_trades": 0,
+    "win_rate": 0,
+    "avg_win": 0,
+    "avg_loss": 0,
+    "avg_duration_minutes": 0,
+    "largest_win": 0,
+    "largest_loss": 0,
+    "re_entries": 0
+  }
+}

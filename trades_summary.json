@@ -1,0 +1,882 @@
+{
+  "summary": {
+    "total_trades": 9,
+    "closed_trades": 9,
+    "open_trades": 0
+  },
+  "daily_summary": {
+    "2024-10-29": {
+      "date": "2024-10-29",
+      "total_trades": 9,
+      "closed_trades": 9,
+      "open_trades": 0,
+      "total_pnl": "-488.40",
+      "winning_trades": 1,
+      "losing_trades": 8,
+      "win_rate": 11.11,
+      "avg_pnl_per_trade": "-54.27",
+      "trades": [
+        {
+          "position_id": "entry-2-pos1",
+          "re_entry_num": 0,
+          "symbol": "NIFTY:2024-11-07:OPT:24250:PE",
+          "entry_flow": {
+            "execution_id": "exec_entry-2_20241029_091900_d98850",
+            "node_id": "entry-2",
+            "node_name": "Entry 2 -Bullish",
+            "timestamp": "2024-10-29 09:19:00+05:30",
+            "side": "SELL",
+            "quantity": 1,
+            "price": "181.60",
+            "order_id": "ENTRY_entry-2_20251209_223125",
+            "signal_chain_ids": [
+              "exec_strategy-controller_20241029_091500_42169b",
+              "exec_entry-condition-1_20241029_091900_1e0dc0"
+            ],
+            "immediate_trigger": {
+              "type": "initial_entry",
+              "entry_signal_id": "exec_strategy-controller_20241029_091500_42169b"
+            }
+          },
+          "exit_flows": [
+            {
+              "execution_id": "exec_exit-3_20241029_104800_b25e6c",
+              "node_id": "exit-3",
+              "node_name": "Exit 3 - SL",
+              "timestamp": "2024-10-29 10:48:00+05:30",
+              "requested_qty": 1,
+              "closed_qty": 1,
+              "remaining_after": 0,
+              "effective": true,
+              "exit_price": "260.05",
+              "pnl": "-78.45",
+              "reason": "SL",
+              "signal_chain_ids": [
+                "exec_exit-condition-2_20241029_104800_df9923"
+              ]
+            },
+            {
+              "execution_id": "exec_exit-2_20241029_114000_9c933a",
+              "node_id": "exit-2",
+              "node_name": "Exit 2 -Target",
+              "timestamp": "2024-10-29 11:40:00+05:30",
+              "requested_qty": 0,
+              "closed_qty": 0,
+              "remaining_after": 0,
+              "effective": false,
+              "exit_price": null,
+              "pnl": "0.00",
+              "reason": "position_already_closed_by_other_exit",
+              "signal_chain_ids": [
+                "exec_exit-condition-1_20241029_114000_c22fdc"
+              ]
+            }
+          ],
+          "position_summary": {
+            "entry_qty": 1,
+            "net_closed_qty": 1,
+            "remaining_qty": 0,
+            "total_pnl": "-78.45",
+            "status": "closed",
+            "duration_minutes": 89.0
+          }
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "re_entry_num": 0,
+          "symbol": "NIFTY:2024-11-07:OPT:24250:CE",
+          "entry_flow": {
+            "execution_id": "exec_entry-3_20241029_114200_271198",
+            "node_id": "entry-3",
+            "node_name": "Entry 3 -Barish",
+            "timestamp": "2024-10-29 11:42:00+05:30",
+            "side": "SELL",
+            "quantity": 1,
+            "price": "262.05",
+            "order_id": "ENTRY_entry-3_20251209_223127",
+            "signal_chain_ids": [
+              "exec_strategy-controller_20241029_091500_42169b",
+              "exec_entry-condition-2_20241029_114200_8142f1"
+            ],
+            "immediate_trigger": {
+              "type": "initial_entry",
+              "entry_signal_id": "exec_strategy-controller_20241029_091500_42169b"
+            }
+          },
+          "exit_flows": [
+            {
+              "execution_id": "exec_exit-6_20241029_120400_e69772",
+              "node_id": "exit-6",
+              "node_name": "Exit 6 - SL",
+              "timestamp": "2024-10-29 12:04:00+05:30",
+              "requested_qty": 1,
+              "closed_qty": 1,
+              "remaining_after": 0,
+              "effective": true,
+              "exit_price": "287.80",
+              "pnl": "-25.75",
+              "reason": "SL",
+              "signal_chain_ids": [
+                "exec_exit-condition-4_20241029_120400_5204c6"
+              ]
+            }
+          ],
+          "position_summary": {
+            "entry_qty": 1,
+            "net_closed_qty": 1,
+            "remaining_qty": 0,
+            "total_pnl": "-25.75",
+            "status": "closed",
+            "duration_minutes": 22.0
+          }
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "re_entry_num": 1,
+          "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+          "entry_flow": {
+            "execution_id": "exec_entry-3_20241029_120509_86bc96",
+            "node_id": "entry-3",
+            "node_name": "Entry 3 -Barish",
+            "timestamp": "2024-10-29 12:05:09+05:30",
+            "side": "SELL",
+            "quantity": 1,
+            "price": "254.65",
+            "order_id": "ENTRY_entry-3_20251209_223128",
+            "signal_chain_ids": [
+              "exec_re-entry-signal-4_20241029_120508_814ffb"
+            ],
+            "immediate_trigger": null
+          },
+          "exit_flows": [
+            {
+              "execution_id": "exec_exit-6_20241029_121500_d47a98",
+              "node_id": "exit-6",
+              "node_name": "Exit 6 - SL",
+              "timestamp": "2024-10-29 12:15:00+05:30",
+              "requested_qty": 1,
+              "closed_qty": 1,
+              "remaining_after": 0,
+              "effective": true,
+              "exit_price": "263.45",
+              "pnl": "-34.55",
+              "reason": "SL",
+              "signal_chain_ids": [
+                "exec_exit-condition-4_20241029_121500_c5663b"
+              ]
+            }
+          ],
+          "position_summary": {
+            "entry_qty": 1,
+            "net_closed_qty": 1,
+            "remaining_qty": 0,
+            "total_pnl": "-34.55",
+            "status": "closed",
+            "duration_minutes": 9.85
+          }
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "re_entry_num": 2,
+          "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+          "entry_flow": {
+            "execution_id": "exec_entry-3_20241029_121753_f5d994",
+            "node_id": "entry-3",
+            "node_name": "Entry 3 -Barish",
+            "timestamp": "2024-10-29 12:17:53+05:30",
+            "side": "SELL",
+            "quantity": 1,
+            "price": "262.70",
+            "order_id": "ENTRY_entry-3_20251209_223128",
+            "signal_chain_ids": [
+              "exec_re-entry-signal-4_20241029_121752_f06a81"
+            ],
+            "immediate_trigger": null
+          },
+          "exit_flows": [
+            {
+              "execution_id": "exec_exit-6_20241029_125200_f46158",
+              "node_id": "exit-6",
+              "node_name": "Exit 6 - SL",
+              "timestamp": "2024-10-29 12:52:00+05:30",
+              "requested_qty": 1,
+              "closed_qty": 1,
+              "remaining_after": 0,
+              "effective": true,
+              "exit_price": "274.75",
+              "pnl": "-46.60",
+              "reason": "SL",
+              "signal_chain_ids": [
+                "exec_exit-condition-4_20241029_125200_96c086"
+              ]
+            }
+          ],
+          "position_summary": {
+            "entry_qty": 1,
+            "net_closed_qty": 1,
+            "remaining_qty": 0,
+            "total_pnl": "-46.60",
+            "status": "closed",
+            "duration_minutes": 34.12
+          }
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "re_entry_num": 3,
+          "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+          "entry_flow": {
+            "execution_id": "exec_entry-3_20241029_125349_eb078e",
+            "node_id": "entry-3",
+            "node_name": "Entry 3 -Barish",
+            "timestamp": "2024-10-29 12:53:49+05:30",
+            "side": "SELL",
+            "quantity": 1,
+            "price": "275.50",
+            "order_id": "ENTRY_entry-3_20251209_223130",
+            "signal_chain_ids": [
+              "exec_re-entry-signal-4_20241029_125348_b5467a"
+            ],
+            "immediate_trigger": null
+          },
+          "exit_flows": [
+            {
+              "execution_id": "exec_exit-6_20241029_130300_42cde3",
+              "node_id": "exit-6",
+              "node_name": "Exit 6 - SL",
+              "timestamp": "2024-10-29 13:03:00+05:30",
+              "requested_qty": 1,
+              "closed_qty": 1,
+              "remaining_after": 0,
+              "effective": true,
+              "exit_price": "288.70",
+              "pnl": "-59.80",
+              "reason": "SL",
+              "signal_chain_ids": [
+                "exec_exit-condition-4_20241029_130300_6becef"
+              ]
+            }
+          ],
+          "position_summary": {
+            "entry_qty": 1,
+            "net_closed_qty": 1,
+            "remaining_qty": 0,
+            "total_pnl": "-59.80",
+            "status": "closed",
+            "duration_minutes": 9.18
+          }
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "re_entry_num": 4,
+          "symbol": "NIFTY:2024-11-07:OPT:24350:CE",
+          "entry_flow": {
+            "execution_id": "exec_entry-3_20241029_130550_645808",
+            "node_id": "entry-3",
+            "node_name": "Entry 3 -Barish",
+            "timestamp": "2024-10-29 13:05:50+05:30",
+            "side": "SELL",
+            "quantity": 1,
+            "price": "254.00",
+            "order_id": "ENTRY_entry-3_20251209_223130",
+            "signal_chain_ids": [
+              "exec_re-entry-signal-4_20241029_130549_80e397"
+            ],
+            "immediate_trigger": null
+          },
+          "exit_flows": [
+            {
+              "execution_id": "exec_exit-6_20241029_140300_e830de",
+              "node_id": "exit-6",
+              "node_name": "Exit 6 - SL",
+              "timestamp": "2024-10-29 14:03:00+05:30",
+              "requested_qty": 1,
+              "closed_qty": 1,
+              "remaining_after": 0,
+              "effective": true,
+              "exit_price": "265.35",
+              "pnl": "-71.15",
+              "reason": "SL",
+              "signal_chain_ids": [
+                "exec_exit-condition-4_20241029_140300_c29695"
+              ]
+            }
+          ],
+          "position_summary": {
+            "entry_qty": 1,
+            "net_closed_qty": 1,
+            "remaining_qty": 0,
+            "total_pnl": "-71.15",
+            "status": "closed",
+            "duration_minutes": 57.17
+          }
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "re_entry_num": 5,
+          "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
+          "entry_flow": {
+            "execution_id": "exec_entry-3_20241029_141325_8611b0",
+            "node_id": "entry-3",
+            "node_name": "Entry 3 -Barish",
+            "timestamp": "2024-10-29 14:13:25+05:30",
+            "side": "SELL",
+            "quantity": 1,
+            "price": "267.00",
+            "order_id": "ENTRY_entry-3_20251209_223132",
+            "signal_chain_ids": [
+              "exec_re-entry-signal-4_20241029_141324_b6c9e2"
+            ],
+            "immediate_trigger": null
+          },
+          "exit_flows": [
+            {
+              "execution_id": "exec_exit-6_20241029_141500_cca89b",
+              "node_id": "exit-6",
+              "node_name": "Exit 6 - SL",
+              "timestamp": "2024-10-29 14:15:00+05:30",
+              "requested_qty": 1,
+              "closed_qty": 1,
+              "remaining_after": 0,
+              "effective": true,
+              "exit_price": "272.90",
+              "pnl": "-77.05",
+              "reason": "SL",
+              "signal_chain_ids": [
+                "exec_exit-condition-4_20241029_141500_804bea"
+              ]
+            }
+          ],
+          "position_summary": {
+            "entry_qty": 1,
+            "net_closed_qty": 1,
+            "remaining_qty": 0,
+            "total_pnl": "-77.05",
+            "status": "closed",
+            "duration_minutes": 1.58
+          }
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "re_entry_num": 6,
+          "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
+          "entry_flow": {
+            "execution_id": "exec_entry-3_20241029_141932_36f3e0",
+            "node_id": "entry-3",
+            "node_name": "Entry 3 -Barish",
+            "timestamp": "2024-10-29 14:19:32+05:30",
+            "side": "SELL",
+            "quantity": 1,
+            "price": "276.00",
+            "order_id": "ENTRY_entry-3_20251209_223132",
+            "signal_chain_ids": [
+              "exec_re-entry-signal-4_20241029_141931_0c326c"
+            ],
+            "immediate_trigger": null
+          },
+          "exit_flows": [
+            {
+              "execution_id": "exec_exit-6_20241029_150800_4c7cd1",
+              "node_id": "exit-6",
+              "node_name": "Exit 6 - SL",
+              "timestamp": "2024-10-29 15:08:00+05:30",
+              "requested_qty": 1,
+              "closed_qty": 1,
+              "remaining_after": 0,
+              "effective": true,
+              "exit_price": "294.00",
+              "pnl": "-95.05",
+              "reason": "SL",
+              "signal_chain_ids": [
+                "exec_exit-condition-4_20241029_150800_6c1a5b"
+              ]
+            }
+          ],
+          "position_summary": {
+            "entry_qty": 1,
+            "net_closed_qty": 1,
+            "remaining_qty": 0,
+            "total_pnl": "-95.05",
+            "status": "closed",
+            "duration_minutes": 48.47
+          }
+        },
+        {
+          "position_id": "entry-3-pos1",
+          "re_entry_num": 7,
+          "symbol": "NIFTY:2024-11-07:OPT:24500:CE",
+          "entry_flow": {
+            "execution_id": "exec_entry-3_20241029_150925_dba52d",
+            "node_id": "entry-3",
+            "node_name": "Entry 3 -Barish",
+            "timestamp": "2024-10-29 15:09:25+05:30",
+            "side": "SELL",
+            "quantity": 1,
+            "price": "234.35",
+            "order_id": "ENTRY_entry-3_20251209_223133",
+            "signal_chain_ids": [
+              "exec_re-entry-signal-4_20241029_150924_307830"
+            ],
+            "immediate_trigger": null
+          },
+          "exit_flows": [
+            {
+              "execution_id": "exec_square-off-1_20241029_152500_2be9ae",
+              "node_id": "square-off-1",
+              "node_name": "Square off off",
+              "timestamp": "2024-10-29 15:25:00+05:30",
+              "requested_qty": 1,
+              "closed_qty": 1,
+              "remaining_after": 0,
+              "effective": true,
+              "exit_price": null,
+              "pnl": "0.00",
+              "reason": "Other",
+              "signal_chain_ids": [
+                "exec_strategy-controller_20241029_091500_42169b"
+              ]
+            }
+          ],
+          "position_summary": {
+            "entry_qty": 1,
+            "net_closed_qty": 1,
+            "remaining_qty": 0,
+            "total_pnl": "0.00",
+            "status": "closed",
+            "duration_minutes": 15.58
+          }
+        }
+      ]
+    }
+  },
+  "trades": [
+    {
+      "position_id": "entry-2-pos1",
+      "re_entry_num": 0,
+      "symbol": "NIFTY:2024-11-07:OPT:24250:PE",
+      "entry_flow": {
+        "execution_id": "exec_entry-2_20241029_091900_d98850",
+        "node_id": "entry-2",
+        "node_name": "Entry 2 -Bullish",
+        "timestamp": "2024-10-29 09:19:00+05:30",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "181.60",
+        "order_id": "ENTRY_entry-2_20251209_223125",
+        "signal_chain_ids": [
+          "exec_strategy-controller_20241029_091500_42169b",
+          "exec_entry-condition-1_20241029_091900_1e0dc0"
+        ],
+        "immediate_trigger": {
+          "type": "initial_entry",
+          "entry_signal_id": "exec_strategy-controller_20241029_091500_42169b"
+        }
+      },
+      "exit_flows": [
+        {
+          "execution_id": "exec_exit-3_20241029_104800_b25e6c",
+          "node_id": "exit-3",
+          "node_name": "Exit 3 - SL",
+          "timestamp": "2024-10-29 10:48:00+05:30",
+          "requested_qty": 1,
+          "closed_qty": 1,
+          "remaining_after": 0,
+          "effective": true,
+          "exit_price": "260.05",
+          "pnl": "-78.45",
+          "reason": "SL",
+          "signal_chain_ids": [
+            "exec_exit-condition-2_20241029_104800_df9923"
+          ]
+        },
+        {
+          "execution_id": "exec_exit-2_20241029_114000_9c933a",
+          "node_id": "exit-2",
+          "node_name": "Exit 2 -Target",
+          "timestamp": "2024-10-29 11:40:00+05:30",
+          "requested_qty": 0,
+          "closed_qty": 0,
+          "remaining_after": 0,
+          "effective": false,
+          "exit_price": null,
+          "pnl": "0.00",
+          "reason": "position_already_closed_by_other_exit",
+          "signal_chain_ids": [
+            "exec_exit-condition-1_20241029_114000_c22fdc"
+          ]
+        }
+      ],
+      "position_summary": {
+        "entry_qty": 1,
+        "net_closed_qty": 1,
+        "remaining_qty": 0,
+        "total_pnl": "-78.45",
+        "status": "closed",
+        "duration_minutes": 89.0
+      }
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "re_entry_num": 0,
+      "symbol": "NIFTY:2024-11-07:OPT:24250:CE",
+      "entry_flow": {
+        "execution_id": "exec_entry-3_20241029_114200_271198",
+        "node_id": "entry-3",
+        "node_name": "Entry 3 -Barish",
+        "timestamp": "2024-10-29 11:42:00+05:30",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "262.05",
+        "order_id": "ENTRY_entry-3_20251209_223127",
+        "signal_chain_ids": [
+          "exec_strategy-controller_20241029_091500_42169b",
+          "exec_entry-condition-2_20241029_114200_8142f1"
+        ],
+        "immediate_trigger": {
+          "type": "initial_entry",
+          "entry_signal_id": "exec_strategy-controller_20241029_091500_42169b"
+        }
+      },
+      "exit_flows": [
+        {
+          "execution_id": "exec_exit-6_20241029_120400_e69772",
+          "node_id": "exit-6",
+          "node_name": "Exit 6 - SL",
+          "timestamp": "2024-10-29 12:04:00+05:30",
+          "requested_qty": 1,
+          "closed_qty": 1,
+          "remaining_after": 0,
+          "effective": true,
+          "exit_price": "287.80",
+          "pnl": "-25.75",
+          "reason": "SL",
+          "signal_chain_ids": [
+            "exec_exit-condition-4_20241029_120400_5204c6"
+          ]
+        }
+      ],
+      "position_summary": {
+        "entry_qty": 1,
+        "net_closed_qty": 1,
+        "remaining_qty": 0,
+        "total_pnl": "-25.75",
+        "status": "closed",
+        "duration_minutes": 22.0
+      }
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "re_entry_num": 1,
+      "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+      "entry_flow": {
+        "execution_id": "exec_entry-3_20241029_120509_86bc96",
+        "node_id": "entry-3",
+        "node_name": "Entry 3 -Barish",
+        "timestamp": "2024-10-29 12:05:09+05:30",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "254.65",
+        "order_id": "ENTRY_entry-3_20251209_223128",
+        "signal_chain_ids": [
+          "exec_re-entry-signal-4_20241029_120508_814ffb"
+        ],
+        "immediate_trigger": null
+      },
+      "exit_flows": [
+        {
+          "execution_id": "exec_exit-6_20241029_121500_d47a98",
+          "node_id": "exit-6",
+          "node_name": "Exit 6 - SL",
+          "timestamp": "2024-10-29 12:15:00+05:30",
+          "requested_qty": 1,
+          "closed_qty": 1,
+          "remaining_after": 0,
+          "effective": true,
+          "exit_price": "263.45",
+          "pnl": "-34.55",
+          "reason": "SL",
+          "signal_chain_ids": [
+            "exec_exit-condition-4_20241029_121500_c5663b"
+          ]
+        }
+      ],
+      "position_summary": {
+        "entry_qty": 1,
+        "net_closed_qty": 1,
+        "remaining_qty": 0,
+        "total_pnl": "-34.55",
+        "status": "closed",
+        "duration_minutes": 9.85
+      }
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "re_entry_num": 2,
+      "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+      "entry_flow": {
+        "execution_id": "exec_entry-3_20241029_121753_f5d994",
+        "node_id": "entry-3",
+        "node_name": "Entry 3 -Barish",
+        "timestamp": "2024-10-29 12:17:53+05:30",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "262.70",
+        "order_id": "ENTRY_entry-3_20251209_223128",
+        "signal_chain_ids": [
+          "exec_re-entry-signal-4_20241029_121752_f06a81"
+        ],
+        "immediate_trigger": null
+      },
+      "exit_flows": [
+        {
+          "execution_id": "exec_exit-6_20241029_125200_f46158",
+          "node_id": "exit-6",
+          "node_name": "Exit 6 - SL",
+          "timestamp": "2024-10-29 12:52:00+05:30",
+          "requested_qty": 1,
+          "closed_qty": 1,
+          "remaining_after": 0,
+          "effective": true,
+          "exit_price": "274.75",
+          "pnl": "-46.60",
+          "reason": "SL",
+          "signal_chain_ids": [
+            "exec_exit-condition-4_20241029_125200_96c086"
+          ]
+        }
+      ],
+      "position_summary": {
+        "entry_qty": 1,
+        "net_closed_qty": 1,
+        "remaining_qty": 0,
+        "total_pnl": "-46.60",
+        "status": "closed",
+        "duration_minutes": 34.12
+      }
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "re_entry_num": 3,
+      "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+      "entry_flow": {
+        "execution_id": "exec_entry-3_20241029_125349_eb078e",
+        "node_id": "entry-3",
+        "node_name": "Entry 3 -Barish",
+        "timestamp": "2024-10-29 12:53:49+05:30",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "275.50",
+        "order_id": "ENTRY_entry-3_20251209_223130",
+        "signal_chain_ids": [
+          "exec_re-entry-signal-4_20241029_125348_b5467a"
+        ],
+        "immediate_trigger": null
+      },
+      "exit_flows": [
+        {
+          "execution_id": "exec_exit-6_20241029_130300_42cde3",
+          "node_id": "exit-6",
+          "node_name": "Exit 6 - SL",
+          "timestamp": "2024-10-29 13:03:00+05:30",
+          "requested_qty": 1,
+          "closed_qty": 1,
+          "remaining_after": 0,
+          "effective": true,
+          "exit_price": "288.70",
+          "pnl": "-59.80",
+          "reason": "SL",
+          "signal_chain_ids": [
+            "exec_exit-condition-4_20241029_130300_6becef"
+          ]
+        }
+      ],
+      "position_summary": {
+        "entry_qty": 1,
+        "net_closed_qty": 1,
+        "remaining_qty": 0,
+        "total_pnl": "-59.80",
+        "status": "closed",
+        "duration_minutes": 9.18
+      }
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "re_entry_num": 4,
+      "symbol": "NIFTY:2024-11-07:OPT:24350:CE",
+      "entry_flow": {
+        "execution_id": "exec_entry-3_20241029_130550_645808",
+        "node_id": "entry-3",
+        "node_name": "Entry 3 -Barish",
+        "timestamp": "2024-10-29 13:05:50+05:30",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "254.00",
+        "order_id": "ENTRY_entry-3_20251209_223130",
+        "signal_chain_ids": [
+          "exec_re-entry-signal-4_20241029_130549_80e397"
+        ],
+        "immediate_trigger": null
+      },
+      "exit_flows": [
+        {
+          "execution_id": "exec_exit-6_20241029_140300_e830de",
+          "node_id": "exit-6",
+          "node_name": "Exit 6 - SL",
+          "timestamp": "2024-10-29 14:03:00+05:30",
+          "requested_qty": 1,
+          "closed_qty": 1,
+          "remaining_after": 0,
+          "effective": true,
+          "exit_price": "265.35",
+          "pnl": "-71.15",
+          "reason": "SL",
+          "signal_chain_ids": [
+            "exec_exit-condition-4_20241029_140300_c29695"
+          ]
+        }
+      ],
+      "position_summary": {
+        "entry_qty": 1,
+        "net_closed_qty": 1,
+        "remaining_qty": 0,
+        "total_pnl": "-71.15",
+        "status": "closed",
+        "duration_minutes": 57.17
+      }
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "re_entry_num": 5,
+      "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
+      "entry_flow": {
+        "execution_id": "exec_entry-3_20241029_141325_8611b0",
+        "node_id": "entry-3",
+        "node_name": "Entry 3 -Barish",
+        "timestamp": "2024-10-29 14:13:25+05:30",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "267.00",
+        "order_id": "ENTRY_entry-3_20251209_223132",
+        "signal_chain_ids": [
+          "exec_re-entry-signal-4_20241029_141324_b6c9e2"
+        ],
+        "immediate_trigger": null
+      },
+      "exit_flows": [
+        {
+          "execution_id": "exec_exit-6_20241029_141500_cca89b",
+          "node_id": "exit-6",
+          "node_name": "Exit 6 - SL",
+          "timestamp": "2024-10-29 14:15:00+05:30",
+          "requested_qty": 1,
+          "closed_qty": 1,
+          "remaining_after": 0,
+          "effective": true,
+          "exit_price": "272.90",
+          "pnl": "-77.05",
+          "reason": "SL",
+          "signal_chain_ids": [
+            "exec_exit-condition-4_20241029_141500_804bea"
+          ]
+        }
+      ],
+      "position_summary": {
+        "entry_qty": 1,
+        "net_closed_qty": 1,
+        "remaining_qty": 0,
+        "total_pnl": "-77.05",
+        "status": "closed",
+        "duration_minutes": 1.58
+      }
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "re_entry_num": 6,
+      "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
+      "entry_flow": {
+        "execution_id": "exec_entry-3_20241029_141932_36f3e0",
+        "node_id": "entry-3",
+        "node_name": "Entry 3 -Barish",
+        "timestamp": "2024-10-29 14:19:32+05:30",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "276.00",
+        "order_id": "ENTRY_entry-3_20251209_223132",
+        "signal_chain_ids": [
+          "exec_re-entry-signal-4_20241029_141931_0c326c"
+        ],
+        "immediate_trigger": null
+      },
+      "exit_flows": [
+        {
+          "execution_id": "exec_exit-6_20241029_150800_4c7cd1",
+          "node_id": "exit-6",
+          "node_name": "Exit 6 - SL",
+          "timestamp": "2024-10-29 15:08:00+05:30",
+          "requested_qty": 1,
+          "closed_qty": 1,
+          "remaining_after": 0,
+          "effective": true,
+          "exit_price": "294.00",
+          "pnl": "-95.05",
+          "reason": "SL",
+          "signal_chain_ids": [
+            "exec_exit-condition-4_20241029_150800_6c1a5b"
+          ]
+        }
+      ],
+      "position_summary": {
+        "entry_qty": 1,
+        "net_closed_qty": 1,
+        "remaining_qty": 0,
+        "total_pnl": "-95.05",
+        "status": "closed",
+        "duration_minutes": 48.47
+      }
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "re_entry_num": 7,
+      "symbol": "NIFTY:2024-11-07:OPT:24500:CE",
+      "entry_flow": {
+        "execution_id": "exec_entry-3_20241029_150925_dba52d",
+        "node_id": "entry-3",
+        "node_name": "Entry 3 -Barish",
+        "timestamp": "2024-10-29 15:09:25+05:30",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "234.35",
+        "order_id": "ENTRY_entry-3_20251209_223133",
+        "signal_chain_ids": [
+          "exec_re-entry-signal-4_20241029_150924_307830"
+        ],
+        "immediate_trigger": null
+      },
+      "exit_flows": [
+        {
+          "execution_id": "exec_square-off-1_20241029_152500_2be9ae",
+          "node_id": "square-off-1",
+          "node_name": "Square off off",
+          "timestamp": "2024-10-29 15:25:00+05:30",
+          "requested_qty": 1,
+          "closed_qty": 1,
+          "remaining_after": 0,
+          "effective": true,
+          "exit_price": null,
+          "pnl": "0.00",
+          "reason": "Other",
+          "signal_chain_ids": [
+            "exec_strategy-controller_20241029_091500_42169b"
+          ]
+        }
+      ],
+      "position_summary": {
+        "entry_qty": 1,
+        "net_closed_qty": 1,
+        "remaining_qty": 0,
+        "total_pnl": "0.00",
+        "status": "closed",
+        "duration_minutes": 15.58
+      }
+    }
+  ]
+}

@@ -16,6 +16,7 @@ Usage:
     )
 """
 
+import asyncio
 import logging
 from datetime import datetime
 from typing import List, Optional, Union
@@ -87,9 +88,19 @@ def run_backtest(
         strategies_agg=strategies_agg
     )
     
-    # Run backtest
+    # Run backtest (now async)
     engine = CentralizedBacktestEngine(config)
-    results = engine.run()
+    
+    # Use asyncio.run() to execute async engine
+    try:
+        # Check if already running in event loop
+        loop = asyncio.get_running_loop()
+        # Already in async context, await directly
+        results = asyncio.create_task(engine.run())
+        results = asyncio.run_coroutine_threadsafe(engine.run(), loop).result()
+    except RuntimeError:
+        # No event loop running, use asyncio.run()
+        results = asyncio.run(engine.run())
     
     # DEBUG START: Return snapshots if debug mode enabled
     if debug_mode == 'snapshots' and hasattr(engine, 'debug_snapshots'):

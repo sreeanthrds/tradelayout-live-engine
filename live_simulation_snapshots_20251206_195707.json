@@ -1,0 +1,25 @@
+{
+  "test_info": {
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "test_date": "2024-10-29",
+    "speed_multiplier": 1.0,
+    "total_snapshots": 1,
+    "generated_at": "2025-12-06T19:57:07.087617"
+  },
+  "snapshots": [
+    {
+      "session_id": "sim-b7e150d2d6f7",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 1.0,
+      "status": "error",
+      "started_at": "2025-12-06T19:57:07.069011",
+      "completed_at": "2025-12-06T19:57:07.070087",
+      "error": "BacktestConfig.__init__() got an unexpected keyword argument 'user_id'",
+      "_snapshot_num": 1,
+      "_polled_at": "2025-12-06T19:57:07.087337"
+    }
+  ]
+}

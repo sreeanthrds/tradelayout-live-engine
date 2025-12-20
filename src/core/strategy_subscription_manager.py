@@ -425,6 +425,7 @@ class StrategySubscriptionManager:
             'account_id': subscription['account_id'],
             'config': strategy_config,
             'metadata': strategy_metadata,  # ✅ Store optimized metadata for O(1) access
+            'strategy_scale': subscription.get('strategy_scale', 1.0),  # ✅ Strategy scaling factor
             'node_states': {},
             'node_instances': {},
             'positions': {},

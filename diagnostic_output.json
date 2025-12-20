@@ -1,0 +1,856 @@
+{
+  "metadata": {
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "date": "2024-10-29",
+    "generated_at": "2025-12-01 18:03:07",
+    "total_positions": 10,
+    "total_ticks_processed": 44754,
+    "duration_seconds": 8.457837,
+    "signals_triggered": 0
+  },
+  "positions": [
+    {
+      "position_id": "entry-2-pos1",
+      "node_id": "exit-3",
+      "status": "CLOSED",
+      "instrument": "NIFTY",
+      "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+      "contract": "NIFTY:2024-11-07:OPT:24300:CE",
+      "exchange": "NFO",
+      "entry_timestamp": "2024-10-29 09:17:37",
+      "entry_price": 222.0,
+      "quantity": 1,
+      "lots": 1,
+      "lot_size": 1,
+      "nifty_spot_at_entry": null,
+      "diagnostic_data": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "type": "current_time"
+            },
+            "rhs_expression": {
+              "type": "time_function",
+              "timeValue": "09:17"
+            },
+            "lhs_value": "2024-10-29 09:17:37",
+            "rhs_value": "2024-10-29 09:17:00",
+            "operator": ">=",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 30,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 28.3934471519529,
+            "rhs_value": 30.0,
+            "operator": "<",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "type": "live_data",
+              "field": "underlying_ltp",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "candle_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "lhs_value": 24279.3,
+            "rhs_value": 24278.25,
+            "operator": ">",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          }
+        ],
+        "condition_substitution": "\"2024-10-29 09:17:37\" >= \"2024-10-29 09:17:00\" AND 28.3934471519529 < 30.0 AND 24279.3 > 24278.25",
+        "candle_data": {
+          "NIFTY": {}
+        }
+      },
+      "condition_preview": "Current Time >= 09:17 AND Previous[TI.1m.rsi(14,close)] < 30 AND TI.underlying_ltp > Previous[TI.1m.Low]",
+      "exit_timestamp": "2024-10-29 10:48:00",
+      "exit_price": 0.0,
+      "exit_node_id": null,
+      "exit_reason": null,
+      "nifty_spot_at_exit": null,
+      "duration_minutes": 0.0,
+      "pnl": 0.0,
+      "pnl_percentage": 0.0
+    },
+    {
+      "position_id": "entry-2-pos1",
+      "node_id": "entry-2",
+      "status": "OPEN",
+      "instrument": "NIFTY",
+      "symbol": "NIFTY:2024-11-07:OPT:24250:CE",
+      "contract": "NIFTY:2024-11-07:OPT:24250:CE",
+      "exchange": "NFO",
+      "entry_timestamp": "2024-10-29 09:19:00",
+      "entry_price": 289.7,
+      "quantity": 1,
+      "lots": 1,
+      "lot_size": 1,
+      "nifty_spot_at_entry": null,
+      "diagnostic_data": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "type": "current_time"
+            },
+            "rhs_expression": {
+              "type": "time_function",
+              "timeValue": "09:17"
+            },
+            "lhs_value": "2024-10-29 09:17:37",
+            "rhs_value": "2024-10-29 09:17:00",
+            "operator": ">=",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 30,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 28.3934471519529,
+            "rhs_value": 30.0,
+            "operator": "<",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "type": "live_data",
+              "field": "underlying_ltp",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "candle_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "lhs_value": 24279.3,
+            "rhs_value": 24278.25,
+            "operator": ">",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          }
+        ],
+        "condition_substitution": "\"2024-10-29 09:17:37\" >= \"2024-10-29 09:17:00\" AND 28.3934471519529 < 30.0 AND 24279.3 > 24278.25",
+        "candle_data": {
+          "NIFTY": {}
+        }
+      },
+      "condition_preview": null
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "node_id": "square-off-1",
+      "status": "CLOSED",
+      "instrument": "NIFTY",
+      "symbol": "NIFTY:2024-11-07:OPT:24250:PE",
+      "contract": "NIFTY:2024-11-07:OPT:24250:PE",
+      "exchange": "NFO",
+      "entry_timestamp": "2024-10-29 11:42:00",
+      "entry_price": 211.9,
+      "quantity": 1,
+      "lots": 1,
+      "lot_size": 1,
+      "nifty_spot_at_entry": null,
+      "diagnostic_data": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "type": "current_time"
+            },
+            "rhs_expression": {
+              "type": "time_function",
+              "timeValue": "09:17"
+            },
+            "lhs_value": "2024-10-29 09:17:37",
+            "rhs_value": "2024-10-29 09:17:00",
+            "operator": ">=",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 30,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 28.3934471519529,
+            "rhs_value": 30.0,
+            "operator": "<",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "type": "live_data",
+              "field": "underlying_ltp",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "candle_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "lhs_value": 24279.3,
+            "rhs_value": 24278.25,
+            "operator": ">",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          }
+        ],
+        "condition_substitution": "\"2024-10-29 09:17:37\" >= \"2024-10-29 09:17:00\" AND 28.3934471519529 < 30.0 AND 24279.3 > 24278.25",
+        "candle_data": {
+          "NIFTY": {}
+        }
+      },
+      "condition_preview": null,
+      "exit_timestamp": "2024-10-29 15:25:00",
+      "exit_price": 0.0,
+      "exit_node_id": null,
+      "exit_reason": null,
+      "nifty_spot_at_exit": null,
+      "duration_minutes": 0.0,
+      "pnl": 0.0,
+      "pnl_percentage": 0.0
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "node_id": "entry-3",
+      "status": "OPEN",
+      "instrument": "NIFTY",
+      "symbol": "NIFTY:2024-11-07:OPT:24300:PE",
+      "contract": "NIFTY:2024-11-07:OPT:24300:PE",
+      "exchange": "NFO",
+      "entry_timestamp": "2024-10-29 12:05:08",
+      "entry_price": 207.65,
+      "quantity": 1,
+      "lots": 1,
+      "lot_size": 1,
+      "nifty_spot_at_entry": null,
+      "diagnostic_data": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "type": "current_time"
+            },
+            "rhs_expression": {
+              "type": "time_function",
+              "timeValue": "09:17"
+            },
+            "lhs_value": "2024-10-29 09:17:37",
+            "rhs_value": "2024-10-29 09:17:00",
+            "operator": ">=",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 30,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 28.3934471519529,
+            "rhs_value": 30.0,
+            "operator": "<",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "type": "live_data",
+              "field": "underlying_ltp",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "candle_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "lhs_value": 24279.3,
+            "rhs_value": 24278.25,
+            "operator": ">",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          }
+        ],
+        "condition_substitution": "\"2024-10-29 09:17:37\" >= \"2024-10-29 09:17:00\" AND 28.3934471519529 < 30.0 AND 24279.3 > 24278.25",
+        "candle_data": {
+          "NIFTY": {}
+        }
+      },
+      "condition_preview": null
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "node_id": "entry-3",
+      "status": "OPEN",
+      "instrument": "NIFTY",
+      "symbol": "NIFTY:2024-11-07:OPT:24300:PE",
+      "contract": "NIFTY:2024-11-07:OPT:24300:PE",
+      "exchange": "NFO",
+      "entry_timestamp": "2024-10-29 12:17:52",
+      "entry_price": 199.6,
+      "quantity": 1,
+      "lots": 1,
+      "lot_size": 1,
+      "nifty_spot_at_entry": null,
+      "diagnostic_data": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "type": "current_time"
+            },
+            "rhs_expression": {
+              "type": "time_function",
+              "timeValue": "09:17"
+            },
+            "lhs_value": "2024-10-29 09:17:37",
+            "rhs_value": "2024-10-29 09:17:00",
+            "operator": ">=",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 30,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 28.3934471519529,
+            "rhs_value": 30.0,
+            "operator": "<",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "type": "live_data",
+              "field": "underlying_ltp",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "candle_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "lhs_value": 24279.3,
+            "rhs_value": 24278.25,
+            "operator": ">",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          }
+        ],
+        "condition_substitution": "\"2024-10-29 09:17:37\" >= \"2024-10-29 09:17:00\" AND 28.3934471519529 < 30.0 AND 24279.3 > 24278.25",
+        "candle_data": {
+          "NIFTY": {}
+        }
+      },
+      "condition_preview": null
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "node_id": "entry-3",
+      "status": "OPEN",
+      "instrument": "NIFTY",
+      "symbol": "NIFTY:2024-11-07:OPT:24300:PE",
+      "contract": "NIFTY:2024-11-07:OPT:24300:PE",
+      "exchange": "NFO",
+      "entry_timestamp": "2024-10-29 12:53:48",
+      "entry_price": 185.4,
+      "quantity": 1,
+      "lots": 1,
+      "lot_size": 1,
+      "nifty_spot_at_entry": null,
+      "diagnostic_data": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "type": "current_time"
+            },
+            "rhs_expression": {
+              "type": "time_function",
+              "timeValue": "09:17"
+            },
+            "lhs_value": "2024-10-29 09:17:37",
+            "rhs_value": "2024-10-29 09:17:00",
+            "operator": ">=",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 30,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 28.3934471519529,
+            "rhs_value": 30.0,
+            "operator": "<",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "type": "live_data",
+              "field": "underlying_ltp",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "candle_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "lhs_value": 24279.3,
+            "rhs_value": 24278.25,
+            "operator": ">",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          }
+        ],
+        "condition_substitution": "\"2024-10-29 09:17:37\" >= \"2024-10-29 09:17:00\" AND 28.3934471519529 < 30.0 AND 24279.3 > 24278.25",
+        "candle_data": {
+          "NIFTY": {}
+        }
+      },
+      "condition_preview": null
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "node_id": "entry-3",
+      "status": "OPEN",
+      "instrument": "NIFTY",
+      "symbol": "NIFTY:2024-11-07:OPT:24350:PE",
+      "contract": "NIFTY:2024-11-07:OPT:24350:PE",
+      "exchange": "NFO",
+      "entry_timestamp": "2024-10-29 13:05:49",
+      "entry_price": 201.25,
+      "quantity": 1,
+      "lots": 1,
+      "lot_size": 1,
+      "nifty_spot_at_entry": null,
+      "diagnostic_data": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "type": "current_time"
+            },
+            "rhs_expression": {
+              "type": "time_function",
+              "timeValue": "09:17"
+            },
+            "lhs_value": "2024-10-29 09:17:37",
+            "rhs_value": "2024-10-29 09:17:00",
+            "operator": ">=",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 30,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 28.3934471519529,
+            "rhs_value": 30.0,
+            "operator": "<",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "type": "live_data",
+              "field": "underlying_ltp",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "candle_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "lhs_value": 24279.3,
+            "rhs_value": 24278.25,
+            "operator": ">",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          }
+        ],
+        "condition_substitution": "\"2024-10-29 09:17:37\" >= \"2024-10-29 09:17:00\" AND 28.3934471519529 < 30.0 AND 24279.3 > 24278.25",
+        "candle_data": {
+          "NIFTY": {}
+        }
+      },
+      "condition_preview": null
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "node_id": "entry-3",
+      "status": "OPEN",
+      "instrument": "NIFTY",
+      "symbol": "NIFTY:2024-11-07:OPT:24400:PE",
+      "contract": "NIFTY:2024-11-07:OPT:24400:PE",
+      "exchange": "NFO",
+      "entry_timestamp": "2024-10-29 14:13:24",
+      "entry_price": 188.7,
+      "quantity": 1,
+      "lots": 1,
+      "lot_size": 1,
+      "nifty_spot_at_entry": null,
+      "diagnostic_data": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "type": "current_time"
+            },
+            "rhs_expression": {
+              "type": "time_function",
+              "timeValue": "09:17"
+            },
+            "lhs_value": "2024-10-29 09:17:37",
+            "rhs_value": "2024-10-29 09:17:00",
+            "operator": ">=",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 30,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 28.3934471519529,
+            "rhs_value": 30.0,
+            "operator": "<",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "type": "live_data",
+              "field": "underlying_ltp",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "candle_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "lhs_value": 24279.3,
+            "rhs_value": 24278.25,
+            "operator": ">",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          }
+        ],
+        "condition_substitution": "\"2024-10-29 09:17:37\" >= \"2024-10-29 09:17:00\" AND 28.3934471519529 < 30.0 AND 24279.3 > 24278.25",
+        "candle_data": {
+          "NIFTY": {}
+        }
+      },
+      "condition_preview": null
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "node_id": "entry-3",
+      "status": "OPEN",
+      "instrument": "NIFTY",
+      "symbol": "NIFTY:2024-11-07:OPT:24450:PE",
+      "contract": "NIFTY:2024-11-07:OPT:24450:PE",
+      "exchange": "NFO",
+      "entry_timestamp": "2024-10-29 14:19:31",
+      "entry_price": 199.1,
+      "quantity": 1,
+      "lots": 1,
+      "lot_size": 1,
+      "nifty_spot_at_entry": null,
+      "diagnostic_data": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "type": "current_time"
+            },
+            "rhs_expression": {
+              "type": "time_function",
+              "timeValue": "09:17"
+            },
+            "lhs_value": "2024-10-29 09:17:37",
+            "rhs_value": "2024-10-29 09:17:00",
+            "operator": ">=",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 30,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 28.3934471519529,
+            "rhs_value": 30.0,
+            "operator": "<",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "type": "live_data",
+              "field": "underlying_ltp",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "candle_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "lhs_value": 24279.3,
+            "rhs_value": 24278.25,
+            "operator": ">",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          }
+        ],
+        "condition_substitution": "\"2024-10-29 09:17:37\" >= \"2024-10-29 09:17:00\" AND 28.3934471519529 < 30.0 AND 24279.3 > 24278.25",
+        "candle_data": {
+          "NIFTY": {}
+        }
+      },
+      "condition_preview": null
+    },
+    {
+      "position_id": "entry-3-pos1",
+      "node_id": "entry-3",
+      "status": "OPEN",
+      "instrument": "NIFTY",
+      "symbol": "NIFTY:2024-11-07:OPT:24500:PE",
+      "contract": "NIFTY:2024-11-07:OPT:24500:PE",
+      "exchange": "NFO",
+      "entry_timestamp": "2024-10-29 15:09:24",
+      "entry_price": 199.85,
+      "quantity": 1,
+      "lots": 1,
+      "lot_size": 1,
+      "nifty_spot_at_entry": null,
+      "diagnostic_data": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "type": "current_time"
+            },
+            "rhs_expression": {
+              "type": "time_function",
+              "timeValue": "09:17"
+            },
+            "lhs_value": "2024-10-29 09:17:37",
+            "rhs_value": "2024-10-29 09:17:00",
+            "operator": ">=",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 30,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 28.3934471519529,
+            "rhs_value": 30.0,
+            "operator": "<",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          },
+          {
+            "lhs_expression": {
+              "type": "live_data",
+              "field": "underlying_ltp",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "candle_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "lhs_value": 24279.3,
+            "rhs_value": 24278.25,
+            "operator": ">",
+            "result": true,
+            "timestamp": "2024-10-29 09:17:37",
+            "tick_count": 158
+          }
+        ],
+        "condition_substitution": "\"2024-10-29 09:17:37\" >= \"2024-10-29 09:17:00\" AND 28.3934471519529 < 30.0 AND 24279.3 > 24278.25",
+        "candle_data": {
+          "NIFTY": {}
+        }
+      },
+      "condition_preview": null
+    }
+  ],
+  "summary": {
+    "total_trades": 10,
+    "winning_trades": 0,
+    "losing_trades": 0,
+    "total_pnl": 0,
+    "win_rate": 0.0
+  }
+}

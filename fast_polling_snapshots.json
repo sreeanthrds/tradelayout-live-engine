@@ -1,0 +1,888 @@
+[
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null,
+    "node_states": {
+      "strategy-controller": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-condition-1": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-1": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "square-off-1": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-1": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-condition-2": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-4": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-5": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-6": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-4": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      }
+    },
+    "ltp_store": {},
+    "gps": null,
+    "live_variables": {},
+    "timestamp": "2024-10-29T09:15:07+05:30",
+    "ticks_processed": 21,
+    "total_ticks": 44754
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null,
+    "node_states": {
+      "strategy-controller": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-condition-1": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-1": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "square-off-1": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-1": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-condition-2": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-4": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-5": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-6": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-4": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      }
+    },
+    "ltp_store": {},
+    "gps": null,
+    "live_variables": {},
+    "timestamp": "2024-10-29T09:15:13+05:30",
+    "ticks_processed": 33,
+    "total_ticks": 44754
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null,
+    "node_states": {
+      "strategy-controller": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-condition-1": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-1": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "square-off-1": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-1": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-condition-2": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-4": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-5": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-6": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-4": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      }
+    },
+    "ltp_store": {},
+    "gps": null,
+    "live_variables": {},
+    "timestamp": "2024-10-29T09:15:22+05:30",
+    "ticks_processed": 59,
+    "total_ticks": 44754
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null,
+    "node_states": {
+      "strategy-controller": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-condition-1": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-1": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "square-off-1": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-1": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-condition-2": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-4": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-5": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-6": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-4": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      }
+    },
+    "ltp_store": {},
+    "gps": null,
+    "live_variables": {},
+    "timestamp": "2024-10-29T09:15:30+05:30",
+    "ticks_processed": 79,
+    "total_ticks": 44754
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null,
+    "node_states": {
+      "strategy-controller": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-condition-1": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-1": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "square-off-1": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-1": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-condition-2": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-4": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-5": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-6": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-4": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      }
+    },
+    "ltp_store": {},
+    "gps": null,
+    "live_variables": {},
+    "timestamp": "2024-10-29T09:15:38+05:30",
+    "ticks_processed": 97,
+    "total_ticks": 44754
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null,
+    "node_states": {
+      "strategy-controller": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-condition-1": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-1": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "square-off-1": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-1": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-condition-2": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-4": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-5": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-6": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-4": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      }
+    },
+    "ltp_store": {},
+    "gps": null,
+    "live_variables": {},
+    "timestamp": "2024-10-29T09:15:46+05:30",
+    "ticks_processed": 115,
+    "total_ticks": 44754
+  },
+  {
+    "session_id": "sim-23f70b95c5d6",
+    "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+    "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+    "backtest_date": "2024-10-29",
+    "speed_multiplier": 100.0,
+    "status": "running",
+    "started_at": "2025-12-07T07:22:03.010507",
+    "completed_at": null,
+    "node_states": {
+      "strategy-controller": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-condition-1": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-1": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "square-off-1": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-1": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-2": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-condition-2": {
+        "status": "Active",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "entry-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-condition-4": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-5": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "exit-6": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-3": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      },
+      "re-entry-signal-4": {
+        "status": "Inactive",
+        "visited": true,
+        "reEntryNum": 0
+      }
+    },
+    "ltp_store": {},
+    "gps": null,
+    "live_variables": {},
+    "timestamp": "2024-10-29T09:15:55+05:30",
+    "ticks_processed": 133,
+    "total_ticks": 44754
+  }
+]

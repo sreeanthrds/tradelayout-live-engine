@@ -1,0 +1,5429 @@
+{
+  "test_info": {
+    "speed_multiplier": 4.0,
+    "total_snapshots": 100
+  },
+  "snapshots": [
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 1,
+      "_polled_at": "2025-12-06T20:18:17.179850"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 2,
+      "_polled_at": "2025-12-06T20:18:17.296097"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 3,
+      "_polled_at": "2025-12-06T20:18:17.402397"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 4,
+      "_polled_at": "2025-12-06T20:18:17.509433"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 5,
+      "_polled_at": "2025-12-06T20:18:17.614178"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 6,
+      "_polled_at": "2025-12-06T20:18:17.723579"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 7,
+      "_polled_at": "2025-12-06T20:18:17.837433"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 8,
+      "_polled_at": "2025-12-06T20:18:17.965925"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 9,
+      "_polled_at": "2025-12-06T20:18:18.160871"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 10,
+      "_polled_at": "2025-12-06T20:18:18.272962"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 11,
+      "_polled_at": "2025-12-06T20:18:18.380466"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 12,
+      "_polled_at": "2025-12-06T20:18:18.489143"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 13,
+      "_polled_at": "2025-12-06T20:18:18.597188"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 14,
+      "_polled_at": "2025-12-06T20:18:18.759274"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 15,
+      "_polled_at": "2025-12-06T20:18:18.873875"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 16,
+      "_polled_at": "2025-12-06T20:18:18.990260"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 17,
+      "_polled_at": "2025-12-06T20:18:19.102735"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 18,
+      "_polled_at": "2025-12-06T20:18:19.217245"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 19,
+      "_polled_at": "2025-12-06T20:18:19.326962"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 20,
+      "_polled_at": "2025-12-06T20:18:19.442434"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 21,
+      "_polled_at": "2025-12-06T20:18:19.559149"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 22,
+      "_polled_at": "2025-12-06T20:18:19.668827"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 23,
+      "_polled_at": "2025-12-06T20:18:19.776393"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 24,
+      "_polled_at": "2025-12-06T20:18:19.916353"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 25,
+      "_polled_at": "2025-12-06T20:18:20.116290"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 26,
+      "_polled_at": "2025-12-06T20:18:20.248504"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 27,
+      "_polled_at": "2025-12-06T20:18:20.434254"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 28,
+      "_polled_at": "2025-12-06T20:18:20.560635"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 29,
+      "_polled_at": "2025-12-06T20:18:20.708372"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 30,
+      "_polled_at": "2025-12-06T20:18:20.885454"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 31,
+      "_polled_at": "2025-12-06T20:18:21.015415"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 32,
+      "_polled_at": "2025-12-06T20:18:21.236034"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 33,
+      "_polled_at": "2025-12-06T20:18:21.359370"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 34,
+      "_polled_at": "2025-12-06T20:18:21.467567"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 35,
+      "_polled_at": "2025-12-06T20:18:21.604296"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 36,
+      "_polled_at": "2025-12-06T20:18:21.739051"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "_snapshot_num": 37,
+      "_polled_at": "2025-12-06T20:18:21.926204"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:00+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24361.9,
+              "low": 24326.75,
+              "close": 24361.9,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24361.9,
+          "timestamp": "2024-10-29 09:15:00.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 38,
+      "_polled_at": "2025-12-06T20:18:22.034233"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:00+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24361.9,
+              "low": 24326.75,
+              "close": 24361.9,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24361.9,
+          "timestamp": "2024-10-29 09:15:00.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 39,
+      "_polled_at": "2025-12-06T20:18:22.139812"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:01+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24361.9,
+              "low": 24326.75,
+              "close": 24352.4,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24352.4,
+          "timestamp": "2024-10-29 09:15:01.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 40,
+      "_polled_at": "2025-12-06T20:18:22.246524"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:01+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24361.9,
+              "low": 24326.75,
+              "close": 24352.4,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24352.4,
+          "timestamp": "2024-10-29 09:15:01.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 41,
+      "_polled_at": "2025-12-06T20:18:22.356057"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:02+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24370.2,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24370.2,
+          "timestamp": "2024-10-29 09:15:02.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 42,
+      "_polled_at": "2025-12-06T20:18:22.459089"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:02+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24370.2,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24370.2,
+          "timestamp": "2024-10-29 09:15:02.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 43,
+      "_polled_at": "2025-12-06T20:18:22.566716"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:02+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24370.2,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24370.2,
+          "timestamp": "2024-10-29 09:15:02.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 44,
+      "_polled_at": "2025-12-06T20:18:22.675300"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:03+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24360.15,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24360.15,
+          "timestamp": "2024-10-29 09:15:03.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 45,
+      "_polled_at": "2025-12-06T20:18:22.780864"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:03+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24360.15,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24360.15,
+          "timestamp": "2024-10-29 09:15:03.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 46,
+      "_polled_at": "2025-12-06T20:18:22.889020"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:04+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24355.1,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24355.1,
+          "timestamp": "2024-10-29 09:15:04.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 47,
+      "_polled_at": "2025-12-06T20:18:22.995423"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:04+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24355.1,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24355.1,
+          "timestamp": "2024-10-29 09:15:04.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 48,
+      "_polled_at": "2025-12-06T20:18:23.101435"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:04+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24355.1,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24355.1,
+          "timestamp": "2024-10-29 09:15:04.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 49,
+      "_polled_at": "2025-12-06T20:18:23.208585"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:05+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24350.35,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24350.35,
+          "timestamp": "2024-10-29 09:15:05.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 50,
+      "_polled_at": "2025-12-06T20:18:23.317110"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:05+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24350.35,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24350.35,
+          "timestamp": "2024-10-29 09:15:05.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 51,
+      "_polled_at": "2025-12-06T20:18:23.421418"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:06+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24347.3,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24347.3,
+          "timestamp": "2024-10-29 09:15:06.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 52,
+      "_polled_at": "2025-12-06T20:18:23.527363"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:06+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24347.3,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24347.3,
+          "timestamp": "2024-10-29 09:15:06.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 53,
+      "_polled_at": "2025-12-06T20:18:23.633013"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:07+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24337.75,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24337.75,
+          "timestamp": "2024-10-29 09:15:07.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 54,
+      "_polled_at": "2025-12-06T20:18:23.740574"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:07+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24337.75,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24337.75,
+          "timestamp": "2024-10-29 09:15:07.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 55,
+      "_polled_at": "2025-12-06T20:18:23.847864"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:07+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24337.75,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24337.75,
+          "timestamp": "2024-10-29 09:15:07.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 56,
+      "_polled_at": "2025-12-06T20:18:23.951276"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:08+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24343.05,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24343.05,
+          "timestamp": "2024-10-29 09:15:08.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 57,
+      "_polled_at": "2025-12-06T20:18:24.058813"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:08+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24343.05,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24343.05,
+          "timestamp": "2024-10-29 09:15:08.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 58,
+      "_polled_at": "2025-12-06T20:18:24.168533"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:09+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24341.7,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24341.7,
+          "timestamp": "2024-10-29 09:15:09.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 59,
+      "_polled_at": "2025-12-06T20:18:24.273808"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:09+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24341.7,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24341.7,
+          "timestamp": "2024-10-29 09:15:09.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 60,
+      "_polled_at": "2025-12-06T20:18:24.381270"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:10+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24341.95,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24341.95,
+          "timestamp": "2024-10-29 09:15:10.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 61,
+      "_polled_at": "2025-12-06T20:18:24.490904"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:10+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24341.95,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24341.95,
+          "timestamp": "2024-10-29 09:15:10.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 62,
+      "_polled_at": "2025-12-06T20:18:24.597778"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:10+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24341.95,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24341.95,
+          "timestamp": "2024-10-29 09:15:10.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 63,
+      "_polled_at": "2025-12-06T20:18:24.705929"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:11+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24340.05,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24340.05,
+          "timestamp": "2024-10-29 09:15:11.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 64,
+      "_polled_at": "2025-12-06T20:18:24.814463"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:11+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24340.05,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24340.05,
+          "timestamp": "2024-10-29 09:15:11.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 65,
+      "_polled_at": "2025-12-06T20:18:24.917980"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:12+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24335.35,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24335.35,
+          "timestamp": "2024-10-29 09:15:12.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 66,
+      "_polled_at": "2025-12-06T20:18:25.025458"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:12+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24335.35,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24335.35,
+          "timestamp": "2024-10-29 09:15:12.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 67,
+      "_polled_at": "2025-12-06T20:18:25.133007"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:12+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24335.35,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24335.35,
+          "timestamp": "2024-10-29 09:15:12.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 68,
+      "_polled_at": "2025-12-06T20:18:25.241384"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:13+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24332.8,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24332.8,
+          "timestamp": "2024-10-29 09:15:13.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 69,
+      "_polled_at": "2025-12-06T20:18:25.344970"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:13+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24326.75,
+              "close": 24332.8,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24332.8,
+          "timestamp": "2024-10-29 09:15:13.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 70,
+      "_polled_at": "2025-12-06T20:18:25.455938"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:14+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24322.8,
+              "close": 24322.8,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24322.8,
+          "timestamp": "2024-10-29 09:15:14.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 71,
+      "_polled_at": "2025-12-06T20:18:25.561496"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:14+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24322.8,
+              "close": 24322.8,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24322.8,
+          "timestamp": "2024-10-29 09:15:14.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 72,
+      "_polled_at": "2025-12-06T20:18:25.668305"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:15+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24318.25,
+              "close": 24318.25,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24318.25,
+          "timestamp": "2024-10-29 09:15:15.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 73,
+      "_polled_at": "2025-12-06T20:18:25.781374"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:15+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24318.25,
+              "close": 24318.25,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24318.25,
+          "timestamp": "2024-10-29 09:15:15.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 74,
+      "_polled_at": "2025-12-06T20:18:25.889311"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:16+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24317.9,
+              "close": 24318.8,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24318.8,
+          "timestamp": "2024-10-29 09:15:16.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 75,
+      "_polled_at": "2025-12-06T20:18:26.032350"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:16+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24317.9,
+              "close": 24318.8,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24318.8,
+          "timestamp": "2024-10-29 09:15:16.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 76,
+      "_polled_at": "2025-12-06T20:18:26.170643"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:17+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24316.2,
+              "close": 24316.2,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24316.2,
+          "timestamp": "2024-10-29 09:15:17.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 77,
+      "_polled_at": "2025-12-06T20:18:26.327287"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:17+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24316.2,
+              "close": 24316.2,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24316.2,
+          "timestamp": "2024-10-29 09:15:17.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 78,
+      "_polled_at": "2025-12-06T20:18:26.459476"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:18+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24316.2,
+              "close": 24320.7,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24320.7,
+          "timestamp": "2024-10-29 09:15:18.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 79,
+      "_polled_at": "2025-12-06T20:18:26.610159"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:18+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24316.2,
+              "close": 24320.7,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24320.7,
+          "timestamp": "2024-10-29 09:15:18.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 80,
+      "_polled_at": "2025-12-06T20:18:26.775487"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:19+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24315.4,
+              "close": 24315.4,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24315.4,
+          "timestamp": "2024-10-29 09:15:19.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 81,
+      "_polled_at": "2025-12-06T20:18:26.883967"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:19+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24315.4,
+              "close": 24315.4,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24315.4,
+          "timestamp": "2024-10-29 09:15:19.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 82,
+      "_polled_at": "2025-12-06T20:18:26.992359"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:20+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24315.4,
+              "close": 24320.1,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24320.1,
+          "timestamp": "2024-10-29 09:15:20.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 83,
+      "_polled_at": "2025-12-06T20:18:27.101292"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:20+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24315.4,
+              "close": 24320.1,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24320.1,
+          "timestamp": "2024-10-29 09:15:20.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 84,
+      "_polled_at": "2025-12-06T20:18:27.206861"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:21+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24313.9,
+              "close": 24313.9,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24313.9,
+          "timestamp": "2024-10-29 09:15:21.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 85,
+      "_polled_at": "2025-12-06T20:18:27.313092"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:21+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24313.9,
+              "close": 24313.9,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24313.9,
+          "timestamp": "2024-10-29 09:15:21.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 86,
+      "_polled_at": "2025-12-06T20:18:27.418325"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:21+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24313.9,
+              "close": 24313.9,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24313.9,
+          "timestamp": "2024-10-29 09:15:21.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 87,
+      "_polled_at": "2025-12-06T20:18:27.522465"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:22+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24313.9,
+              "close": 24321.05,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24321.05,
+          "timestamp": "2024-10-29 09:15:22.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 88,
+      "_polled_at": "2025-12-06T20:18:27.626914"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:22+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24313.9,
+              "close": 24321.05,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24321.05,
+          "timestamp": "2024-10-29 09:15:22.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 89,
+      "_polled_at": "2025-12-06T20:18:27.734135"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:23+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24313.9,
+              "close": 24319.15,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24319.15,
+          "timestamp": "2024-10-29 09:15:23.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 90,
+      "_polled_at": "2025-12-06T20:18:27.839322"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:23+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24313.9,
+              "close": 24319.15,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24319.15,
+          "timestamp": "2024-10-29 09:15:23.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 91,
+      "_polled_at": "2025-12-06T20:18:27.942444"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:23+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24313.9,
+              "close": 24319.15,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24319.15,
+          "timestamp": "2024-10-29 09:15:23.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 92,
+      "_polled_at": "2025-12-06T20:18:28.049986"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:24+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24312.8,
+              "close": 24312.8,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24312.8,
+          "timestamp": "2024-10-29 09:15:24.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 93,
+      "_polled_at": "2025-12-06T20:18:28.155982"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:24+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24312.8,
+              "close": 24312.8,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24312.8,
+          "timestamp": "2024-10-29 09:15:24.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 94,
+      "_polled_at": "2025-12-06T20:18:28.260186"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:25+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24306.95,
+              "close": 24306.95,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24306.95,
+          "timestamp": "2024-10-29 09:15:25.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 95,
+      "_polled_at": "2025-12-06T20:18:28.366363"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:25+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24306.95,
+              "close": 24306.95,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24306.95,
+          "timestamp": "2024-10-29 09:15:25.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 96,
+      "_polled_at": "2025-12-06T20:18:28.472911"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:26+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24306.95,
+              "close": 24316.45,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24316.45,
+          "timestamp": "2024-10-29 09:15:26.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 97,
+      "_polled_at": "2025-12-06T20:18:28.576522"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:26+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24306.95,
+              "close": 24316.45,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24316.45,
+          "timestamp": "2024-10-29 09:15:26.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 98,
+      "_polled_at": "2025-12-06T20:18:28.680062"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:26+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24306.95,
+              "close": 24316.45,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24316.45,
+          "timestamp": "2024-10-29 09:15:26.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 99,
+      "_polled_at": "2025-12-06T20:18:28.784463"
+    },
+    {
+      "session_id": "sim-36ee5ab727be",
+      "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+      "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+      "backtest_date": "2024-10-29",
+      "speed_multiplier": 4.0,
+      "status": "running",
+      "started_at": "2025-12-06T20:18:17.065904",
+      "completed_at": null,
+      "timestamp": "2024-10-29T09:15:27+05:30",
+      "active_nodes": [
+        {
+          "node_id": "entry-condition-1",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "square-off-1",
+          "node_type": "Unknown",
+          "node_name": "square-off-1",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        },
+        {
+          "node_id": "entry-condition-2",
+          "node_type": "Unknown",
+          "node_name": "entry-condition-2",
+          "status": "Active",
+          "visited": true,
+          "re_entry_num": 0
+        }
+      ],
+      "latest_candles": {
+        "NIFTY:1m": {
+          "default": {
+            "current": {
+              "timestamp": "2024-10-29T09:15:00+05:30",
+              "open": 24328.85,
+              "high": 24378.65,
+              "low": 24306.95,
+              "close": 24318.8,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-28T15:29:00+05:30",
+              "open": 24356.35,
+              "high": 24368.75,
+              "low": 24354.25,
+              "close": 24367.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 61.15389494457097
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24318.8,
+          "timestamp": "2024-10-29 09:15:27.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      },
+      "open_positions": [],
+      "total_unrealized_pnl": 0.0,
+      "stats": {
+        "ticks_processed": 0,
+        "total_ticks": 0,
+        "progress_percentage": 0.0
+      },
+      "_snapshot_num": 100,
+      "_polled_at": "2025-12-06T20:18:28.889137"
+    }
+  ]
+}

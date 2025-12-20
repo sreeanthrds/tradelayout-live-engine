@@ -196,6 +196,10 @@ class CentralizedTickProcessor:
         context['node_instances'] = strategy_state['node_instances']
         context['node_states'] = strategy_state['node_states']
         
+        # Add strategy_scale if available (for position quantity scaling)
+        if 'strategy_scale' in strategy_state:
+            context['strategy_scale'] = strategy_state['strategy_scale']
+        
         # Step 2: Reset visited flags (prepare for new node tree traversal)
         for node_id in strategy_state['node_states']:
             strategy_state['node_states'][node_id]['visited'] = False

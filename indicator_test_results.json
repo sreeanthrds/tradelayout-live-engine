@@ -1,0 +1,4263 @@
+{
+  "total_tested": 141,
+  "passed": 139,
+  "failed": 2,
+  "skipped": 0,
+  "categories": {},
+  "detailed_results": [
+    {
+      "name": "aberration",
+      "class": "ABERRATIONIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 9.89,
+      "output_columns": [
+        "ABER_ZG_5_15",
+        "ABER_SG_5_15",
+        "ABER_XG_5_15",
+        "ABER_ATR_5_15"
+      ],
+      "sample_values": {
+        "ABER_ZG_5_15": 25722.735371061754,
+        "ABER_SG_5_15": 25734.03481025946,
+        "ABER_XG_5_15": 25711.435931864045,
+        "ABER_ATR_5_15": 11.299439197706922
+      },
+      "has_nans": true,
+      "value_range": {
+        "ABER_ZG_5_15": {
+          "min": 25671.03406350314,
+          "max": 25946.27033377934,
+          "mean": 25779.871917911194
+        },
+        "ABER_SG_5_15": {
+          "min": 25681.58965998283,
+          "max": 25960.218857343894,
+          "mean": 25791.53016333393
+        },
+        "ABER_XG_5_15": {
+          "min": 25660.478467023448,
+          "max": 25932.321810214784,
+          "mean": 25766.306611600347
+        },
+        "ABER_ATR_5_15": {
+          "min": 9.483155016236102,
+          "max": 15.45116781312589,
+          "mean": 12.611775866790273
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "accbands",
+      "class": "ACCBANDSIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.65,
+      "output_columns": [
+        "ACCBL_20",
+        "ACCBM_20",
+        "ACCBU_20"
+      ],
+      "sample_values": {
+        "ACCBL_20": 25702.313187222833,
+        "ACCBM_20": 25723.634206687908,
+        "ACCBU_20": 25743.60061212147
+      },
+      "has_nans": true,
+      "value_range": {
+        "ACCBL_20": {
+          "min": 25661.38665604489,
+          "max": 25907.178658495952,
+          "mean": 25760.094905849983
+        },
+        "ACCBM_20": {
+          "min": 25682.52627172878,
+          "max": 25927.22830983655,
+          "mean": 25780.02001952485
+        },
+        "ACCBU_20": {
+          "min": 25700.949757428116,
+          "max": 25948.830366551512,
+          "mean": 25799.810776533734
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "ad",
+      "class": "ADIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.13,
+      "output_columns": [
+        "AD"
+      ],
+      "sample_values": {
+        "value": 13344.471017078784
+      },
+      "has_nans": false,
+      "value_range": {
+        "value": {
+          "min": -2266.254872808149,
+          "max": 24293.600708299742,
+          "mean": 11331.403219756825
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "adosc",
+      "class": "ADOSCIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.21,
+      "output_columns": [
+        "ADOSC_3_10"
+      ],
+      "sample_values": {
+        "value": 597.161356585626
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -2077.7230456945,
+          "max": 2317.6794408171445,
+          "mean": 74.02471087212929
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "adx",
+      "class": "ADXIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.36,
+      "output_columns": [
+        "ADX_14",
+        "ADXR_14_2",
+        "DMP_14",
+        "DMN_14"
+      ],
+      "sample_values": {
+        "ADX_14": 13.235150046465446,
+        "ADXR_14_2": 12.848251022069554,
+        "DMP_14": 44.700686872074435,
+        "DMN_14": 58.36163084498582
+      },
+      "has_nans": true,
+      "value_range": {
+        "ADX_14": {
+          "min": 8.267742427735568,
+          "max": 37.29247500112748,
+          "mean": 18.32275602936073
+        },
+        "ADXR_14_2": {
+          "min": 8.46348561252551,
+          "max": 36.662383140503984,
+          "mean": 18.33183730567767
+        },
+        "DMP_14": {
+          "min": 25.730781432034362,
+          "max": 107.94819263020331,
+          "mean": 57.58313190641162
+        },
+        "DMN_14": {
+          "min": 22.45631409364142,
+          "max": 98.48864472236106,
+          "mean": 57.876245620648234
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "alligator",
+      "class": "ALLIGATORIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 12.56,
+      "output_columns": [
+        "AGj_13_8_5",
+        "AGt_13_8_5",
+        "AGl_13_8_5"
+      ],
+      "sample_values": {
+        "AGj_13_8_5": 25725.05304896705,
+        "AGt_13_8_5": 25726.10335292876,
+        "AGl_13_8_5": 25726.265124623584
+      },
+      "has_nans": true,
+      "value_range": {
+        "AGj_13_8_5": {
+          "min": 25688.015713886824,
+          "max": 25918.54142620192,
+          "mean": 25784.904527780283
+        },
+        "AGt_13_8_5": {
+          "min": 25684.433739088712,
+          "max": 25927.162606126647,
+          "mean": 25784.387479682817
+        },
+        "AGl_13_8_5": {
+          "min": 25681.930829643545,
+          "max": 25936.860453936017,
+          "mean": 25784.093017489795
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "alma",
+      "class": "ALMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.23,
+      "output_columns": [
+        "ALMA_9_6_0.85"
+      ],
+      "sample_values": {
+        "value": 25722.82239460189
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25670.225405871228,
+          "max": 25945.539950867937,
+          "mean": 25779.67877424825
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "amat",
+      "class": "AMATIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.34,
+      "output_columns": [
+        "AMATe_LR_8_21_2",
+        "AMATe_SR_8_21_2"
+      ],
+      "sample_values": {
+        "AMATe_LR_8_21_2": 0.0,
+        "AMATe_SR_8_21_2": 1.0
+      },
+      "has_nans": false,
+      "value_range": {
+        "AMATe_LR_8_21_2": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.4533333333333333
+        },
+        "AMATe_SR_8_21_2": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.51
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "anchored_vwap",
+      "class": "AnchoredVWAPIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 26.5,
+      "output_columns": [
+        "value"
+      ],
+      "sample_values": {
+        "value": 25779.617465254756
+      },
+      "has_nans": false,
+      "value_range": {
+        "value": {
+          "min": 25719.44564329807,
+          "max": 25827.32390489648,
+          "mean": 25758.09687391301
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "anchoredvwap",
+      "class": "AnchoredVWAPIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 27.14,
+      "output_columns": [
+        "value"
+      ],
+      "sample_values": {
+        "value": 25779.617465254756
+      },
+      "has_nans": false,
+      "value_range": {
+        "value": {
+          "min": 25719.44564329807,
+          "max": 25827.32390489648,
+          "mean": 25758.09687391301
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "ao",
+      "class": "AOIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.24,
+      "output_columns": [
+        "AO_5_34"
+      ],
+      "sample_values": {
+        "value": 7.412873989880609
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -67.4167958354592,
+          "max": 59.86268739274601,
+          "mean": -1.5219037102363888
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "aobv",
+      "class": "AOBVIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.95,
+      "output_columns": [
+        "OBV",
+        "OBV_min_2",
+        "OBV_max_2",
+        "OBVe_4",
+        "OBVe_12",
+        "AOBV_LR_2",
+        "AOBV_SR_2"
+      ],
+      "sample_values": {
+        "OBV": 12441.0,
+        "OBV_min_2": 11407.0,
+        "OBV_max_2": 12441.0,
+        "OBVe_4": 12902.152331426923,
+        "OBVe_12": 14115.688226721064,
+        "AOBV_LR_2": 0.0,
+        "AOBV_SR_2": 1.0
+      },
+      "has_nans": true,
+      "value_range": {
+        "OBV": {
+          "min": -18660.0,
+          "max": 40212.0,
+          "mean": 10297.626666666667
+        },
+        "OBV_min_2": {
+          "min": -18660.0,
+          "max": 38962.0,
+          "mean": 9609.734557595993
+        },
+        "OBV_max_2": {
+          "min": -17557.0,
+          "max": 40212.0,
+          "mean": 10996.737896494156
+        },
+        "OBVe_4": {
+          "min": -17266.56794182777,
+          "max": 38585.574554247425,
+          "mean": 10313.986845063415
+        },
+        "OBVe_12": {
+          "min": -16286.54735168955,
+          "max": 37220.74185802682,
+          "mean": 10351.810989959877
+        },
+        "AOBV_LR_2": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.5116666666666667
+        },
+        "AOBV_SR_2": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.4666666666666667
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "apo",
+      "class": "APOIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.11,
+      "output_columns": [
+        "APO_12_26"
+      ],
+      "sample_values": {
+        "value": 6.018330030128709
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -33.600880324662285,
+          "max": 39.18000531998041,
+          "mean": -1.092913780039437
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "aroon",
+      "class": "AROONIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.19,
+      "output_columns": [
+        "AROOND_14",
+        "AROONU_14",
+        "AROONOSC_14"
+      ],
+      "sample_values": {
+        "AROOND_14": 92.85714285714286,
+        "AROONU_14": 7.142857142857143,
+        "AROONOSC_14": -85.71428571428572
+      },
+      "has_nans": true,
+      "value_range": {
+        "AROOND_14": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 52.901023890784984
+        },
+        "AROONU_14": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 47.26962457337884
+        },
+        "AROONOSC_14": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": -5.631399317406142
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "atr",
+      "class": "ATRIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.13,
+      "output_columns": [
+        "ATRr_14"
+      ],
+      "sample_values": {
+        "value": 11.231555504716738
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 9.371539661741808,
+          "max": 15.586933993811902,
+          "mean": 12.611042336653394
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "atrts",
+      "class": "ATRTSIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 211.27,
+      "output_columns": [
+        "ATRTSe_14_20_3.0"
+      ],
+      "sample_values": {
+        "value": 25732.610958696157
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25697.413168125873,
+          "max": 25915.682317530594,
+          "mean": 25783.26171337463
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "bbands",
+      "class": "BBANDSIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.46,
+      "output_columns": [
+        "BBL_20_2.0_2.0",
+        "BBM_20_2.0_2.0",
+        "BBU_20_2.0_2.0",
+        "BBB_20_2.0_2.0",
+        "BBP_20_2.0_2.0"
+      ],
+      "sample_values": {
+        "BBL_20_2.0_2.0": 25704.642413397258,
+        "BBM_20_2.0_2.0": 25723.634206687908,
+        "BBU_20_2.0_2.0": 25742.625999978558,
+        "BBB_20_2.0_2.0": 0.14766026556008482,
+        "BBP_20_2.0_2.0": 0.37495040792436757
+      },
+      "has_nans": true,
+      "value_range": {
+        "BBL_20_2.0_2.0": {
+          "min": 25658.39786307175,
+          "max": 25898.304064784556,
+          "mean": 25748.31173969791
+        },
+        "BBM_20_2.0_2.0": {
+          "min": 25682.52627172878,
+          "max": 25927.22830983655,
+          "mean": 25780.02001952485
+        },
+        "BBU_20_2.0_2.0": {
+          "min": 25697.172222266363,
+          "max": 25975.029811937457,
+          "mean": 25811.728299351784
+        },
+        "BBB_20_2.0_2.0": {
+          "min": 0.1040251160992798,
+          "max": 0.5682209241468389,
+          "mean": 0.24591850083168956
+        },
+        "BBP_20_2.0_2.0": {
+          "min": -0.22764267441161798,
+          "max": 1.3900631831530605,
+          "mean": 0.48071536796407527
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "bias",
+      "class": "BIASIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.14,
+      "output_columns": [
+        "BIAS_SMA_26"
+      ],
+      "sample_values": {
+        "value": 1.7797247944262296e-06
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -0.0024262928089934244,
+          "max": 0.0026657875017388477,
+          "mean": -6.0876245045419656e-05
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "bop",
+      "class": "BOPIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.12,
+      "output_columns": [
+        "BOP"
+      ],
+      "sample_values": {
+        "value": 0.17112211230948263
+      },
+      "has_nans": false,
+      "value_range": {
+        "value": {
+          "min": -0.9988286250699328,
+          "max": 0.9549540936371759,
+          "mean": -0.0021072709686173244
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "brar",
+      "class": "BRARIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.47,
+      "output_columns": [
+        "AR_26",
+        "BR_26"
+      ],
+      "sample_values": {
+        "AR_26": 76.63693117585397,
+        "BR_26": 83.87186792381478
+      },
+      "has_nans": true,
+      "value_range": {
+        "AR_26": {
+          "min": 34.87686079264002,
+          "max": 268.9482234301489,
+          "mean": 104.24402747982961
+        },
+        "BR_26": {
+          "min": 33.802901978344195,
+          "max": 270.97348465910363,
+          "mean": 104.07681843136376
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "camarilla",
+      "class": "CAMARILLAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 159.4,
+      "output_columns": [
+        "H4",
+        "H3",
+        "H2",
+        "H1",
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "sample_values": {
+        "H4": null,
+        "H3": null,
+        "H2": null,
+        "H1": null,
+        "L1": null,
+        "L2": null,
+        "L3": null,
+        "L4": null
+      },
+      "has_nans": true,
+      "value_range": {},
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "cci",
+      "class": "CCIIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.14,
+      "output_columns": [
+        "CCI_14_0.015"
+      ],
+      "sample_values": {
+        "value": -56.11624907574272
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -285.6140129113296,
+          "max": 297.59233621590965,
+          "mean": -7.746977070475421
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "cdldoji",
+      "class": "CDLDOJIIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.39,
+      "output_columns": [
+        "CDL_DOJI_10_0.1"
+      ],
+      "sample_values": {
+        "value": 0.0
+      },
+      "has_nans": false,
+      "value_range": {
+        "value": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 19.166666666666668
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "cdlinside",
+      "class": "CDLINSIDEIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 4.22,
+      "output_columns": [
+        "CDL_INSIDE"
+      ],
+      "sample_values": {
+        "value": 0.0
+      },
+      "has_nans": false,
+      "value_range": {
+        "value": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 8.333333333333334
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "cdlpattern",
+      "class": "CDLPATTERNIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 7.32,
+      "output_columns": [
+        "CDL_2CROWS",
+        "CDL_3BLACKCROWS",
+        "CDL_3INSIDE",
+        "CDL_3LINESTRIKE",
+        "CDL_3OUTSIDE",
+        "CDL_3STARSINSOUTH",
+        "CDL_3WHITESOLDIERS",
+        "CDL_ABANDONEDBABY",
+        "CDL_ADVANCEBLOCK",
+        "CDL_BELTHOLD",
+        "CDL_BREAKAWAY",
+        "CDL_CLOSINGMARUBOZU",
+        "CDL_CONCEALBABYSWALL",
+        "CDL_COUNTERATTACK",
+        "CDL_DARKCLOUDCOVER",
+        "CDL_DOJI_10_0.1",
+        "CDL_DOJISTAR",
+        "CDL_DRAGONFLYDOJI",
+        "CDL_ENGULFING",
+        "CDL_EVENINGDOJISTAR",
+        "CDL_EVENINGSTAR",
+        "CDL_GAPSIDESIDEWHITE",
+        "CDL_GRAVESTONEDOJI",
+        "CDL_HAMMER",
+        "CDL_HANGINGMAN",
+        "CDL_HARAMI",
+        "CDL_HARAMICROSS",
+        "CDL_HIGHWAVE",
+        "CDL_HIKKAKE",
+        "CDL_HIKKAKEMOD",
+        "CDL_HOMINGPIGEON",
+        "CDL_IDENTICAL3CROWS",
+        "CDL_INNECK",
+        "CDL_INSIDE",
+        "CDL_INVERTEDHAMMER",
+        "CDL_KICKING",
+        "CDL_KICKINGBYLENGTH",
+        "CDL_LADDERBOTTOM",
+        "CDL_LONGLEGGEDDOJI",
+        "CDL_LONGLINE",
+        "CDL_MARUBOZU",
+        "CDL_MATCHINGLOW",
+        "CDL_MATHOLD",
+        "CDL_MORNINGDOJISTAR",
+        "CDL_MORNINGSTAR",
+        "CDL_ONNECK",
+        "CDL_PIERCING",
+        "CDL_RICKSHAWMAN",
+        "CDL_RISEFALL3METHODS",
+        "CDL_SEPARATINGLINES",
+        "CDL_SHOOTINGSTAR",
+        "CDL_SHORTLINE",
+        "CDL_SPINNINGTOP",
+        "CDL_STALLEDPATTERN",
+        "CDL_STICKSANDWICH",
+        "CDL_TAKURI",
+        "CDL_TASUKIGAP",
+        "CDL_THRUSTING",
+        "CDL_TRISTAR",
+        "CDL_UNIQUE3RIVER",
+        "CDL_UPSIDEGAP2CROWS",
+        "CDL_XSIDEGAP3METHODS"
+      ],
+      "sample_values": {
+        "CDL_2CROWS": 0.0,
+        "CDL_3BLACKCROWS": 0.0,
+        "CDL_3INSIDE": 0.0,
+        "CDL_3LINESTRIKE": 0.0,
+        "CDL_3OUTSIDE": 0.0,
+        "CDL_3STARSINSOUTH": 0.0,
+        "CDL_3WHITESOLDIERS": 0.0,
+        "CDL_ABANDONEDBABY": 0.0,
+        "CDL_ADVANCEBLOCK": 0.0,
+        "CDL_BELTHOLD": 0.0,
+        "CDL_BREAKAWAY": 0.0,
+        "CDL_CLOSINGMARUBOZU": 0.0,
+        "CDL_CONCEALBABYSWALL": 0.0,
+        "CDL_COUNTERATTACK": 0.0,
+        "CDL_DARKCLOUDCOVER": 0.0,
+        "CDL_DOJI_10_0.1": 0.0,
+        "CDL_DOJISTAR": 0.0,
+        "CDL_DRAGONFLYDOJI": 0.0,
+        "CDL_ENGULFING": 0.0,
+        "CDL_EVENINGDOJISTAR": 0.0,
+        "CDL_EVENINGSTAR": 0.0,
+        "CDL_GAPSIDESIDEWHITE": 0.0,
+        "CDL_GRAVESTONEDOJI": 0.0,
+        "CDL_HAMMER": 0.0,
+        "CDL_HANGINGMAN": 0.0,
+        "CDL_HARAMI": 0.0,
+        "CDL_HARAMICROSS": 0.0,
+        "CDL_HIGHWAVE": 0.0,
+        "CDL_HIKKAKE": 0.0,
+        "CDL_HIKKAKEMOD": 0.0,
+        "CDL_HOMINGPIGEON": 0.0,
+        "CDL_IDENTICAL3CROWS": 0.0,
+        "CDL_INNECK": 0.0,
+        "CDL_INSIDE": 0.0,
+        "CDL_INVERTEDHAMMER": 0.0,
+        "CDL_KICKING": 0.0,
+        "CDL_KICKINGBYLENGTH": 0.0,
+        "CDL_LADDERBOTTOM": 0.0,
+        "CDL_LONGLEGGEDDOJI": 0.0,
+        "CDL_LONGLINE": 0.0,
+        "CDL_MARUBOZU": 0.0,
+        "CDL_MATCHINGLOW": 0.0,
+        "CDL_MATHOLD": 0.0,
+        "CDL_MORNINGDOJISTAR": 0.0,
+        "CDL_MORNINGSTAR": 0.0,
+        "CDL_ONNECK": 0.0,
+        "CDL_PIERCING": 0.0,
+        "CDL_RICKSHAWMAN": 0.0,
+        "CDL_RISEFALL3METHODS": 0.0,
+        "CDL_SEPARATINGLINES": 0.0,
+        "CDL_SHOOTINGSTAR": -100.0,
+        "CDL_SHORTLINE": 0.0,
+        "CDL_SPINNINGTOP": 0.0,
+        "CDL_STALLEDPATTERN": 0.0,
+        "CDL_STICKSANDWICH": 0.0,
+        "CDL_TAKURI": 0.0,
+        "CDL_TASUKIGAP": 0.0,
+        "CDL_THRUSTING": 0.0,
+        "CDL_TRISTAR": 0.0,
+        "CDL_UNIQUE3RIVER": 0.0,
+        "CDL_UPSIDEGAP2CROWS": 0.0,
+        "CDL_XSIDEGAP3METHODS": 0.0
+      },
+      "has_nans": false,
+      "value_range": {
+        "CDL_2CROWS": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_3BLACKCROWS": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_3INSIDE": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": 0.16666666666666666
+        },
+        "CDL_3LINESTRIKE": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_3OUTSIDE": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_3STARSINSOUTH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_3WHITESOLDIERS": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_ABANDONEDBABY": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": -0.16666666666666666
+        },
+        "CDL_ADVANCEBLOCK": {
+          "min": -100.0,
+          "max": 0.0,
+          "mean": -0.16666666666666666
+        },
+        "CDL_BELTHOLD": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": 0.5
+        },
+        "CDL_BREAKAWAY": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_CLOSINGMARUBOZU": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": -1.3333333333333333
+        },
+        "CDL_CONCEALBABYSWALL": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_COUNTERATTACK": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_DARKCLOUDCOVER": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_DOJI_10_0.1": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 19.166666666666668
+        },
+        "CDL_DOJISTAR": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": 0.5
+        },
+        "CDL_DRAGONFLYDOJI": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 6.5
+        },
+        "CDL_ENGULFING": {
+          "min": -80.0,
+          "max": 80.0,
+          "mean": 0.0
+        },
+        "CDL_EVENINGDOJISTAR": {
+          "min": -100.0,
+          "max": 0.0,
+          "mean": -0.3333333333333333
+        },
+        "CDL_EVENINGSTAR": {
+          "min": -100.0,
+          "max": 0.0,
+          "mean": -0.6666666666666666
+        },
+        "CDL_GAPSIDESIDEWHITE": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_GRAVESTONEDOJI": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 6.0
+        },
+        "CDL_HAMMER": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 14.666666666666666
+        },
+        "CDL_HANGINGMAN": {
+          "min": -100.0,
+          "max": 0.0,
+          "mean": -0.16666666666666666
+        },
+        "CDL_HARAMI": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": 0.3
+        },
+        "CDL_HARAMICROSS": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": 0.4666666666666667
+        },
+        "CDL_HIGHWAVE": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": 1.1666666666666667
+        },
+        "CDL_HIKKAKE": {
+          "min": -200.0,
+          "max": 200.0,
+          "mean": -1.5
+        },
+        "CDL_HIKKAKEMOD": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_HOMINGPIGEON": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_IDENTICAL3CROWS": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_INNECK": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_INSIDE": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 8.333333333333334
+        },
+        "CDL_INVERTEDHAMMER": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_KICKING": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_KICKINGBYLENGTH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_LADDERBOTTOM": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 0.3333333333333333
+        },
+        "CDL_LONGLEGGEDDOJI": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 19.333333333333332
+        },
+        "CDL_LONGLINE": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": 1.1666666666666667
+        },
+        "CDL_MARUBOZU": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": -1.3333333333333333
+        },
+        "CDL_MATCHINGLOW": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 0.5
+        },
+        "CDL_MATHOLD": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_MORNINGDOJISTAR": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 0.16666666666666666
+        },
+        "CDL_MORNINGSTAR": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 0.16666666666666666
+        },
+        "CDL_ONNECK": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_PIERCING": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_RICKSHAWMAN": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 4.0
+        },
+        "CDL_RISEFALL3METHODS": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_SEPARATINGLINES": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": 0.3333333333333333
+        },
+        "CDL_SHOOTINGSTAR": {
+          "min": -100.0,
+          "max": 0.0,
+          "mean": -12.666666666666666
+        },
+        "CDL_SHORTLINE": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": -0.5
+        },
+        "CDL_SPINNINGTOP": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": 1.5
+        },
+        "CDL_STALLEDPATTERN": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_STICKSANDWICH": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 0.6666666666666666
+        },
+        "CDL_TAKURI": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 6.666666666666667
+        },
+        "CDL_TASUKIGAP": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": -0.5
+        },
+        "CDL_THRUSTING": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_TRISTAR": {
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 0.16666666666666666
+        },
+        "CDL_UNIQUE3RIVER": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_UPSIDEGAP2CROWS": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "CDL_XSIDEGAP3METHODS": {
+          "min": -100.0,
+          "max": 100.0,
+          "mean": 0.16666666666666666
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "cfo",
+      "class": "CFOIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.22,
+      "output_columns": [
+        "CFO_9"
+      ],
+      "sample_values": {
+        "value": -0.007043374042627707
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -0.11056761515446026,
+          "max": 0.10821428975792793,
+          "mean": 0.0003586577666332086
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "cg",
+      "class": "CGIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.09,
+      "output_columns": [
+        "CG_10"
+      ],
+      "sample_values": {
+        "value": -5.499840194507873
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -5.503594561098146,
+          "max": -5.497269870054624,
+          "mean": -5.49994751798045
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "chandelierexit",
+      "class": "CHANDELIEREXITIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.08,
+      "output_columns": [
+        "CHDLREXTl_22_22_14_2.0",
+        "CHDLREXTs_22_22_14_2.0",
+        "CHDLREXTd_22_22_14_2.0"
+      ],
+      "sample_values": {
+        "CHDLREXTl_22_22_14_2.0": 25717.87393513586,
+        "CHDLREXTs_22_22_14_2.0": 25711.63132388441,
+        "CHDLREXTd_22_22_14_2.0": 1.0
+      },
+      "has_nans": true,
+      "value_range": {
+        "CHDLREXTl_22_22_14_2.0": {
+          "min": 25681.004702930666,
+          "max": 25929.570014463166,
+          "mean": 25791.03424878273
+        },
+        "CHDLREXTs_22_22_14_2.0": {
+          "min": 25677.851895986714,
+          "max": 25923.930692809994,
+          "mean": 25772.730689295255
+        },
+        "CHDLREXTd_22_22_14_2.0": {
+          "min": -1.0,
+          "max": 1.0,
+          "mean": -0.08
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "chop",
+      "class": "CHOPIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.44,
+      "output_columns": [
+        "CHOP_14_1_100.0"
+      ],
+      "sample_values": {
+        "value": 57.162960272627274
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 22.956990727406012,
+          "max": 72.03016126958882,
+          "mean": 46.35494054041511
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "cksp",
+      "class": "CKSPIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.48,
+      "output_columns": [
+        "CKSPl_10_3_20",
+        "CKSPs_10_3_20"
+      ],
+      "sample_values": {
+        "CKSPl_10_3_20": 25708.890438485116,
+        "CKSPs_10_3_20": 25726.164057655213
+      },
+      "has_nans": true,
+      "value_range": {
+        "CKSPl_10_3_20": {
+          "min": 25670.79694555461,
+          "max": 25915.299262154953,
+          "mean": 25784.85277661009
+        },
+        "CKSPs_10_3_20": {
+          "min": 25687.595275393745,
+          "max": 25921.62264011364,
+          "mean": 25778.264602288153
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "cmf",
+      "class": "CMFIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.33,
+      "output_columns": [
+        "CMF_20"
+      ],
+      "sample_values": {
+        "value": 0.1439602083932666
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -0.2968956634075543,
+          "max": 0.365761511568,
+          "mean": 0.015120767576766283
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "cmo",
+      "class": "CMOIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.07,
+      "output_columns": [
+        "CMO_14"
+      ],
+      "sample_values": {
+        "value": -3.200619309684832
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -59.84602842345027,
+          "max": 55.730700021946355,
+          "mean": -1.954421620976339
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "coppock",
+      "class": "COPPOCKIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.15,
+      "output_columns": [
+        "COPC_11_14_10"
+      ],
+      "sample_values": {
+        "value": 0.009049500471392398
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -0.5250869327742259,
+          "max": 0.6045087076767295,
+          "mean": -0.014240479118007665
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "cpr",
+      "class": "CPRIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 79.67,
+      "output_columns": [
+        "TC",
+        "PIVOT",
+        "BC"
+      ],
+      "sample_values": {
+        "TC": null,
+        "PIVOT": null,
+        "BC": null
+      },
+      "has_nans": true,
+      "value_range": {},
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "cti",
+      "class": "CTIIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 2.92,
+      "output_columns": [
+        "CTI_12"
+      ],
+      "sample_values": {
+        "value": -0.27236701275507413
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -0.9678589499562641,
+          "max": 0.9808314528498394,
+          "mean": -0.06904793266300423
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "decay",
+      "class": "DECAYIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 3.53,
+      "output_columns": [
+        "LDECAY_5"
+      ],
+      "sample_values": {
+        "value": 25922.156457206278
+      },
+      "has_nans": false,
+      "value_range": {
+        "value": {
+          "min": 25804.40611116973,
+          "max": 25956.356457206402,
+          "mean": 25866.92400278281
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "dema",
+      "class": "DEMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.14,
+      "output_columns": [
+        "DEMA_20"
+      ],
+      "sample_values": {
+        "value": 25724.435134167285
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25675.213893215197,
+          "max": 25938.63208224336,
+          "mean": 25778.885833270793
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "dm",
+      "class": "DMIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.2,
+      "output_columns": [
+        "DMP_14",
+        "DMN_14"
+      ],
+      "sample_values": {
+        "DMP_14": 44.700686872074435,
+        "DMN_14": 58.36163084498582
+      },
+      "has_nans": true,
+      "value_range": {
+        "DMP_14": {
+          "min": 25.730781432034362,
+          "max": 107.94819263020331,
+          "mean": 57.58313190641162
+        },
+        "DMN_14": {
+          "min": 22.45631409364142,
+          "max": 98.48864472236106,
+          "mean": 57.876245620648234
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "donchian",
+      "class": "DONCHIANIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.32,
+      "output_columns": [
+        "DCL_20_20",
+        "DCM_20_20",
+        "DCU_20_20"
+      ],
+      "sample_values": {
+        "DCL_20_20": 25691.947148724157,
+        "DCM_20_20": 25716.142097434727,
+        "DCU_20_20": 25740.337046145294
+      },
+      "has_nans": true,
+      "value_range": {
+        "DCL_20_20": {
+          "min": 25656.843280584784,
+          "max": 25895.856851240944,
+          "mean": 25748.58586096033
+        },
+        "DCM_20_20": {
+          "min": 25680.138588975227,
+          "max": 25926.17266861607,
+          "mean": 25781.260110321633
+        },
+        "DCU_20_20": {
+          "min": 25701.76444393877,
+          "max": 25956.488485991198,
+          "mean": 25813.93435968294
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "dpo",
+      "class": "DPOIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.16,
+      "output_columns": [
+        "DPO_20"
+      ],
+      "sample_values": {
+        "value": null
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -42.66255545965396,
+          "max": 39.38973749414072,
+          "mean": 0.27694447104242653
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "drawdown",
+      "class": "DRAWDOWNIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.29,
+      "output_columns": [
+        "DD",
+        "DD_PCT",
+        "DD_LOG"
+      ],
+      "sample_values": {
+        "DD": 237.4720825260556,
+        "DD_PCT": 0.00914889895727733,
+        "DD_LOG": 0.009191007159234488
+      },
+      "has_nans": false,
+      "value_range": {
+        "DD": {
+          "min": 0.0,
+          "max": 264.3122192508963,
+          "mean": 104.04660967073883
+        },
+        "DD_PCT": {
+          "min": 0.0,
+          "max": 0.010182947660110186,
+          "mean": 0.004017926875600844
+        },
+        "DD_LOG": {
+          "min": 0.0,
+          "max": 0.010235148546588135,
+          "mean": 0.004029541105727675
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "efi",
+      "class": "EFIIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.15,
+      "output_columns": [
+        "EFI_13"
+      ],
+      "sample_values": {
+        "value": -1801.116848147927
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -7966.12429177834,
+          "max": 13199.767527341666,
+          "mean": 65.46194933800679
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "elder_ray",
+      "class": "ElderRayIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.48,
+      "output_columns": [
+        "bull_power",
+        "bear_power"
+      ],
+      "sample_values": {
+        "bull_power": 0.9237538555025822,
+        "bear_power": -5.132369651899353
+      },
+      "has_nans": true,
+      "value_range": {
+        "bull_power": {
+          "min": -34.758534195279935,
+          "max": 55.25009761857291,
+          "mean": 2.8366739597146005
+        },
+        "bear_power": {
+          "min": -45.45088705357557,
+          "max": 41.81213259907963,
+          "mean": -5.10564666413654
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "elderray",
+      "class": "ElderRayIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.34,
+      "output_columns": [
+        "bull_power",
+        "bear_power"
+      ],
+      "sample_values": {
+        "bull_power": 0.9237538555025822,
+        "bear_power": -5.132369651899353
+      },
+      "has_nans": true,
+      "value_range": {
+        "bull_power": {
+          "min": -34.758534195279935,
+          "max": 55.25009761857291,
+          "mean": 2.8366739597146005
+        },
+        "bear_power": {
+          "min": -45.45088705357557,
+          "max": 41.81213259907963,
+          "mean": -5.10564666413654
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "ema",
+      "class": "EMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.07,
+      "output_columns": [
+        "EMA_20"
+      ],
+      "sample_values": {
+        "value": 25722.113341988632
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25682.74446200368,
+          "max": 25918.12625342126,
+          "mean": 25780.178643148356
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "entropy",
+      "class": "ENTROPYIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.26,
+      "output_columns": [
+        "ENTP_10"
+      ],
+      "sample_values": {
+        "value": 3.3217994509777253
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 3.320000902763817,
+          "max": 3.324366732485874,
+          "mean": 3.3218705981965955
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "eom",
+      "class": "EOMIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.49,
+      "output_columns": [
+        "EOM_14_100000000"
+      ],
+      "sample_values": {
+        "value": -1328354.2514479856
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -5067238.564298644,
+          "max": 5686065.601165041,
+          "mean": -303130.1461703252
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "er",
+      "class": "ERIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.22,
+      "output_columns": [
+        "ER_10"
+      ],
+      "sample_values": {
+        "value": 0.07662321989716299
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 0.0012132488410460487,
+          "max": 0.9500286408734175,
+          "mean": 0.3017765476551406
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "fibonaccipivot",
+      "class": "FIBONACCIPIVOTIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 151.34,
+      "output_columns": [
+        "PP",
+        "R1",
+        "R2",
+        "R3",
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "sample_values": {
+        "PP": null,
+        "R1": null,
+        "R2": null,
+        "R3": null,
+        "S1": null,
+        "S2": null,
+        "S3": null
+      },
+      "has_nans": true,
+      "value_range": {},
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "fisher",
+      "class": "FISHERIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.6,
+      "output_columns": [
+        "FISHERT_9_1",
+        "FISHERTs_9_1"
+      ],
+      "sample_values": {
+        "FISHERT_9_1": -0.5922709235054884,
+        "FISHERTs_9_1": -0.3935387246925165
+      },
+      "has_nans": true,
+      "value_range": {
+        "FISHERT_9_1": {
+          "min": -4.761852452544488,
+          "max": 3.5474397285817227,
+          "mean": -0.19701346068696457
+        },
+        "FISHERTs_9_1": {
+          "min": -4.761852452544488,
+          "max": 3.5474397285817227,
+          "mean": -0.19634466633363376
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "fwma",
+      "class": "FWMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 4.95,
+      "output_columns": [
+        "FWMA_10"
+      ],
+      "sample_values": {
+        "value": 25720.669588703662
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25670.316845667883,
+          "max": 25946.22782981467,
+          "mean": 25779.45644134284
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "ha",
+      "class": "HAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 2.66,
+      "output_columns": [
+        "HA_open",
+        "HA_high",
+        "HA_low",
+        "HA_close"
+      ],
+      "sample_values": {
+        "HA_open": 25719.48350263945,
+        "HA_high": 25723.904161540755,
+        "HA_low": 25717.848038033353,
+        "HA_close": 25719.621153071952
+      },
+      "has_nans": false,
+      "value_range": {
+        "HA_open": {
+          "min": 25668.536448470622,
+          "max": 25948.981745871715,
+          "mean": 25780.066551655786
+        },
+        "HA_high": {
+          "min": 25670.166163180602,
+          "max": 25956.488485991198,
+          "mean": 25786.637452860803
+        },
+        "HA_low": {
+          "min": 25656.843280584784,
+          "max": 25942.274430237878,
+          "mean": 25772.90997575856
+        },
+        "HA_close": {
+          "min": 25663.382189593176,
+          "max": 25955.689061505553,
+          "mean": 25779.781835610203
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "heikin_ashi",
+      "class": "HeikinAshiIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 161.38,
+      "output_columns": [
+        "HA_Close",
+        "HA_Open",
+        "HA_High",
+        "HA_Low"
+      ],
+      "sample_values": {
+        "HA_Close": 25719.621153071952,
+        "HA_Open": 25719.48350263945,
+        "HA_High": 25723.904161540755,
+        "HA_Low": 25717.848038033353
+      },
+      "has_nans": false,
+      "value_range": {
+        "HA_Close": {
+          "min": 25663.382189593176,
+          "max": 25955.689061505553,
+          "mean": 25779.781835610203
+        },
+        "HA_Open": {
+          "min": 25668.536448470622,
+          "max": 25948.981745871715,
+          "mean": 25780.066551655786
+        },
+        "HA_High": {
+          "min": 25670.166163180602,
+          "max": 25956.488485991198,
+          "mean": 25786.637452860803
+        },
+        "HA_Low": {
+          "min": 25656.843280584784,
+          "max": 25942.274430237878,
+          "mean": 25772.90997575856
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "heikinashi",
+      "class": "HeikinAshiIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 158.08,
+      "output_columns": [
+        "HA_Close",
+        "HA_Open",
+        "HA_High",
+        "HA_Low"
+      ],
+      "sample_values": {
+        "HA_Close": 25719.621153071952,
+        "HA_Open": 25719.48350263945,
+        "HA_High": 25723.904161540755,
+        "HA_Low": 25717.848038033353
+      },
+      "has_nans": false,
+      "value_range": {
+        "HA_Close": {
+          "min": 25663.382189593176,
+          "max": 25955.689061505553,
+          "mean": 25779.781835610203
+        },
+        "HA_Open": {
+          "min": 25668.536448470622,
+          "max": 25948.981745871715,
+          "mean": 25780.066551655786
+        },
+        "HA_High": {
+          "min": 25670.166163180602,
+          "max": 25956.488485991198,
+          "mean": 25786.637452860803
+        },
+        "HA_Low": {
+          "min": 25656.843280584784,
+          "max": 25942.274430237878,
+          "mean": 25772.90997575856
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "hma",
+      "class": "HMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.26,
+      "output_columns": [
+        "HMA_20"
+      ],
+      "sample_values": {
+        "value": 25724.92682930609
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25666.74596704726,
+          "max": 25959.488686354034,
+          "mean": 25778.507310655375
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "httrendline",
+      "class": "HTTRENDLINEIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.17,
+      "output_columns": [
+        "HT_TL"
+      ],
+      "sample_values": {
+        "value": 25726.657926670123
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25682.963025884168,
+          "max": 25921.692725453173,
+          "mean": 25783.58668633517
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "hwc",
+      "class": "HWCIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 4.79,
+      "output_columns": [
+        "HWM_1",
+        "HWL_1",
+        "HWU_1",
+        "HWW_1",
+        "HWPCT_1"
+      ],
+      "sample_values": {
+        "HWM_1": 25724.932934887387,
+        "HWL_1": 25713.516689634504,
+        "HWU_1": 25736.34918014027,
+        "HWW_1": 22.832490505767055,
+        "HWPCT_1": 0.23508977456872127
+      },
+      "has_nans": false,
+      "value_range": {
+        "HWM_1": {
+          "min": 25658.42559826675,
+          "max": 25964.483425960025,
+          "mean": 25779.657137747654
+        },
+        "HWL_1": {
+          "min": 25644.793641665565,
+          "max": 25943.32426126435,
+          "mean": 25761.98902640683
+        },
+        "HWU_1": {
+          "min": 25666.466510250968,
+          "max": 25992.271239021436,
+          "mean": 25797.325249088473
+        },
+        "HWW_1": {
+          "min": 0.0,
+          "max": 69.71690555819805,
+          "mean": 35.336222681638695
+        },
+        "HWPCT_1": {
+          "min": -4850732160270336.0,
+          "max": 1.9086727448805376e+16,
+          "mean": 23726658814225.617
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "hwma",
+      "class": "HWMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.89,
+      "output_columns": [
+        "HWMA_0.2_0.1_0.1"
+      ],
+      "sample_values": {
+        "value": 25724.932934887387
+      },
+      "has_nans": false,
+      "value_range": {
+        "value": {
+          "min": 25658.42559826675,
+          "max": 25964.483425960025,
+          "mean": 25779.657137747654
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "hybrid",
+      "class": "HybridIndicator",
+      "status": "failed",
+      "error": "Can't instantiate abstract class HybridIndicator without an implementation for abstract methods '_initialize_state_from_dataframe', 'calculate_bulk', 'update'",
+      "calculation_time_ms": 0,
+      "output_columns": [],
+      "sample_values": {},
+      "has_nans": false,
+      "value_range": {}
+    },
+    {
+      "name": "ichimoku",
+      "class": "IchimokuIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.26,
+      "output_columns": [
+        "tenkan_sen",
+        "kijun_sen",
+        "senkou_span_a",
+        "senkou_span_b",
+        "chikou_span"
+      ],
+      "sample_values": {
+        "tenkan_sen": 25723.36146795456,
+        "kijun_sen": 25714.752629510134,
+        "senkou_span_a": 25714.66110583574,
+        "senkou_span_b": 25743.680304895697,
+        "chikou_span": null
+      },
+      "has_nans": true,
+      "value_range": {
+        "tenkan_sen": {
+          "min": 25674.80149278792,
+          "max": 25934.780054035033,
+          "mean": 25780.245789013872
+        },
+        "kijun_sen": {
+          "min": 25683.40104557974,
+          "max": 25918.27400114759,
+          "mean": 25781.948420692337
+        },
+        "senkou_span_a": {
+          "min": 25680.236829326695,
+          "max": 25918.740254085962,
+          "mean": 25783.765486585067
+        },
+        "senkou_span_b": {
+          "min": 25698.943561386175,
+          "max": 25900.614061655375,
+          "mean": 25788.91306266809
+        },
+        "chikou_span": {
+          "min": 25664.730546983603,
+          "max": 25956.356457206402,
+          "mean": 25778.68266120473
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "inertia",
+      "class": "INERTIAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.04,
+      "output_columns": [
+        "INERTIA_20_14"
+      ],
+      "sample_values": {
+        "value": 52.346191727628295
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 23.833077045899095,
+          "max": 83.76305259822159,
+          "mean": 50.25565390405721
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "jma",
+      "class": "JMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 5.94,
+      "output_columns": [
+        "JMA_7_0.0"
+      ],
+      "sample_values": {
+        "value": 25723.333449969927
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25667.70391104912,
+          "max": 25949.265812734368,
+          "mean": 25779.866542871645
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "kama",
+      "class": "KAMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.67,
+      "output_columns": [
+        "KAMA_10_2_30"
+      ],
+      "sample_values": {
+        "value": 25723.043862199498
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25676.764121042946,
+          "max": 25939.97819291997,
+          "mean": 25782.120657581952
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "kc",
+      "class": "KCIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.36,
+      "output_columns": [
+        "KCLe_20_2",
+        "KCBe_20_2",
+        "KCUe_20_2"
+      ],
+      "sample_values": {
+        "KCLe_20_2": 25700.206949291824,
+        "KCBe_20_2": 25722.113341988632,
+        "KCUe_20_2": 25744.01973468544
+      },
+      "has_nans": true,
+      "value_range": {
+        "KCLe_20_2": {
+          "min": 25658.30709218979,
+          "max": 25888.582492351383,
+          "mean": 25754.924013881406
+        },
+        "KCBe_20_2": {
+          "min": 25682.74446200368,
+          "max": 25918.12625342126,
+          "mean": 25780.178643148356
+        },
+        "KCUe_20_2": {
+          "min": 25706.355175066397,
+          "max": 25948.536782806877,
+          "mean": 25805.312788657637
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "kdj",
+      "class": "KDJIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.48,
+      "output_columns": [
+        "K_9_3",
+        "D_9_3",
+        "J_9_3"
+      ],
+      "sample_values": {
+        "K_9_3": 40.34362894908748,
+        "D_9_3": 48.93939536394149,
+        "J_9_3": 23.152096119379465
+      },
+      "has_nans": true,
+      "value_range": {
+        "K_9_3": {
+          "min": 5.717292922192551,
+          "max": 92.3984060206409,
+          "mean": 47.12046907697482
+        },
+        "D_9_3": {
+          "min": 8.341241274131823,
+          "max": 88.90970455079747,
+          "mean": 47.07697468194229
+        },
+        "J_9_3": {
+          "min": -19.72179545265027,
+          "max": 113.56455824545105,
+          "mean": 46.872020707065175
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "kst",
+      "class": "KSTIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.51,
+      "output_columns": [
+        "KST_10_15_20_30_10_10_10_15",
+        "KSTs_9"
+      ],
+      "sample_values": {
+        "KST_10_15_20_30_10_10_10_15": 45.65340001499688,
+        "KSTs_9": 48.461618553831926
+      },
+      "has_nans": true,
+      "value_range": {
+        "KST_10_15_20_30_10_10_10_15": {
+          "min": -333.82135390487207,
+          "max": 257.2989148137954,
+          "mean": -6.913052118212509
+        },
+        "KSTs_9": {
+          "min": -325.354625006948,
+          "max": 243.23383734411559,
+          "mean": -5.441122316849797
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "kurtosis",
+      "class": "KURTOSISIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.17,
+      "output_columns": [
+        "KURT_30"
+      ],
+      "sample_values": {
+        "value": -0.9162682163692072
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -1.885962701431538,
+          "max": 6.627271898499008,
+          "mean": -0.36343099618586683
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "kvo",
+      "class": "KVOIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.44,
+      "output_columns": [
+        "KVO_34_55_13",
+        "KVOs_34_55_13"
+      ],
+      "sample_values": {
+        "KVO_34_55_13": -21.61005735126949,
+        "KVOs_34_55_13": 18.27348026070395
+      },
+      "has_nans": true,
+      "value_range": {
+        "KVO_34_55_13": {
+          "min": -175.41987025930317,
+          "max": 188.6059228620805,
+          "mean": 6.939726135173195
+        },
+        "KVOs_34_55_13": {
+          "min": -116.23173992765413,
+          "max": 154.27478573841788,
+          "mean": 5.580431881269114
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "linreg",
+      "class": "LINREGIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.19,
+      "output_columns": [
+        "LINREG_14"
+      ],
+      "sample_values": {
+        "value": 25722.240706413882
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25664.206366004848,
+          "max": 25962.286545420346,
+          "mean": 25778.81118139434
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "logreturn",
+      "class": "LOGRETURNIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.12,
+      "output_columns": [
+        "LOGRET_1"
+      ],
+      "sample_values": {
+        "value": 0.00014671249560173374
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -0.0012566107823878876,
+          "max": 0.0014955933605860514,
+          "mean": -5.57842341221631e-06
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "macd",
+      "class": "MACDIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.25,
+      "output_columns": [
+        "MACD_12_26_9",
+        "MACDh_12_26_9",
+        "MACDs_12_26_9"
+      ],
+      "sample_values": {
+        "MACD_12_26_9": 1.434163132984395,
+        "MACDh_12_26_9": -0.9165314470261987,
+        "MACDs_12_26_9": 2.3506945800105936
+      },
+      "has_nans": true,
+      "value_range": {
+        "MACD_12_26_9": {
+          "min": -26.242259297767305,
+          "max": 22.01742981735879,
+          "mean": -0.9782911283142357
+        },
+        "MACDh_12_26_9": {
+          "min": -7.2597266386659784,
+          "max": 8.508093485052502,
+          "mean": 0.20219099881819763
+        },
+        "MACDs_12_26_9": {
+          "min": -25.548985338155035,
+          "max": 18.78922221852188,
+          "mean": -1.1804821271324328
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "mad",
+      "class": "MADIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 2.64,
+      "output_columns": [
+        "MAD_30"
+      ],
+      "sample_values": {
+        "value": 11.050985226045425
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 5.99729392870128,
+          "max": 36.680637821405135,
+          "mean": 16.292540694517143
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "massi",
+      "class": "MASSIIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.39,
+      "output_columns": [
+        "MASSI_9_25"
+      ],
+      "sample_values": {
+        "value": 24.400205298380484
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 23.386536468458498,
+          "max": 26.41836950051782,
+          "mean": 24.970165216406894
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "median",
+      "class": "MEDIANIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.31,
+      "output_columns": [
+        "MEDIAN_30"
+      ],
+      "sample_values": {
+        "value": 25718.88051533189
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25684.05598657079,
+          "max": 25915.363048216554,
+          "mean": 25779.064830401316
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "mfi",
+      "class": "MFIIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.12,
+      "output_columns": [
+        "MFI_14"
+      ],
+      "sample_values": {
+        "value": 30.523176331774142
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 19.046500984776984,
+          "max": 87.71424547762965,
+          "mean": 50.04054523718734
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "midpoint",
+      "class": "MIDPOINTIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.1,
+      "output_columns": [
+        "MIDPOINT_14"
+      ],
+      "sample_values": {
+        "value": 25726.126111299935
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25680.442014794753,
+          "max": 25930.103272149936,
+          "mean": 25780.666018416265
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "midprice",
+      "class": "MIDPRICEIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.08,
+      "output_columns": [
+        "MIDPRICE_14"
+      ],
+      "sample_values": {
+        "value": 25724.10009489835
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25677.386355164403,
+          "max": 25926.17266861607,
+          "mean": 25780.609743033627
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "mom",
+      "class": "MOMIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.06,
+      "output_columns": [
+        "MOM_10"
+      ],
+      "sample_values": {
+        "value": -3.8155715121647518
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -79.06582345824427,
+          "max": 94.66345352207281,
+          "mean": -1.7081423078797882
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "natr",
+      "class": "NATRIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.09,
+      "output_columns": [
+        "NATR_14"
+      ],
+      "sample_values": {
+        "value": 0.0436704615219389
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 0.03627721219241007,
+          "max": 0.06052168131811103,
+          "mean": 0.048918166549194717
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "nvi",
+      "class": "NVIIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 2.35,
+      "output_columns": [
+        "NVI_1"
+      ],
+      "sample_values": {
+        "value": 999.8414162741713
+      },
+      "has_nans": false,
+      "value_range": {
+        "value": {
+          "min": 999.550551602477,
+          "max": 1000.2497578581639,
+          "mean": 999.8968066311046
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "obv",
+      "class": "OBVIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.09,
+      "output_columns": [
+        "OBV"
+      ],
+      "sample_values": {
+        "value": 12441.0
+      },
+      "has_nans": false,
+      "value_range": {
+        "value": {
+          "min": -18660.0,
+          "max": 40212.0,
+          "mean": 10297.626666666667
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "percentreturn",
+      "class": "PERCENTRETURNIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.09,
+      "output_columns": [
+        "PCTRET_1"
+      ],
+      "sample_values": {
+        "value": 0.0001467232584062561
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -0.0012558215776676818,
+          "max": 0.0014967123181017783,
+          "mean": -5.507365384060176e-06
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "pgo",
+      "class": "PGOIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.23,
+      "output_columns": [
+        "PGO_14"
+      ],
+      "sample_values": {
+        "value": -0.5362669228180144
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -3.4409932542627035,
+          "max": 4.7182582664142645,
+          "mean": -0.028387139480178
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "pivot",
+      "class": "PIVOTIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 145.32,
+      "output_columns": [
+        "PP",
+        "R1",
+        "R2",
+        "R3",
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "sample_values": {
+        "PP": null,
+        "R1": null,
+        "R2": null,
+        "R3": null,
+        "S1": null,
+        "S2": null,
+        "S3": null
+      },
+      "has_nans": true,
+      "value_range": {},
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "ppo",
+      "class": "PPOIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.32,
+      "output_columns": [
+        "PPO_12_26_9",
+        "PPOh_12_26_9",
+        "PPOs_12_26_9"
+      ],
+      "sample_values": {
+        "PPO_12_26_9": 0.023400473571959457,
+        "PPOh_12_26_9": -0.005893200394742497,
+        "PPOs_12_26_9": 0.029293673966701954
+      },
+      "has_nans": true,
+      "value_range": {
+        "PPO_12_26_9": {
+          "min": -0.13035038398712798,
+          "max": 0.15206302771949642,
+          "mean": -0.004240006391352624
+        },
+        "PPOh_12_26_9": {
+          "min": -0.053622114853678446,
+          "max": 0.05575424190886068,
+          "mean": 0.0010345344977546547
+        },
+        "PPOs_12_26_9": {
+          "min": -0.12025521703446582,
+          "max": 0.12183907528684772,
+          "mean": -0.0036892744343391118
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "psar",
+      "class": "PSARIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.04,
+      "output_columns": [
+        "PSARl_0.02_0.2",
+        "PSARs_0.02_0.2",
+        "PSARaf_0.02_0.2",
+        "PSARr_0.02_0.2"
+      ],
+      "sample_values": {
+        "PSARl_0.02_0.2": null,
+        "PSARs_0.02_0.2": 25738.495394556194,
+        "PSARaf_0.02_0.2": 0.04,
+        "PSARr_0.02_0.2": 0.0
+      },
+      "has_nans": true,
+      "value_range": {
+        "PSARl_0.02_0.2": {
+          "min": 25656.843280584784,
+          "max": 25913.288271876016,
+          "mean": 25763.52748179912
+        },
+        "PSARs_0.02_0.2": {
+          "min": 25695.279703747285,
+          "max": 25956.488485991198,
+          "mean": 25798.780075433544
+        },
+        "PSARaf_0.02_0.2": {
+          "min": 0.02,
+          "max": 0.2,
+          "mean": 0.06760000000000001
+        },
+        "PSARr_0.02_0.2": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.095
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "psl",
+      "class": "PSLIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.41,
+      "output_columns": [
+        "PSL_12"
+      ],
+      "sample_values": {
+        "value": 50.0
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 16.666666666666668,
+          "max": 83.33333333333333,
+          "mean": 50.31126202603283
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "pvi",
+      "class": "PVIIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 4.27,
+      "output_columns": [
+        "PVI",
+        "PVIe_255"
+      ],
+      "sample_values": {
+        "PVI": 100.0,
+        "PVIe_255": 99.99791358058062
+      },
+      "has_nans": true,
+      "value_range": {
+        "PVI": {
+          "min": 99.9039621835837,
+          "max": 100.14967123181017,
+          "mean": 99.99963851851345
+        },
+        "PVIe_255": {
+          "min": 99.99789715208125,
+          "max": 100.00233234319126,
+          "mean": 100.00019574480442
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "pvo",
+      "class": "PVOIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.28,
+      "output_columns": [
+        "PVO_12_26_9",
+        "PVOh_12_26_9",
+        "PVOs_12_26_9"
+      ],
+      "sample_values": {
+        "PVO_12_26_9": 0.1695097857212305,
+        "PVOh_12_26_9": -1.277581948579956,
+        "PVOs_12_26_9": 1.4470917343011864
+      },
+      "has_nans": true,
+      "value_range": {
+        "PVO_12_26_9": {
+          "min": -7.016805193826152,
+          "max": 9.71350748998379,
+          "mean": -0.15710318003743318
+        },
+        "PVOh_12_26_9": {
+          "min": -4.91373288985007,
+          "max": 6.123223087974742,
+          "mean": 0.010160879366321639
+        },
+        "PVOs_12_26_9": {
+          "min": -4.414840378774212,
+          "max": 5.654991756455122,
+          "mean": -0.16728534734217973
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "pvol",
+      "class": "PVOLIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.08,
+      "output_columns": [
+        "PVOL"
+      ],
+      "sample_values": {
+        "value": 26593326.44341948
+      },
+      "has_nans": false,
+      "value_range": {
+        "value": {
+          "min": 25770314.409295395,
+          "max": 64811034.49253029,
+          "mean": 35758502.53724951
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "pvr",
+      "class": "PVRIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.51,
+      "output_columns": [
+        "PVR"
+      ],
+      "sample_values": {
+        "value": 2.0
+      },
+      "has_nans": false,
+      "value_range": {
+        "value": {
+          "min": 1.0,
+          "max": 4.0,
+          "mean": 2.486666666666667
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "pvt",
+      "class": "PVTIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.24,
+      "output_columns": [
+        "PVT"
+      ],
+      "sample_values": {
+        "value": 127.31124282485546
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -806.2852165276413,
+          "max": 1163.3117062842014,
+          "mean": 115.0968066953462
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "pwma",
+      "class": "PWMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.6,
+      "output_columns": [
+        "PWMA_10"
+      ],
+      "sample_values": {
+        "value": 25729.928401812154
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25670.751374528056,
+          "max": 25944.253654596367,
+          "mean": 25779.997259993448
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "qqe",
+      "class": "QQEIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 21.8,
+      "output_columns": [
+        "QQE_14_5_4.236",
+        "QQE_14_5_4.236_RSIMA",
+        "QQEl_14_5_4.236",
+        "QQEs_14_5_4.236"
+      ],
+      "sample_values": {
+        "QQE_14_5_4.236": 48.75520745283656,
+        "QQE_14_5_4.236_RSIMA": 49.75940752153984,
+        "QQEl_14_5_4.236": 48.75520745283656,
+        "QQEs_14_5_4.236": null
+      },
+      "has_nans": true,
+      "value_range": {
+        "QQE_14_5_4.236": {
+          "min": 22.47888623093436,
+          "max": 72.13469189200751,
+          "mean": 50.58607784395916
+        },
+        "QQE_14_5_4.236_RSIMA": {
+          "min": 22.193319429234155,
+          "max": 74.23393289468144,
+          "mean": 49.03811958631616
+        },
+        "QQEl_14_5_4.236": {
+          "min": 22.47888623093436,
+          "max": 69.38534286345357,
+          "mean": 49.19092111028506
+        },
+        "QQEs_14_5_4.236": {
+          "min": 27.523435324028966,
+          "max": 72.13469189200751,
+          "mean": 51.81739054841175
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "qstick",
+      "class": "QSTICKIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.28,
+      "output_columns": [
+        "QS_10"
+      ],
+      "sample_values": {
+        "value": -0.3943203769813408
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -3.1718189605784572,
+          "max": 3.28811864814852,
+          "mean": -0.03404319061779171
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "quantile",
+      "class": "QUANTILEIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.34,
+      "output_columns": [
+        "QTL_30_0.5"
+      ],
+      "sample_values": {
+        "value": 25718.88051533189
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25684.05598657079,
+          "max": 25915.363048216554,
+          "mean": 25779.064830401316
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "renko",
+      "class": "RenkoIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 5.76,
+      "output_columns": [
+        "open",
+        "high",
+        "low",
+        "close",
+        "direction"
+      ],
+      "sample_values": {
+        "open": 25724.967141530113,
+        "high": 25734.967141530113,
+        "low": 25724.967141530113,
+        "close": 25734.967141530113,
+        "direction": 1.0
+      },
+      "has_nans": false,
+      "value_range": {
+        "open": {
+          "min": 25664.967141530113,
+          "max": 25954.967141530113,
+          "mean": 25798.024136348766
+        },
+        "high": {
+          "min": 25674.967141530113,
+          "max": 25954.967141530113,
+          "mean": 25802.84278919851
+        },
+        "low": {
+          "min": 25664.967141530113,
+          "max": 25944.967141530113,
+          "mean": 25792.84278919851
+        },
+        "close": {
+          "min": 25664.967141530113,
+          "max": 25954.967141530113,
+          "mean": 25797.66144204825
+        },
+        "direction": {
+          "min": -1.0,
+          "max": 1.0,
+          "mean": -0.03626943005181347
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "rma",
+      "class": "RMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.11,
+      "output_columns": [
+        "RMA_14"
+      ],
+      "sample_values": {
+        "value": 25721.58449166035
+      },
+      "has_nans": false,
+      "value_range": {
+        "value": {
+          "min": 25684.967306365033,
+          "max": 25912.473362827295,
+          "mean": 25781.619121214517
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "roc",
+      "class": "ROCIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.08,
+      "output_columns": [
+        "ROC_10"
+      ],
+      "sample_values": {
+        "value": -0.014833479845222097
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -0.3059253883281099,
+          "max": 0.36614770983607325,
+          "mean": -0.006563049215235856
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "rsi",
+      "class": "RSIIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.07,
+      "output_columns": [
+        "RSI_14"
+      ],
+      "sample_values": {
+        "value": 48.39969034515759
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 20.07698578827486,
+          "max": 77.86535001097317,
+          "mean": 49.02278918951183
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "rsx",
+      "class": "RSXIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 2.01,
+      "output_columns": [
+        "RSX_14"
+      ],
+      "sample_values": {
+        "value": 49.789683733316004
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 14.13677127095731,
+          "max": 87.65127818673729,
+          "mean": 49.082481480740476
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "rvgi",
+      "class": "RVGIIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.97,
+      "output_columns": [
+        "RVGI_14_4",
+        "RVGIs_14_4"
+      ],
+      "sample_values": {
+        "RVGI_14_4": -0.10884007896749225,
+        "RVGIs_14_4": -0.037618573455697815
+      },
+      "has_nans": true,
+      "value_range": {
+        "RVGI_14_4": {
+          "min": -0.2733664150807011,
+          "max": 0.27376037941221604,
+          "mean": -0.0014043164071886297
+        },
+        "RVGIs_14_4": {
+          "min": -0.26052767473432814,
+          "max": 0.259326251594333,
+          "mean": -0.0010452354588712692
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "rvi",
+      "class": "RVIIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.37,
+      "output_columns": [
+        "RVI_14"
+      ],
+      "sample_values": {
+        "value": 51.23843788674343
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 18.313427888655553,
+          "max": 91.74206805337238,
+          "mean": 49.71323480858708
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "sinwma",
+      "class": "SINWMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 5.12,
+      "output_columns": [
+        "SINWMA_14"
+      ],
+      "sample_values": {
+        "value": 25725.801935704294
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25678.60576236966,
+          "max": 25933.317563130928,
+          "mean": 25779.984204932483
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "skew",
+      "class": "SKEWIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.12,
+      "output_columns": [
+        "SKEW_30"
+      ],
+      "sample_values": {
+        "value": -0.31320145842285796
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -1.7351246933072277,
+          "max": 2.1022067408499114,
+          "mean": 0.21208977094996118
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "slope",
+      "class": "SLOPEIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 2.24,
+      "output_columns": [
+        "SLOPE_14"
+      ],
+      "sample_values": {
+        "value": -1.226078878275595
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -6.386873442651839,
+          "max": 6.813314004536941,
+          "mean": -0.17453098757711424
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "sma",
+      "class": "SMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.09,
+      "output_columns": [
+        "SMA_20"
+      ],
+      "sample_values": {
+        "value": 25723.634206687908
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25682.52627172878,
+          "max": 25927.22830983655,
+          "mean": 25780.02001952485
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "smi",
+      "class": "SMIIndicator",
+      "status": "failed",
+      "error": "smi() got multiple values for argument 'fast'",
+      "calculation_time_ms": 0,
+      "output_columns": [],
+      "sample_values": {},
+      "has_nans": false,
+      "value_range": {}
+    },
+    {
+      "name": "squeeze",
+      "class": "SQUEEZEIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 1.24,
+      "output_columns": [
+        "SQZ_20_2_20_1.5",
+        "SQZ_ON",
+        "SQZ_OFF",
+        "SQZ_NO"
+      ],
+      "sample_values": {
+        "SQZ_20_2_20_1.5": -2.124468817130643,
+        "SQZ_ON": 0.0,
+        "SQZ_OFF": 1.0,
+        "SQZ_NO": 0.0
+      },
+      "has_nans": true,
+      "value_range": {
+        "SQZ_20_2_20_1.5": {
+          "min": -70.51868888741289,
+          "max": 84.10812871918763,
+          "mean": -2.097797005928969
+        },
+        "SQZ_ON": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.145
+        },
+        "SQZ_OFF": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.8216666666666667
+        },
+        "SQZ_NO": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.03333333333333333
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "stc",
+      "class": "STCIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 6.46,
+      "output_columns": [
+        "STC_10_23_50_0.5",
+        "STCmacd_10_23_50_0.5",
+        "STCstoch_10_23_50_0.5"
+      ],
+      "sample_values": {
+        "STC_10_23_50_0.5": 0.0,
+        "STCmacd_10_23_50_0.5": -3.931497563247831,
+        "STCstoch_10_23_50_0.5": 0.0
+      },
+      "has_nans": true,
+      "value_range": {
+        "STC_10_23_50_0.5": {
+          "min": 0.0,
+          "max": 99.99694843,
+          "mean": 16.800652140653355
+        },
+        "STCmacd_10_23_50_0.5": {
+          "min": -41.803402588400786,
+          "max": 24.530018106710486,
+          "mean": -1.8467156322967937
+        },
+        "STCstoch_10_23_50_0.5": {
+          "min": 0.0,
+          "max": 99.99433822,
+          "mean": 17.791941802050815
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "stdev",
+      "class": "STDEVIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.09,
+      "output_columns": [
+        "STDEV_20"
+      ],
+      "sample_values": {
+        "value": 9.495896646483905
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 6.698693855994046,
+          "max": 36.60431676983795,
+          "mean": 15.854139913565662
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "stoch",
+      "class": "STOCHIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.22,
+      "output_columns": [
+        "STOCHk_14_3_3",
+        "STOCHd_14_3_3",
+        "STOCHh_14_3_3"
+      ],
+      "sample_values": {
+        "STOCHk_14_3_3": 27.5772372313139,
+        "STOCHd_14_3_3": 39.34496559178479,
+        "STOCHh_14_3_3": -11.76772836047089
+      },
+      "has_nans": true,
+      "value_range": {
+        "STOCHk_14_3_3": {
+          "min": 3.660992693327676,
+          "max": 96.54197018417392,
+          "mean": 46.40526984659822
+        },
+        "STOCHd_14_3_3": {
+          "min": 5.015581677475563,
+          "max": 94.3319782198987,
+          "mean": 46.38185838674414
+        },
+        "STOCHh_14_3_3": {
+          "min": -24.009408366690895,
+          "max": 22.074014310302566,
+          "mean": 0.023411459854075955
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "stochrsi",
+      "class": "STOCHRSIIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.42,
+      "output_columns": [
+        "STOCHRSIk_14_14_3_3",
+        "STOCHRSId_14_14_3_3"
+      ],
+      "sample_values": {
+        "STOCHRSIk_14_14_3_3": 5.977233527183382,
+        "STOCHRSId_14_14_3_3": 18.784234599642577
+      },
+      "has_nans": true,
+      "value_range": {
+        "STOCHRSIk_14_14_3_3": {
+          "min": 5.921189464667501e-16,
+          "max": 100.0000000000001,
+          "mean": 49.982732202313976
+        },
+        "STOCHRSId_14_14_3_3": {
+          "min": 1.3520049277657461e-14,
+          "max": 100.00000000000021,
+          "mean": 50.13517781815179
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "supertrend",
+      "class": "SUPERTRENDIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 5.63,
+      "output_columns": [
+        "SUPERT_10_3",
+        "SUPERTd_10_3",
+        "SUPERTl_10_3",
+        "SUPERTs_10_3"
+      ],
+      "sample_values": {
+        "SUPERT_10_3": 25705.022072350133,
+        "SUPERTd_10_3": 1.0,
+        "SUPERTl_10_3": 25705.022072350133,
+        "SUPERTs_10_3": null
+      },
+      "has_nans": true,
+      "value_range": {
+        "SUPERT_10_3": {
+          "min": 25653.489993097097,
+          "max": 25950.927377505563,
+          "mean": 25784.822330024912
+        },
+        "SUPERTd_10_3": {
+          "min": -1.0,
+          "max": 1.0,
+          "mean": -0.2135593220338983
+        },
+        "SUPERTl_10_3": {
+          "min": 25653.489993097097,
+          "max": 25914.532844865505,
+          "mean": 25776.48026608733
+        },
+        "SUPERTs_10_3": {
+          "min": 25693.767384048875,
+          "max": 25950.927377505563,
+          "mean": 25790.22836028613
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "support_resistance",
+      "class": "SupportResistanceIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 173.13,
+      "output_columns": [
+        "support_1",
+        "support_2",
+        "support_3",
+        "resistance_1",
+        "resistance_2",
+        "resistance_3"
+      ],
+      "sample_values": {
+        "support_1": null,
+        "support_2": null,
+        "support_3": null,
+        "resistance_1": null,
+        "resistance_2": null,
+        "resistance_3": null
+      },
+      "has_nans": true,
+      "value_range": {},
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "supportresistance",
+      "class": "SupportResistanceIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 150.41,
+      "output_columns": [
+        "support_1",
+        "support_2",
+        "support_3",
+        "resistance_1",
+        "resistance_2",
+        "resistance_3"
+      ],
+      "sample_values": {
+        "support_1": null,
+        "support_2": null,
+        "support_3": null,
+        "resistance_1": null,
+        "resistance_2": null,
+        "resistance_3": null
+      },
+      "has_nans": true,
+      "value_range": {},
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "swma",
+      "class": "SWMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.49,
+      "output_columns": [
+        "SWMA_4"
+      ],
+      "sample_values": {
+        "value": 25719.592943064992
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25667.54752241866,
+          "max": 25946.989683194784,
+          "mean": 25779.905089003427
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "t3",
+      "class": "T3Indicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.09,
+      "output_columns": [
+        "T3_5_0.7"
+      ],
+      "sample_values": {
+        "value": 25724.335884687975
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25670.023657446,
+          "max": 25949.82389744305,
+          "mean": 25778.741663701723
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "tema",
+      "class": "TEMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.07,
+      "output_columns": [
+        "TEMA_20"
+      ],
+      "sample_values": {
+        "value": 25726.072851655637
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25669.36449574313,
+          "max": 25951.96373721508,
+          "mean": 25782.165483500245
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "thermo",
+      "class": "THERMOIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.63,
+      "output_columns": [
+        "THERMO_20_2_0.5",
+        "THERMOma_20_2_0.5",
+        "THERMOl_20_2_0.5",
+        "THERMOs_20_2_0.5"
+      ],
+      "sample_values": {
+        "THERMO_20_2_0.5": 9.984894381948834,
+        "THERMOma_20_2_0.5": 9.08139595609353,
+        "THERMOl_20_2_0.5": 1.0,
+        "THERMOs_20_2_0.5": 1.0
+      },
+      "has_nans": true,
+      "value_range": {
+        "THERMO_20_2_0.5": {
+          "min": 0.27201063415122917,
+          "max": 38.33588662030161,
+          "mean": 10.39904767499827
+        },
+        "THERMOma_20_2_0.5": {
+          "min": 6.298506590473066,
+          "max": 14.519323775042983,
+          "mean": 10.405819828300034
+        },
+        "THERMOl_20_2_0.5": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.915
+        },
+        "THERMOs_20_2_0.5": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.7483333333333333
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "trima",
+      "class": "TRIMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.08,
+      "output_columns": [
+        "TRIMA_10"
+      ],
+      "sample_values": {
+        "value": 25726.969582509104
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25675.168733644045,
+          "max": 25939.99947060289,
+          "mean": 25779.982127932042
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "trix",
+      "class": "TRIXIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.46,
+      "output_columns": [
+        "TRIX_30_9",
+        "TRIXs_30_9"
+      ],
+      "sample_values": {
+        "TRIX_30_9": -0.002415697913604742,
+        "TRIXs_30_9": -0.0031081550443734507
+      },
+      "has_nans": true,
+      "value_range": {
+        "TRIX_30_9": {
+          "min": -0.008754925559595339,
+          "max": 0.005831348409479631,
+          "mean": 8.337077329867958e-06
+        },
+        "TRIXs_30_9": {
+          "min": -0.008695627048898528,
+          "max": 0.005760576047395303,
+          "mean": 5.5297974218878965e-05
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "truerange",
+      "class": "TRUERANGEIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.11,
+      "output_columns": [
+        "TRUERANGE_1"
+      ],
+      "sample_values": {
+        "value": 8.792791790856427
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 0.8688819132839853,
+          "max": 40.22022938432201,
+          "mean": 12.581103557329227
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "tsi",
+      "class": "TSIIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.36,
+      "output_columns": [
+        "TSI_13_25_13",
+        "TSIs_13_25_13"
+      ],
+      "sample_values": {
+        "TSI_13_25_13": 3.1182670203150074,
+        "TSIs_13_25_13": 3.7330281249778774
+      },
+      "has_nans": true,
+      "value_range": {
+        "TSI_13_25_13": {
+          "min": -49.09369920626008,
+          "max": 43.34811831033121,
+          "mean": -1.149000042379279
+        },
+        "TSIs_13_25_13": {
+          "min": -42.5773449315524,
+          "max": 36.017044841571284,
+          "mean": -0.8776578240309306
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "tsv",
+      "class": "TSVIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.92,
+      "output_columns": [
+        "TSV_18_10",
+        "TSVs_18_10",
+        "TSVr_18_10"
+      ],
+      "sample_values": {
+        "TSV_18_10": 5881.8602315446515,
+        "TSVs_18_10": 13664.171732048548,
+        "TSVr_18_10": 0.43045859982490403
+      },
+      "has_nans": true,
+      "value_range": {
+        "TSV_18_10": {
+          "min": -151751.02561372807,
+          "max": 156951.46845193038,
+          "mean": 998.0883683182469
+        },
+        "TSVs_18_10": {
+          "min": -122014.76079054123,
+          "max": 141635.77291182012,
+          "mean": 1423.19545247007
+        },
+        "TSVr_18_10": {
+          "min": -445.84196489928456,
+          "max": 350.0831387064345,
+          "mean": 0.18989701630536135
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "ttmtrend",
+      "class": "TTMTRENDIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.62,
+      "output_columns": [
+        "TTM_TRND_6"
+      ],
+      "sample_values": {
+        "TTM_TRND_6": -1.0
+      },
+      "has_nans": false,
+      "value_range": {
+        "TTM_TRND_6": {
+          "min": -1.0,
+          "max": 1.0,
+          "mean": -0.09333333333333334
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "ui",
+      "class": "UIIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.29,
+      "output_columns": [
+        "UI_14"
+      ],
+      "sample_values": {
+        "value": 0.04998131359030515
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 0.006489557348458408,
+          "max": 0.25728494568804483,
+          "mean": 0.1057836214139132
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "uo",
+      "class": "UOIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.11,
+      "output_columns": [
+        "UO_7_14_28"
+      ],
+      "sample_values": {
+        "value": 55.13871944238645
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25.993387244270888,
+          "max": 71.09292329655014,
+          "mean": 50.138817968554484
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "variance",
+      "class": "VARIANCEIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.06,
+      "output_columns": [
+        "VAR_20"
+      ],
+      "sample_values": {
+        "value": 90.17205312070426
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 44.87249937633238,
+          "max": 1339.8760061866399,
+          "mean": 292.9741808063761
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "vhf",
+      "class": "VHFIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.39,
+      "output_columns": [
+        "VHF_28"
+      ],
+      "sample_values": {
+        "value": 0.23392770078928116
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 0.13072386968869362,
+          "max": 0.5664346622160469,
+          "mean": 0.3192153941779619
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "vidya",
+      "class": "VIDYAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 9.83,
+      "output_columns": [
+        "VIDYA_14"
+      ],
+      "sample_values": {
+        "value": 25731.168586586322
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 107.33259951519685,
+          "max": 25894.144592942117,
+          "mean": 24264.965463003762
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "vortex",
+      "class": "VORTEXIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.6,
+      "output_columns": [
+        "VTXP_14",
+        "VTXM_14"
+      ],
+      "sample_values": {
+        "VTXP_14": 0.7123089577793937,
+        "VTXM_14": 1.0527841131556641
+      },
+      "has_nans": true,
+      "value_range": {
+        "VTXP_14": {
+          "min": 0.44488157012507107,
+          "max": 1.1430252285307054,
+          "mean": 0.8238277166270108
+        },
+        "VTXM_14": {
+          "min": 0.5674817051528045,
+          "max": 1.1913130523168496,
+          "mean": 0.8724922012000601
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "vp",
+      "class": "VPIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 2.6,
+      "output_columns": [
+        "low_close",
+        "mean_close",
+        "high_close",
+        "pos_volume",
+        "neg_volume",
+        "neut_volume",
+        "total_volume"
+      ],
+      "sample_values": {
+        "low_close": 25692.044237955506,
+        "mean_close": 25717.23236785344,
+        "high_close": 25749.32169104923,
+        "pos_volume": 42567.0,
+        "neg_volume": 40290.0,
+        "neut_volume": 0.0,
+        "total_volume": 82857.0
+      },
+      "has_nans": false,
+      "value_range": {
+        "low_close": {
+          "min": 25664.730546983603,
+          "max": 25811.146023290454,
+          "mean": 25727.03365353025
+        },
+        "mean_close": {
+          "min": 25699.719663236545,
+          "max": 25880.025256963138,
+          "mean": 25779.812497133997
+        },
+        "high_close": {
+          "min": 25739.983988895725,
+          "max": 25956.356457206402,
+          "mean": 25834.904758202993
+        },
+        "pos_volume": {
+          "min": 32266.0,
+          "max": 50424.0,
+          "mean": 42091.1
+        },
+        "neg_volume": {
+          "min": 31637.0,
+          "max": 51030.0,
+          "mean": 40990.4
+        },
+        "neut_volume": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "total_volume": {
+          "min": 80999.0,
+          "max": 86834.0,
+          "mean": 83081.5
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "vwap",
+      "class": "VWAPIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 2.87,
+      "output_columns": [
+        "VWAP_D"
+      ],
+      "sample_values": {
+        "value": 25779.617465254778
+      },
+      "has_nans": false,
+      "value_range": {
+        "value": {
+          "min": 25719.44564329807,
+          "max": 25827.323904896482,
+          "mean": 25758.09687391301
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "vwma",
+      "class": "VWMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.18,
+      "output_columns": [
+        "VWMA_20"
+      ],
+      "sample_values": {
+        "value": 25723.47716993882
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25682.473335609426,
+          "max": 25927.435669235623,
+          "mean": 25780.23200734657
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "willr",
+      "class": "WILLRIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.1,
+      "output_columns": [
+        "WILLR_14"
+      ],
+      "sample_values": {
+        "value": -66.06126710204832
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -99.99596958958577,
+          "max": -0.12121679642559433,
+          "mean": -53.7450742349479
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "wma",
+      "class": "WMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.07,
+      "output_columns": [
+        "WMA_20"
+      ],
+      "sample_values": {
+        "value": 25724.803015418616
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25679.958339315195,
+          "max": 25927.803929656304,
+          "mean": 25779.485231422543
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "zigzag",
+      "class": "ZIGZAGIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 673.64,
+      "output_columns": [
+        "ZIGZAGs_5.0%_10",
+        "ZIGZAGv_5.0%_10",
+        "ZIGZAGd_5.0%_10"
+      ],
+      "sample_values": {
+        "ZIGZAGs_5.0%_10": null,
+        "ZIGZAGv_5.0%_10": null,
+        "ZIGZAGd_5.0%_10": null
+      },
+      "has_nans": true,
+      "value_range": {
+        "ZIGZAGs_5.0%_10": {
+          "min": -1.0,
+          "max": -1.0,
+          "mean": -1.0
+        },
+        "ZIGZAGv_5.0%_10": {
+          "min": 25713.05204001754,
+          "max": 25713.05204001754,
+          "mean": 25713.05204001754
+        },
+        "ZIGZAGd_5.0%_10": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "zlema",
+      "class": "ZLEMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.25,
+      "output_columns": [
+        "ZL_EMA_20"
+      ],
+      "sample_values": {
+        "value": 25724.71606166974
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25672.067503328075,
+          "max": 25951.9256681088,
+          "mean": 25778.80557201253
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "zlma",
+      "class": "ZLMAIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.18,
+      "output_columns": [
+        "ZL_EMA_20"
+      ],
+      "sample_values": {
+        "value": 25724.71606166974
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": 25672.067503328075,
+          "max": 25951.9256681088,
+          "mean": 25778.80557201253
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    },
+    {
+      "name": "zscore",
+      "class": "ZSCOREIndicator",
+      "status": "passed",
+      "error": null,
+      "calculation_time_ms": 0.17,
+      "output_columns": [
+        "ZS_30"
+      ],
+      "sample_values": {
+        "value": 0.13164059471055295
+      },
+      "has_nans": true,
+      "value_range": {
+        "value": {
+          "min": -2.9794416021268177,
+          "max": 3.3518305791628826,
+          "mean": -0.02510260195563485
+        }
+      },
+      "incremental_update": "failed: single positional indexer is out-of-bounds"
+    }
+  ]
+}

@@ -1,0 +1,3645 @@
+{
+  "events_history": {
+    "exec_strategy-controller_20241029_091500_14f6b4": {
+      "execution_id": "exec_strategy-controller_20241029_091500_14f6b4",
+      "parent_execution_id": null,
+      "timestamp": "2024-10-29 09:15:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "strategy-controller",
+      "node_name": "Start",
+      "node_type": "StartNode",
+      "children_nodes": [
+        {
+          "id": "entry-condition-1"
+        },
+        {
+          "id": "entry-condition-2"
+        },
+        {
+          "id": "square-off-1"
+        }
+      ],
+      "strategy_config": {
+        "symbol": "NIFTY",
+        "timeframe": "1m",
+        "exchange": "NSE",
+        "trading_instrument": {
+          "type": "options",
+          "underlyingType": "index"
+        },
+        "end_conditions_configured": 0
+      }
+    },
+    "exec_entry-condition-1_20241029_091900_57e875": {
+      "execution_id": "exec_entry-condition-1_20241029_091900_57e875",
+      "parent_execution_id": "exec_strategy-controller_20241029_091500_14f6b4",
+      "timestamp": "2024-10-29 09:19:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "entry-condition-1",
+      "node_name": "Entry condition - Bullish",
+      "node_type": "EntrySignalNode",
+      "children_nodes": [
+        {
+          "id": "entry-2"
+        }
+      ],
+      "condition_type": "entry_conditions",
+      "conditions_preview": "Current Time >= 09:17 AND Previous[TI.1m.rsi(14,close)] < 30 AND TI.underlying_ltp > Previous[TI.1m.High]",
+      "signal_emitted": true,
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "type": "current_time"
+            },
+            "rhs_expression": {
+              "type": "time_function",
+              "timeValue": "09:17"
+            },
+            "lhs_value": 1730173740.0,
+            "rhs_value": 1730173620.0,
+            "operator": ">=",
+            "timestamp": "2024-10-29 09:19:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "{'type': 'current_time'} >= {'type': 'time_function', 'timeValue': '09:17'}  [1730173740.00 >= 1730173620.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 30,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 26.968018597059825,
+            "rhs_value": 30.0,
+            "operator": "<",
+            "timestamp": "2024-10-29 09:19:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) < 30  [26.97 < 30.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "type": "live_data",
+              "field": "underlying_ltp",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "candle_data",
+              "field": "High",
+              "offset": -1,
+              "dataField": "High",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "lhs_value": 24272.2,
+            "rhs_value": 24272.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 09:19:00+05:30",
+            "tick_count": 241,
+            "result": true,
+            "condition_type": "live",
+            "condition_text": ".underlying_ltp > {'type': 'candle_data', 'field': 'High', 'offset': -1, 'dataField': 'High', 'timeframeId': '1m', 'instrumentType': 'TI'}  [24272.20 > 24272.00] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 09:19:00+05:30",
+              "open": 24270.2,
+              "high": 24272.2,
+              "low": 24270.2,
+              "close": 24272.2,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 09:18:00+05:30",
+              "open": 24271.7,
+              "high": 24272.0,
+              "low": 24252.6,
+              "close": 24270.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 26.968018597059825
+              }
+            }
+          }
+        }
+      },
+      "signal_time": "2024-10-29 09:19:00+05:30",
+      "variables_calculated": [
+        "SignalLow"
+      ],
+      "node_variables": {
+        "SignalLow": {
+          "expression_preview": "Previous[TI.1m.Low]",
+          "value": 24252.6
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24272.2,
+          "timestamp": "2024-10-29 09:19:00.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      }
+    },
+    "exec_entry-2_20241029_091900_9654cc": {
+      "execution_id": "exec_entry-2_20241029_091900_9654cc",
+      "parent_execution_id": "exec_entry-condition-1_20241029_091900_57e875",
+      "timestamp": "2024-10-29 09:19:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "entry-2",
+      "node_name": "Entry 2 -Bullish",
+      "node_type": "EntryNode",
+      "children_nodes": [
+        {
+          "id": "exit-condition-1"
+        },
+        {
+          "id": "exit-condition-2"
+        }
+      ],
+      "action": {
+        "type": "place_order",
+        "action_type": "entry",
+        "order_id": "ENTRY_entry-2_20251210_093026",
+        "symbol": "NIFTY:2024-11-07:OPT:24250:PE",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "181.60",
+        "order_type": "MARKET",
+        "exchange": "NFO",
+        "status": "COMPLETE"
+      },
+      "position": {
+        "position_id": "entry-2-pos1",
+        "symbol": "NIFTY:2024-11-07:OPT:24250:PE",
+        "side": "sell",
+        "quantity": 1,
+        "entry_price": "181.60",
+        "entry_time": "2024-10-29T09:19:00+05:30",
+        "node_id": "entry-2"
+      },
+      "entry_config": {
+        "max_entries": 9,
+        "position_num": 1,
+        "re_entry_num": 0,
+        "positions_config": [
+          {
+            "side": "sell",
+            "quantity": 1,
+            "option_type": null
+          }
+        ]
+      }
+    },
+    "exec_exit-condition-2_20241029_104800_08a475": {
+      "execution_id": "exec_exit-condition-2_20241029_104800_08a475",
+      "parent_execution_id": "exec_entry-2_20241029_091900_9654cc",
+      "timestamp": "2024-10-29 10:48:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-condition-2",
+      "node_name": "Exit condition - SL",
+      "node_type": "ExitSignalNode",
+      "children_nodes": [
+        {
+          "id": "exit-3"
+        }
+      ],
+      "condition_type": "exit_conditions",
+      "conditions_preview": "Previous[TI.1m.rsi(14,close)] < 30 AND Previous[TI.1m.Close] < entry_condition_1.SignalLow",
+      "signal_emitted": true,
+      "exit_reason": "condition_met",
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 30,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 27.238778302941157,
+            "rhs_value": 30.0,
+            "operator": "<",
+            "timestamp": "2024-10-29 10:48:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) < 30  [27.24 < 30.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "type": "candle_data",
+              "field": "Close",
+              "offset": -1,
+              "dataField": "Close",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "node_variable",
+              "nodeId": "entry-condition-1",
+              "variableName": "SignalLow"
+            },
+            "lhs_value": 24144.45,
+            "rhs_value": 24252.6,
+            "operator": "<",
+            "timestamp": "2024-10-29 10:48:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "{'type': 'candle_data', 'field': 'Close', 'offset': -1, 'dataField': 'Close', 'timeframeId': '1m', 'instrumentType': 'TI'} < entry-condition-1.SignalLow  [24144.45 < 24252.60] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 10:48:00+05:30",
+              "open": 24145.0,
+              "high": 24145.0,
+              "low": 24145.0,
+              "close": 24145.0,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 10:47:00+05:30",
+              "open": 24153.0,
+              "high": 24153.75,
+              "low": 24140.85,
+              "close": 24144.45,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 27.238778302941157
+              }
+            }
+          }
+        }
+      },
+      "exit_signal_data": {
+        "exit_signal_time": "2024-10-29 10:48:00+05:30",
+        "exit_signal_price": 0,
+        "exit_reason": "condition_met",
+        "node_id": "exit-condition-2",
+        "conditions_met": [
+          {
+            "id": "cond-milrsrsc-jflew",
+            "conditions": [
+              {
+                "id": "cond-milrsrsc-5fh9l",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 30,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": "<"
+              },
+              {
+                "id": "cond-milrsrsc-iz2e3",
+                "lhs": {
+                  "type": "candle_data",
+                  "field": "Close",
+                  "offset": -1,
+                  "dataField": "Close",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "entry-condition-1",
+                  "variableName": "SignalLow"
+                },
+                "operator": "<"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ]
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24145.0,
+          "timestamp": "2024-10-29 10:48:00.000000",
+          "volume": 0,
+          "oi": 0
+        },
+        "NIFTY:2024-11-07:OPT:24250:PE": {
+          "ltp": 260.05,
+          "timestamp": "2024-10-29 10:47:59.000000",
+          "volume": 0,
+          "oi": 83225
+        }
+      }
+    },
+    "exec_exit-3_20241029_104800_fba1d6": {
+      "execution_id": "exec_exit-3_20241029_104800_fba1d6",
+      "parent_execution_id": "exec_exit-condition-2_20241029_104800_08a475",
+      "timestamp": "2024-10-29 10:48:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-3",
+      "node_name": "Exit 3 - SL",
+      "node_type": "ExitNode",
+      "children_nodes": [
+        {
+          "id": "re-entry-signal-2"
+        }
+      ],
+      "position": {
+        "position_id": "entry-2-pos1",
+        "re_entry_num": 0
+      },
+      "action": {
+        "type": "exit_order",
+        "target_position_id": "entry-2-pos1",
+        "exit_type": "market",
+        "order_type": "market",
+        "position_details": {
+          "symbol": "NIFTY:2024-11-07:OPT:24250:PE",
+          "side": "sell",
+          "quantity": 1,
+          "entry_price": "181.60",
+          "current_price": "181.60"
+        }
+      },
+      "exit_result": {
+        "positions_closed": 1,
+        "exit_price": "260.05",
+        "pnl": "-78.45",
+        "exit_time": "2024-10-29 10:48:00+05:30"
+      },
+      "exit_config": {
+        "target_position_vpi": "entry-2-pos1",
+        "exit_type": null,
+        "order_type": "market",
+        "has_re_entry": true,
+        "post_execution": true
+      },
+      "statistics": {
+        "orders_generated": 1,
+        "positions_closed": 1
+      }
+    },
+    "exec_exit-condition-1_20241029_114000_4c321c": {
+      "execution_id": "exec_exit-condition-1_20241029_114000_4c321c",
+      "parent_execution_id": "exec_entry-2_20241029_091900_9654cc",
+      "timestamp": "2024-10-29 11:40:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-condition-1",
+      "node_name": "Exit condition - Target",
+      "node_type": "ExitSignalNode",
+      "children_nodes": [
+        {
+          "id": "exit-2"
+        }
+      ],
+      "condition_type": "exit_conditions",
+      "conditions_preview": "Previous[TI.1m.rsi(14,close)] > 70",
+      "signal_emitted": true,
+      "exit_reason": "condition_met",
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 70,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 70.2446351872398,
+            "rhs_value": 70.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 11:40:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) > 70  [70.24 > 70.00] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 11:40:00+05:30",
+              "open": 24226.35,
+              "high": 24226.4,
+              "low": 24226.35,
+              "close": 24226.4,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 11:39:00+05:30",
+              "open": 24220.5,
+              "high": 24236.35,
+              "low": 24220.5,
+              "close": 24226.5,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 70.2446351872398
+              }
+            }
+          }
+        }
+      },
+      "exit_signal_data": {
+        "exit_signal_time": "2024-10-29 11:40:00+05:30",
+        "exit_signal_price": 0,
+        "exit_reason": "condition_met",
+        "node_id": "exit-condition-1",
+        "conditions_met": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "condition-1764509613772-a7in2awlu",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ]
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24226.4,
+          "timestamp": "2024-10-29 11:40:00.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      }
+    },
+    "exec_exit-2_20241029_114000_44a8ff": {
+      "execution_id": "exec_exit-2_20241029_114000_44a8ff",
+      "parent_execution_id": "exec_exit-condition-1_20241029_114000_4c321c",
+      "timestamp": "2024-10-29 11:40:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-2",
+      "node_name": "Exit 2 -Target",
+      "node_type": "ExitNode",
+      "children_nodes": [
+        {
+          "id": "re-entry-signal-1"
+        }
+      ],
+      "position": {
+        "position_id": "entry-2-pos1",
+        "re_entry_num": 0
+      },
+      "exit_config": {
+        "target_position_vpi": "entry-2-pos1",
+        "exit_type": null,
+        "order_type": "market",
+        "has_re_entry": true,
+        "post_execution": true
+      },
+      "skip_reason": {
+        "executed": true,
+        "skipped": true,
+        "reason": "Position entry-2-pos1 already closed by another exit node",
+        "exit_reason": "position_already_closed"
+      },
+      "statistics": {
+        "orders_generated": 0,
+        "positions_closed": 0
+      }
+    },
+    "exec_entry-condition-2_20241029_114200_4e8a9b": {
+      "execution_id": "exec_entry-condition-2_20241029_114200_4e8a9b",
+      "parent_execution_id": "exec_strategy-controller_20241029_091500_14f6b4",
+      "timestamp": "2024-10-29 11:42:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "entry-condition-2",
+      "node_name": "Entry condition - Bearish",
+      "node_type": "EntrySignalNode",
+      "children_nodes": [
+        {
+          "id": "entry-3"
+        }
+      ],
+      "condition_type": "entry_conditions",
+      "conditions_preview": "Current Time > 09:17 AND Previous[TI.1m.rsi(14,close)] > 70 AND TI.underlying_ltp < Previous[TI.1m.Low]",
+      "signal_emitted": true,
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "type": "current_time"
+            },
+            "rhs_expression": {
+              "type": "time_function",
+              "timeValue": "09:17"
+            },
+            "lhs_value": 1730182320.0,
+            "rhs_value": 1730173620.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 11:42:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "{'type': 'current_time'} > {'type': 'time_function', 'timeValue': '09:17'}  [1730182320.00 > 1730173620.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 70,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 72.53191944216664,
+            "rhs_value": 70.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 11:42:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) > 70  [72.53 > 70.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "type": "live_data",
+              "field": "underlying_ltp",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "candle_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "lhs_value": 24233.8,
+            "rhs_value": 24236.1,
+            "operator": "<",
+            "timestamp": "2024-10-29 11:42:00+05:30",
+            "tick_count": 8757,
+            "result": true,
+            "condition_type": "live",
+            "condition_text": ".underlying_ltp < {'type': 'candle_data', 'field': 'Low', 'offset': -1, 'dataField': 'Low', 'timeframeId': '1m', 'instrumentType': 'TI'}  [24233.80 < 24236.10] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 11:42:00+05:30",
+              "open": 24234.7,
+              "high": 24234.7,
+              "low": 24233.8,
+              "close": 24233.8,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 11:41:00+05:30",
+              "open": 24236.7,
+              "high": 24246.25,
+              "low": 24236.1,
+              "close": 24236.1,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 72.53191944216664
+              }
+            }
+          }
+        }
+      },
+      "signal_time": "2024-10-29 11:42:00+05:30",
+      "variables_calculated": [
+        "SignalHigh"
+      ],
+      "node_variables": {
+        "SignalHigh": {
+          "expression_preview": "Previous[TI.1m.High]",
+          "value": 24246.25
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24233.8,
+          "timestamp": "2024-10-29 11:42:00.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      }
+    },
+    "exec_entry-3_20241029_114200_ce2a1a": {
+      "execution_id": "exec_entry-3_20241029_114200_ce2a1a",
+      "parent_execution_id": "exec_entry-condition-2_20241029_114200_4e8a9b",
+      "timestamp": "2024-10-29 11:42:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "entry-3",
+      "node_name": "Entry 3 -Barish",
+      "node_type": "EntryNode",
+      "children_nodes": [
+        {
+          "id": "exit-condition-3"
+        },
+        {
+          "id": "exit-condition-4"
+        }
+      ],
+      "action": {
+        "type": "place_order",
+        "action_type": "entry",
+        "order_id": "ENTRY_entry-3_20251210_093029",
+        "symbol": "NIFTY:2024-11-07:OPT:24250:CE",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "262.05",
+        "order_type": "MARKET",
+        "exchange": "NFO",
+        "status": "COMPLETE"
+      },
+      "position": {
+        "position_id": "entry-3-pos1",
+        "symbol": "NIFTY:2024-11-07:OPT:24250:CE",
+        "side": "sell",
+        "quantity": 1,
+        "entry_price": "262.05",
+        "entry_time": "2024-10-29T11:42:00+05:30",
+        "node_id": "entry-3"
+      },
+      "entry_config": {
+        "max_entries": 10,
+        "position_num": 1,
+        "re_entry_num": 0,
+        "positions_config": [
+          {
+            "side": "sell",
+            "quantity": 1,
+            "option_type": null
+          }
+        ]
+      }
+    },
+    "exec_exit-condition-4_20241029_120400_f18003": {
+      "execution_id": "exec_exit-condition-4_20241029_120400_f18003",
+      "parent_execution_id": "exec_entry-3_20241029_114200_ce2a1a",
+      "timestamp": "2024-10-29 12:04:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-condition-4",
+      "node_name": "Exit condition - SL",
+      "node_type": "ExitSignalNode",
+      "children_nodes": [
+        {
+          "id": "exit-6"
+        }
+      ],
+      "condition_type": "exit_conditions",
+      "conditions_preview": "Previous[TI.1m.rsi(14,close)] > 70 AND Previous[TI.1m.Close] > entry_condition_2.SignalHigh",
+      "signal_emitted": true,
+      "exit_reason": "condition_met",
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 70,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 74.30993955966228,
+            "rhs_value": 70.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 12:04:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) > 70  [74.31 > 70.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "type": "candle_data",
+              "field": "Close",
+              "offset": -1,
+              "dataField": "Close",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "node_variable",
+              "nodeId": "entry-condition-2",
+              "variableName": "SignalHigh"
+            },
+            "lhs_value": 24282.3,
+            "rhs_value": 24246.25,
+            "operator": ">",
+            "timestamp": "2024-10-29 12:04:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "{'type': 'candle_data', 'field': 'Close', 'offset': -1, 'dataField': 'Close', 'timeframeId': '1m', 'instrumentType': 'TI'} > entry-condition-2.SignalHigh  [24282.30 > 24246.25] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 12:04:00+05:30",
+              "open": 24285.1,
+              "high": 24285.55,
+              "low": 24285.1,
+              "close": 24285.55,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 12:03:00+05:30",
+              "open": 24267.45,
+              "high": 24286.9,
+              "low": 24266.65,
+              "close": 24282.3,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 74.30993955966228
+              }
+            }
+          }
+        }
+      },
+      "exit_signal_data": {
+        "exit_signal_time": "2024-10-29 12:04:00+05:30",
+        "exit_signal_price": 0,
+        "exit_reason": "condition_met",
+        "node_id": "exit-condition-4",
+        "conditions_met": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "xb5wq1493",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              },
+              {
+                "id": "a1mm5pqv3",
+                "lhs": {
+                  "type": "candle_data",
+                  "field": "Close",
+                  "offset": -1,
+                  "dataField": "Close",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "entry-condition-2",
+                  "variableName": "SignalHigh"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ]
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24285.55,
+          "timestamp": "2024-10-29 12:04:00.000000",
+          "volume": 0,
+          "oi": 0
+        },
+        "NIFTY:2024-11-07:OPT:24250:CE": {
+          "ltp": 287.8,
+          "timestamp": "2024-10-29 12:03:59.000000",
+          "volume": 0,
+          "oi": 132100
+        }
+      }
+    },
+    "exec_exit-6_20241029_120400_b32530": {
+      "execution_id": "exec_exit-6_20241029_120400_b32530",
+      "parent_execution_id": "exec_exit-condition-4_20241029_120400_f18003",
+      "timestamp": "2024-10-29 12:04:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-6",
+      "node_name": "Exit 6 - SL",
+      "node_type": "ExitNode",
+      "children_nodes": [
+        {
+          "id": "re-entry-signal-4"
+        }
+      ],
+      "position": {
+        "position_id": "entry-3-pos1",
+        "re_entry_num": 0
+      },
+      "action": {
+        "type": "exit_order",
+        "target_position_id": "entry-3-pos1",
+        "exit_type": "market",
+        "order_type": "market",
+        "position_details": {
+          "symbol": "NIFTY:2024-11-07:OPT:24250:CE",
+          "side": "sell",
+          "quantity": 1,
+          "entry_price": "262.05",
+          "current_price": "262.05"
+        }
+      },
+      "exit_result": {
+        "positions_closed": 1,
+        "exit_price": "287.80",
+        "pnl": "-25.75",
+        "exit_time": "2024-10-29 12:04:00+05:30"
+      },
+      "exit_config": {
+        "target_position_vpi": "entry-3-pos1",
+        "exit_type": null,
+        "order_type": "market",
+        "has_re_entry": true,
+        "post_execution": true
+      },
+      "statistics": {
+        "orders_generated": 1,
+        "positions_closed": 1
+      }
+    },
+    "exec_re-entry-signal-4_20241029_120508_2f3f80": {
+      "execution_id": "exec_re-entry-signal-4_20241029_120508_2f3f80",
+      "parent_execution_id": "exec_exit-6_20241029_120400_b32530",
+      "timestamp": "2024-10-29 12:05:08+05:30",
+      "event_type": "logic_completed",
+      "node_id": "re-entry-signal-4",
+      "node_name": "Re-Entry node - SL",
+      "node_type": "ReEntrySignalNode",
+      "children_nodes": [
+        {
+          "id": "entry-3"
+        }
+      ]
+    },
+    "exec_entry-3_20241029_120509_771637": {
+      "execution_id": "exec_entry-3_20241029_120509_771637",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_120508_2f3f80",
+      "timestamp": "2024-10-29 12:05:09+05:30",
+      "event_type": "logic_completed",
+      "node_id": "entry-3",
+      "node_name": "Entry 3 -Barish",
+      "node_type": "EntryNode",
+      "children_nodes": [
+        {
+          "id": "exit-condition-3"
+        },
+        {
+          "id": "exit-condition-4"
+        }
+      ],
+      "action": {
+        "type": "place_order",
+        "action_type": "entry",
+        "order_id": "ENTRY_entry-3_20251210_093030",
+        "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "254.65",
+        "order_type": "MARKET",
+        "exchange": "NFO",
+        "status": "COMPLETE"
+      },
+      "position": {
+        "position_id": "entry-3-pos1",
+        "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+        "side": "sell",
+        "quantity": 1,
+        "entry_price": "254.65",
+        "entry_time": "2024-10-29T12:05:09+05:30",
+        "node_id": "entry-3"
+      },
+      "entry_config": {
+        "max_entries": 10,
+        "position_num": 2,
+        "re_entry_num": 1,
+        "positions_config": [
+          {
+            "side": "sell",
+            "quantity": 1,
+            "option_type": null
+          }
+        ]
+      }
+    },
+    "exec_exit-condition-4_20241029_121500_ab258a": {
+      "execution_id": "exec_exit-condition-4_20241029_121500_ab258a",
+      "parent_execution_id": "exec_entry-3_20241029_120509_771637",
+      "timestamp": "2024-10-29 12:15:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-condition-4",
+      "node_name": "Exit condition - SL",
+      "node_type": "ExitSignalNode",
+      "children_nodes": [
+        {
+          "id": "exit-6"
+        }
+      ],
+      "condition_type": "re_entry_exit_conditions",
+      "conditions_preview": "Previous[TI.1m.rsi(14,close)] > 70 AND Previous[TI.1m.Close] > re_entry_signal_4.SignalHigh",
+      "signal_emitted": true,
+      "exit_reason": "condition_met",
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 70,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 70.5323821085447,
+            "rhs_value": 70.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 12:15:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) > 70  [70.53 > 70.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "type": "candle_data",
+              "field": "Close",
+              "offset": -1,
+              "dataField": "Close",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "node_variable",
+              "nodeId": "re-entry-signal-4",
+              "variableName": "SignalHigh"
+            },
+            "lhs_value": 24293.75,
+            "rhs_value": 24285.9,
+            "operator": ">",
+            "timestamp": "2024-10-29 12:15:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "{'type': 'candle_data', 'field': 'Close', 'offset': -1, 'dataField': 'Close', 'timeframeId': '1m', 'instrumentType': 'TI'} > re-entry-signal-4.SignalHigh  [24293.75 > 24285.90] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 12:15:00+05:30",
+              "open": 24293.6,
+              "high": 24293.6,
+              "low": 24292.6,
+              "close": 24292.8,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 12:14:00+05:30",
+              "open": 24278.05,
+              "high": 24294.55,
+              "low": 24277.8,
+              "close": 24293.75,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 70.5323821085447
+              }
+            }
+          }
+        }
+      },
+      "exit_signal_data": {
+        "exit_signal_time": "2024-10-29 12:15:00+05:30",
+        "exit_signal_price": 0,
+        "exit_reason": "condition_met",
+        "node_id": "exit-condition-4",
+        "conditions_met": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "xb5wq1493",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              },
+              {
+                "id": "a1mm5pqv3",
+                "lhs": {
+                  "type": "candle_data",
+                  "field": "Close",
+                  "offset": -1,
+                  "dataField": "Close",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "entry-condition-2",
+                  "variableName": "SignalHigh"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ]
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24292.8,
+          "timestamp": "2024-10-29 12:15:00.000000",
+          "volume": 0,
+          "oi": 0
+        },
+        "NIFTY:2024-11-07:OPT:24300:CE": {
+          "ltp": 263.45,
+          "timestamp": "2024-10-29 12:15:00.000000",
+          "volume": 0,
+          "oi": 1045550
+        }
+      }
+    },
+    "exec_exit-6_20241029_121500_38c643": {
+      "execution_id": "exec_exit-6_20241029_121500_38c643",
+      "parent_execution_id": "exec_exit-condition-4_20241029_121500_ab258a",
+      "timestamp": "2024-10-29 12:15:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-6",
+      "node_name": "Exit 6 - SL",
+      "node_type": "ExitNode",
+      "children_nodes": [
+        {
+          "id": "re-entry-signal-4"
+        }
+      ],
+      "position": {
+        "position_id": "entry-3-pos1",
+        "re_entry_num": 1
+      },
+      "action": {
+        "type": "exit_order",
+        "target_position_id": "entry-3-pos1",
+        "exit_type": "market",
+        "order_type": "market",
+        "position_details": {
+          "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+          "side": "sell",
+          "quantity": 1,
+          "entry_price": "254.65",
+          "current_price": "254.65"
+        }
+      },
+      "exit_result": {
+        "positions_closed": 1,
+        "exit_price": "263.45",
+        "pnl": "-34.55",
+        "exit_time": "2024-10-29 12:15:00+05:30"
+      },
+      "exit_config": {
+        "target_position_vpi": "entry-3-pos1",
+        "exit_type": null,
+        "order_type": "market",
+        "has_re_entry": true,
+        "post_execution": true
+      },
+      "statistics": {
+        "orders_generated": 2,
+        "positions_closed": 2
+      }
+    },
+    "exec_re-entry-signal-4_20241029_121752_a65b7e": {
+      "execution_id": "exec_re-entry-signal-4_20241029_121752_a65b7e",
+      "parent_execution_id": "exec_exit-6_20241029_121500_38c643",
+      "timestamp": "2024-10-29 12:17:52+05:30",
+      "event_type": "logic_completed",
+      "node_id": "re-entry-signal-4",
+      "node_name": "Re-Entry node - SL",
+      "node_type": "ReEntrySignalNode",
+      "children_nodes": [
+        {
+          "id": "entry-3"
+        }
+      ]
+    },
+    "exec_entry-3_20241029_121753_584da9": {
+      "execution_id": "exec_entry-3_20241029_121753_584da9",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_121752_a65b7e",
+      "timestamp": "2024-10-29 12:17:53+05:30",
+      "event_type": "logic_completed",
+      "node_id": "entry-3",
+      "node_name": "Entry 3 -Barish",
+      "node_type": "EntryNode",
+      "children_nodes": [
+        {
+          "id": "exit-condition-3"
+        },
+        {
+          "id": "exit-condition-4"
+        }
+      ],
+      "action": {
+        "type": "place_order",
+        "action_type": "entry",
+        "order_id": "ENTRY_entry-3_20251210_093030",
+        "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "262.70",
+        "order_type": "MARKET",
+        "exchange": "NFO",
+        "status": "COMPLETE"
+      },
+      "position": {
+        "position_id": "entry-3-pos1",
+        "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+        "side": "sell",
+        "quantity": 1,
+        "entry_price": "262.70",
+        "entry_time": "2024-10-29T12:17:53+05:30",
+        "node_id": "entry-3"
+      },
+      "entry_config": {
+        "max_entries": 10,
+        "position_num": 3,
+        "re_entry_num": 2,
+        "positions_config": [
+          {
+            "side": "sell",
+            "quantity": 1,
+            "option_type": null
+          }
+        ]
+      }
+    },
+    "exec_exit-condition-4_20241029_125200_1e0cd2": {
+      "execution_id": "exec_exit-condition-4_20241029_125200_1e0cd2",
+      "parent_execution_id": "exec_entry-3_20241029_121753_584da9",
+      "timestamp": "2024-10-29 12:52:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-condition-4",
+      "node_name": "Exit condition - SL",
+      "node_type": "ExitSignalNode",
+      "children_nodes": [
+        {
+          "id": "exit-6"
+        }
+      ],
+      "condition_type": "re_entry_exit_conditions",
+      "conditions_preview": "Previous[TI.1m.rsi(14,close)] > 70 AND Previous[TI.1m.Close] > re_entry_signal_4.SignalHigh",
+      "signal_emitted": true,
+      "exit_reason": "condition_met",
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 70,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 70.62154791904747,
+            "rhs_value": 70.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 12:52:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) > 70  [70.62 > 70.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "type": "candle_data",
+              "field": "Close",
+              "offset": -1,
+              "dataField": "Close",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "node_variable",
+              "nodeId": "re-entry-signal-4",
+              "variableName": "SignalHigh"
+            },
+            "lhs_value": 24323.3,
+            "rhs_value": 24303.45,
+            "operator": ">",
+            "timestamp": "2024-10-29 12:52:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "{'type': 'candle_data', 'field': 'Close', 'offset': -1, 'dataField': 'Close', 'timeframeId': '1m', 'instrumentType': 'TI'} > re-entry-signal-4.SignalHigh  [24323.30 > 24303.45] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 12:52:00+05:30",
+              "open": 24322.75,
+              "high": 24323.9,
+              "low": 24322.75,
+              "close": 24323.9,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 12:51:00+05:30",
+              "open": 24312.7,
+              "high": 24325.15,
+              "low": 24312.7,
+              "close": 24323.3,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 70.62154791904747
+              }
+            }
+          }
+        }
+      },
+      "exit_signal_data": {
+        "exit_signal_time": "2024-10-29 12:52:00+05:30",
+        "exit_signal_price": 0,
+        "exit_reason": "condition_met",
+        "node_id": "exit-condition-4",
+        "conditions_met": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "xb5wq1493",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              },
+              {
+                "id": "a1mm5pqv3",
+                "lhs": {
+                  "type": "candle_data",
+                  "field": "Close",
+                  "offset": -1,
+                  "dataField": "Close",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "entry-condition-2",
+                  "variableName": "SignalHigh"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ]
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24323.9,
+          "timestamp": "2024-10-29 12:52:00.000000",
+          "volume": 0,
+          "oi": 0
+        },
+        "NIFTY:2024-11-07:OPT:24300:CE": {
+          "ltp": 274.75,
+          "timestamp": "2024-10-29 12:51:59.000000",
+          "volume": 0,
+          "oi": 1066575
+        }
+      }
+    },
+    "exec_exit-6_20241029_125200_3525c8": {
+      "execution_id": "exec_exit-6_20241029_125200_3525c8",
+      "parent_execution_id": "exec_exit-condition-4_20241029_125200_1e0cd2",
+      "timestamp": "2024-10-29 12:52:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-6",
+      "node_name": "Exit 6 - SL",
+      "node_type": "ExitNode",
+      "children_nodes": [
+        {
+          "id": "re-entry-signal-4"
+        }
+      ],
+      "position": {
+        "position_id": "entry-3-pos1",
+        "re_entry_num": 2
+      },
+      "action": {
+        "type": "exit_order",
+        "target_position_id": "entry-3-pos1",
+        "exit_type": "market",
+        "order_type": "market",
+        "position_details": {
+          "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+          "side": "sell",
+          "quantity": 1,
+          "entry_price": "262.70",
+          "current_price": "262.70"
+        }
+      },
+      "exit_result": {
+        "positions_closed": 1,
+        "exit_price": "274.75",
+        "pnl": "-46.60",
+        "exit_time": "2024-10-29 12:52:00+05:30"
+      },
+      "exit_config": {
+        "target_position_vpi": "entry-3-pos1",
+        "exit_type": null,
+        "order_type": "market",
+        "has_re_entry": true,
+        "post_execution": true
+      },
+      "statistics": {
+        "orders_generated": 3,
+        "positions_closed": 3
+      }
+    },
+    "exec_re-entry-signal-4_20241029_125348_3c25e0": {
+      "execution_id": "exec_re-entry-signal-4_20241029_125348_3c25e0",
+      "parent_execution_id": "exec_exit-6_20241029_125200_3525c8",
+      "timestamp": "2024-10-29 12:53:48+05:30",
+      "event_type": "logic_completed",
+      "node_id": "re-entry-signal-4",
+      "node_name": "Re-Entry node - SL",
+      "node_type": "ReEntrySignalNode",
+      "children_nodes": [
+        {
+          "id": "entry-3"
+        }
+      ]
+    },
+    "exec_entry-3_20241029_125349_722967": {
+      "execution_id": "exec_entry-3_20241029_125349_722967",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_125348_3c25e0",
+      "timestamp": "2024-10-29 12:53:49+05:30",
+      "event_type": "logic_completed",
+      "node_id": "entry-3",
+      "node_name": "Entry 3 -Barish",
+      "node_type": "EntryNode",
+      "children_nodes": [
+        {
+          "id": "exit-condition-3"
+        },
+        {
+          "id": "exit-condition-4"
+        }
+      ],
+      "action": {
+        "type": "place_order",
+        "action_type": "entry",
+        "order_id": "ENTRY_entry-3_20251210_093031",
+        "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "275.50",
+        "order_type": "MARKET",
+        "exchange": "NFO",
+        "status": "COMPLETE"
+      },
+      "position": {
+        "position_id": "entry-3-pos1",
+        "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+        "side": "sell",
+        "quantity": 1,
+        "entry_price": "275.50",
+        "entry_time": "2024-10-29T12:53:49+05:30",
+        "node_id": "entry-3"
+      },
+      "entry_config": {
+        "max_entries": 10,
+        "position_num": 4,
+        "re_entry_num": 3,
+        "positions_config": [
+          {
+            "side": "sell",
+            "quantity": 1,
+            "option_type": null
+          }
+        ]
+      }
+    },
+    "exec_exit-condition-4_20241029_130300_6b313a": {
+      "execution_id": "exec_exit-condition-4_20241029_130300_6b313a",
+      "parent_execution_id": "exec_entry-3_20241029_125349_722967",
+      "timestamp": "2024-10-29 13:03:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-condition-4",
+      "node_name": "Exit condition - SL",
+      "node_type": "ExitSignalNode",
+      "children_nodes": [
+        {
+          "id": "exit-6"
+        }
+      ],
+      "condition_type": "re_entry_exit_conditions",
+      "conditions_preview": "Previous[TI.1m.rsi(14,close)] > 70 AND Previous[TI.1m.Close] > re_entry_signal_4.SignalHigh",
+      "signal_emitted": true,
+      "exit_reason": "condition_met",
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 70,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 70.88970515955685,
+            "rhs_value": 70.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 13:03:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) > 70  [70.89 > 70.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "type": "candle_data",
+              "field": "Close",
+              "offset": -1,
+              "dataField": "Close",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "node_variable",
+              "nodeId": "re-entry-signal-4",
+              "variableName": "SignalHigh"
+            },
+            "lhs_value": 24338.6,
+            "rhs_value": 24329.65,
+            "operator": ">",
+            "timestamp": "2024-10-29 13:03:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "{'type': 'candle_data', 'field': 'Close', 'offset': -1, 'dataField': 'Close', 'timeframeId': '1m', 'instrumentType': 'TI'} > re-entry-signal-4.SignalHigh  [24338.60 > 24329.65] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 13:03:00+05:30",
+              "open": 24338.7,
+              "high": 24339.05,
+              "low": 24338.7,
+              "close": 24339.05,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 13:02:00+05:30",
+              "open": 24333.95,
+              "high": 24341.35,
+              "low": 24327.65,
+              "close": 24338.6,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 70.88970515955685
+              }
+            }
+          }
+        }
+      },
+      "exit_signal_data": {
+        "exit_signal_time": "2024-10-29 13:03:00+05:30",
+        "exit_signal_price": 0,
+        "exit_reason": "condition_met",
+        "node_id": "exit-condition-4",
+        "conditions_met": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "xb5wq1493",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              },
+              {
+                "id": "a1mm5pqv3",
+                "lhs": {
+                  "type": "candle_data",
+                  "field": "Close",
+                  "offset": -1,
+                  "dataField": "Close",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "entry-condition-2",
+                  "variableName": "SignalHigh"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ]
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24339.05,
+          "timestamp": "2024-10-29 13:03:00.000000",
+          "volume": 0,
+          "oi": 0
+        },
+        "NIFTY:2024-11-07:OPT:24300:CE": {
+          "ltp": 288.7,
+          "timestamp": "2024-10-29 13:02:59.000000",
+          "volume": 0,
+          "oi": 1062375
+        }
+      }
+    },
+    "exec_exit-6_20241029_130300_c97978": {
+      "execution_id": "exec_exit-6_20241029_130300_c97978",
+      "parent_execution_id": "exec_exit-condition-4_20241029_130300_6b313a",
+      "timestamp": "2024-10-29 13:03:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-6",
+      "node_name": "Exit 6 - SL",
+      "node_type": "ExitNode",
+      "children_nodes": [
+        {
+          "id": "re-entry-signal-4"
+        }
+      ],
+      "position": {
+        "position_id": "entry-3-pos1",
+        "re_entry_num": 3
+      },
+      "action": {
+        "type": "exit_order",
+        "target_position_id": "entry-3-pos1",
+        "exit_type": "market",
+        "order_type": "market",
+        "position_details": {
+          "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
+          "side": "sell",
+          "quantity": 1,
+          "entry_price": "275.50",
+          "current_price": "275.50"
+        }
+      },
+      "exit_result": {
+        "positions_closed": 1,
+        "exit_price": "288.70",
+        "pnl": "-59.80",
+        "exit_time": "2024-10-29 13:03:00+05:30"
+      },
+      "exit_config": {
+        "target_position_vpi": "entry-3-pos1",
+        "exit_type": null,
+        "order_type": "market",
+        "has_re_entry": true,
+        "post_execution": true
+      },
+      "statistics": {
+        "orders_generated": 4,
+        "positions_closed": 4
+      }
+    },
+    "exec_re-entry-signal-4_20241029_130549_ad753a": {
+      "execution_id": "exec_re-entry-signal-4_20241029_130549_ad753a",
+      "parent_execution_id": "exec_exit-6_20241029_130300_c97978",
+      "timestamp": "2024-10-29 13:05:49+05:30",
+      "event_type": "logic_completed",
+      "node_id": "re-entry-signal-4",
+      "node_name": "Re-Entry node - SL",
+      "node_type": "ReEntrySignalNode",
+      "children_nodes": [
+        {
+          "id": "entry-3"
+        }
+      ]
+    },
+    "exec_entry-3_20241029_130550_66c72b": {
+      "execution_id": "exec_entry-3_20241029_130550_66c72b",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_130549_ad753a",
+      "timestamp": "2024-10-29 13:05:50+05:30",
+      "event_type": "logic_completed",
+      "node_id": "entry-3",
+      "node_name": "Entry 3 -Barish",
+      "node_type": "EntryNode",
+      "children_nodes": [
+        {
+          "id": "exit-condition-3"
+        },
+        {
+          "id": "exit-condition-4"
+        }
+      ],
+      "action": {
+        "type": "place_order",
+        "action_type": "entry",
+        "order_id": "ENTRY_entry-3_20251210_093031",
+        "symbol": "NIFTY:2024-11-07:OPT:24350:CE",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "254.00",
+        "order_type": "MARKET",
+        "exchange": "NFO",
+        "status": "COMPLETE"
+      },
+      "position": {
+        "position_id": "entry-3-pos1",
+        "symbol": "NIFTY:2024-11-07:OPT:24350:CE",
+        "side": "sell",
+        "quantity": 1,
+        "entry_price": "254.00",
+        "entry_time": "2024-10-29T13:05:50+05:30",
+        "node_id": "entry-3"
+      },
+      "entry_config": {
+        "max_entries": 10,
+        "position_num": 5,
+        "re_entry_num": 4,
+        "positions_config": [
+          {
+            "side": "sell",
+            "quantity": 1,
+            "option_type": null
+          }
+        ]
+      }
+    },
+    "exec_exit-condition-4_20241029_140300_43f5d0": {
+      "execution_id": "exec_exit-condition-4_20241029_140300_43f5d0",
+      "parent_execution_id": "exec_entry-3_20241029_130550_66c72b",
+      "timestamp": "2024-10-29 14:03:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-condition-4",
+      "node_name": "Exit condition - SL",
+      "node_type": "ExitSignalNode",
+      "children_nodes": [
+        {
+          "id": "exit-6"
+        }
+      ],
+      "condition_type": "re_entry_exit_conditions",
+      "conditions_preview": "Previous[TI.1m.rsi(14,close)] > 70 AND Previous[TI.1m.Close] > re_entry_signal_4.SignalHigh",
+      "signal_emitted": true,
+      "exit_reason": "condition_met",
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 70,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 77.13533234829717,
+            "rhs_value": 70.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 14:03:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) > 70  [77.14 > 70.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "type": "candle_data",
+              "field": "Close",
+              "offset": -1,
+              "dataField": "Close",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "node_variable",
+              "nodeId": "re-entry-signal-4",
+              "variableName": "SignalHigh"
+            },
+            "lhs_value": 24364.2,
+            "rhs_value": 24344.9,
+            "operator": ">",
+            "timestamp": "2024-10-29 14:03:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "{'type': 'candle_data', 'field': 'Close', 'offset': -1, 'dataField': 'Close', 'timeframeId': '1m', 'instrumentType': 'TI'} > re-entry-signal-4.SignalHigh  [24364.20 > 24344.90] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 14:03:00+05:30",
+              "open": 24365.35,
+              "high": 24366.95,
+              "low": 24365.35,
+              "close": 24366.95,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 14:02:00+05:30",
+              "open": 24334.35,
+              "high": 24365.4,
+              "low": 24332.7,
+              "close": 24364.2,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 77.13533234829717
+              }
+            }
+          }
+        }
+      },
+      "exit_signal_data": {
+        "exit_signal_time": "2024-10-29 14:03:00+05:30",
+        "exit_signal_price": 0,
+        "exit_reason": "condition_met",
+        "node_id": "exit-condition-4",
+        "conditions_met": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "xb5wq1493",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              },
+              {
+                "id": "a1mm5pqv3",
+                "lhs": {
+                  "type": "candle_data",
+                  "field": "Close",
+                  "offset": -1,
+                  "dataField": "Close",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "entry-condition-2",
+                  "variableName": "SignalHigh"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ]
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24366.95,
+          "timestamp": "2024-10-29 14:03:00.000000",
+          "volume": 0,
+          "oi": 0
+        },
+        "NIFTY:2024-11-07:OPT:24350:CE": {
+          "ltp": 265.35,
+          "timestamp": "2024-10-29 14:03:00.000000",
+          "volume": 0,
+          "oi": 160050
+        }
+      }
+    },
+    "exec_exit-6_20241029_140300_4c5d25": {
+      "execution_id": "exec_exit-6_20241029_140300_4c5d25",
+      "parent_execution_id": "exec_exit-condition-4_20241029_140300_43f5d0",
+      "timestamp": "2024-10-29 14:03:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-6",
+      "node_name": "Exit 6 - SL",
+      "node_type": "ExitNode",
+      "children_nodes": [
+        {
+          "id": "re-entry-signal-4"
+        }
+      ],
+      "position": {
+        "position_id": "entry-3-pos1",
+        "re_entry_num": 4
+      },
+      "action": {
+        "type": "exit_order",
+        "target_position_id": "entry-3-pos1",
+        "exit_type": "market",
+        "order_type": "market",
+        "position_details": {
+          "symbol": "NIFTY:2024-11-07:OPT:24350:CE",
+          "side": "sell",
+          "quantity": 1,
+          "entry_price": "254.00",
+          "current_price": "254.00"
+        }
+      },
+      "exit_result": {
+        "positions_closed": 1,
+        "exit_price": "265.35",
+        "pnl": "-71.15",
+        "exit_time": "2024-10-29 14:03:00+05:30"
+      },
+      "exit_config": {
+        "target_position_vpi": "entry-3-pos1",
+        "exit_type": null,
+        "order_type": "market",
+        "has_re_entry": true,
+        "post_execution": true
+      },
+      "statistics": {
+        "orders_generated": 5,
+        "positions_closed": 5
+      }
+    },
+    "exec_re-entry-signal-4_20241029_141324_48518c": {
+      "execution_id": "exec_re-entry-signal-4_20241029_141324_48518c",
+      "parent_execution_id": "exec_exit-6_20241029_140300_4c5d25",
+      "timestamp": "2024-10-29 14:13:24+05:30",
+      "event_type": "logic_completed",
+      "node_id": "re-entry-signal-4",
+      "node_name": "Re-Entry node - SL",
+      "node_type": "ReEntrySignalNode",
+      "children_nodes": [
+        {
+          "id": "entry-3"
+        }
+      ]
+    },
+    "exec_entry-3_20241029_141325_e6c3cb": {
+      "execution_id": "exec_entry-3_20241029_141325_e6c3cb",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_141324_48518c",
+      "timestamp": "2024-10-29 14:13:25+05:30",
+      "event_type": "logic_completed",
+      "node_id": "entry-3",
+      "node_name": "Entry 3 -Barish",
+      "node_type": "EntryNode",
+      "children_nodes": [
+        {
+          "id": "exit-condition-3"
+        },
+        {
+          "id": "exit-condition-4"
+        }
+      ],
+      "action": {
+        "type": "place_order",
+        "action_type": "entry",
+        "order_id": "ENTRY_entry-3_20251210_093033",
+        "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "267.00",
+        "order_type": "MARKET",
+        "exchange": "NFO",
+        "status": "COMPLETE"
+      },
+      "position": {
+        "position_id": "entry-3-pos1",
+        "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
+        "side": "sell",
+        "quantity": 1,
+        "entry_price": "267.00",
+        "entry_time": "2024-10-29T14:13:25+05:30",
+        "node_id": "entry-3"
+      },
+      "entry_config": {
+        "max_entries": 10,
+        "position_num": 6,
+        "re_entry_num": 5,
+        "positions_config": [
+          {
+            "side": "sell",
+            "quantity": 1,
+            "option_type": null
+          }
+        ]
+      }
+    },
+    "exec_exit-condition-4_20241029_141500_b5c707": {
+      "execution_id": "exec_exit-condition-4_20241029_141500_b5c707",
+      "parent_execution_id": "exec_entry-3_20241029_141325_e6c3cb",
+      "timestamp": "2024-10-29 14:15:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-condition-4",
+      "node_name": "Exit condition - SL",
+      "node_type": "ExitSignalNode",
+      "children_nodes": [
+        {
+          "id": "exit-6"
+        }
+      ],
+      "condition_type": "re_entry_exit_conditions",
+      "conditions_preview": "Previous[TI.1m.rsi(14,close)] > 70 AND Previous[TI.1m.Close] > re_entry_signal_4.SignalHigh",
+      "signal_emitted": true,
+      "exit_reason": "condition_met",
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 70,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 82.88533335294804,
+            "rhs_value": 70.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 14:15:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) > 70  [82.89 > 70.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "type": "candle_data",
+              "field": "Close",
+              "offset": -1,
+              "dataField": "Close",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "node_variable",
+              "nodeId": "re-entry-signal-4",
+              "variableName": "SignalHigh"
+            },
+            "lhs_value": 24417.5,
+            "rhs_value": 24414.2,
+            "operator": ">",
+            "timestamp": "2024-10-29 14:15:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "{'type': 'candle_data', 'field': 'Close', 'offset': -1, 'dataField': 'Close', 'timeframeId': '1m', 'instrumentType': 'TI'} > re-entry-signal-4.SignalHigh  [24417.50 > 24414.20] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 14:15:00+05:30",
+              "open": 24417.0,
+              "high": 24417.0,
+              "low": 24416.7,
+              "close": 24416.7,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 14:14:00+05:30",
+              "open": 24409.15,
+              "high": 24418.75,
+              "low": 24409.15,
+              "close": 24417.5,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 82.88533335294804
+              }
+            }
+          }
+        }
+      },
+      "exit_signal_data": {
+        "exit_signal_time": "2024-10-29 14:15:00+05:30",
+        "exit_signal_price": 0,
+        "exit_reason": "condition_met",
+        "node_id": "exit-condition-4",
+        "conditions_met": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "xb5wq1493",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              },
+              {
+                "id": "a1mm5pqv3",
+                "lhs": {
+                  "type": "candle_data",
+                  "field": "Close",
+                  "offset": -1,
+                  "dataField": "Close",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "entry-condition-2",
+                  "variableName": "SignalHigh"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ]
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24416.7,
+          "timestamp": "2024-10-29 14:15:00.000000",
+          "volume": 0,
+          "oi": 0
+        },
+        "NIFTY:2024-11-07:OPT:24400:CE": {
+          "ltp": 272.9,
+          "timestamp": "2024-10-29 14:15:00.000000",
+          "volume": 0,
+          "oi": 1347625
+        }
+      }
+    },
+    "exec_exit-6_20241029_141500_697002": {
+      "execution_id": "exec_exit-6_20241029_141500_697002",
+      "parent_execution_id": "exec_exit-condition-4_20241029_141500_b5c707",
+      "timestamp": "2024-10-29 14:15:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-6",
+      "node_name": "Exit 6 - SL",
+      "node_type": "ExitNode",
+      "children_nodes": [
+        {
+          "id": "re-entry-signal-4"
+        }
+      ],
+      "position": {
+        "position_id": "entry-3-pos1",
+        "re_entry_num": 5
+      },
+      "action": {
+        "type": "exit_order",
+        "target_position_id": "entry-3-pos1",
+        "exit_type": "market",
+        "order_type": "market",
+        "position_details": {
+          "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
+          "side": "sell",
+          "quantity": 1,
+          "entry_price": "267.00",
+          "current_price": "267.00"
+        }
+      },
+      "exit_result": {
+        "positions_closed": 1,
+        "exit_price": "272.90",
+        "pnl": "-77.05",
+        "exit_time": "2024-10-29 14:15:00+05:30"
+      },
+      "exit_config": {
+        "target_position_vpi": "entry-3-pos1",
+        "exit_type": null,
+        "order_type": "market",
+        "has_re_entry": true,
+        "post_execution": true
+      },
+      "statistics": {
+        "orders_generated": 6,
+        "positions_closed": 6
+      }
+    },
+    "exec_re-entry-signal-4_20241029_141931_69104f": {
+      "execution_id": "exec_re-entry-signal-4_20241029_141931_69104f",
+      "parent_execution_id": "exec_exit-6_20241029_141500_697002",
+      "timestamp": "2024-10-29 14:19:31+05:30",
+      "event_type": "logic_completed",
+      "node_id": "re-entry-signal-4",
+      "node_name": "Re-Entry node - SL",
+      "node_type": "ReEntrySignalNode",
+      "children_nodes": [
+        {
+          "id": "entry-3"
+        }
+      ]
+    },
+    "exec_entry-3_20241029_141932_46a23e": {
+      "execution_id": "exec_entry-3_20241029_141932_46a23e",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_141931_69104f",
+      "timestamp": "2024-10-29 14:19:32+05:30",
+      "event_type": "logic_completed",
+      "node_id": "entry-3",
+      "node_name": "Entry 3 -Barish",
+      "node_type": "EntryNode",
+      "children_nodes": [
+        {
+          "id": "exit-condition-3"
+        },
+        {
+          "id": "exit-condition-4"
+        }
+      ],
+      "action": {
+        "type": "place_order",
+        "action_type": "entry",
+        "order_id": "ENTRY_entry-3_20251210_093033",
+        "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "276.00",
+        "order_type": "MARKET",
+        "exchange": "NFO",
+        "status": "COMPLETE"
+      },
+      "position": {
+        "position_id": "entry-3-pos1",
+        "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
+        "side": "sell",
+        "quantity": 1,
+        "entry_price": "276.00",
+        "entry_time": "2024-10-29T14:19:32+05:30",
+        "node_id": "entry-3"
+      },
+      "entry_config": {
+        "max_entries": 10,
+        "position_num": 7,
+        "re_entry_num": 6,
+        "positions_config": [
+          {
+            "side": "sell",
+            "quantity": 1,
+            "option_type": null
+          }
+        ]
+      }
+    },
+    "exec_exit-condition-4_20241029_150800_0699b8": {
+      "execution_id": "exec_exit-condition-4_20241029_150800_0699b8",
+      "parent_execution_id": "exec_entry-3_20241029_141932_46a23e",
+      "timestamp": "2024-10-29 15:08:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-condition-4",
+      "node_name": "Exit condition - SL",
+      "node_type": "ExitSignalNode",
+      "children_nodes": [
+        {
+          "id": "exit-6"
+        }
+      ],
+      "condition_type": "re_entry_exit_conditions",
+      "conditions_preview": "Previous[TI.1m.rsi(14,close)] > 70 AND Previous[TI.1m.Close] > re_entry_signal_4.SignalHigh",
+      "signal_emitted": true,
+      "exit_reason": "condition_met",
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 70,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 70.28633532372862,
+            "rhs_value": 70.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 15:08:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) > 70  [70.29 > 70.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "type": "candle_data",
+              "field": "Close",
+              "offset": -1,
+              "dataField": "Close",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "node_variable",
+              "nodeId": "re-entry-signal-4",
+              "variableName": "SignalHigh"
+            },
+            "lhs_value": 24481.1,
+            "rhs_value": 24435.45,
+            "operator": ">",
+            "timestamp": "2024-10-29 15:08:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "{'type': 'candle_data', 'field': 'Close', 'offset': -1, 'dataField': 'Close', 'timeframeId': '1m', 'instrumentType': 'TI'} > re-entry-signal-4.SignalHigh  [24481.10 > 24435.45] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 15:08:00+05:30",
+              "open": 24481.65,
+              "high": 24481.65,
+              "low": 24481.45,
+              "close": 24481.45,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 15:07:00+05:30",
+              "open": 24475.55,
+              "high": 24484.3,
+              "low": 24473.4,
+              "close": 24481.1,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 70.28633532372862
+              }
+            }
+          }
+        }
+      },
+      "exit_signal_data": {
+        "exit_signal_time": "2024-10-29 15:08:00+05:30",
+        "exit_signal_price": 0,
+        "exit_reason": "condition_met",
+        "node_id": "exit-condition-4",
+        "conditions_met": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "xb5wq1493",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              },
+              {
+                "id": "a1mm5pqv3",
+                "lhs": {
+                  "type": "candle_data",
+                  "field": "Close",
+                  "offset": -1,
+                  "dataField": "Close",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "entry-condition-2",
+                  "variableName": "SignalHigh"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ]
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24481.45,
+          "timestamp": "2024-10-29 15:08:00.000000",
+          "volume": 0,
+          "oi": 0
+        },
+        "NIFTY:2024-11-07:OPT:24400:CE": {
+          "ltp": 294.0,
+          "timestamp": "2024-10-29 15:08:00.000000",
+          "volume": 0,
+          "oi": 1278650
+        }
+      }
+    },
+    "exec_exit-6_20241029_150800_534488": {
+      "execution_id": "exec_exit-6_20241029_150800_534488",
+      "parent_execution_id": "exec_exit-condition-4_20241029_150800_0699b8",
+      "timestamp": "2024-10-29 15:08:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "exit-6",
+      "node_name": "Exit 6 - SL",
+      "node_type": "ExitNode",
+      "children_nodes": [
+        {
+          "id": "re-entry-signal-4"
+        }
+      ],
+      "position": {
+        "position_id": "entry-3-pos1",
+        "re_entry_num": 6
+      },
+      "action": {
+        "type": "exit_order",
+        "target_position_id": "entry-3-pos1",
+        "exit_type": "market",
+        "order_type": "market",
+        "position_details": {
+          "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
+          "side": "sell",
+          "quantity": 1,
+          "entry_price": "276.00",
+          "current_price": "276.00"
+        }
+      },
+      "exit_result": {
+        "positions_closed": 1,
+        "exit_price": "294.00",
+        "pnl": "-95.05",
+        "exit_time": "2024-10-29 15:08:00+05:30"
+      },
+      "exit_config": {
+        "target_position_vpi": "entry-3-pos1",
+        "exit_type": null,
+        "order_type": "market",
+        "has_re_entry": true,
+        "post_execution": true
+      },
+      "statistics": {
+        "orders_generated": 7,
+        "positions_closed": 7
+      }
+    },
+    "exec_re-entry-signal-4_20241029_150924_ab5a72": {
+      "execution_id": "exec_re-entry-signal-4_20241029_150924_ab5a72",
+      "parent_execution_id": "exec_exit-6_20241029_150800_534488",
+      "timestamp": "2024-10-29 15:09:24+05:30",
+      "event_type": "logic_completed",
+      "node_id": "re-entry-signal-4",
+      "node_name": "Re-Entry node - SL",
+      "node_type": "ReEntrySignalNode",
+      "children_nodes": [
+        {
+          "id": "entry-3"
+        }
+      ]
+    },
+    "exec_entry-3_20241029_150925_006060": {
+      "execution_id": "exec_entry-3_20241029_150925_006060",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_150924_ab5a72",
+      "timestamp": "2024-10-29 15:09:25+05:30",
+      "event_type": "logic_completed",
+      "node_id": "entry-3",
+      "node_name": "Entry 3 -Barish",
+      "node_type": "EntryNode",
+      "children_nodes": [
+        {
+          "id": "exit-condition-3"
+        },
+        {
+          "id": "exit-condition-4"
+        }
+      ],
+      "action": {
+        "type": "place_order",
+        "action_type": "entry",
+        "order_id": "ENTRY_entry-3_20251210_093035",
+        "symbol": "NIFTY:2024-11-07:OPT:24500:CE",
+        "side": "SELL",
+        "quantity": 1,
+        "price": "234.35",
+        "order_type": "MARKET",
+        "exchange": "NFO",
+        "status": "COMPLETE"
+      },
+      "position": {
+        "position_id": "entry-3-pos1",
+        "symbol": "NIFTY:2024-11-07:OPT:24500:CE",
+        "side": "sell",
+        "quantity": 1,
+        "entry_price": "234.35",
+        "entry_time": "2024-10-29T15:09:25+05:30",
+        "node_id": "entry-3"
+      },
+      "entry_config": {
+        "max_entries": 10,
+        "position_num": 8,
+        "re_entry_num": 7,
+        "positions_config": [
+          {
+            "side": "sell",
+            "quantity": 1,
+            "option_type": null
+          }
+        ]
+      }
+    },
+    "exec_square-off-1_20241029_152500_a08afb": {
+      "execution_id": "exec_square-off-1_20241029_152500_a08afb",
+      "parent_execution_id": "exec_strategy-controller_20241029_091500_14f6b4",
+      "timestamp": "2024-10-29 15:25:00+05:30",
+      "event_type": "logic_completed",
+      "node_id": "square-off-1",
+      "node_name": "Square off off",
+      "node_type": "SquareOffNode",
+      "children_nodes": [],
+      "square_off": {
+        "executed": true,
+        "reason": "Exit 5 minutes before market close",
+        "condition_type": "timeBasedExit",
+        "orders_cancelled": 0,
+        "positions_closed": 1,
+        "exit_type": "time_based",
+        "trigger_values": {
+          "trigger_time": null,
+          "current_time": "2024-10-29 15:25:00+05:30",
+          "time_type": "market_close",
+          "exit_time_configured": "15:25:00"
+        },
+        "exit_description": "Exit 5 minutes before market close"
+      },
+      "closed_positions": [
+        {
+          "position_id": "entry-3-pos1",
+          "re_entry_num": 7,
+          "symbol": "NIFTY:2024-11-07:OPT:24500:CE",
+          "side": "sell",
+          "quantity": 1,
+          "entry_price": 234.35,
+          "exit_price": 229.25
+        }
+      ],
+      "config": {
+        "immediate_exit_enabled": false,
+        "performance_based_exit_enabled": false,
+        "time_based_exit_enabled": true,
+        "time_settings": {
+          "exit_time": "",
+          "minutes_before_close": 5
+        }
+      },
+      "timestamp_info": {
+        "current_time": "2024-10-29 15:25:00+05:30",
+        "strategy_symbol": "NIFTY"
+      }
+    }
+  },
+  "current_state": {
+    "strategy-controller": {
+      "execution_id": "exec_strategy-controller_20241029_091500_14f6b4",
+      "parent_execution_id": null,
+      "timestamp": "2024-10-29 09:15:00+05:30",
+      "status": "completed",
+      "node_id": "strategy-controller",
+      "node_name": "Start",
+      "node_type": "StartNode",
+      "children_nodes": [
+        {
+          "id": "entry-condition-1"
+        },
+        {
+          "id": "entry-condition-2"
+        },
+        {
+          "id": "square-off-1"
+        }
+      ],
+      "strategy_config": {
+        "symbol": "NIFTY",
+        "timeframe": "1m",
+        "exchange": "NSE",
+        "trading_instrument": {
+          "type": "options",
+          "underlyingType": "index"
+        },
+        "end_conditions_configured": 0
+      }
+    },
+    "entry-condition-1": {
+      "execution_id": "exec_entry-condition-1_20241029_091900_57e875",
+      "parent_execution_id": "exec_strategy-controller_20241029_091500_14f6b4",
+      "timestamp": "2024-10-29 09:19:00+05:30",
+      "status": "completed",
+      "node_id": "entry-condition-1",
+      "node_name": "Entry condition - Bullish",
+      "node_type": "EntrySignalNode",
+      "children_nodes": [
+        {
+          "id": "entry-2"
+        }
+      ],
+      "condition_type": "entry_conditions",
+      "conditions_preview": "Current Time >= 09:17 AND Previous[TI.1m.rsi(14,close)] < 30 AND TI.underlying_ltp > Previous[TI.1m.High]",
+      "signal_emitted": true,
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "type": "current_time"
+            },
+            "rhs_expression": {
+              "type": "time_function",
+              "timeValue": "09:17"
+            },
+            "lhs_value": 1730173740.0,
+            "rhs_value": 1730173620.0,
+            "operator": ">=",
+            "timestamp": "2024-10-29 09:19:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "{'type': 'current_time'} >= {'type': 'time_function', 'timeValue': '09:17'}  [1730173740.00 >= 1730173620.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 30,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 26.968018597059825,
+            "rhs_value": 30.0,
+            "operator": "<",
+            "timestamp": "2024-10-29 09:19:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) < 30  [26.97 < 30.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "type": "live_data",
+              "field": "underlying_ltp",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "candle_data",
+              "field": "High",
+              "offset": -1,
+              "dataField": "High",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "lhs_value": 24272.2,
+            "rhs_value": 24272.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 09:19:00+05:30",
+            "tick_count": 241,
+            "result": true,
+            "condition_type": "live",
+            "condition_text": ".underlying_ltp > {'type': 'candle_data', 'field': 'High', 'offset': -1, 'dataField': 'High', 'timeframeId': '1m', 'instrumentType': 'TI'}  [24272.20 > 24272.00] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 09:19:00+05:30",
+              "open": 24270.2,
+              "high": 24272.2,
+              "low": 24270.2,
+              "close": 24272.2,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 09:18:00+05:30",
+              "open": 24271.7,
+              "high": 24272.0,
+              "low": 24252.6,
+              "close": 24270.7,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 26.968018597059825
+              }
+            }
+          }
+        }
+      },
+      "signal_time": "2024-10-29 09:19:00+05:30",
+      "variables_calculated": [
+        "SignalLow"
+      ],
+      "node_variables": {
+        "SignalLow": {
+          "expression_preview": "Previous[TI.1m.Low]",
+          "value": 24252.6
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24272.2,
+          "timestamp": "2024-10-29 09:19:00.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      }
+    },
+    "entry-condition-2": {
+      "execution_id": "exec_entry-condition-2_20241029_114200_4e8a9b",
+      "parent_execution_id": "exec_strategy-controller_20241029_091500_14f6b4",
+      "timestamp": "2024-10-29 11:42:00+05:30",
+      "status": "completed",
+      "node_id": "entry-condition-2",
+      "node_name": "Entry condition - Bearish",
+      "node_type": "EntrySignalNode",
+      "children_nodes": [
+        {
+          "id": "entry-3"
+        }
+      ],
+      "condition_type": "entry_conditions",
+      "conditions_preview": "Current Time > 09:17 AND Previous[TI.1m.rsi(14,close)] > 70 AND TI.underlying_ltp < Previous[TI.1m.Low]",
+      "signal_emitted": true,
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "type": "current_time"
+            },
+            "rhs_expression": {
+              "type": "time_function",
+              "timeValue": "09:17"
+            },
+            "lhs_value": 1730182320.0,
+            "rhs_value": 1730173620.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 11:42:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "{'type': 'current_time'} > {'type': 'time_function', 'timeValue': '09:17'}  [1730182320.00 > 1730173620.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 70,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 72.53191944216664,
+            "rhs_value": 70.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 11:42:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) > 70  [72.53 > 70.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "type": "live_data",
+              "field": "underlying_ltp",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "candle_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "lhs_value": 24233.8,
+            "rhs_value": 24236.1,
+            "operator": "<",
+            "timestamp": "2024-10-29 11:42:00+05:30",
+            "tick_count": 8757,
+            "result": true,
+            "condition_type": "live",
+            "condition_text": ".underlying_ltp < {'type': 'candle_data', 'field': 'Low', 'offset': -1, 'dataField': 'Low', 'timeframeId': '1m', 'instrumentType': 'TI'}  [24233.80 < 24236.10] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 11:42:00+05:30",
+              "open": 24234.7,
+              "high": 24234.7,
+              "low": 24233.8,
+              "close": 24233.8,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 11:41:00+05:30",
+              "open": 24236.7,
+              "high": 24246.25,
+              "low": 24236.1,
+              "close": 24236.1,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 72.53191944216664
+              }
+            }
+          }
+        }
+      },
+      "signal_time": "2024-10-29 11:42:00+05:30",
+      "variables_calculated": [
+        "SignalHigh"
+      ],
+      "node_variables": {
+        "SignalHigh": {
+          "expression_preview": "Previous[TI.1m.High]",
+          "value": 24246.25
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24233.8,
+          "timestamp": "2024-10-29 11:42:00.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      }
+    },
+    "square-off-1": {
+      "execution_id": "exec_square-off-1_20241029_152500_a08afb",
+      "parent_execution_id": "exec_strategy-controller_20241029_091500_14f6b4",
+      "timestamp": "2024-10-29 15:25:00+05:30",
+      "status": "completed",
+      "node_id": "square-off-1",
+      "node_name": "Square off off",
+      "node_type": "SquareOffNode",
+      "children_nodes": [],
+      "square_off": {
+        "executed": true,
+        "reason": "Exit 5 minutes before market close",
+        "condition_type": "timeBasedExit",
+        "orders_cancelled": 0,
+        "positions_closed": 1,
+        "exit_type": "time_based",
+        "trigger_values": {
+          "trigger_time": null,
+          "current_time": "2024-10-29 15:25:00+05:30",
+          "time_type": "market_close",
+          "exit_time_configured": "15:25:00"
+        },
+        "exit_description": "Exit 5 minutes before market close"
+      },
+      "closed_positions": [
+        {
+          "position_id": "entry-3-pos1",
+          "re_entry_num": 7,
+          "symbol": "NIFTY:2024-11-07:OPT:24500:CE",
+          "side": "sell",
+          "quantity": 1,
+          "entry_price": 234.35,
+          "exit_price": 229.25
+        }
+      ],
+      "config": {
+        "immediate_exit_enabled": false,
+        "performance_based_exit_enabled": false,
+        "time_based_exit_enabled": true,
+        "time_settings": {
+          "exit_time": "",
+          "minutes_before_close": 5
+        }
+      },
+      "timestamp_info": {
+        "current_time": "2024-10-29 15:25:00+05:30",
+        "strategy_symbol": "NIFTY"
+      }
+    },
+    "entry-2": {
+      "execution_id": "exec_entry-2_20241029_091900_9654cc",
+      "parent_execution_id": "exec_entry-condition-1_20241029_091900_57e875",
+      "timestamp": "2024-10-29 09:19:00+05:30",
+      "status": "completed",
+      "node_id": "entry-2",
+      "node_name": "Entry 2 -Bullish",
+      "node_type": "EntryNode",
+      "children_nodes": [
+        {
+          "id": "exit-condition-1"
+        },
+        {
+          "id": "exit-condition-2"
+        }
+      ],
+      "action": {
+        "type": "place_order",
+        "action_type": "entry",
+        "order_id": "ENTRY_entry-2_20251210_093026",
+        "symbol": "NIFTY:2024-11-07:OPT:24250:PE",
+        "side": "SELL",
+        "quantity": 1,
+        "price": 181.6,
+        "order_type": "MARKET",
+        "exchange": "NFO",
+        "status": "COMPLETE"
+      },
+      "position": {
+        "position_id": "entry-2-pos1",
+        "symbol": "NIFTY:2024-11-07:OPT:24250:PE",
+        "side": "sell",
+        "quantity": 1,
+        "entry_price": 181.6,
+        "entry_time": "2024-10-29T09:19:00+05:30",
+        "node_id": "entry-2"
+      },
+      "entry_config": {
+        "max_entries": 9,
+        "position_num": 1,
+        "re_entry_num": 0,
+        "positions_config": [
+          {
+            "side": "sell",
+            "quantity": 1,
+            "option_type": null
+          }
+        ]
+      }
+    },
+    "exit-condition-1": {
+      "execution_id": "exec_exit-condition-1_20241029_114000_4c321c",
+      "parent_execution_id": "exec_entry-2_20241029_091900_9654cc",
+      "timestamp": "2024-10-29 11:40:00+05:30",
+      "status": "completed",
+      "node_id": "exit-condition-1",
+      "node_name": "Exit condition - Target",
+      "node_type": "ExitSignalNode",
+      "children_nodes": [
+        {
+          "id": "exit-2"
+        }
+      ],
+      "condition_type": "exit_conditions",
+      "conditions_preview": "Previous[TI.1m.rsi(14,close)] > 70",
+      "signal_emitted": true,
+      "exit_reason": "condition_met",
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 70,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 70.2446351872398,
+            "rhs_value": 70.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 11:40:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) > 70  [70.24 > 70.00] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 11:40:00+05:30",
+              "open": 24226.35,
+              "high": 24226.4,
+              "low": 24226.35,
+              "close": 24226.4,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 11:39:00+05:30",
+              "open": 24220.5,
+              "high": 24236.35,
+              "low": 24220.5,
+              "close": 24226.5,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 70.2446351872398
+              }
+            }
+          }
+        }
+      },
+      "exit_signal_data": {
+        "exit_signal_time": "2024-10-29 11:40:00+05:30",
+        "exit_signal_price": 0,
+        "exit_reason": "condition_met",
+        "node_id": "exit-condition-1",
+        "conditions_met": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "condition-1764509613772-a7in2awlu",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 70,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ]
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24226.4,
+          "timestamp": "2024-10-29 11:40:00.000000",
+          "volume": 0,
+          "oi": 0
+        }
+      }
+    },
+    "exit-condition-2": {
+      "execution_id": "exec_exit-condition-2_20241029_104800_08a475",
+      "parent_execution_id": "exec_entry-2_20241029_091900_9654cc",
+      "timestamp": "2024-10-29 10:48:00+05:30",
+      "status": "completed",
+      "node_id": "exit-condition-2",
+      "node_name": "Exit condition - SL",
+      "node_type": "ExitSignalNode",
+      "children_nodes": [
+        {
+          "id": "exit-3"
+        }
+      ],
+      "condition_type": "exit_conditions",
+      "conditions_preview": "Previous[TI.1m.rsi(14,close)] < 30 AND Previous[TI.1m.Close] < entry_condition_1.SignalLow",
+      "signal_emitted": true,
+      "exit_reason": "condition_met",
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 30,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 27.238778302941157,
+            "rhs_value": 30.0,
+            "operator": "<",
+            "timestamp": "2024-10-29 10:48:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) < 30  [27.24 < 30.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "type": "candle_data",
+              "field": "Close",
+              "offset": -1,
+              "dataField": "Close",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "node_variable",
+              "nodeId": "entry-condition-1",
+              "variableName": "SignalLow"
+            },
+            "lhs_value": 24144.45,
+            "rhs_value": 24252.6,
+            "operator": "<",
+            "timestamp": "2024-10-29 10:48:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "{'type': 'candle_data', 'field': 'Close', 'offset': -1, 'dataField': 'Close', 'timeframeId': '1m', 'instrumentType': 'TI'} < entry-condition-1.SignalLow  [24144.45 < 24252.60] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 10:48:00+05:30",
+              "open": 24145.0,
+              "high": 24145.0,
+              "low": 24145.0,
+              "close": 24145.0,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 10:47:00+05:30",
+              "open": 24153.0,
+              "high": 24153.75,
+              "low": 24140.85,
+              "close": 24144.45,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 27.238778302941157
+              }
+            }
+          }
+        }
+      },
+      "exit_signal_data": {
+        "exit_signal_time": "2024-10-29 10:48:00+05:30",
+        "exit_signal_price": 0,
+        "exit_reason": "condition_met",
+        "node_id": "exit-condition-2",
+        "conditions_met": [
+          {
+            "id": "cond-milrsrsc-jflew",
+            "conditions": [
+              {
+                "id": "cond-milrsrsc-5fh9l",
+                "lhs": {
+                  "name": "rsi_1764509210372",
+                  "type": "indicator",
+                  "offset": -1,
+                  "parameter": null,
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "constant",
+                  "value": 30,
+                  "valueType": "number",
+                  "numberValue": 0
+                },
+                "operator": "<"
+              },
+              {
+                "id": "cond-milrsrsc-iz2e3",
+                "lhs": {
+                  "type": "candle_data",
+                  "field": "Close",
+                  "offset": -1,
+                  "dataField": "Close",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "entry-condition-1",
+                  "variableName": "SignalLow"
+                },
+                "operator": "<"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ]
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24145.0,
+          "timestamp": "2024-10-29 10:48:00.000000",
+          "volume": 0,
+          "oi": 0
+        },
+        "NIFTY:2024-11-07:OPT:24250:PE": {
+          "ltp": 260.05,
+          "timestamp": "2024-10-29 10:47:59.000000",
+          "volume": 0,
+          "oi": 83225
+        }
+      }
+    },
+    "exit-3": {
+      "execution_id": "exec_exit-3_20241029_104800_fba1d6",
+      "parent_execution_id": "exec_exit-condition-2_20241029_104800_08a475",
+      "timestamp": "2024-10-29 10:48:00+05:30",
+      "status": "completed",
+      "node_id": "exit-3",
+      "node_name": "Exit 3 - SL",
+      "node_type": "ExitNode",
+      "children_nodes": [
+        {
+          "id": "re-entry-signal-2"
+        }
+      ],
+      "position": {
+        "position_id": "entry-2-pos1",
+        "re_entry_num": 0
+      },
+      "action": {
+        "type": "exit_order",
+        "target_position_id": "entry-2-pos1",
+        "exit_type": "market",
+        "order_type": "market",
+        "position_details": {
+          "symbol": "NIFTY:2024-11-07:OPT:24250:PE",
+          "side": "sell",
+          "quantity": 1,
+          "entry_price": 181.6,
+          "current_price": 181.6
+        }
+      },
+      "exit_result": {
+        "positions_closed": 1,
+        "exit_price": 260.05,
+        "pnl": -78.45000000000002,
+        "exit_time": "2024-10-29 10:48:00+05:30"
+      },
+      "exit_config": {
+        "target_position_vpi": "entry-2-pos1",
+        "exit_type": null,
+        "order_type": "market",
+        "has_re_entry": true,
+        "post_execution": true
+      },
+      "statistics": {
+        "orders_generated": 1,
+        "positions_closed": 1
+      }
+    },
+    "re-entry-signal-2": {
+      "execution_id": null,
+      "parent_execution_id": null,
+      "timestamp": "2024-10-29 15:25:00+05:30",
+      "status": "active",
+      "node_id": "re-entry-signal-2",
+      "node_name": "Re-Entry node - SL",
+      "node_type": "ReEntrySignalNode",
+      "children_nodes": [
+        {
+          "id": "entry-2"
+        }
+      ]
+    },
+    "exit-2": {
+      "execution_id": "exec_exit-2_20241029_114000_44a8ff",
+      "parent_execution_id": "exec_exit-condition-1_20241029_114000_4c321c",
+      "timestamp": "2024-10-29 11:40:00+05:30",
+      "status": "completed",
+      "node_id": "exit-2",
+      "node_name": "Exit 2 -Target",
+      "node_type": "ExitNode",
+      "children_nodes": [
+        {
+          "id": "re-entry-signal-1"
+        }
+      ],
+      "position": {
+        "position_id": "entry-2-pos1",
+        "re_entry_num": 0
+      },
+      "exit_config": {
+        "target_position_vpi": "entry-2-pos1",
+        "exit_type": null,
+        "order_type": "market",
+        "has_re_entry": true,
+        "post_execution": true
+      },
+      "skip_reason": {
+        "executed": true,
+        "skipped": true,
+        "reason": "Position entry-2-pos1 already closed by another exit node",
+        "exit_reason": "position_already_closed"
+      },
+      "statistics": {
+        "orders_generated": 0,
+        "positions_closed": 0
+      }
+    },
+    "re-entry-signal-1": {
+      "execution_id": null,
+      "parent_execution_id": null,
+      "timestamp": "2024-10-29 15:25:00+05:30",
+      "status": "active",
+      "node_id": "re-entry-signal-1",
+      "node_name": "Re-Entry node - target",
+      "node_type": "ReEntrySignalNode",
+      "children_nodes": [
+        {
+          "id": "entry-2"
+        }
+      ]
+    },
+    "entry-3": {
+      "execution_id": "exec_entry-3_20241029_150925_006060",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_150924_ab5a72",
+      "timestamp": "2024-10-29 15:09:25+05:30",
+      "status": "completed",
+      "node_id": "entry-3",
+      "node_name": "Entry 3 -Barish",
+      "node_type": "EntryNode",
+      "children_nodes": [
+        {
+          "id": "exit-condition-3"
+        },
+        {
+          "id": "exit-condition-4"
+        }
+      ],
+      "action": {
+        "type": "place_order",
+        "action_type": "entry",
+        "order_id": "ENTRY_entry-3_20251210_093035",
+        "symbol": "NIFTY:2024-11-07:OPT:24500:CE",
+        "side": "SELL",
+        "quantity": 1,
+        "price": 234.35,
+        "order_type": "MARKET",
+        "exchange": "NFO",
+        "status": "COMPLETE"
+      },
+      "position": {
+        "position_id": "entry-3-pos1",
+        "symbol": "NIFTY:2024-11-07:OPT:24500:CE",
+        "side": "sell",
+        "quantity": 1,
+        "entry_price": 234.35,
+        "entry_time": "2024-10-29T15:09:25+05:30",
+        "node_id": "entry-3"
+      },
+      "entry_config": {
+        "max_entries": 10,
+        "position_num": 8,
+        "re_entry_num": 7,
+        "positions_config": [
+          {
+            "side": "sell",
+            "quantity": 1,
+            "option_type": null
+          }
+        ]
+      }
+    },
+    "exit-condition-3": {
+      "execution_id": null,
+      "parent_execution_id": null,
+      "timestamp": "2024-10-29 15:25:00+05:30",
+      "status": "active",
+      "node_id": "exit-condition-3",
+      "node_name": "Exit condition - Target",
+      "node_type": "ExitSignalNode",
+      "children_nodes": [
+        {
+          "id": "exit-5"
+        }
+      ],
+      "condition_type": "re_entry_exit_conditions",
+      "conditions_preview": "Previous[TI.1m.rsi(14,close)] < 30",
+      "signal_emitted": false,
+      "exit_reason": "condition_met",
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24469.25,
+          "timestamp": "2024-10-29 15:25:00.000000",
+          "volume": 0,
+          "oi": 0
+        },
+        "NIFTY:2024-11-07:OPT:24500:CE": {
+          "ltp": 229.25,
+          "timestamp": "2024-10-29 15:25:00.000000",
+          "volume": 0,
+          "oi": 1736975
+        }
+      }
+    },
+    "exit-condition-4": {
+      "execution_id": null,
+      "parent_execution_id": null,
+      "timestamp": "2024-10-29 15:25:00+05:30",
+      "status": "active",
+      "node_id": "exit-condition-4",
+      "node_name": "Exit condition - SL",
+      "node_type": "ExitSignalNode",
+      "children_nodes": [
+        {
+          "id": "exit-6"
+        }
+      ],
+      "condition_type": "re_entry_exit_conditions",
+      "conditions_preview": "Previous[TI.1m.rsi(14,close)] > 70 AND Previous[TI.1m.Close] > re_entry_signal_4.SignalHigh",
+      "signal_emitted": false,
+      "exit_reason": "condition_met",
+      "evaluated_conditions": {
+        "conditions_evaluated": [
+          {
+            "lhs_expression": {
+              "name": "rsi_1764509210372",
+              "type": "indicator",
+              "offset": -1,
+              "parameter": null,
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "constant",
+              "value": 70,
+              "valueType": "number",
+              "numberValue": 0
+            },
+            "lhs_value": 70.28633532372862,
+            "rhs_value": 70.0,
+            "operator": ">",
+            "timestamp": "2024-10-29 15:08:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "rsi_1764509210372(, ) > 70  [70.29 > 70.00] \u2713"
+          },
+          {
+            "lhs_expression": {
+              "type": "candle_data",
+              "field": "Close",
+              "offset": -1,
+              "dataField": "Close",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            },
+            "rhs_expression": {
+              "type": "node_variable",
+              "nodeId": "re-entry-signal-4",
+              "variableName": "SignalHigh"
+            },
+            "lhs_value": 24481.1,
+            "rhs_value": 24435.45,
+            "operator": ">",
+            "timestamp": "2024-10-29 15:08:00+05:30",
+            "condition_type": "non_live",
+            "result": true,
+            "condition_text": "{'type': 'candle_data', 'field': 'Close', 'offset': -1, 'dataField': 'Close', 'timeframeId': '1m', 'instrumentType': 'TI'} > re-entry-signal-4.SignalHigh  [24481.10 > 24435.45] \u2713"
+          }
+        ],
+        "expression_values": {},
+        "candle_data": {
+          "NIFTY": {
+            "current": {
+              "timestamp": "2024-10-29 15:08:00+05:30",
+              "open": 24481.65,
+              "high": 24481.65,
+              "low": 24481.45,
+              "close": 24481.45,
+              "volume": 0
+            },
+            "previous": {
+              "timestamp": "2024-10-29 15:07:00+05:30",
+              "open": 24475.55,
+              "high": 24484.3,
+              "low": 24473.4,
+              "close": 24481.1,
+              "volume": 0,
+              "indicators": {
+                "rsi(14,close)": 70.28633532372862
+              }
+            }
+          }
+        }
+      },
+      "ltp_store": {
+        "NIFTY": {
+          "ltp": 24469.25,
+          "timestamp": "2024-10-29 15:25:00.000000",
+          "volume": 0,
+          "oi": 0
+        },
+        "NIFTY:2024-11-07:OPT:24500:CE": {
+          "ltp": 229.25,
+          "timestamp": "2024-10-29 15:25:00.000000",
+          "volume": 0,
+          "oi": 1736975
+        }
+      }
+    },
+    "exit-6": {
+      "execution_id": "exec_exit-6_20241029_150800_534488",
+      "parent_execution_id": "exec_exit-condition-4_20241029_150800_0699b8",
+      "timestamp": "2024-10-29 15:08:00+05:30",
+      "status": "completed",
+      "node_id": "exit-6",
+      "node_name": "Exit 6 - SL",
+      "node_type": "ExitNode",
+      "children_nodes": [
+        {
+          "id": "re-entry-signal-4"
+        }
+      ],
+      "position": {
+        "position_id": "entry-3-pos1",
+        "re_entry_num": 6
+      },
+      "action": {
+        "type": "exit_order",
+        "target_position_id": "entry-3-pos1",
+        "exit_type": "market",
+        "order_type": "market",
+        "position_details": {
+          "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
+          "side": "sell",
+          "quantity": 1,
+          "entry_price": 276.0,
+          "current_price": 276.0
+        }
+      },
+      "exit_result": {
+        "positions_closed": 1,
+        "exit_price": 294.0,
+        "pnl": -95.04999999999998,
+        "exit_time": "2024-10-29 15:08:00+05:30"
+      },
+      "exit_config": {
+        "target_position_vpi": "entry-3-pos1",
+        "exit_type": null,
+        "order_type": "market",
+        "has_re_entry": true,
+        "post_execution": true
+      },
+      "statistics": {
+        "orders_generated": 7,
+        "positions_closed": 7
+      }
+    },
+    "re-entry-signal-4": {
+      "execution_id": "exec_re-entry-signal-4_20241029_150924_ab5a72",
+      "parent_execution_id": "exec_exit-6_20241029_150800_534488",
+      "timestamp": "2024-10-29 15:09:24+05:30",
+      "status": "completed",
+      "node_id": "re-entry-signal-4",
+      "node_name": "Re-Entry node - SL",
+      "node_type": "ReEntrySignalNode",
+      "children_nodes": [
+        {
+          "id": "entry-3"
+        }
+      ]
+    }
+  }
+}

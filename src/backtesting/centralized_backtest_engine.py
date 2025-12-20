@@ -10,6 +10,7 @@ Key Differences from BacktestEngine:
 3. Supports multiple strategies (future enhancement)
 """
 
+import asyncio
 import logging
 from datetime import datetime
 from typing import Dict, Any, List
@@ -25,20 +26,41 @@ logger = logging.getLogger(__name__)
 
 class CentralizedBacktestEngine(BacktestEngine):
     """
-    Centralized backtest engine using the new architecture.
+    Unified Execution Engine (alias: CentralizedBacktestEngine for backward compatibility).
     
-    Extends BacktestEngine to integrate CentralizedTickProcessor.
+    Supports multiple execution modes:
+    - Backtest (speed=0): Max speed historical replay
+    - Live Simulation (speed>0): Real-time simulation with speed control
+    - Live Trading (future): Real broker integration
+    
+    The ONLY difference between backtest and live simulation is speed control.
+    All strategy logic executes identically.
     """
     
-    def __init__(self, config: BacktestConfig, live_simulation_session=None):
+    def __init__(self, config: BacktestConfig, live_simulation_session=None, mode: str = "backtest", speed_multiplier: int = 0):
         """
-        Initialize centralized backtest engine.
+        Initialize unified execution engine.
         
         Args:
             config: Backtest configuration
             live_simulation_session: Optional LiveSimulationSession for real-time state updates
+            mode: Execution mode - "backtest" | "live_simulation" | "live_trading"
+            speed_multiplier: Speed control (0=max speed/backtest, >0=live simulation speed)
+                - 0: Backtest mode (no delays, max CPU speed)
+                - 1: Real-time (1 second per second)
+                - 500: 500x speed (2ms sleep per tick)
+                - 1000: 1000x speed (1ms sleep per tick)
         """
         super().__init__(config)
+        
+        # Execution mode and speed control
+        self.mode = mode
+        self.speed_multiplier = speed_multiplier
+        
+        # Auto-detect mode from speed_multiplier if not explicitly set
+        if mode == "backtest" and speed_multiplier > 0:
+            self.mode = "live_simulation"
+            logger.info(f"🔄 Auto-detected mode: live_simulation (speed={speed_multiplier}x)")
         
         # Centralized components
         self.cache_manager: CacheManager = None
@@ -54,23 +76,26 @@ class CentralizedBacktestEngine(BacktestEngine):
         self.debug_breakpoint_time = config.debug_breakpoint_time
         # DEBUG END: Debug mode support for testing/troubleshooting
         
-        logger.info("🚀 Centralized Backtest Engine initialized")
+        logger.info(f"🚀 Unified Execution Engine initialized (mode={self.mode}, speed={self.speed_multiplier}x)")
     
-    def run(self) -> BacktestResults:
+    async def run(self) -> BacktestResults:
         """
-        Run complete backtest with centralized processor.
+        Run unified execution (backtest or live simulation).
         
         Simplified flow:
         1. Build metadata (strategies_agg)
         2. Initialize DataManager
         3. Load ticks
-        4. Process ticks → Update cache → Invoke strategies
+        4. Process ticks → Update cache → Invoke strategies (with speed control)
         
         Returns:
             BacktestResults object
         """
+        mode_label = "LIVE SIMULATION" if self.mode == "live_simulation" else "BACKTEST"
         print("=" * 80)
-        print("🚀 BACKTEST WITH CENTRALIZED TICK PROCESSOR")
+        print(f"🚀 {mode_label} WITH UNIFIED EXECUTION ENGINE")
+        if self.speed_multiplier > 0:
+            print(f"⚡ Speed: {self.speed_multiplier}x real-time")
         print("=" * 80)
         
         # Step 1: Load strategies (always as list, even for single strategy)
@@ -128,7 +153,7 @@ class CentralizedBacktestEngine(BacktestEngine):
         # DEBUG END: Snapshot mode support
         
         start_time = datetime.now()
-        self._process_ticks_centralized(ticks)
+        await self._process_ticks_centralized(ticks)
         end_time = datetime.now()
         
         # Step 10: Finalize and return results
@@ -345,7 +370,8 @@ class CentralizedBacktestEngine(BacktestEngine):
             'instance_id': instance_id,
             'config': strategy.config,
             'status': 'active',
-            'subscribed_at': datetime.now().isoformat()
+            'subscribed_at': datetime.now().isoformat(),
+            'strategy_scale': self.config.strategy_scale  # Pass scaling factor from config
         }
         
         # Add to cache
@@ -361,9 +387,11 @@ class CentralizedBacktestEngine(BacktestEngine):
         else:
             print(f"   ❌ Strategy sync failed")
     
-    def _process_ticks_centralized(self, ticks: list):
+    async def _process_ticks_centralized(self, ticks: list):
         """
         Process all ticks through centralized processor using SECOND-BY-SECOND batching.
+        
+        ASYNC support for speed control in live simulation mode.
         
         Flow:
         1. Group ticks by second (batch all ticks in same second)
@@ -514,15 +542,20 @@ class CentralizedBacktestEngine(BacktestEngine):
                             import traceback
                             logger.warning(f"Failed to update live simulation state: {e}")
                             logger.warning(f"Traceback: {traceback.format_exc()}")
-                        
-                        # Pace simulation: Sleep to control playback speed
-                        # At 4x speed: 1 simulated second = 0.25 real seconds
-                        # This allows UI to poll 4 times per simulated second
-                        import time
-                        speed_multiplier = self.live_simulation_session.speed_multiplier
+                    
+                    # SPEED CONTROL: Unified speed control for both live simulation modes
+                    # - If speed_multiplier > 0: Add delay to control playback speed
+                    # - If speed_multiplier = 0: No delay (max CPU speed / backtest mode)
+                    if self.speed_multiplier > 0:
+                        sleep_duration = 1.0 / self.speed_multiplier  # seconds
+                        await asyncio.sleep(sleep_duration)
+                    
+                    # Legacy live simulation session support (uses session's speed if available)
+                    elif hasattr(self, 'live_simulation_session') and self.live_simulation_session:
+                        speed_multiplier = getattr(self.live_simulation_session, 'speed_multiplier', 0)
                         if speed_multiplier > 0:
-                            sleep_duration = 1.0 / speed_multiplier  # seconds
-                            time.sleep(sleep_duration)
+                            sleep_duration = 1.0 / speed_multiplier
+                            await asyncio.sleep(sleep_duration)
                     
                     # DEBUG START: Capture snapshot after strategy execution
                     if self.debug_mode == 'snapshots':

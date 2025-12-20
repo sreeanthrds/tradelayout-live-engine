@@ -412,9 +412,14 @@ class EntryNode(BaseNode):
         # log_debug(f"[DEBUG] EntryNode {self.id} creating position with config: {self.positions}")
 
         # Extract order parameters from configuration
-        quantity = position_config.get('quantity', 1)  # Number of lots
-        lot_size = position_config.get('lotSize', 1)   # Lot size multiplier
-        actual_qty = quantity * lot_size                # Actual quantity to trade
+        # Try multiplier first, fallback to lotSize, default to 1
+        multiplier = position_config.get('multiplier') or position_config.get('lotSize', 1)
+        # Try quantity first, fallback to lots, default to 1
+        quantity = position_config.get('quantity') or position_config.get('lots', 1)
+        # Get strategy scaling factor from context (default 1.0 if not provided)
+        strategy_scale = context.get('strategy_scale', 1.0)
+        # Calculate actual quantity: quantity × multiplier × scale
+        actual_qty = int(quantity * multiplier * strategy_scale)
         position_type = position_config.get('positionType', 'sell')
         order_type = position_config.get('orderType', 'market')
         product_type = position_config.get('productType', 'intraday')
@@ -514,14 +519,14 @@ class EntryNode(BaseNode):
             
             log_info(f"[EntryNode DEBUG] strategy_config keys: {list(strategy_config.keys()) if strategy_config else 'NONE'}")
             log_info(f"[EntryNode DEBUG] symbol from config: {trading_symbol}, exchange: {trading_exchange}")
-            log_info(f"[EntryNode] Placing LIVE order: {position_type.upper()} {quantity} {trading_symbol} on {trading_exchange}")
+            log_info(f"[EntryNode] Placing LIVE order: {position_type.upper()} {actual_qty} {trading_symbol} on {trading_exchange}")
             
             try:
                 order_result = order_manager.place_order(
                     symbol=trading_symbol,
                     exchange=trading_exchange,
                     transaction_type=position_type.upper(),  # BUY or SELL
-                    quantity=quantity,
+                    quantity=actual_qty,  # Use scaled quantity
                     order_type=order_type.upper(),  # MARKET or LIMIT
                     product_type=product_type.upper(),
                     price=price if order_type.lower() != 'market' else 0,
@@ -545,7 +550,7 @@ class EntryNode(BaseNode):
                         'exchange': trading_exchange,  # Store exchange for exit
                         'order_type': order_type.upper(),
                         'side': position_type.upper(),
-                        'quantity': quantity,
+                        'quantity': actual_qty,  # Use scaled quantity
                         'price': price,
                         'timestamp': current_timestamp,
                         'product_type': product_type,
@@ -736,12 +741,15 @@ class EntryNode(BaseNode):
                 fill_time = order.get('fill_time')
                 entry_time = order.get('timestamp')
             
-            # Get lot size and calculate lots
-            # order['quantity'] is the actual traded quantity (lots × lot_size)
-            # lot_size comes from position config
-            actual_quantity = order['quantity']
-            lot_size = position_config.get('lotSize', 1)  # From config!
-            lots = position_config.get('quantity', 1)  # Number of lots from config
+            # Get multiplier and quantity from position config
+            # Try multiplier first, fallback to lotSize, default to 1
+            multiplier = position_config.get('multiplier') or position_config.get('lotSize', 1)
+            # Try quantity first, fallback to lots, default to 1  
+            quantity = position_config.get('quantity') or position_config.get('lots', 1)
+            # Get strategy scaling factor from context (default 1.0 if not provided)
+            strategy_scale = context.get('strategy_scale', 1.0)
+            # Calculate actual quantity: quantity × multiplier × scale
+            actual_quantity = int(quantity * multiplier * strategy_scale)
             
             # Get underlying price at entry (NIFTY spot)
             ltp_store = context.get('ltp_store', {})
@@ -805,9 +813,9 @@ class EntryNode(BaseNode):
                 'instrument': self.instrument,  # Keep underlying for reference
                 'symbol': order.get('symbol', self.instrument),  # Actual traded symbol (option contract)
                 'exchange': order.get('exchange', 'NSE'),  # Exchange for exit orders
-                'quantity': actual_quantity,  # MANDATORY: Actual traded quantity (lots × lot_size) for PNL calculation
-                'lot_size': lot_size,  # Lot size multiplier (e.g., 50 for NIFTY)
-                'lots': lots,  # Number of lots traded (e.g., 1, 2, 3)
+                'actual_quantity': actual_quantity,  # MANDATORY: Actual traded quantity (quantity × multiplier) for orders and P&L
+                'quantity': quantity,  # Number of lots (F&O) or stocks (equity) from strategy config
+                'multiplier': multiplier,  # Lot size from strategy config (e.g., 75 for NIFTY)
                 'price': fill_price,  # Actual average fill price (entry price)
                 'entry_price': fill_price,  # Entry price for PNL calculation
                 'underlying_price_on_entry': underlying_price_on_entry,  # Underlying price when position opened
@@ -838,12 +846,9 @@ class EntryNode(BaseNode):
             print(f"   Entry Price: {entry_data['entry_price']:.2f}")
 
             # Debug: confirm transactions count after add
-            try:
-                gps_pos = self.get_position(context, position_id)
-                txns_cnt = len(gps_pos.get('transactions', []) or []) if gps_pos else 0
-                log_info(f"EntryNode {self.id}: stored position {position_id}, reEntryNum={re_entry_num}, txns_count={txns_cnt}")
-            except Exception as e:
-                log_warning(f"EntryNode {self.id}: Failed to log position creation: {e}")
+            gps_pos = self.get_position(context, position_id)
+            txns_cnt = len(gps_pos.get('transactions', []) or []) if gps_pos else 0
+            log_info(f"EntryNode {self.id}: stored position {position_id}, reEntryNum={re_entry_num}, txns_count={txns_cnt}")
 
             self._positions_created += 1
 

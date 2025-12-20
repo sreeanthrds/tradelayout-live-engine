@@ -1,0 +1,336 @@
+#!/usr/bin/env python3
+"""
+Generate comprehensive diagnostic JSON for UI consumption.
+Includes all position details, diagnostic data, condition previews, and evaluated values.
+"""
+
+import os
+import sys
+import json
+from datetime import datetime
+from pathlib import Path
+
+# Set Supabase credentials
+os.environ['SUPABASE_URL'] = 'https://oonepfqgzpdssfzvokgk.supabase.co'
+os.environ['SUPABASE_SERVICE_ROLE_KEY'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9vbmVwZnFnenBkc3NmenZva2drIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MDE5OTkxNCwiZXhwIjoyMDY1Nzc1OTE0fQ.qmUNhAh3oVhPW2lcAkw7E2Z19MenEIoWCBXCR9Hq6Kg'
+
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent))
+
+from src.backtesting.centralized_backtest_engine import CentralizedBacktestEngine
+from src.backtesting.backtest_config import BacktestConfig
+from src.core.gps import GlobalPositionStore
+
+
+def format_timestamp(ts):
+    """Format timestamp to readable string"""
+    if isinstance(ts, datetime):
+        return ts.strftime('%Y-%m-%d %H:%M:%S')
+    return str(ts)
+
+
+def format_candle(candle):
+    """Format candle data"""
+    if not candle:
+        return None
+    return {
+        'open': float(candle.get('open', 0)),
+        'high': float(candle.get('high', 0)),
+        'low': float(candle.get('low', 0)),
+        'close': float(candle.get('close', 0)),
+        'ltp': float(candle.get('ltp', candle.get('close', 0)))
+    }
+
+
+def format_condition_evaluation(cond):
+    """Format condition evaluation data"""
+    lhs_expr = cond.get('lhs_expression', {})
+    rhs_expr = cond.get('rhs_expression', {})
+    lhs_value = cond.get('lhs_value')
+    rhs_value = cond.get('rhs_value')
+    
+    # Convert Unix timestamps to readable format for time-based conditions
+    if isinstance(lhs_expr, dict) and lhs_expr.get('type') == 'current_time':
+        if isinstance(lhs_value, (int, float)):
+            lhs_value = datetime.fromtimestamp(lhs_value).strftime('%Y-%m-%d %H:%M:%S')
+    
+    if isinstance(rhs_expr, dict) and rhs_expr.get('type') == 'time_function':
+        if isinstance(rhs_value, (int, float)):
+            rhs_value = datetime.fromtimestamp(rhs_value).strftime('%Y-%m-%d %H:%M:%S')
+    
+    return {
+        'lhs_expression': lhs_expr,
+        'rhs_expression': rhs_expr,
+        'lhs_value': lhs_value,
+        'rhs_value': rhs_value,
+        'operator': cond.get('operator'),
+        'result': cond.get('result'),
+        'timestamp': cond.get('timestamp'),
+        'tick_count': cond.get('tick_count', 0)
+    }
+
+
+def build_condition_substitution(conditions_evaluated):
+    """Build condition text with actual evaluated values substituted"""
+    if not conditions_evaluated:
+        return ""
+    
+    parts = []
+    for cond in conditions_evaluated:
+        lhs_value = cond.get('lhs_value')
+        rhs_value = cond.get('rhs_value')
+        operator = cond.get('operator', '')
+        
+        # Format values - add quotes for string timestamps
+        if isinstance(lhs_value, str) and '-' in lhs_value and ':' in lhs_value:
+            lhs_str = f'"{lhs_value}"'
+        else:
+            lhs_str = str(lhs_value)
+        
+        if isinstance(rhs_value, str) and '-' in rhs_value and ':' in rhs_value:
+            rhs_str = f'"{rhs_value}"'
+        else:
+            rhs_str = str(rhs_value)
+        
+        parts.append(f"{lhs_str} {operator} {rhs_str}")
+    
+    return " AND ".join(parts)
+
+
+def format_position(pos):
+    """Format position with all diagnostic information"""
+    formatted = {
+        # Basic position info
+        'position_id': pos.get('position_id'),
+        'node_id': pos.get('node_id'),
+        'status': pos.get('status'),
+        
+        # Instrument details
+        'instrument': pos.get('instrument'),
+        'symbol': pos.get('symbol'),
+        'contract': pos.get('symbol'),
+        'exchange': pos.get('exchange'),
+        
+        # Entry details
+        'entry_timestamp': format_timestamp(pos.get('entry_timestamp')),
+        'entry_price': float(pos.get('price', 0)),
+        'quantity': pos.get('quantity'),
+        'lots': pos.get('lots'),
+        'lot_size': pos.get('lot_size'),
+        
+        # Market data at entry
+        'nifty_spot_at_entry': float(pos.get('nifty_spot_at_entry', 0)) if pos.get('nifty_spot_at_entry') else None,
+        
+        # Diagnostic data
+        'diagnostic_data': {},
+        'condition_preview': pos.get('condition_preview'),
+    }
+    
+    # Add diagnostic data if available
+    if 'diagnostic_data' in pos and pos['diagnostic_data']:
+        diag = pos['diagnostic_data']
+        conditions_evaluated = [
+            format_condition_evaluation(cond) 
+            for cond in diag.get('conditions_evaluated', [])
+        ]
+        
+        formatted['diagnostic_data'] = {
+            'conditions_evaluated': conditions_evaluated,
+            'condition_substitution': build_condition_substitution(conditions_evaluated),
+            'candle_data': {}
+        }
+        
+        # Format candle data
+        if 'candle_data' in diag:
+            for symbol, candles in diag['candle_data'].items():
+                formatted['diagnostic_data']['candle_data'][symbol] = {
+                    offset: format_candle(candle)
+                    for offset, candle in candles.items()
+                }
+    
+    # Exit details (if closed)
+    if pos.get('status') == 'CLOSED':
+        formatted.update({
+            'exit_timestamp': format_timestamp(pos.get('exit_timestamp')),
+            'exit_price': float(pos.get('exit_price', 0)),
+            'exit_node_id': pos.get('exit_node_id'),
+            'exit_reason': pos.get('exit_reason'),
+            'nifty_spot_at_exit': float(pos.get('nifty_spot_at_exit', 0)) if pos.get('nifty_spot_at_exit') else None,
+            'duration_minutes': float(pos.get('duration_minutes', 0)),
+            'pnl': float(pos.get('pnl', 0)),
+            'pnl_percentage': float(pos.get('pnl_percentage', 0))
+        })
+    
+    # Re-entry info
+    if 'reentry_count' in pos:
+        formatted['reentry_count'] = pos['reentry_count']
+        formatted['is_reentry'] = pos.get('reentry_count', 0) > 0
+    
+    # Strike info
+    if 'strike' in pos:
+        formatted['strike_info'] = {
+            'strike': pos.get('strike'),
+            'option_type': pos.get('option_type'),
+            'expiry': pos.get('expiry')
+        }
+    
+    return formatted
+
+
+def generate_diagnostic_json(strategy_id, date_str):
+    """
+    Run backtest and generate comprehensive JSON output.
+    
+    Args:
+        strategy_id: Strategy UUID
+        date_str: Date string in YYYY-MM-DD format
+    
+    Returns:
+        dict: Comprehensive backtest results
+    """
+    print(f"🚀 Running backtest for strategy {strategy_id} on {date_str}...")
+    
+    # Parse date
+    backtest_date = datetime.strptime(date_str, '%Y-%m-%d')
+    
+    # Capture GPS instance
+    gps_instance_ref = {}
+    
+    orig_init = GlobalPositionStore.__init__
+    def capture_gps_init(self, *args, **kwargs):
+        gps_instance_ref['gps'] = self
+        return orig_init(self, *args, **kwargs)
+    
+    GlobalPositionStore.__init__ = capture_gps_init
+    
+    try:
+        # Create config
+        config = BacktestConfig(
+            strategy_ids=[strategy_id],  # Must be a list
+            backtest_date=backtest_date
+        )
+        
+        # Run backtest
+        engine = CentralizedBacktestEngine(config)
+        result = engine.run()
+        
+        # Get GPS from captured instance
+        gps = gps_instance_ref.get('gps')
+        if not gps:
+            raise RuntimeError("GPS instance not captured")
+        
+        all_gps_positions = gps.get_all_positions()
+        
+        print(f"✅ Retrieved {len(all_gps_positions)} positions from GPS")
+        
+        # Extract ALL transactions from GPS positions
+        all_positions = []
+        for pos_id, gps_pos in all_gps_positions.items():
+            transactions = gps_pos.get('transactions', [])
+            print(f"   Position {pos_id}: {len(transactions)} transaction(s)")
+            
+            for txn in transactions:
+                # Build position dict from transaction
+                entry_data = txn.get('entry', {})
+                
+                pos_dict = entry_data.copy()
+                pos_dict['position_id'] = pos_id
+                pos_dict['transaction_id'] = f"{pos_id}_txn_{txn.get('reEntryNum', 0)}"
+                pos_dict['entry_timestamp'] = txn.get('entry_time')
+                pos_dict['status'] = txn.get('status', 'open').upper()
+                
+                if txn.get('status') == 'closed':
+                    exit_data = txn.get('exit', {})
+                    pos_dict['exit_timestamp'] = txn.get('exit_time')
+                    pos_dict['exit_price'] = exit_data.get('price', 0)
+                    pos_dict['exit_node_id'] = exit_data.get('node_id')
+                    pos_dict['exit_reason'] = exit_data.get('reason')
+                    pos_dict['pnl'] = txn.get('pnl', 0)
+                    
+                    # Calculate duration
+                    try:
+                        entry_dt = datetime.fromisoformat(txn.get('entry_time'))
+                        exit_dt = datetime.fromisoformat(txn.get('exit_time'))
+                        duration_sec = (exit_dt - entry_dt).total_seconds()
+                        pos_dict['duration_minutes'] = duration_sec / 60.0
+                        
+                        # Calculate PnL percentage
+                        if entry_data.get('price', 0) > 0:
+                            pos_dict['pnl_percentage'] = (pos_dict.get('pnl', 0) / entry_data.get('price')) * 100
+                    except:
+                        pass
+                
+                all_positions.append(pos_dict)
+        
+        print(f"✅ Extracted {len(all_positions)} total transactions for output")
+    except Exception as e:
+        print(f"❌ Error during backtest: {e}")
+        import traceback
+        traceback.print_exc()
+        return None
+    finally:
+        # Restore original GPS __init__
+        GlobalPositionStore.__init__ = orig_init
+    
+    # Format output
+    output = {
+        'metadata': {
+            'strategy_id': strategy_id,
+            'date': date_str,
+            'generated_at': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'total_positions': len(all_positions),
+            'total_ticks_processed': result.ticks_processed,
+            'duration_seconds': result.duration_seconds,
+            'signals_triggered': result.signals
+        },
+        'positions': [
+            format_position(pos) 
+            for pos in all_positions
+        ],
+        'summary': {
+            'total_trades': len(all_positions),
+            'open_trades': sum(1 for p in all_positions if p.get('status') == 'OPEN'),
+            'closed_trades': sum(1 for p in all_positions if p.get('status') == 'CLOSED'),
+            'winning_trades': sum(1 for p in all_positions if p.get('status') == 'CLOSED' and p.get('pnl', 0) > 0),
+            'losing_trades': sum(1 for p in all_positions if p.get('status') == 'CLOSED' and p.get('pnl', 0) < 0),
+            'total_pnl': sum(p.get('pnl', 0) for p in all_positions if p.get('status') == 'CLOSED'),
+            'average_pnl': sum(p.get('pnl', 0) for p in all_positions if p.get('status') == 'CLOSED') / max(1, sum(1 for p in all_positions if p.get('status') == 'CLOSED')),
+            'max_profit': max((p.get('pnl', 0) for p in all_positions if p.get('status') == 'CLOSED'), default=0),
+            'max_loss': min((p.get('pnl', 0) for p in all_positions if p.get('status') == 'CLOSED'), default=0),
+            'win_rate': (sum(1 for p in all_positions if p.get('status') == 'CLOSED' and p.get('pnl', 0) > 0) / max(1, sum(1 for p in all_positions if p.get('status') == 'CLOSED')) * 100)
+        }
+    }
+    
+    return output
+
+
+def main():
+    """Main entry point"""
+    import argparse
+    
+    parser = argparse.ArgumentParser(description='Generate diagnostic JSON for UI')
+    parser.add_argument('strategy_id', help='Strategy UUID')
+    parser.add_argument('--date', default='2024-10-01', help='Backtest date (YYYY-MM-DD)')
+    parser.add_argument('--output', '-o', help='Output JSON file path')
+    parser.add_argument('--pretty', action='store_true', help='Pretty print JSON')
+    
+    args = parser.parse_args()
+    
+    # Generate JSON
+    output = generate_diagnostic_json(args.strategy_id, args.date)
+    
+    # Format JSON
+    indent = 2 if args.pretty else None
+    json_output = json.dumps(output, indent=indent, ensure_ascii=False)
+    
+    # Write to file or stdout
+    if args.output:
+        with open(args.output, 'w') as f:
+            f.write(json_output)
+        print(f"✅ JSON written to {args.output}")
+    else:
+        print(json_output)
+
+
+if __name__ == '__main__':
+    main()

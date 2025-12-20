@@ -215,7 +215,9 @@ class SquareOffNode(BaseNode):
                     're_entry_num': re_entry_num,  # Now correctly from position
                     'symbol': position_symbol,
                     'side': position.get('side'),
-                    'quantity': position.get('quantity'),
+                    'actual_quantity': position.get('actual_quantity'),  # Actual traded quantity
+                    'quantity': position.get('quantity'),  # Number of lots/stocks
+                    'multiplier': position.get('multiplier'),  # Lot size
                     'entry_price': position.get('entry_price'),
                     'exit_price': exit_price
                 })

@@ -1,0 +1,23 @@
+{
+  "date": "2025-12-14",
+  "summary": {
+    "total_trades": 1,
+    "total_pnl": "2000.00",
+    "winning_trades": 1,
+    "losing_trades": 0,
+    "win_rate": "100.00"
+  },
+  "trades": [
+    {
+      "trade_id": "trade-001",
+      "symbol": "NIFTY28DEC2525000CE",
+      "entry_time": "2024-12-14T09:15:00",
+      "exit_time": "2024-12-14T09:23:19",
+      "entry_price": 150.0,
+      "exit_price": 190.0,
+      "quantity": 50,
+      "pnl": "2000.00",
+      "pnl_percentage": "26.67"
+    }
+  ]
+}

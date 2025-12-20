@@ -1,0 +1,975 @@
+{
+  "strategy_id": "4a7a1a31-e209-4b23-891a-3899fb8e4c28",
+  "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+  "strategy_name": "My New Strategy13",
+  "name": "My New Strategy13",
+  "strategy_description": "11 nodes \u2022 2 entry Signals, 2 entrys, 2 exit Signals, 2 exits, 2 re Entry Signals, 1 square Off \u2022 SI configured",
+  "strategy_status": "active",
+  "strategy_version": 1,
+  "created_at": "2025-11-23T10:04:18.208654+00:00",
+  "updated_at": "2025-11-23T10:04:18.208654+00:00",
+  "edges": [
+    {
+      "id": "e-strategy-controller-entry-condition-1",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "strategy-controller",
+      "target": "entry-condition-1",
+      "animated": true
+    },
+    {
+      "id": "e-strategy-controller-entry-condition-2",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "strategy-controller",
+      "target": "entry-condition-2",
+      "animated": true
+    },
+    {
+      "id": "e-strategy-controller-square-off-1",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "strategy-controller",
+      "target": "square-off-1",
+      "animated": true
+    },
+    {
+      "id": "e-entry-condition-1-entry-3",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "entry-condition-1",
+      "target": "entry-3",
+      "animated": true
+    },
+    {
+      "id": "e-entry-condition-2-entry-4",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "entry-condition-2",
+      "target": "entry-4",
+      "animated": true
+    },
+    {
+      "id": "e-entry-3-exit-condition-1",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "entry-3",
+      "target": "exit-condition-1",
+      "animated": true
+    },
+    {
+      "id": "e-entry-4-exit-condition-2",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "entry-4",
+      "target": "exit-condition-2",
+      "animated": true
+    },
+    {
+      "id": "e-exit-condition-1-exit-3",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "exit-condition-1",
+      "target": "exit-3",
+      "animated": true
+    },
+    {
+      "id": "e-exit-condition-2-exit-4",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "exit-condition-2",
+      "target": "exit-4",
+      "animated": true
+    },
+    {
+      "id": "e-exit-3-re-entry-signal-1",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "exit-3",
+      "target": "re-entry-signal-1",
+      "animated": true
+    },
+    {
+      "id": "e-re-entry-signal-1-entry-3",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "re-entry-signal-1",
+      "target": "entry-3",
+      "animated": true
+    },
+    {
+      "id": "e-exit-4-re-entry-signal-2",
+      "type": "default",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "exit-4",
+      "target": "re-entry-signal-2",
+      "animated": true
+    },
+    {
+      "id": "e-re-entry-signal-2-entry-4",
+      "style": {
+        "strokeWidth": 2
+      },
+      "source": "re-entry-signal-2",
+      "target": "entry-4",
+      "animated": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "strategy-controller",
+      "data": {
+        "label": "Start",
+        "exchange": "NSE",
+        "_lastUpdated": 1764078721612,
+        "strategyType": "intraday",
+        "runningVariables": {
+          "variables": {}
+        },
+        "tradingInstrument": {
+          "type": "options",
+          "underlyingType": "index"
+        },
+        "tradingInstrumentConfig": {
+          "type": "options",
+          "symbol": "NIFTY",
+          "timeframes": [
+            {
+              "id": "1m",
+              "unit": "minutes",
+              "number": 1,
+              "timeframe": "1m",
+              "indicators": {
+                "ema_1763892318511": {
+                  "length": 21,
+                  "price_field": "close",
+                  "display_name": "ema(21,close)",
+                  "indicator_name": "ema"
+                }
+              }
+            },
+            {
+              "id": "3m",
+              "unit": "minutes",
+              "number": 3,
+              "timeframe": "3m",
+              "indicators": {
+                "rsi_1763892328111": {
+                  "length": 14,
+                  "price_field": "close",
+                  "display_name": "rsi(14,close)",
+                  "indicator_name": "rsi"
+                }
+              }
+            }
+          ]
+        },
+        "supportingInstrumentConfig": {
+          "type": "stock",
+          "symbol": "",
+          "timeframes": []
+        },
+        "supportingInstrumentEnabled": false
+      },
+      "type": "startNode",
+      "measured": {
+        "width": 184,
+        "height": 312
+      },
+      "position": {
+        "x": 674.5,
+        "y": 115
+      },
+      "selected": false,
+      "parents": [],
+      "children": [
+        "entry-condition-1",
+        "entry-condition-2",
+        "square-off-1"
+      ]
+    },
+    {
+      "id": "entry-condition-1",
+      "data": {
+        "label": "Entry condition",
+        "variables": [
+          {
+            "id": "var-1763892638441",
+            "name": "SignalLow",
+            "nodeId": "entry-condition-1",
+            "expression": {
+              "type": "market_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "condition-1763892574710-5iy585ih8",
+                "lhs": {
+                  "type": "current_time"
+                },
+                "rhs": {
+                  "type": "time_function",
+                  "timeValue": "09:17"
+                },
+                "operator": ">"
+              },
+              {
+                "id": "condition-1763892602642-tdcnqb9l2",
+                "lhs": {
+                  "type": "live_data",
+                  "field": "underlying_ltp",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "market_data",
+                  "field": "High",
+                  "offset": -1,
+                  "dataField": "High",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "_lastUpdated": 1764460698749,
+        "conditionsPreview": "Current Time > 09:17 AND TI.underlying_ltp > Unknown Expression"
+      },
+      "type": "entrySignalNode",
+      "style": {
+        "zIndex": 1
+      },
+      "measured": {
+        "width": 207,
+        "height": 151
+      },
+      "position": {
+        "x": 165,
+        "y": 717.5
+      },
+      "selected": false,
+      "parents": [
+        "strategy-controller"
+      ],
+      "children": [
+        "entry-3"
+      ]
+    },
+    {
+      "id": "entry-condition-2",
+      "data": {
+        "label": "Entry condition",
+        "variables": [
+          {
+            "id": "var-1763892990650",
+            "name": "SignalHigh",
+            "nodeId": "entry-condition-2",
+            "expression": {
+              "type": "market_data",
+              "field": "High",
+              "offset": -1,
+              "dataField": "High",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "l2n8fs005",
+                "lhs": {
+                  "type": "current_time"
+                },
+                "rhs": {
+                  "type": "time_function",
+                  "timeValue": "09:17"
+                },
+                "operator": ">"
+              },
+              {
+                "id": "iyyzypity",
+                "lhs": {
+                  "type": "live_data",
+                  "field": "underlying_ltp",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "market_data",
+                  "field": "Low",
+                  "offset": -1,
+                  "dataField": "Low",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "operator": "<"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "_lastUpdated": 1764460715331,
+        "conditionsPreview": "Current Time > 09:17 AND TI.underlying_ltp < Unknown Expression"
+      },
+      "type": "entrySignalNode",
+      "style": {
+        "zIndex": 2
+      },
+      "measured": {
+        "width": 207,
+        "height": 151
+      },
+      "position": {
+        "x": 662,
+        "y": 717.5
+      },
+      "selected": true,
+      "parents": [
+        "strategy-controller"
+      ],
+      "children": [
+        "entry-4"
+      ]
+    },
+    {
+      "id": "square-off-1",
+      "data": {
+        "label": "Square off off",
+        "message": "Strategy forcibly stopped - all positions closed",
+        "_lastUpdated": 1764414075529,
+        "endConditions": {
+          "immediateExit": {
+            "enabled": false
+          },
+          "timeBasedExit": {
+            "enabled": true,
+            "exitTime": "",
+            "exitAtMarketClose": true,
+            "minutesBeforeClose": 5
+          },
+          "positionClosure": {
+            "orderType": "market",
+            "forceClose": true
+          },
+          "alertNotification": {
+            "enabled": false
+          },
+          "performanceBasedExit": {
+            "enabled": true
+          }
+        }
+      },
+      "type": "squareOffNode",
+      "style": {
+        "zIndex": 3
+      },
+      "measured": {
+        "width": 209,
+        "height": 120
+      },
+      "position": {
+        "x": 1159,
+        "y": 733
+      },
+      "selected": false,
+      "parents": [
+        "strategy-controller"
+      ],
+      "children": []
+    },
+    {
+      "id": "entry-3",
+      "data": {
+        "label": "Entry 3",
+        "positions": [
+          {
+            "vpi": "entry-3-pos1",
+            "vpt": "",
+            "priority": 1,
+            "quantity": 1,
+            "orderType": "market",
+            "multiplier": 75,
+            "productType": "intraday",
+            "_lastUpdated": 1763892836970,
+            "positionType": "buy",
+            "optionDetails": {
+              "expiry": "W0",
+              "optionType": "CE",
+              "strikeType": "ATM"
+            }
+          }
+        ],
+        "actionType": "entry",
+        "_lastUpdated": 1763892878703
+      },
+      "type": "entryNode",
+      "style": {
+        "zIndex": 4
+      },
+      "measured": {
+        "width": 163,
+        "height": 160
+      },
+      "position": {
+        "x": 187,
+        "y": 1158
+      },
+      "selected": false,
+      "parents": [
+        "entry-condition-1",
+        "re-entry-signal-1"
+      ],
+      "children": [
+        "exit-condition-1"
+      ]
+    },
+    {
+      "id": "entry-4",
+      "data": {
+        "label": "Entry 4",
+        "positions": [
+          {
+            "vpi": "entry-4-pos1",
+            "vpt": "",
+            "priority": 1,
+            "quantity": 1,
+            "orderType": "market",
+            "multiplier": 75,
+            "productType": "intraday",
+            "_lastUpdated": 1763892841872,
+            "positionType": "buy",
+            "optionDetails": {
+              "expiry": "W0",
+              "optionType": "PE",
+              "strikeType": "ATM"
+            }
+          }
+        ],
+        "actionType": "entry",
+        "_lastUpdated": 1763892854196
+      },
+      "type": "entryNode",
+      "style": {
+        "zIndex": 5
+      },
+      "dragging": false,
+      "measured": {
+        "width": 162,
+        "height": 160
+      },
+      "position": {
+        "x": 684.5,
+        "y": 1158
+      },
+      "selected": false,
+      "parents": [
+        "entry-condition-2",
+        "re-entry-signal-2"
+      ],
+      "children": [
+        "exit-condition-2"
+      ]
+    },
+    {
+      "id": "exit-condition-1",
+      "data": {
+        "label": "Exit condition",
+        "conditions": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "condition-1763892892904-ves650hjb",
+                "lhs": {
+                  "type": "live_data",
+                  "field": "underlying_ltp",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "entry-condition-1",
+                  "variableName": "SignalLow"
+                },
+                "operator": "<"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "_lastUpdated": 1764404772257,
+        "conditionsPreview": "TI.underlying_ltp < entry_condition_1.SignalLow",
+        "reEntryExitConditions": [
+          {
+            "id": "condition-1763893691429-olxmvm3fj",
+            "conditions": [
+              {
+                "id": "condition-1763893691429-1aqzdl9sf",
+                "lhs": {
+                  "type": "live_data",
+                  "field": "underlying_ltp",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "re-entry-signal-1",
+                  "variableName": "SignalLow"
+                },
+                "operator": "<"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "hasReEntryExitConditions": true,
+        "reEntryExitConditionsPreview": "TI.underlying_ltp < re_entry_signal_1.SignalLow"
+      },
+      "type": "exitSignalNode",
+      "style": {
+        "zIndex": 6
+      },
+      "measured": {
+        "width": 207,
+        "height": 133
+      },
+      "position": {
+        "x": 165,
+        "y": 1608.5
+      },
+      "selected": false,
+      "parents": [
+        "entry-3"
+      ],
+      "children": [
+        "exit-3"
+      ]
+    },
+    {
+      "id": "exit-condition-2",
+      "data": {
+        "label": "Exit condition",
+        "conditions": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "udpzy4z6r",
+                "lhs": {
+                  "type": "live_data",
+                  "field": "underlying_ltp",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "entry-condition-2",
+                  "variableName": "SignalHigh"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "_lastUpdated": 1764404760190,
+        "conditionsPreview": "TI.underlying_ltp > entry_condition_2.SignalHigh",
+        "reEntryExitConditions": [
+          {
+            "id": "condition-1763893675246-c67gy38qz",
+            "conditions": [
+              {
+                "id": "condition-1763893675246-kgvlfh74o",
+                "lhs": {
+                  "type": "live_data",
+                  "field": "underlying_ltp",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "node_variable",
+                  "nodeId": "re-entry-signal-2",
+                  "variableName": "SignalHigh"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "hasReEntryExitConditions": true,
+        "reEntryExitConditionsPreview": "TI.underlying_ltp > re_entry_signal_2.SignalHigh"
+      },
+      "type": "exitSignalNode",
+      "style": {
+        "zIndex": 7
+      },
+      "measured": {
+        "width": 207,
+        "height": 133
+      },
+      "position": {
+        "x": 662,
+        "y": 1608.5
+      },
+      "selected": false,
+      "parents": [
+        "entry-4"
+      ],
+      "children": [
+        "exit-4"
+      ]
+    },
+    {
+      "id": "exit-3",
+      "data": {
+        "label": "Exit 3",
+        "exitType": "specific",
+        "positions": [],
+        "actionType": "exit",
+        "instrument": "NIFTY",
+        "_lastUpdated": 1763893381290,
+        "exitNodeData": {
+          "orderConfig": {
+            "orderType": "market",
+            "targetPositionVpi": "entry-3-pos1"
+          },
+          "_initialized": true,
+          "reEntryConfig": {
+            "enabled": false,
+            "maxReEntries": 1
+          },
+          "postExecutionConfig": {
+            "stopLoss": {
+              "enabled": false,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "stopPercentage": 2
+            },
+            "takeProfit": {
+              "enabled": false,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "targetPercentage": 5
+            },
+            "trailingStop": {
+              "enabled": false,
+              "stepSize": 0.5,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "initialDistance": 2
+            }
+          }
+        },
+        "exitCondition": {
+          "type": "positionExit",
+          "params": {}
+        }
+      },
+      "type": "exitNode",
+      "style": {
+        "zIndex": 8
+      },
+      "measured": {
+        "width": 150,
+        "height": 120
+      },
+      "position": {
+        "x": 193.5,
+        "y": 2031
+      },
+      "selected": false,
+      "parents": [
+        "exit-condition-1"
+      ],
+      "children": [
+        "re-entry-signal-1"
+      ]
+    },
+    {
+      "id": "exit-4",
+      "data": {
+        "label": "Exit 4",
+        "exitType": "specific",
+        "positions": [],
+        "actionType": "exit",
+        "instrument": "NIFTY",
+        "_lastUpdated": 1764400355752,
+        "exitNodeData": {
+          "orderConfig": {
+            "orderType": "market",
+            "targetPositionVpi": "entry-4-pos1"
+          },
+          "_initialized": true,
+          "reEntryConfig": {
+            "enabled": false,
+            "maxReEntries": 1
+          },
+          "postExecutionConfig": {
+            "stopLoss": {
+              "enabled": false,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "stopPercentage": 2
+            },
+            "takeProfit": {
+              "enabled": false,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "targetPercentage": 5
+            },
+            "trailingStop": {
+              "enabled": false,
+              "stepSize": 0.5,
+              "waitTime": 5,
+              "limitBuffer": 0.5,
+              "triggerType": "percentage",
+              "waitTimeUnit": "seconds",
+              "waitForMarket": false,
+              "initialDistance": 2
+            }
+          }
+        },
+        "exitCondition": {
+          "type": "positionExit",
+          "params": {}
+        }
+      },
+      "type": "exitNode",
+      "style": {
+        "zIndex": 9
+      },
+      "measured": {
+        "width": 150,
+        "height": 120
+      },
+      "position": {
+        "x": 690.5,
+        "y": 2031
+      },
+      "selected": false,
+      "parents": [
+        "exit-condition-2"
+      ],
+      "children": [
+        "re-entry-signal-2"
+      ]
+    },
+    {
+      "id": "re-entry-signal-1",
+      "data": {
+        "label": "Re-Entry node",
+        "variables": [
+          {
+            "id": "var-1763893477980",
+            "name": "SignalLow",
+            "nodeId": "re-entry-signal-1",
+            "expression": {
+              "type": "market_data",
+              "field": "Low",
+              "offset": -1,
+              "dataField": "Low",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "u3d4i3rtj",
+                "lhs": {
+                  "type": "live_data",
+                  "field": "underlying_ltp",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "market_data",
+                  "field": "High",
+                  "offset": -1,
+                  "dataField": "High",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "operator": ">"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "retryConfig": {
+          "groupNumber": 1,
+          "maxReEntries": 1
+        },
+        "_lastUpdated": 1763893497039,
+        "conditionsPreview": "TI.underlying_ltp > Unknown Expression",
+        "targetEntryNodeId": "entry-3"
+      },
+      "type": "reEntrySignalNode",
+      "style": {
+        "zIndex": 10
+      },
+      "dragging": false,
+      "measured": {
+        "width": 207,
+        "height": 151
+      },
+      "position": {
+        "x": 165,
+        "y": 2441.5
+      },
+      "selected": false,
+      "parents": [
+        "exit-3"
+      ],
+      "children": [
+        "entry-3"
+      ]
+    },
+    {
+      "id": "re-entry-signal-2",
+      "data": {
+        "label": "Re-Entry node",
+        "variables": [
+          {
+            "id": "var-1763893630346",
+            "name": "SignalHigh",
+            "nodeId": "re-entry-signal-2",
+            "expression": {
+              "type": "market_data",
+              "field": "High",
+              "offset": -1,
+              "dataField": "High",
+              "timeframeId": "1m",
+              "instrumentType": "TI"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "id": "root",
+            "conditions": [
+              {
+                "id": "1igtaeuh1",
+                "lhs": {
+                  "type": "live_data",
+                  "field": "underlying_ltp",
+                  "instrumentType": "TI"
+                },
+                "rhs": {
+                  "type": "market_data",
+                  "field": "Low",
+                  "offset": -1,
+                  "dataField": "Low",
+                  "timeframeId": "1m",
+                  "instrumentType": "TI"
+                },
+                "operator": "<"
+              }
+            ],
+            "groupLogic": "AND"
+          }
+        ],
+        "retryConfig": {
+          "groupNumber": 1,
+          "maxReEntries": 1
+        },
+        "_lastUpdated": 1764407371411,
+        "conditionsPreview": "TI.underlying_ltp < Unknown Expression",
+        "targetEntryNodeId": "entry-4"
+      },
+      "type": "reEntrySignalNode",
+      "style": {
+        "zIndex": 11
+      },
+      "dragging": false,
+      "measured": {
+        "width": 207,
+        "height": 151
+      },
+      "position": {
+        "x": 662,
+        "y": 2441.5
+      },
+      "selected": false,
+      "parents": [
+        "exit-4"
+      ],
+      "children": [
+        "entry-4"
+      ]
+    },
+    {
+      "id": "strategy-overview-virtual",
+      "data": {
+        "label": "Strategy Overview",
+        "isVirtual": true,
+        "isStrategyOverview": true
+      },
+      "type": "strategyOverview",
+      "hidden": true,
+      "position": {
+        "x": 1658,
+        "y": 115
+      },
+      "deletable": false,
+      "draggable": false,
+      "selectable": false,
+      "parents": [],
+      "children": []
+    }
+  ],
+  "metadata": {
+    "created": "2025-12-01T09:24:08.837Z",
+    "lastModified": "2025-12-01T09:24:08.837Z"
+  }
+}

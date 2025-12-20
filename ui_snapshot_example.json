@@ -1,0 +1,185 @@
+{
+  "session_id": "sim-a1ddd1577f36",
+  "user_id": "user_2yfjTGEKjL7XkklQyBaMP6SN2Lc",
+  "strategy_id": "5708424d-5962-4629-978c-05b3a174e104",
+  "backtest_date": "2024-10-29",
+  "speed_multiplier": 4.0,
+  "status": "running",
+  "started_at": "2025-12-06T22:27:18.431196",
+  "completed_at": null,
+  "timestamp": "2024-10-29T09:15:05+05:30",
+  "active_nodes": [
+    {
+      "node_id": "entry-condition-1",
+      "node_type": "EntrySignalNode",
+      "node_name": "Entry condition - Bullish",
+      "status": "Active",
+      "visited": true,
+      "re_entry_num": 0,
+      "explicit_conditions": [
+        {
+          "id": "root",
+          "conditions": [
+            {
+              "id": "condition-1764509271923-4iuojj88l",
+              "lhs": {
+                "type": "current_time"
+              },
+              "rhs": {
+                "type": "time_function",
+                "timeValue": "09:17"
+              },
+              "operator": ">="
+            },
+            {
+              "id": "condition-1764509344540-651dro19e",
+              "lhs": {
+                "name": "rsi_1764509210372",
+                "type": "indicator",
+                "offset": -1,
+                "parameter": null,
+                "timeframeId": "1m",
+                "instrumentType": "TI"
+              },
+              "rhs": {
+                "type": "constant",
+                "value": 30,
+                "valueType": "number",
+                "numberValue": 0
+              },
+              "operator": "<"
+            },
+            {
+              "id": "condition-1764509562322-9oetjd4qx",
+              "lhs": {
+                "type": "live_data",
+                "field": "underlying_ltp",
+                "instrumentType": "TI"
+              },
+              "rhs": {
+                "type": "candle_data",
+                "field": "High",
+                "offset": -1,
+                "dataField": "High",
+                "timeframeId": "1m",
+                "instrumentType": "TI"
+              },
+              "operator": ">"
+            }
+          ],
+          "groupLogic": "AND"
+        }
+      ]
+    },
+    {
+      "node_id": "square-off-1",
+      "node_type": "SquareOffNode",
+      "node_name": "Square off off",
+      "status": "Active",
+      "visited": true,
+      "re_entry_num": 0
+    },
+    {
+      "node_id": "entry-condition-2",
+      "node_type": "EntrySignalNode",
+      "node_name": "Entry condition - Bearish",
+      "status": "Active",
+      "visited": true,
+      "re_entry_num": 0,
+      "explicit_conditions": [
+        {
+          "id": "cond-milrzt80-bpa46",
+          "conditions": [
+            {
+              "id": "cond-milrzt80-3ga03",
+              "lhs": {
+                "type": "current_time"
+              },
+              "rhs": {
+                "type": "time_function",
+                "timeValue": "09:17"
+              },
+              "operator": ">="
+            },
+            {
+              "id": "cond-milrzt80-tfhum",
+              "lhs": {
+                "name": "rsi_1764509210372",
+                "type": "indicator",
+                "offset": -1,
+                "parameter": null,
+                "timeframeId": "1m",
+                "instrumentType": "TI"
+              },
+              "rhs": {
+                "type": "constant",
+                "value": 70,
+                "valueType": "number",
+                "numberValue": 0
+              },
+              "operator": ">"
+            },
+            {
+              "id": "cond-milrzt80-1vgpy",
+              "lhs": {
+                "type": "live_data",
+                "field": "underlying_ltp",
+                "instrumentType": "TI"
+              },
+              "rhs": {
+                "type": "candle_data",
+                "field": "Low",
+                "offset": -1,
+                "dataField": "Low",
+                "timeframeId": "1m",
+                "instrumentType": "TI"
+              },
+              "operator": "<"
+            }
+          ],
+          "groupLogic": "AND"
+        }
+      ]
+    }
+  ],
+  "latest_candles": {
+    "NIFTY:1m": {
+      "default": {
+        "current": {
+          "timestamp": "2024-10-29T09:15:00+05:30",
+          "open": 24328.85,
+          "high": 24378.65,
+          "low": 24326.75,
+          "close": 24350.35,
+          "volume": 0
+        },
+        "previous": {
+          "timestamp": "2024-10-28T15:29:00+05:30",
+          "open": 24356.35,
+          "high": 24368.75,
+          "low": 24354.25,
+          "close": 24367.7,
+          "volume": 0,
+          "indicators": {
+            "rsi(14,close)": 61.15389494457097
+          }
+        }
+      }
+    }
+  },
+  "ltp_store": {
+    "NIFTY": {
+      "ltp": 24350.35,
+      "timestamp": "2024-10-29 09:15:05.000000",
+      "volume": 0,
+      "oi": 0
+    }
+  },
+  "open_positions": [],
+  "total_unrealized_pnl": 0.0,
+  "stats": {
+    "ticks_processed": 0,
+    "total_ticks": 0,
+    "progress_percentage": 0.0
+  }
+}

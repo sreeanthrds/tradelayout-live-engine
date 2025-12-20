@@ -372,10 +372,7 @@ class ExitNode(BaseNode):
                 if closed_pos:
                     pnl = closed_pos.get('pnl')
                 
-                try:
-                    log_info(f"ExitNode {self.id}: closed {target_position_id}")
-                except Exception as e:
-                    log_warning(f"ExitNode {self.id}: Failed to log position closure: {e}")
+                log_info(f"ExitNode {self.id}: closed {target_position_id}")
         else:
             # Close all open positions
             open_positions = self.get_open_positions(context)
@@ -592,13 +589,31 @@ class ExitNode(BaseNode):
         
         log_info(f"[ExitNode] Position side: {position_side}, Exit side: {exit_side}")
         
+        # Determine exit quantity (full or partial)
+        quantity_mode = self.exit_config.get('quantity', 'full')  # 'full' or 'specific'
+        
+        if quantity_mode == 'specific':
+            # Partial exit: scale the specificQuantity
+            specific_qty = self.exit_config.get('specificQuantity', 1)
+            multiplier = position.get('multiplier', 1)
+            strategy_scale = context.get('strategy_scale', 1.0)
+            
+            # Calculate scaled partial exit quantity: specificQuantity × multiplier × strategy_scale
+            exit_quantity = int(specific_qty * multiplier * strategy_scale)
+            
+            log_info(f"[ExitNode] Partial exit: {specific_qty} lots × {multiplier} multiplier × {strategy_scale} scale = {exit_quantity} actual quantity")
+        else:
+            # Full exit: use actual_quantity from position
+            exit_quantity = position.get('actual_quantity', 1)
+            log_info(f"[ExitNode] Full exit: {exit_quantity} actual quantity")
+        
         return {
             'order_id': f"EXIT_{self.id}_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
             'position_id': position_id,
             'node_id': self.id,
             'order_type': self.exit_config.get('orderType', 'MARKET').upper(),
             'side': exit_side,
-            'quantity': position.get('quantity', 1),
+            'quantity': exit_quantity,  # Scaled quantity (full or partial)
             'price': exit_price,
             'timestamp': current_timestamp,
             'status': 'FILLED',
@@ -687,22 +702,9 @@ class ExitNode(BaseNode):
             }
             
         except Exception as e:
-            from src.utils.error_handler import handle_exception
             log_error(f"❌ Error checking order fill status: {e}")
-            
-            # Non-critical - can retry on next tick
-            handle_exception(e, "exit_node_check_order_status", {
-                'node_id': self.id,
-                'order_id': order_id
-            }, is_critical=False, continue_execution=True)
-            
-            # On error, assume pending to retry later
-            return {
-                'is_filled': False,
-                'is_rejected': False,
-                'is_pending': True,
-                'order_data': None
-            }
+            # Re-raise to expose the error
+            raise
     def _store_exit_in_global_store(self, context: Dict[str, Any], position_id: str, exit_order: Dict[str, Any]) -> Dict[str, Any]:
         """
 {{ ... }}
@@ -758,15 +760,12 @@ class ExitNode(BaseNode):
             trigger_node_id = None
             trigger_time = None
             trigger_price = None
-            try:
-                exit_signals = context.get('exit_signals') or []
-                if exit_signals:
-                    last_sig = exit_signals[-1]
-                    trigger_node_id = last_sig.get('node_id')
-                    trigger_time = last_sig.get('exit_signal_time')
-                    trigger_price = last_sig.get('exit_signal_price')
-            except Exception:
-                pass
+            exit_signals = context.get('exit_signals') or []
+            if exit_signals:
+                last_sig = exit_signals[-1]
+                trigger_node_id = last_sig.get('node_id')
+                trigger_time = last_sig.get('exit_signal_time')
+                trigger_price = last_sig.get('exit_signal_price')
 
             # Extract fill price and time from order
             # For live trading: use average_price and completed_at
@@ -796,21 +795,18 @@ class ExitNode(BaseNode):
             diagnostic_data = {}
             condition_preview = None
             
-            try:
-                node_states = context.get('node_states', {})
+            node_states = context.get('node_states', {})
+            
+            # Check all node states for exit diagnostic data
+            for node_id, node_state in node_states.items():
+                node_diagnostic = node_state.get('diagnostic_data', {})
+                node_preview = node_state.get('condition_preview')
                 
-                # Check all node states for exit diagnostic data
-                for node_id, node_state in node_states.items():
-                    node_diagnostic = node_state.get('diagnostic_data', {})
-                    node_preview = node_state.get('condition_preview')
-                    
-                    # Check if this is an exit signal node with diagnostic data
-                    if node_diagnostic and ('exit' in node_id.lower() or 'signal' in node_id.lower()):
-                        diagnostic_data = node_diagnostic
-                        condition_preview = node_preview
-                        break  # Use first exit signal node with diagnostic data
-            except Exception as e:
-                log_warning(f"ExitNode {self.id}: Error retrieving exit diagnostic data: {e}")
+                # Check if this is an exit signal node with diagnostic data
+                if node_diagnostic and ('exit' in node_id.lower() or 'signal' in node_id.lower()):
+                    diagnostic_data = node_diagnostic
+                    condition_preview = node_preview
+                    break  # Use first exit signal node with diagnostic data
             
             # Get node variables snapshot at exit
             context_manager = context.get('context_manager')
@@ -900,15 +896,9 @@ class ExitNode(BaseNode):
                 continue
             child_node.mark_active(context)
             # Update child's reEntryNum per shared policy
-            try:
-                child_node._update_child_reentry_num(context, child_node, parent_re)
-            except Exception as e:
-                log_warning(f"ExitNode {self.id}: Failed to update reEntryNum for child {child_id}: {e}")
+            child_node._update_child_reentry_num(context, child_node, parent_re)
             # Forcibly allow child to run by resetting visited
-            try:
-                child_node.reset_visited(context)
-            except Exception as e:
-                log_warning(f"ExitNode {self.id}: Failed to reset visited flag for child {child_id}: {e}")
+            child_node.reset_visited(context)
     
     def _get_evaluation_data(self, context: Dict[str, Any], node_result: Dict[str, Any]) -> Dict[str, Any]:
         """
