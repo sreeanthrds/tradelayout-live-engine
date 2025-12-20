@@ -106,20 +106,26 @@ class CentralizedBacktestEngine(BacktestEngine):
             strategy = self.strategy_manager.load_strategy(strategy_id=strategy_id)
             strategies.append(strategy)
         
-        # For now, backtest processes first strategy (future: support multiple)
-        strategy = strategies[0]
-        logger.info(f"Loaded strategy: {strategy.strategy_name} (user: {strategy.user_id})")
+        # Multi-strategy support: Process ALL strategies
+        logger.info(f"📊 Loaded {len(strategies)} strategy(ies) for execution")
+        for idx, strat in enumerate(strategies, 1):
+            logger.info(f"   {idx}. {strat.strategy_name} (user: {strat.user_id})")
+        
+        # Store all strategies for multi-strategy execution
+        self.strategies = strategies
         
         # Step 2: Build metadata (strategies_agg) FROM loaded strategies
         # IMPORTANT: This metadata contains symbols, timeframes, indicators, options
         self.strategies_agg = self._build_metadata(strategies)
         
-        # Step 3: Initialize data components
-        self._initialize_data_components(strategy)
+        # Step 3: Initialize data components (use first strategy for initialization)
+        # DataManager is shared across all strategies
+        primary_strategy = strategies[0]
+        self._initialize_data_components(primary_strategy)
         
-        # Step 4: Initialize DataManager (uses strategies_agg)
+        # Step 4: Initialize DataManager (uses strategies_agg from ALL strategies)
         self.data_manager.initialize(
-            strategy=strategy,
+            strategy=primary_strategy,
             backtest_date=self.config.backtest_date,
             strategies_agg=self.strategies_agg
         )
@@ -136,13 +142,18 @@ class CentralizedBacktestEngine(BacktestEngine):
         # Step 6: Initialize centralized components
         self._initialize_centralized_components()
         
-        # Step 7: Subscribe strategy to cache
-        self._subscribe_strategy_to_cache(strategy)
+        # Step 7: Subscribe ALL strategies to cache
+        for strategy in strategies:
+            self._subscribe_strategy_to_cache(strategy)
         
-        # Step 8: Load ticks
+        # Step 8: Load ticks for ALL strategies (get unique symbols)
+        all_symbols = set()
+        for strategy in strategies:
+            all_symbols.update(strategy.get_symbols())
+        
         ticks = self.data_manager.load_ticks(
             date=self.config.backtest_date,
-            symbols=strategy.get_symbols()
+            symbols=list(all_symbols)
         )
         logger.info(f"✅ Loaded {len(ticks):,} ticks")
         
