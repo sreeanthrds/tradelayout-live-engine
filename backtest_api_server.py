@@ -625,27 +625,10 @@ async def run_backtest(request: BacktestRequest):
         for test_date in date_range:
             print(f"[API] Running backtest for {test_date}")
             
-            # Run backtest using UNIFIED ENGINE
-            from src.backtesting.backtest_runner import run_backtest as unified_run_backtest
-            
-            # Run unified engine (note: not async, returns BacktestResults directly)
-            unified_results = unified_run_backtest(
-                strategy_ids=request.strategy_id,  # Accepts string or list
-                backtest_date=test_date
-            )
-            
-            # Convert unified engine results to dashboard format
-            daily_data = {
-                'strategy_id': request.strategy_id,
-                'positions': unified_results.positions,
-                'summary': {
-                    'total_pnl': sum(p.get('pnl', 0) for p in unified_results.positions),
-                    'total_positions': len(unified_results.positions),
-                    'winning_trades': len([p for p in unified_results.positions if p.get('pnl', 0) > 0]),
-                    'losing_trades': len([p for p in unified_results.positions if p.get('pnl', 0) < 0]),
-                    'breakeven_trades': len([p for p in unified_results.positions if p.get('pnl', 0) == 0])
-                }
-            }
+            # Run backtest using OLD WORKING METHOD
+            # Note: Unified engine integration caused issues with return structure and diagnostics
+            # Keeping old run_dashboard_backtest for backward compatibility
+            daily_data = run_dashboard_backtest(request.strategy_id, test_date, strategy_scale=1.0)
             
             # Generate diagnostic text for each transaction
             position_numbers = {}

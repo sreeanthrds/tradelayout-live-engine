@@ -193,37 +193,51 @@ def run_dashboard_backtest(strategy_id: str, backtest_date, strategy_scale: floa
     engine = CentralizedBacktestEngine(config)
     print(f"[run_dashboard_backtest] Engine created. Running backtest...")
     
-    engine.run()
+    # Run async engine
+    import asyncio
+    try:
+        loop = asyncio.get_running_loop()
+        # Already in async context
+        asyncio.run_coroutine_threadsafe(engine.run(), loop).result()
+    except RuntimeError:
+        # No event loop, use asyncio.run()
+        asyncio.run(engine.run())
     
     print(f"[run_dashboard_backtest] Backtest complete. Captured positions: {len(dashboard_data['positions'])}")
     
     # Extract diagnostics from engine
     diagnostics_export = {}
-    if hasattr(engine, 'centralized_processor'):
+    if hasattr(engine, 'centralized_processor') and engine.centralized_processor:
         # Get diagnostics from strategy_state (centralized processor)
-        active_strategies = engine.centralized_processor.strategy_manager.active_strategies
-        
-        # For single-strategy backtests, get first strategy
-        if active_strategies:
-            strategy_state = list(active_strategies.values())[0]
-            diagnostics = strategy_state.get('diagnostics')
+        try:
+            active_strategies = engine.centralized_processor.strategy_manager.active_strategies
             
-            if diagnostics:
-                # NOTE: current_state is NOT included for backtesting.
-                # It's only relevant for live simulation where we need real-time state tracking.
-                # For backtesting, we only need the events_history for UI diagnostics.
-                diagnostics_export = {
-                    'events_history': diagnostics.get_all_events({
-                        'node_events_history': strategy_state.get('node_events_history', {})
-                    })
-                }
+            # For single-strategy backtests, get first strategy
+            if active_strategies:
+                strategy_state = list(active_strategies.values())[0]
+                diagnostics = strategy_state.get('diagnostics')
+                
+                if diagnostics:
+                    # NOTE: current_state is NOT included for backtesting.
+                    # It's only relevant for live simulation where we need real-time state tracking.
+                    # For backtesting, we only need the events_history for UI diagnostics.
+                    diagnostics_export = {
+                        'events_history': diagnostics.get_all_events({
+                            'node_events_history': strategy_state.get('node_events_history', {})
+                        })
+                    }
+        except Exception as e:
+            print(f"[run_dashboard_backtest] Warning: Could not extract diagnostics: {e}")
     elif hasattr(engine, 'context_adapter'):
         # Fallback: Old engine using context_adapter
         # NOTE: current_state is NOT included for backtesting (only for live simulation)
-        diagnostics = engine.context_adapter.diagnostics
-        diagnostics_export = {
-            'events_history': diagnostics.get_all_events({'node_events_history': engine.context_adapter.node_events_history})
-        }
+        try:
+            diagnostics = engine.context_adapter.diagnostics
+            diagnostics_export = {
+                'events_history': diagnostics.get_all_events({'node_events_history': engine.context_adapter.node_events_history})
+            }
+        except Exception as e:
+            print(f"[run_dashboard_backtest] Warning: Could not extract diagnostics: {e}")
     
     dashboard_data['diagnostics'] = diagnostics_export
     
