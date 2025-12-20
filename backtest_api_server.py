@@ -2570,7 +2570,8 @@ async def _preprocess_live_data(
 async def _run_historical_tick_processor(
     instance_type: str,
     backtest_date: str,
-    speed_multiplier: float = 500.0
+    speed_multiplier: float = 500.0,
+    session_ids: list = None
 ):
     """
     Run historical tick processor for simulation.
@@ -2582,8 +2583,18 @@ async def _run_historical_tick_processor(
         instance_type: Instance type (e.g., 'admin_tester')
         backtest_date: Date string in YYYY-MM-DD format
         speed_multiplier: Speed multiplier for playback (default 500x)
+        session_ids: List of session IDs to update with live data
     """
     print(f"🎬 Starting historical tick processor: date={backtest_date}, speed={speed_multiplier}x")
+    
+    # Map session IDs to strategy IDs for live updates
+    session_map = {}  # {strategy_id: session_id}
+    if session_ids:
+        for session_id in session_ids:
+            session = sse_manager.get_session(session_id)
+            if session:
+                session_map[session.strategy_id] = session_id
+        print(f"📊 Will update {len(session_map)} sessions with live data")
     
     # Get instances
     instance_manager = get_instance_manager()
@@ -2857,6 +2868,111 @@ async def _run_historical_tick_processor(
             
             # Execute strategy via centralized tick processor
             tick_processor.on_tick(tick_data)
+            
+            # Update SSE sessions with live data for View Trades modal
+            if session_map:
+                for strategy_instance_id, strategy_state in tick_processor.strategy_manager.active_strategies.items():
+                    # Extract strategy_id from instance_id
+                    # Format: {queue_type}_{user_id}_{strategy_id}
+                    # Example: admin_tester_user_2yfjTGEKjL7XkklQyBaMP6SN2Lc_5708424d-5962-4629-978c-05b3a174e104
+                    # Strategy ID contains dashes, so we need to find where user_id ends
+                    # User ID format: user_XXXXXXXXXXXXXXXXXXXXXXXXX (27 chars after "user_")
+                    # Strategy ID format: UUID with dashes (36 chars)
+                    
+                    # Find the second underscore (after queue_type), then skip user_id part
+                    first_underscore = strategy_instance_id.find('_')
+                    if first_underscore >= 0:
+                        # Find second underscore (after user_id which starts with "user_")
+                        second_underscore = strategy_instance_id.find('_', first_underscore + 1)
+                        if second_underscore >= 0:
+                            # Everything after the second underscore is the strategy_id
+                            strategy_id = strategy_instance_id[second_underscore + 1:]
+                        else:
+                            strategy_id = None
+                    else:
+                        strategy_id = None
+                    
+                    # Debug first few ticks
+                    if second_idx < 3 and strategy_id:
+                        print(f"   🔍 Instance ID: {strategy_instance_id}")
+                        print(f"   🔍 Extracted strategy_id: {strategy_id}")
+                        print(f"   🔍 Session map: {session_map}")
+                        
+                        context = strategy_state.get('context', {})
+                        gps = context.get('gps')
+                        if gps and hasattr(gps, 'positions'):
+                            print(f"   🔍 GPS has {len(gps.positions)} positions")
+                        else:
+                            print(f"   🔍 No GPS or no positions attribute")
+                    
+                    if strategy_id and strategy_id in session_map:
+                            session_id = session_map[strategy_id]
+                            session = sse_manager.get_session(session_id)
+                            
+                            if session:
+                                context = strategy_state.get('context', {})
+                                gps = context.get('gps')
+                                
+                                if gps and hasattr(gps, 'positions'):
+                                    # Get positions and trades
+                                    positions = gps.positions
+                                    trades_list = []
+                                    
+                                    # Convert positions to trades format
+                                    for pos_id, pos in positions.items():
+                                        trade = {
+                                            'trade_id': pos.get('position_id'),
+                                            'symbol': pos.get('symbol'),
+                                            'side': pos.get('side'),
+                                            'quantity': pos.get('actual_quantity'),
+                                            'entry_price': pos.get('entry_price'),
+                                            'entry_time': pos.get('entry_time').isoformat() if hasattr(pos.get('entry_time'), 'isoformat') else str(pos.get('entry_time')),
+                                            'exit_price': pos.get('exit_price'),
+                                            'exit_time': pos.get('exit_time').isoformat() if pos.get('exit_time') and hasattr(pos.get('exit_time'), 'isoformat') else str(pos.get('exit_time')) if pos.get('exit_time') else None,
+                                            'pnl': pos.get('pnl'),
+                                            'status': pos.get('status')
+                                        }
+                                        trades_list.append(trade)
+                                    
+                                    # Calculate P&L summary
+                                    closed_trades = [t for t in trades_list if t['status'] == 'closed']
+                                    open_trades = [t for t in trades_list if t['status'] != 'closed']
+                                    
+                                    realized_pnl = sum(t.get('pnl', 0) or 0 for t in closed_trades)
+                                    unrealized_pnl = sum(t.get('pnl', 0) or 0 for t in open_trades)
+                                    
+                                    pnl_summary = {
+                                        'realized_pnl': f"{realized_pnl:.2f}",
+                                        'unrealized_pnl': f"{unrealized_pnl:.2f}",
+                                        'total_pnl': f"{realized_pnl + unrealized_pnl:.2f}",
+                                        'closed_trades': len(closed_trades),
+                                        'open_trades': len(open_trades)
+                                    }
+                                    
+                                    # Update session tick_state
+                                    session.tick_state = {
+                                        'timestamp': second_timestamp.isoformat(),
+                                        'pnl_summary': pnl_summary,
+                                        'open_positions': [t for t in trades_list if t['status'] != 'closed'],
+                                        'ltp_store': {},
+                                        'candle_data': {}
+                                    }
+                                    
+                                    # Update session trades
+                                    session.trades = {'trades': trades_list}
+                                    
+                                    # Push trade update event to SSE
+                                    if trades_list:
+                                        await session.event_queue.put({
+                                            'type': 'trade_update',
+                                            'data': trades_list
+                                        })
+                                    
+                                    # Push tick update event
+                                    await session.event_queue.put({
+                                        'type': 'tick_update',
+                                        'data': session.tick_state
+                                    })
             
             # Debug first few ticks
             if second_idx < 5:
@@ -3148,12 +3264,13 @@ async def execute_queue(
         
         # Queue processed - ready for ticks
         
-        # Start historical tick processor
+        # Start historical tick processor with session IDs for live updates
         asyncio.create_task(
             _run_historical_tick_processor(
                 instance_type=queue_type,
                 backtest_date=backtest_date,
-                speed_multiplier=speed_multiplier
+                speed_multiplier=speed_multiplier,
+                session_ids=session_ids
             )
         )
         
