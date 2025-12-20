@@ -1165,7 +1165,8 @@ async def get_user_strategies(user_id: str):
             # Determine status
             if active_session:
                 status = active_session.status
-                show_queue_toggle = status in ["ready", "starting"]
+                # Queue toggle enabled for ready/starting/running sessions
+                show_queue_toggle = status in ["ready", "starting", "running"]
             else:
                 status = "ready"  # Default status for strategies without active sessions
                 show_queue_toggle = True  # Always show queue toggle for READY cards
@@ -1253,6 +1254,15 @@ async def get_live_trading_dashboard(user_id: str):
         user_sessions = {}
         active_count = 0
         
+        # Aggregated P&L tracking
+        aggregated_pnl = {
+            "total_realized_pnl": 0.0,
+            "total_unrealized_pnl": 0.0,
+            "total_pnl": 0.0,
+            "total_closed_trades": 0,
+            "total_open_trades": 0
+        }
+        
         for session_id, session in sse_manager.sessions.items():
             if session.user_id == user_id:
                 # Include all sessions: ready, starting, running (exclude only completed/stopped)
@@ -1282,11 +1292,26 @@ async def get_live_trading_dashboard(user_id: str):
                 trades_list = session.trades.get("trades", [])
                 has_trades = True  # Always show button
                 
-                # Check if strategy should show queue toggle (READY/starting status)
-                show_queue_toggle = session.status in ["ready", "starting"]
+                # Queue toggle should be enabled for ready/starting/running sessions
+                # (running sessions can still be added to queue for next execution)
+                show_queue_toggle = session.status in ["ready", "starting", "running"]
                 
                 # Check if strategy is currently in admin_tester queue
                 is_queued = session.strategy_id in strategy_queues.get('admin_tester', {})
+                
+                # Extract P&L and aggregate
+                pnl_summary = tick_state.get("pnl_summary", {})
+                realized = float(pnl_summary.get("realized_pnl", "0"))
+                unrealized = float(pnl_summary.get("unrealized_pnl", "0"))
+                total = float(pnl_summary.get("total_pnl", "0"))
+                closed_trades = int(pnl_summary.get("closed_trades", 0))
+                open_trades = int(pnl_summary.get("open_trades", 0))
+                
+                aggregated_pnl["total_realized_pnl"] += realized
+                aggregated_pnl["total_unrealized_pnl"] += unrealized
+                aggregated_pnl["total_pnl"] += total
+                aggregated_pnl["total_closed_trades"] += closed_trades
+                aggregated_pnl["total_open_trades"] += open_trades
                 
                 # Build session response with REAL data
                 user_sessions[session_id] = {
@@ -1329,11 +1354,18 @@ async def get_live_trading_dashboard(user_id: str):
                     }
                 }
         
-        # Build response
+        # Build response with aggregated P&L
         response = {
             "total_sessions": len(user_sessions),
             "active_sessions": active_count,
             "cache_time": datetime.now().isoformat() + "Z",
+            "aggregated_pnl": {
+                "realized_pnl": f"{aggregated_pnl['total_realized_pnl']:.2f}",
+                "unrealized_pnl": f"{aggregated_pnl['total_unrealized_pnl']:.2f}",
+                "total_pnl": f"{aggregated_pnl['total_pnl']:.2f}",
+                "closed_trades": aggregated_pnl['total_closed_trades'],
+                "open_trades": aggregated_pnl['total_open_trades']
+            },
             "sessions": user_sessions
         }
         
