@@ -1254,8 +1254,10 @@ async def get_live_trading_dashboard(user_id: str):
                     continue  # Skip stopped/error sessions
                 
                 # Skip completed non-queue sessions (manual starts)
-                # Keep completed queue sessions visible (identified by session_id prefix)
-                if session.status == "completed" and not session_id.startswith("queue-"):
+                # Keep completed queue sessions visible (session_id format: strategy_id_broker_connection_id)
+                # Queue sessions have UUID format with underscore separator
+                is_queue_session = "_" in session_id and len(session_id) > 36  # UUID is 36 chars, broker ID adds more
+                if session.status == "completed" and not is_queue_session:
                     continue
                 
                 if session.status == "running":
@@ -3241,8 +3243,9 @@ async def execute_queue(
             strategy_id = entry['strategy_id']
             broker_connection_id = entry['broker_connection_id']
             
-            # Generate session ID for this strategy
-            session_id = f"queue-{queue_type}-{strategy_id[:8]}-{os.urandom(4).hex()}"
+            # Generate session ID using strategy_id + broker_connection_id (unique combination)
+            # This allows same strategy to run with multiple brokers
+            session_id = f"{strategy_id}_{broker_connection_id}"
             
             # Create session in sse_manager for dashboard monitoring
             session = sse_manager.create_session(
@@ -3259,7 +3262,7 @@ async def execute_queue(
             session.speed_multiplier = speed_multiplier
             
             session_ids.append(session_id)
-            print(f"✅ Created session {session_id} for strategy {strategy_id[:8]}...")
+            print(f"✅ Created session {session_id} for strategy {strategy_id[:8]} with broker {broker_connection_id[:8]}...")
         
         print(f"📊 Created {len(session_ids)} dashboard sessions for monitoring")
         
@@ -3272,30 +3275,22 @@ async def execute_queue(
         
         # Launch live backtest for each strategy (same as /api/v1/live/start)
         # This ensures View Trades modal gets proper position/trade data
-        for entry in queue_entries:
+        # session_ids and queue_entries are in same order, so zip them
+        for entry, session_id in zip(queue_entries, session_ids):
             user_id = entry['user_id']
             strategy_id = entry['strategy_id']
             
-            # Find the session_id for this strategy
-            session_id = None
-            for sid in session_ids:
-                session = sse_manager.get_session(sid)
-                if session and session.strategy_id == strategy_id:
-                    session_id = sid
-                    break
-            
-            if session_id:
-                # Launch backtest using the WORKING LiveBacktestRunner approach
-                asyncio.create_task(
-                    run_live_backtest(
-                        session_id=session_id,
-                        strategy_id=strategy_id,
-                        user_id=user_id,
-                        start_date=backtest_date,
-                        speed_multiplier=speed_multiplier
-                    )
+            # Launch backtest using the WORKING LiveBacktestRunner approach
+            asyncio.create_task(
+                run_live_backtest(
+                    session_id=session_id,
+                    strategy_id=strategy_id,
+                    user_id=user_id,
+                    start_date=backtest_date,
+                    speed_multiplier=speed_multiplier
                 )
-                print(f"🚀 Launched live backtest for {strategy_id[:8]}... in session {session_id}")
+            )
+            print(f"🚀 Launched live backtest for {strategy_id[:8]}... in session {session_id}")
         
         return {
             "started": True,
