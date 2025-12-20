@@ -1,7 +1,7 @@
 {
   "events_history": {
-    "exec_strategy-controller_20241029_091500_1f9364": {
-      "execution_id": "exec_strategy-controller_20241029_091500_1f9364",
+    "exec_strategy-controller_20241029_091500_73da06": {
+      "execution_id": "exec_strategy-controller_20241029_091500_73da06",
       "parent_execution_id": null,
       "timestamp": "2024-10-29 09:15:00+05:30",
       "event_type": "logic_completed",
@@ -30,9 +30,9 @@
         "end_conditions_configured": 0
       }
     },
-    "exec_entry-condition-1_20241029_091900_0bd1df": {
-      "execution_id": "exec_entry-condition-1_20241029_091900_0bd1df",
-      "parent_execution_id": "exec_strategy-controller_20241029_091500_1f9364",
+    "exec_entry-condition-1_20241029_091900_f1a35a": {
+      "execution_id": "exec_entry-condition-1_20241029_091900_f1a35a",
+      "parent_execution_id": "exec_strategy-controller_20241029_091500_73da06",
       "timestamp": "2024-10-29 09:19:00+05:30",
       "event_type": "logic_completed",
       "node_id": "entry-condition-1",
@@ -164,9 +164,9 @@
         }
       }
     },
-    "exec_entry-2_20241029_091900_661783": {
-      "execution_id": "exec_entry-2_20241029_091900_661783",
-      "parent_execution_id": "exec_entry-condition-1_20241029_091900_0bd1df",
+    "exec_entry-2_20241029_091900_e9d538": {
+      "execution_id": "exec_entry-2_20241029_091900_e9d538",
+      "parent_execution_id": "exec_entry-condition-1_20241029_091900_f1a35a",
       "timestamp": "2024-10-29 09:19:00+05:30",
       "event_type": "logic_completed",
       "node_id": "entry-2",
@@ -183,10 +183,10 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-2_20251213_170350",
+        "order_id": "ENTRY_entry-2_20251220_182625",
         "symbol": "NIFTY:2024-11-07:OPT:24250:PE",
         "side": "SELL",
-        "quantity": 1,
+        "quantity": 75,
         "price": "181.60",
         "order_type": "MARKET",
         "exchange": "NFO",
@@ -214,9 +214,9 @@
         ]
       }
     },
-    "exec_exit-condition-2_20241029_104800_2b9a41": {
-      "execution_id": "exec_exit-condition-2_20241029_104800_2b9a41",
-      "parent_execution_id": "exec_entry-2_20241029_091900_661783",
+    "exec_exit-condition-2_20241029_104800_8cf6d8": {
+      "execution_id": "exec_exit-condition-2_20241029_104800_8cf6d8",
+      "parent_execution_id": "exec_entry-2_20241029_091900_e9d538",
       "timestamp": "2024-10-29 10:48:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-condition-2",
@@ -248,7 +248,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 27.235712148527128,
+            "lhs_value": 27.238778302941157,
             "rhs_value": 30.0,
             "operator": "<",
             "timestamp": "2024-10-29 10:48:00+05:30",
@@ -304,7 +304,7 @@
               "close": 24144.45,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 27.235712148527128
+                "rsi(14,close)": 27.238778302941157
               }
             }
           }
@@ -374,9 +374,9 @@
         }
       }
     },
-    "exec_exit-3_20241029_104800_4fff18": {
-      "execution_id": "exec_exit-3_20241029_104800_4fff18",
-      "parent_execution_id": "exec_exit-condition-2_20241029_104800_2b9a41",
+    "exec_exit-3_20241029_104800_85a2ba": {
+      "execution_id": "exec_exit-3_20241029_104800_85a2ba",
+      "parent_execution_id": "exec_exit-condition-2_20241029_104800_8cf6d8",
       "timestamp": "2024-10-29 10:48:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-3",
@@ -407,7 +407,7 @@
       "exit_result": {
         "positions_closed": 1,
         "exit_price": "260.05",
-        "pnl": "-78.45",
+        "pnl": "-5883.75",
         "exit_time": "2024-10-29 10:48:00+05:30"
       },
       "exit_config": {
@@ -422,9 +422,9 @@
         "positions_closed": 1
       }
     },
-    "exec_exit-condition-1_20241029_114000_fdd850": {
-      "execution_id": "exec_exit-condition-1_20241029_114000_fdd850",
-      "parent_execution_id": "exec_entry-2_20241029_091900_661783",
+    "exec_exit-condition-1_20241029_114000_4ca5a6": {
+      "execution_id": "exec_exit-condition-1_20241029_114000_4ca5a6",
+      "parent_execution_id": "exec_entry-2_20241029_091900_e9d538",
       "timestamp": "2024-10-29 11:40:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-condition-1",
@@ -456,7 +456,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 70.20009072905866,
+            "lhs_value": 70.2446351872398,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 11:40:00+05:30",
@@ -464,8 +464,8 @@
             "result": true,
             "result_icon": "\u2713",
             "raw": "Previous[TI.1m.rsi(14,close)] > 70",
-            "evaluated": "70.20 > 70.00",
-            "condition_text": "Previous[TI.1m.rsi(14,close)] > 70  [70.20 > 70.00] \u2713"
+            "evaluated": "70.24 > 70.00",
+            "condition_text": "Previous[TI.1m.rsi(14,close)] > 70  [70.24 > 70.00] \u2713"
           }
         ],
         "expression_values": {},
@@ -487,7 +487,7 @@
               "close": 24226.5,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 70.20009072905866
+                "rsi(14,close)": 70.2446351872398
               }
             }
           }
@@ -534,9 +534,9 @@
         }
       }
     },
-    "exec_exit-2_20241029_114000_4fe255": {
-      "execution_id": "exec_exit-2_20241029_114000_4fe255",
-      "parent_execution_id": "exec_exit-condition-1_20241029_114000_fdd850",
+    "exec_exit-2_20241029_114000_e17122": {
+      "execution_id": "exec_exit-2_20241029_114000_e17122",
+      "parent_execution_id": "exec_exit-condition-1_20241029_114000_4ca5a6",
       "timestamp": "2024-10-29 11:40:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-2",
@@ -569,9 +569,9 @@
         "positions_closed": 0
       }
     },
-    "exec_entry-condition-2_20241029_114200_7686c2": {
-      "execution_id": "exec_entry-condition-2_20241029_114200_7686c2",
-      "parent_execution_id": "exec_strategy-controller_20241029_091500_1f9364",
+    "exec_entry-condition-2_20241029_114200_b57dec": {
+      "execution_id": "exec_entry-condition-2_20241029_114200_b57dec",
+      "parent_execution_id": "exec_strategy-controller_20241029_091500_73da06",
       "timestamp": "2024-10-29 11:42:00+05:30",
       "event_type": "logic_completed",
       "node_id": "entry-condition-2",
@@ -621,7 +621,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 72.48935743858573,
+            "lhs_value": 72.53191944216664,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 11:42:00+05:30",
@@ -629,8 +629,8 @@
             "result": true,
             "result_icon": "\u2713",
             "raw": "Previous[TI.1m.rsi(14,close)] > 70",
-            "evaluated": "72.49 > 70.00",
-            "condition_text": "Previous[TI.1m.rsi(14,close)] > 70  [72.49 > 70.00] \u2713"
+            "evaluated": "72.53 > 70.00",
+            "condition_text": "Previous[TI.1m.rsi(14,close)] > 70  [72.53 > 70.00] \u2713"
           },
           {
             "lhs_expression": {
@@ -678,7 +678,7 @@
               "close": 24236.1,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 72.48935743858573
+                "rsi(14,close)": 72.53191944216664
               }
             }
           }
@@ -703,9 +703,9 @@
         }
       }
     },
-    "exec_entry-3_20241029_114200_c84a5f": {
-      "execution_id": "exec_entry-3_20241029_114200_c84a5f",
-      "parent_execution_id": "exec_entry-condition-2_20241029_114200_7686c2",
+    "exec_entry-3_20241029_114200_50a69d": {
+      "execution_id": "exec_entry-3_20241029_114200_50a69d",
+      "parent_execution_id": "exec_entry-condition-2_20241029_114200_b57dec",
       "timestamp": "2024-10-29 11:42:00+05:30",
       "event_type": "logic_completed",
       "node_id": "entry-3",
@@ -722,10 +722,10 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251213_170353",
+        "order_id": "ENTRY_entry-3_20251220_182629",
         "symbol": "NIFTY:2024-11-07:OPT:24250:CE",
         "side": "SELL",
-        "quantity": 1,
+        "quantity": 75,
         "price": "262.05",
         "order_type": "MARKET",
         "exchange": "NFO",
@@ -753,9 +753,9 @@
         ]
       }
     },
-    "exec_exit-condition-4_20241029_120400_0d7119": {
-      "execution_id": "exec_exit-condition-4_20241029_120400_0d7119",
-      "parent_execution_id": "exec_entry-3_20241029_114200_c84a5f",
+    "exec_exit-condition-4_20241029_120400_cee1a3": {
+      "execution_id": "exec_exit-condition-4_20241029_120400_cee1a3",
+      "parent_execution_id": "exec_entry-3_20241029_114200_50a69d",
       "timestamp": "2024-10-29 12:04:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-condition-4",
@@ -787,7 +787,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 74.30251154615769,
+            "lhs_value": 74.30993955966228,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 12:04:00+05:30",
@@ -795,8 +795,8 @@
             "result": true,
             "result_icon": "\u2713",
             "raw": "Previous[TI.1m.rsi(14,close)] > 70",
-            "evaluated": "74.30 > 70.00",
-            "condition_text": "Previous[TI.1m.rsi(14,close)] > 70  [74.30 > 70.00] \u2713"
+            "evaluated": "74.31 > 70.00",
+            "condition_text": "Previous[TI.1m.rsi(14,close)] > 70  [74.31 > 70.00] \u2713"
           },
           {
             "lhs_expression": {
@@ -843,7 +843,7 @@
               "close": 24282.3,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 74.30251154615769
+                "rsi(14,close)": 74.30993955966228
               }
             }
           }
@@ -913,9 +913,9 @@
         }
       }
     },
-    "exec_exit-6_20241029_120400_74bdda": {
-      "execution_id": "exec_exit-6_20241029_120400_74bdda",
-      "parent_execution_id": "exec_exit-condition-4_20241029_120400_0d7119",
+    "exec_exit-6_20241029_120400_6550b6": {
+      "execution_id": "exec_exit-6_20241029_120400_6550b6",
+      "parent_execution_id": "exec_exit-condition-4_20241029_120400_cee1a3",
       "timestamp": "2024-10-29 12:04:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-6",
@@ -946,7 +946,7 @@
       "exit_result": {
         "positions_closed": 1,
         "exit_price": "287.80",
-        "pnl": "-25.75",
+        "pnl": "-1931.25",
         "exit_time": "2024-10-29 12:04:00+05:30"
       },
       "exit_config": {
@@ -961,9 +961,9 @@
         "positions_closed": 1
       }
     },
-    "exec_re-entry-signal-4_20241029_120508_f28106": {
-      "execution_id": "exec_re-entry-signal-4_20241029_120508_f28106",
-      "parent_execution_id": "exec_exit-6_20241029_120400_74bdda",
+    "exec_re-entry-signal-4_20241029_120508_dacaf0": {
+      "execution_id": "exec_re-entry-signal-4_20241029_120508_dacaf0",
+      "parent_execution_id": "exec_exit-6_20241029_120400_6550b6",
       "timestamp": "2024-10-29 12:05:08+05:30",
       "event_type": "logic_completed",
       "node_id": "re-entry-signal-4",
@@ -994,7 +994,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 73.48245078369575,
+            "lhs_value": 73.48956700109761,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 12:05:08+05:30",
@@ -1002,8 +1002,8 @@
             "result": true,
             "result_icon": "\u2713",
             "raw": "Previous[TI.1m.rsi(14,close)] > 70",
-            "evaluated": "73.48 > 70.00",
-            "condition_text": "Previous[TI.1m.rsi(14,close)] > 70  [73.48 > 70.00] \u2713"
+            "evaluated": "73.49 > 70.00",
+            "condition_text": "Previous[TI.1m.rsi(14,close)] > 70  [73.49 > 70.00] \u2713"
           },
           {
             "lhs_expression": {
@@ -1051,7 +1051,7 @@
               "close": 24281.2,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 73.48245078369575
+                "rsi(14,close)": 73.48956700109761
               }
             }
           }
@@ -1080,9 +1080,9 @@
         }
       }
     },
-    "exec_entry-3_20241029_120509_31a0f1": {
-      "execution_id": "exec_entry-3_20241029_120509_31a0f1",
-      "parent_execution_id": "exec_re-entry-signal-4_20241029_120508_f28106",
+    "exec_entry-3_20241029_120509_ed3820": {
+      "execution_id": "exec_entry-3_20241029_120509_ed3820",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_120508_dacaf0",
       "timestamp": "2024-10-29 12:05:09+05:30",
       "event_type": "logic_completed",
       "node_id": "entry-3",
@@ -1099,10 +1099,10 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251213_170353",
+        "order_id": "ENTRY_entry-3_20251220_182630",
         "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
         "side": "SELL",
-        "quantity": 1,
+        "quantity": 75,
         "price": "254.65",
         "order_type": "MARKET",
         "exchange": "NFO",
@@ -1130,9 +1130,9 @@
         ]
       }
     },
-    "exec_exit-condition-4_20241029_121500_f525fc": {
-      "execution_id": "exec_exit-condition-4_20241029_121500_f525fc",
-      "parent_execution_id": "exec_entry-3_20241029_120509_31a0f1",
+    "exec_exit-condition-4_20241029_121500_e0e82f": {
+      "execution_id": "exec_exit-condition-4_20241029_121500_e0e82f",
+      "parent_execution_id": "exec_entry-3_20241029_120509_ed3820",
       "timestamp": "2024-10-29 12:15:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-condition-4",
@@ -1164,7 +1164,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 70.52935903387409,
+            "lhs_value": 70.5323821085447,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 12:15:00+05:30",
@@ -1220,7 +1220,7 @@
               "close": 24293.75,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 70.52935903387409
+                "rsi(14,close)": 70.5323821085447
               }
             }
           }
@@ -1290,9 +1290,9 @@
         }
       }
     },
-    "exec_exit-6_20241029_121500_e1a5bd": {
-      "execution_id": "exec_exit-6_20241029_121500_e1a5bd",
-      "parent_execution_id": "exec_exit-condition-4_20241029_121500_f525fc",
+    "exec_exit-6_20241029_121500_840285": {
+      "execution_id": "exec_exit-6_20241029_121500_840285",
+      "parent_execution_id": "exec_exit-condition-4_20241029_121500_e0e82f",
       "timestamp": "2024-10-29 12:15:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-6",
@@ -1323,7 +1323,7 @@
       "exit_result": {
         "positions_closed": 1,
         "exit_price": "263.45",
-        "pnl": "-34.55",
+        "pnl": "-2591.25",
         "exit_time": "2024-10-29 12:15:00+05:30"
       },
       "exit_config": {
@@ -1338,9 +1338,9 @@
         "positions_closed": 2
       }
     },
-    "exec_re-entry-signal-4_20241029_121752_8fde97": {
-      "execution_id": "exec_re-entry-signal-4_20241029_121752_8fde97",
-      "parent_execution_id": "exec_exit-6_20241029_121500_e1a5bd",
+    "exec_re-entry-signal-4_20241029_121752_3c778f": {
+      "execution_id": "exec_re-entry-signal-4_20241029_121752_3c778f",
+      "parent_execution_id": "exec_exit-6_20241029_121500_840285",
       "timestamp": "2024-10-29 12:17:52+05:30",
       "event_type": "logic_completed",
       "node_id": "re-entry-signal-4",
@@ -1371,7 +1371,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 72.23139227664144,
+            "lhs_value": 72.23439565696997,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 12:17:52+05:30",
@@ -1428,7 +1428,7 @@
               "close": 24299.75,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 72.23139227664144
+                "rsi(14,close)": 72.23439565696997
               }
             }
           }
@@ -1457,9 +1457,9 @@
         }
       }
     },
-    "exec_entry-3_20241029_121753_552379": {
-      "execution_id": "exec_entry-3_20241029_121753_552379",
-      "parent_execution_id": "exec_re-entry-signal-4_20241029_121752_8fde97",
+    "exec_entry-3_20241029_121753_539987": {
+      "execution_id": "exec_entry-3_20241029_121753_539987",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_121752_3c778f",
       "timestamp": "2024-10-29 12:17:53+05:30",
       "event_type": "logic_completed",
       "node_id": "entry-3",
@@ -1476,10 +1476,10 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251213_170354",
+        "order_id": "ENTRY_entry-3_20251220_182630",
         "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
         "side": "SELL",
-        "quantity": 1,
+        "quantity": 75,
         "price": "262.70",
         "order_type": "MARKET",
         "exchange": "NFO",
@@ -1507,9 +1507,9 @@
         ]
       }
     },
-    "exec_exit-condition-4_20241029_125200_6b6c5c": {
-      "execution_id": "exec_exit-condition-4_20241029_125200_6b6c5c",
-      "parent_execution_id": "exec_entry-3_20241029_121753_552379",
+    "exec_exit-condition-4_20241029_125200_edf27c": {
+      "execution_id": "exec_exit-condition-4_20241029_125200_edf27c",
+      "parent_execution_id": "exec_entry-3_20241029_121753_539987",
       "timestamp": "2024-10-29 12:52:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-condition-4",
@@ -1541,7 +1541,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 70.62130276650112,
+            "lhs_value": 70.62154791904747,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 12:52:00+05:30",
@@ -1597,7 +1597,7 @@
               "close": 24323.3,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 70.62130276650112
+                "rsi(14,close)": 70.62154791904747
               }
             }
           }
@@ -1667,9 +1667,9 @@
         }
       }
     },
-    "exec_exit-6_20241029_125200_3f61e8": {
-      "execution_id": "exec_exit-6_20241029_125200_3f61e8",
-      "parent_execution_id": "exec_exit-condition-4_20241029_125200_6b6c5c",
+    "exec_exit-6_20241029_125200_4089f5": {
+      "execution_id": "exec_exit-6_20241029_125200_4089f5",
+      "parent_execution_id": "exec_exit-condition-4_20241029_125200_edf27c",
       "timestamp": "2024-10-29 12:52:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-6",
@@ -1700,7 +1700,7 @@
       "exit_result": {
         "positions_closed": 1,
         "exit_price": "274.75",
-        "pnl": "-46.60",
+        "pnl": "-3495.00",
         "exit_time": "2024-10-29 12:52:00+05:30"
       },
       "exit_config": {
@@ -1715,9 +1715,9 @@
         "positions_closed": 3
       }
     },
-    "exec_re-entry-signal-4_20241029_125348_20df21": {
-      "execution_id": "exec_re-entry-signal-4_20241029_125348_20df21",
-      "parent_execution_id": "exec_exit-6_20241029_125200_3f61e8",
+    "exec_re-entry-signal-4_20241029_125348_8b7a01": {
+      "execution_id": "exec_re-entry-signal-4_20241029_125348_8b7a01",
+      "parent_execution_id": "exec_exit-6_20241029_125200_4089f5",
       "timestamp": "2024-10-29 12:53:48+05:30",
       "event_type": "logic_completed",
       "node_id": "re-entry-signal-4",
@@ -1748,7 +1748,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 71.68514452728705,
+            "lhs_value": 71.68539195682075,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 12:53:48+05:30",
@@ -1805,7 +1805,7 @@
               "close": 24326.05,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 71.68514452728705
+                "rsi(14,close)": 71.68539195682075
               }
             }
           }
@@ -1834,9 +1834,9 @@
         }
       }
     },
-    "exec_entry-3_20241029_125349_b27689": {
-      "execution_id": "exec_entry-3_20241029_125349_b27689",
-      "parent_execution_id": "exec_re-entry-signal-4_20241029_125348_20df21",
+    "exec_entry-3_20241029_125349_b81f5e": {
+      "execution_id": "exec_entry-3_20241029_125349_b81f5e",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_125348_8b7a01",
       "timestamp": "2024-10-29 12:53:49+05:30",
       "event_type": "logic_completed",
       "node_id": "entry-3",
@@ -1853,10 +1853,10 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251213_170355",
+        "order_id": "ENTRY_entry-3_20251220_182631",
         "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
         "side": "SELL",
-        "quantity": 1,
+        "quantity": 75,
         "price": "275.50",
         "order_type": "MARKET",
         "exchange": "NFO",
@@ -1884,9 +1884,9 @@
         ]
       }
     },
-    "exec_exit-condition-4_20241029_130300_cf9b95": {
-      "execution_id": "exec_exit-condition-4_20241029_130300_cf9b95",
-      "parent_execution_id": "exec_entry-3_20241029_125349_b27689",
+    "exec_exit-condition-4_20241029_130300_4b692c": {
+      "execution_id": "exec_exit-condition-4_20241029_130300_4b692c",
+      "parent_execution_id": "exec_entry-3_20241029_125349_b81f5e",
       "timestamp": "2024-10-29 13:03:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-condition-4",
@@ -1918,7 +1918,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 70.88958890700901,
+            "lhs_value": 70.88970515955685,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 13:03:00+05:30",
@@ -1974,7 +1974,7 @@
               "close": 24338.6,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 70.88958890700901
+                "rsi(14,close)": 70.88970515955685
               }
             }
           }
@@ -2044,9 +2044,9 @@
         }
       }
     },
-    "exec_exit-6_20241029_130300_97d468": {
-      "execution_id": "exec_exit-6_20241029_130300_97d468",
-      "parent_execution_id": "exec_exit-condition-4_20241029_130300_cf9b95",
+    "exec_exit-6_20241029_130300_fb66b0": {
+      "execution_id": "exec_exit-6_20241029_130300_fb66b0",
+      "parent_execution_id": "exec_exit-condition-4_20241029_130300_4b692c",
       "timestamp": "2024-10-29 13:03:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-6",
@@ -2077,7 +2077,7 @@
       "exit_result": {
         "positions_closed": 1,
         "exit_price": "288.70",
-        "pnl": "-59.80",
+        "pnl": "-4485.00",
         "exit_time": "2024-10-29 13:03:00+05:30"
       },
       "exit_config": {
@@ -2092,9 +2092,9 @@
         "positions_closed": 4
       }
     },
-    "exec_re-entry-signal-4_20241029_130549_a2cc58": {
-      "execution_id": "exec_re-entry-signal-4_20241029_130549_a2cc58",
-      "parent_execution_id": "exec_exit-6_20241029_130300_97d468",
+    "exec_re-entry-signal-4_20241029_130549_f4cc41": {
+      "execution_id": "exec_re-entry-signal-4_20241029_130549_f4cc41",
+      "parent_execution_id": "exec_exit-6_20241029_130300_fb66b0",
       "timestamp": "2024-10-29 13:05:49+05:30",
       "event_type": "logic_completed",
       "node_id": "re-entry-signal-4",
@@ -2125,7 +2125,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 73.39853870440074,
+            "lhs_value": 73.39865662598233,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 13:05:49+05:30",
@@ -2182,7 +2182,7 @@
               "close": 24344.75,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 73.39853870440074
+                "rsi(14,close)": 73.39865662598233
               }
             }
           }
@@ -2211,9 +2211,9 @@
         }
       }
     },
-    "exec_entry-3_20241029_130550_9608ff": {
-      "execution_id": "exec_entry-3_20241029_130550_9608ff",
-      "parent_execution_id": "exec_re-entry-signal-4_20241029_130549_a2cc58",
+    "exec_entry-3_20241029_130550_555e21": {
+      "execution_id": "exec_entry-3_20241029_130550_555e21",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_130549_f4cc41",
       "timestamp": "2024-10-29 13:05:50+05:30",
       "event_type": "logic_completed",
       "node_id": "entry-3",
@@ -2230,10 +2230,10 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251213_170355",
+        "order_id": "ENTRY_entry-3_20251220_182631",
         "symbol": "NIFTY:2024-11-07:OPT:24350:CE",
         "side": "SELL",
-        "quantity": 1,
+        "quantity": 75,
         "price": "254.00",
         "order_type": "MARKET",
         "exchange": "NFO",
@@ -2261,9 +2261,9 @@
         ]
       }
     },
-    "exec_exit-condition-4_20241029_140300_56e721": {
-      "execution_id": "exec_exit-condition-4_20241029_140300_56e721",
-      "parent_execution_id": "exec_entry-3_20241029_130550_9608ff",
+    "exec_exit-condition-4_20241029_140300_ee8d97": {
+      "execution_id": "exec_exit-condition-4_20241029_140300_ee8d97",
+      "parent_execution_id": "exec_entry-3_20241029_130550_555e21",
       "timestamp": "2024-10-29 14:03:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-condition-4",
@@ -2295,7 +2295,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 77.13533121645264,
+            "lhs_value": 77.13533234829717,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 14:03:00+05:30",
@@ -2351,7 +2351,7 @@
               "close": 24364.2,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 77.13533121645264
+                "rsi(14,close)": 77.13533234829717
               }
             }
           }
@@ -2421,9 +2421,9 @@
         }
       }
     },
-    "exec_exit-6_20241029_140300_912500": {
-      "execution_id": "exec_exit-6_20241029_140300_912500",
-      "parent_execution_id": "exec_exit-condition-4_20241029_140300_56e721",
+    "exec_exit-6_20241029_140300_610ed1": {
+      "execution_id": "exec_exit-6_20241029_140300_610ed1",
+      "parent_execution_id": "exec_exit-condition-4_20241029_140300_ee8d97",
       "timestamp": "2024-10-29 14:03:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-6",
@@ -2454,7 +2454,7 @@
       "exit_result": {
         "positions_closed": 1,
         "exit_price": "265.35",
-        "pnl": "-71.15",
+        "pnl": "-5336.25",
         "exit_time": "2024-10-29 14:03:00+05:30"
       },
       "exit_config": {
@@ -2469,9 +2469,9 @@
         "positions_closed": 5
       }
     },
-    "exec_re-entry-signal-4_20241029_141324_a86b15": {
-      "execution_id": "exec_re-entry-signal-4_20241029_141324_a86b15",
-      "parent_execution_id": "exec_exit-6_20241029_140300_912500",
+    "exec_re-entry-signal-4_20241029_141324_f11322": {
+      "execution_id": "exec_re-entry-signal-4_20241029_141324_f11322",
+      "parent_execution_id": "exec_exit-6_20241029_140300_610ed1",
       "timestamp": "2024-10-29 14:13:24+05:30",
       "event_type": "logic_completed",
       "node_id": "re-entry-signal-4",
@@ -2502,7 +2502,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 81.64310834950015,
+            "lhs_value": 81.64310909451706,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 14:13:24+05:30",
@@ -2559,7 +2559,7 @@
               "close": 24411.35,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 81.64310834950015
+                "rsi(14,close)": 81.64310909451706
               }
             }
           }
@@ -2588,9 +2588,9 @@
         }
       }
     },
-    "exec_entry-3_20241029_141325_e1d039": {
-      "execution_id": "exec_entry-3_20241029_141325_e1d039",
-      "parent_execution_id": "exec_re-entry-signal-4_20241029_141324_a86b15",
+    "exec_entry-3_20241029_141325_6dac7d": {
+      "execution_id": "exec_entry-3_20241029_141325_6dac7d",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_141324_f11322",
       "timestamp": "2024-10-29 14:13:25+05:30",
       "event_type": "logic_completed",
       "node_id": "entry-3",
@@ -2607,10 +2607,10 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251213_170357",
+        "order_id": "ENTRY_entry-3_20251220_182633",
         "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
         "side": "SELL",
-        "quantity": 1,
+        "quantity": 75,
         "price": "267.00",
         "order_type": "MARKET",
         "exchange": "NFO",
@@ -2638,9 +2638,9 @@
         ]
       }
     },
-    "exec_exit-condition-4_20241029_141500_499d9d": {
-      "execution_id": "exec_exit-condition-4_20241029_141500_499d9d",
-      "parent_execution_id": "exec_entry-3_20241029_141325_e1d039",
+    "exec_exit-condition-4_20241029_141500_364d3d": {
+      "execution_id": "exec_exit-condition-4_20241029_141500_364d3d",
+      "parent_execution_id": "exec_entry-3_20241029_141325_6dac7d",
       "timestamp": "2024-10-29 14:15:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-condition-4",
@@ -2672,7 +2672,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 82.88533263483981,
+            "lhs_value": 82.88533335294804,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 14:15:00+05:30",
@@ -2728,7 +2728,7 @@
               "close": 24417.5,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 82.88533263483981
+                "rsi(14,close)": 82.88533335294804
               }
             }
           }
@@ -2798,9 +2798,9 @@
         }
       }
     },
-    "exec_exit-6_20241029_141500_70eb94": {
-      "execution_id": "exec_exit-6_20241029_141500_70eb94",
-      "parent_execution_id": "exec_exit-condition-4_20241029_141500_499d9d",
+    "exec_exit-6_20241029_141500_818e2f": {
+      "execution_id": "exec_exit-6_20241029_141500_818e2f",
+      "parent_execution_id": "exec_exit-condition-4_20241029_141500_364d3d",
       "timestamp": "2024-10-29 14:15:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-6",
@@ -2831,7 +2831,7 @@
       "exit_result": {
         "positions_closed": 1,
         "exit_price": "272.90",
-        "pnl": "-77.05",
+        "pnl": "-5778.75",
         "exit_time": "2024-10-29 14:15:00+05:30"
       },
       "exit_config": {
@@ -2846,9 +2846,9 @@
         "positions_closed": 6
       }
     },
-    "exec_re-entry-signal-4_20241029_141931_a0e597": {
-      "execution_id": "exec_re-entry-signal-4_20241029_141931_a0e597",
-      "parent_execution_id": "exec_exit-6_20241029_141500_70eb94",
+    "exec_re-entry-signal-4_20241029_141931_3828e1": {
+      "execution_id": "exec_re-entry-signal-4_20241029_141931_3828e1",
+      "parent_execution_id": "exec_exit-6_20241029_141500_818e2f",
       "timestamp": "2024-10-29 14:19:31+05:30",
       "event_type": "logic_completed",
       "node_id": "re-entry-signal-4",
@@ -2879,7 +2879,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 84.60124269538407,
+            "lhs_value": 84.60124326764722,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 14:19:31+05:30",
@@ -2936,7 +2936,7 @@
               "close": 24434.95,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 84.60124269538407
+                "rsi(14,close)": 84.60124326764722
               }
             }
           }
@@ -2965,9 +2965,9 @@
         }
       }
     },
-    "exec_entry-3_20241029_141932_fd1ece": {
-      "execution_id": "exec_entry-3_20241029_141932_fd1ece",
-      "parent_execution_id": "exec_re-entry-signal-4_20241029_141931_a0e597",
+    "exec_entry-3_20241029_141932_31e026": {
+      "execution_id": "exec_entry-3_20241029_141932_31e026",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_141931_3828e1",
       "timestamp": "2024-10-29 14:19:32+05:30",
       "event_type": "logic_completed",
       "node_id": "entry-3",
@@ -2984,10 +2984,10 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251213_170357",
+        "order_id": "ENTRY_entry-3_20251220_182633",
         "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
         "side": "SELL",
-        "quantity": 1,
+        "quantity": 75,
         "price": "276.00",
         "order_type": "MARKET",
         "exchange": "NFO",
@@ -3015,9 +3015,9 @@
         ]
       }
     },
-    "exec_exit-condition-4_20241029_150800_f5e4bb": {
-      "execution_id": "exec_exit-condition-4_20241029_150800_f5e4bb",
-      "parent_execution_id": "exec_entry-3_20241029_141932_fd1ece",
+    "exec_exit-condition-4_20241029_150800_a08d28": {
+      "execution_id": "exec_exit-condition-4_20241029_150800_a08d28",
+      "parent_execution_id": "exec_entry-3_20241029_141932_31e026",
       "timestamp": "2024-10-29 15:08:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-condition-4",
@@ -3049,7 +3049,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 70.28633531422965,
+            "lhs_value": 70.28633532372862,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 15:08:00+05:30",
@@ -3105,7 +3105,7 @@
               "close": 24481.1,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 70.28633531422965
+                "rsi(14,close)": 70.28633532372862
               }
             }
           }
@@ -3175,9 +3175,9 @@
         }
       }
     },
-    "exec_exit-6_20241029_150800_8f0b8c": {
-      "execution_id": "exec_exit-6_20241029_150800_8f0b8c",
-      "parent_execution_id": "exec_exit-condition-4_20241029_150800_f5e4bb",
+    "exec_exit-6_20241029_150800_266ee3": {
+      "execution_id": "exec_exit-6_20241029_150800_266ee3",
+      "parent_execution_id": "exec_exit-condition-4_20241029_150800_a08d28",
       "timestamp": "2024-10-29 15:08:00+05:30",
       "event_type": "logic_completed",
       "node_id": "exit-6",
@@ -3208,7 +3208,7 @@
       "exit_result": {
         "positions_closed": 1,
         "exit_price": "294.00",
-        "pnl": "-95.05",
+        "pnl": "-7128.75",
         "exit_time": "2024-10-29 15:08:00+05:30"
       },
       "exit_config": {
@@ -3223,9 +3223,9 @@
         "positions_closed": 7
       }
     },
-    "exec_re-entry-signal-4_20241029_150924_b1fe93": {
-      "execution_id": "exec_re-entry-signal-4_20241029_150924_b1fe93",
-      "parent_execution_id": "exec_exit-6_20241029_150800_8f0b8c",
+    "exec_re-entry-signal-4_20241029_150924_8cb5fc": {
+      "execution_id": "exec_re-entry-signal-4_20241029_150924_8cb5fc",
+      "parent_execution_id": "exec_exit-6_20241029_150800_266ee3",
       "timestamp": "2024-10-29 15:09:24+05:30",
       "event_type": "logic_completed",
       "node_id": "re-entry-signal-4",
@@ -3256,7 +3256,7 @@
               "valueType": "number",
               "numberValue": 0
             },
-            "lhs_value": 71.04640279926411,
+            "lhs_value": 71.04640280883702,
             "rhs_value": 70.0,
             "operator": ">",
             "timestamp": "2024-10-29 15:09:24+05:30",
@@ -3313,7 +3313,7 @@
               "close": 24483.15,
               "volume": 0,
               "indicators": {
-                "rsi(14,close)": 71.04640279926411
+                "rsi(14,close)": 71.04640280883702
               }
             }
           }
@@ -3342,9 +3342,9 @@
         }
       }
     },
-    "exec_entry-3_20241029_150925_916a98": {
-      "execution_id": "exec_entry-3_20241029_150925_916a98",
-      "parent_execution_id": "exec_re-entry-signal-4_20241029_150924_b1fe93",
+    "exec_entry-3_20241029_150925_0e98f4": {
+      "execution_id": "exec_entry-3_20241029_150925_0e98f4",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_150924_8cb5fc",
       "timestamp": "2024-10-29 15:09:25+05:30",
       "event_type": "logic_completed",
       "node_id": "entry-3",
@@ -3361,10 +3361,10 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251213_170358",
+        "order_id": "ENTRY_entry-3_20251220_182634",
         "symbol": "NIFTY:2024-11-07:OPT:24500:CE",
         "side": "SELL",
-        "quantity": 1,
+        "quantity": 75,
         "price": "234.35",
         "order_type": "MARKET",
         "exchange": "NFO",
@@ -3392,9 +3392,9 @@
         ]
       }
     },
-    "exec_square-off-1_20241029_152500_6aeb2e": {
-      "execution_id": "exec_square-off-1_20241029_152500_6aeb2e",
-      "parent_execution_id": "exec_strategy-controller_20241029_091500_1f9364",
+    "exec_square-off-1_20241029_152500_508b7a": {
+      "execution_id": "exec_square-off-1_20241029_152500_508b7a",
+      "parent_execution_id": "exec_strategy-controller_20241029_091500_73da06",
       "timestamp": "2024-10-29 15:25:00+05:30",
       "event_type": "logic_completed",
       "node_id": "square-off-1",
@@ -3422,7 +3422,9 @@
           "re_entry_num": 7,
           "symbol": "NIFTY:2024-11-07:OPT:24500:CE",
           "side": "sell",
+          "actual_quantity": 75,
           "quantity": 1,
+          "multiplier": 75,
           "entry_price": 234.35,
           "exit_price": 229.25
         }

@@ -193,15 +193,24 @@ def run_dashboard_backtest(strategy_id: str, backtest_date, strategy_scale: floa
     engine = CentralizedBacktestEngine(config)
     print(f"[run_dashboard_backtest] Engine created. Running backtest...")
     
-    # Run async engine
+    # Run async engine in separate thread to avoid deadlock with FastAPI event loop
     import asyncio
-    try:
-        loop = asyncio.get_running_loop()
-        # Already in async context
-        asyncio.run_coroutine_threadsafe(engine.run(), loop).result()
-    except RuntimeError:
-        # No event loop, use asyncio.run()
-        asyncio.run(engine.run())
+    import threading
+    import concurrent.futures
+    
+    def run_engine_in_thread():
+        """Run async engine in a new event loop in separate thread"""
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            return loop.run_until_complete(engine.run())
+        finally:
+            loop.close()
+    
+    # Execute in thread pool to avoid blocking FastAPI event loop
+    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+        future = executor.submit(run_engine_in_thread)
+        future.result()  # Wait for completion
     
     print(f"[run_dashboard_backtest] Backtest complete. Captured positions: {len(dashboard_data['positions'])}")
     
