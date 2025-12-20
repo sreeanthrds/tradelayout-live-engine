@@ -3112,6 +3112,35 @@ async def execute_queue(
         active_count = tick_processor.get_active_strategy_count()
         print(f"✅ Tick processor has {active_count} active strategies")
         
+        # Create SSE sessions for each strategy for live monitoring
+        session_ids = []
+        for entry in queue_entries:
+            user_id = entry['user_id']
+            strategy_id = entry['strategy_id']
+            broker_connection_id = entry['broker_connection_id']
+            
+            # Generate session ID for this strategy
+            session_id = f"queue-{queue_type}-{strategy_id[:8]}-{os.urandom(4).hex()}"
+            
+            # Create session in sse_manager for dashboard monitoring
+            session = sse_manager.create_session(
+                session_id=session_id,
+                strategy_id=strategy_id,
+                user_id=user_id,
+                start_date=backtest_date
+            )
+            
+            # Store metadata
+            session.status = "running"
+            session.broker_connection_id = broker_connection_id
+            session.broker_type = "clickhouse"
+            session.speed_multiplier = speed_multiplier
+            
+            session_ids.append(session_id)
+            print(f"✅ Created session {session_id} for strategy {strategy_id[:8]}...")
+        
+        print(f"📊 Created {len(session_ids)} dashboard sessions for monitoring")
+        
         # Clear queue after successful processing
         with queue_locks[queue_type]:
             strategy_queues[queue_type].clear()
@@ -3140,7 +3169,9 @@ async def execute_queue(
             "preprocessing_complete": True,
             "mode": "historical_simulation",
             "backtest_date": backtest_date,
-            "speed_multiplier": speed_multiplier
+            "speed_multiplier": speed_multiplier,
+            "session_ids": session_ids,
+            "stream_url": f"/api/live-trading/stream/{queue_entries[0]['user_id']}" if queue_entries else None
         }
         
     except Exception as e:
