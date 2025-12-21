@@ -3088,14 +3088,17 @@ async def execute_queue(
         queue_entries = list(strategy_queues[queue_type].values())
     
     # Return immediately - processing happens in background
+    print(f"🚀 [EXECUTE] Launching background task for {len(queue_entries)} strategies")
     asyncio.create_task(_execute_queue_background(queue_type, queue_entries))
     
-    return {
+    response = {
         "executed": True,
         "queue_type": queue_type,
         "strategy_count": len(queue_entries),
         "message": "Execution started in background"
     }
+    print(f"✅ [EXECUTE] Returning response immediately: {response}")
+    return response
 
 
 async def _execute_queue_background(queue_type: str, queue_entries: list):
