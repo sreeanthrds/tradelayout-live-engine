@@ -3387,18 +3387,34 @@ async def validate_strategy_ready(request: dict):
     
     # Validate broker connection status from Supabase
     try:
+        print(f"🔍 Validating broker: {broker_connection_id}")
         broker_response = supabase.table('broker_connections').select('status, broker_type').eq('id', broker_connection_id).execute()
         
+        print(f"📊 Broker response: {broker_response.data}")
+        
         if not broker_response.data or len(broker_response.data) == 0:
+            print(f"❌ Broker not found in database")
             return {
                 "ready": False,
-                "reason": "Broker connection not found",
+                "reason": "Broker connection not found in database",
                 "broker_status": "not_found"
             }
         
         broker_status = broker_response.data[0].get('status', 'disconnected')
         broker_type = broker_response.data[0].get('broker_type', 'unknown')
         
+        print(f"✅ Broker type: {broker_type}, status: {broker_status}")
+        
+        # ClickHouse simulation doesn't need 'connected' status - it's always ready
+        if broker_type == 'clickhouse':
+            return {
+                "ready": True,
+                "reason": "ClickHouse simulation ready",
+                "broker_status": "ready",
+                "broker_type": broker_type
+            }
+        
+        # For real brokers, check connected status
         if broker_status != 'connected':
             return {
                 "ready": False,
@@ -3416,9 +3432,11 @@ async def validate_strategy_ready(request: dict):
         
     except Exception as e:
         print(f"❌ Error validating broker connection: {e}")
+        import traceback
+        traceback.print_exc()
         return {
             "ready": False,
-            "reason": f"Error checking broker: {str(e)}",
+            "reason": f"Validation error: {str(e)}",
             "broker_status": "error"
         }
 
