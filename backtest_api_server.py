@@ -3370,69 +3370,53 @@ async def validate_strategy_ready(request: dict):
                 "broker_status": "unknown"
             }
     
-    # Validate broker connection status from Supabase (in thread pool to avoid blocking)
-    import asyncio
-    from concurrent.futures import ThreadPoolExecutor
-    
-    def validate_broker_sync():
-        try:
-            print(f"🔍 Validating broker: {broker_connection_id}")
-            broker_response = supabase.table('broker_connections').select('status, broker_type').eq('id', broker_connection_id).execute()
-            
-            print(f"📊 Broker response: {broker_response.data}")
-            
-            if not broker_response.data or len(broker_response.data) == 0:
-                print(f"❌ Broker not found in database")
-                return {
-                    "ready": False,
-                    "reason": "Broker connection not found in database",
-                    "broker_status": "not_found"
-                }
-            
-            broker_status = broker_response.data[0].get('status', 'disconnected')
-            broker_type = broker_response.data[0].get('broker_type', 'unknown')
-            
-            print(f"✅ Broker type: {broker_type}, status: {broker_status}")
-            
-            # ClickHouse simulation doesn't need 'connected' status - it's always ready
-            if broker_type == 'clickhouse':
-                return {
-                    "ready": True,
-                    "reason": "ClickHouse simulation ready",
-                    "broker_status": "ready",
-                    "broker_type": broker_type
-                }
-            
-            # For real brokers, check connected status
-            if broker_status != 'connected':
-                return {
-                    "ready": False,
-                    "reason": f"Broker is {broker_status}. Please connect first.",
-                    "broker_status": broker_status
-                }
-            
-            # All checks passed
-            return {
-                "ready": True,
-                "reason": "All validations passed",
-                "broker_status": broker_status,
-                "broker_type": broker_type
-            }
-        except Exception as e:
-            import traceback
-            print(f"❌ Validation error: {str(e)}")
-            traceback.print_exc()
+    # Validate broker connection status from Supabase
+    try:
+        broker_response = supabase.table('broker_connections').select('status, broker_type').eq('id', broker_connection_id).execute()
+        
+        if not broker_response.data or len(broker_response.data) == 0:
             return {
                 "ready": False,
-                "reason": f"Validation failed: {str(e)}",
-                "broker_status": "error"
+                "reason": "Broker connection not found in database",
+                "broker_status": "not_found"
             }
-    
-    # Run in thread pool to avoid blocking event loop
-    loop = asyncio.get_event_loop()
-    with ThreadPoolExecutor() as executor:
-        result = await loop.run_in_executor(executor, validate_broker_sync)
-    return result
+        
+        broker_status = broker_response.data[0].get('status', 'disconnected')
+        broker_type = broker_response.data[0].get('broker_type', 'unknown')
+        
+        # ClickHouse simulation doesn't need 'connected' status - it's always ready
+        if broker_type == 'clickhouse':
+            return {
+                "ready": True,
+                "reason": "ClickHouse simulation ready",
+                "broker_status": "ready",
+                "broker_type": broker_type
+            }
+        
+        # For real brokers, check connected status
+        if broker_status != 'connected':
+            return {
+                "ready": False,
+                "reason": f"Broker is {broker_status}. Please connect first.",
+                "broker_status": broker_status
+            }
+        
+        # All checks passed
+        return {
+            "ready": True,
+            "reason": "All validations passed",
+            "broker_status": broker_status,
+            "broker_type": broker_type
+        }
+    except Exception as e:
+        import traceback
+        print(f"❌ Validation error: {str(e)}")
+        traceback.print_exc()
+        return {
+            "ready": False,
+            "reason": f"Validation failed: {str(e)}",
+            "broker_status": "error"
+        }
 
 
 @app.get("/api/queue/status/{queue_type}")
