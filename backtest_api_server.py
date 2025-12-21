@@ -3317,7 +3317,7 @@ async def _execute_queue_background(queue_type: str, queue_entries: list):
         import traceback
         print(f"❌ Queue execution error: {str(e)}")
         traceback.print_exc()
-        raise HTTPException(status_code=500, detail=f"Processing failed: {str(e)}")
+        # Error logged - no exception needed since this runs in background
 
 
 @app.post("/api/live-trading/validate-ready")
