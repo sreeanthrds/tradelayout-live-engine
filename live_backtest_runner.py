@@ -87,10 +87,8 @@ class LiveBacktestRunner:
             # Update status to running
             session.status = "running"
             
-            # CRITICAL FIX: Run CPU-heavy backtest in thread pool to avoid blocking event loop
-            # This allows API endpoints to return immediately while backtest runs in background
-            loop = asyncio.get_event_loop()
-            await loop.run_in_executor(None, engine.run)
+            # Run backtest (async)
+            await engine.run()
             
             # Mark BOTH sessions as completed
             session.status = "completed"

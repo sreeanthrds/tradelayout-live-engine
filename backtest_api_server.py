@@ -21,6 +21,8 @@ from io import BytesIO
 from threading import Lock
 from sse_starlette.sse import EventSourceResponse
 from supabase import create_client, Client
+import multiprocessing
+from multiprocessing import Process
 
 
 class DateTimeEncoder(json.JSONEncoder):
@@ -44,6 +46,7 @@ from live_simulation_sse import sse_manager
 from live_backtest_runner import run_live_backtest
 from simple_live_stream import simple_stream_manager
 from src.core.global_instances import get_instance_manager
+from backtest_worker import run_backtest_worker
 
 # Initialize Supabase client AFTER environment variables are set
 supabase: Client = create_client(
@@ -3335,7 +3338,12 @@ async def _execute_queue_background(queue_type: str, queue_entries: list):
         
         print(f"✅ Queue cleared, starting execution...")
         
-        # Step 3: Launch live backtesting for each strategy in background
+        # Step 3: Launch live backtesting for each strategy in separate process
+        # CRITICAL: Each strategy runs in its own process - fully concurrent execution
+        # User 1: 2 strategies = 2 processes
+        # User 2: 5 strategies = 5 processes
+        # All running simultaneously, isolated by session_id
+        processes = []
         for entry in queue_entries:
             user_id = entry['user_id']
             strategy_id = entry['strategy_id']
@@ -3345,17 +3353,14 @@ async def _execute_queue_background(queue_type: str, queue_entries: list):
             # Generate session ID (same as above)
             session_id = f"{strategy_id}_{broker_connection_id}"
             
-            # Launch live backtest runner in background (non-blocking)
-            asyncio.create_task(
-                run_live_backtest(
-                    session_id=session_id,
-                    strategy_id=strategy_id,
-                    user_id=user_id,
-                    start_date=backtest_date,
-                    speed_multiplier=speed_multiplier
-                )
+            # Launch in separate process (not asyncio task - true parallelism)
+            process = Process(
+                target=run_backtest_worker,
+                args=(session_id, strategy_id, user_id, backtest_date, speed_multiplier)
             )
-            print(f"🚀 Launched live backtest for {strategy_id[:8]}... in session {session_id}")
+            process.start()
+            processes.append(process)
+            print(f"🚀 [Process {process.pid}] Launched worker for strategy {strategy_id[:8]} (session {session_id})")
         
         # Return immediately - don't wait for backtest completion
         # Frontend will track progress via SSE
