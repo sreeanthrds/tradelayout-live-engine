@@ -2291,19 +2291,25 @@ async def stop_live_simulation_v2(session_id: str):
 
 
 @app.post("/api/v2/live/stop/user/{user_id}")
-async def stop_user_sessions(user_id: str):
+async def stop_user_sessions(user_id: str, exit_positions: bool = True):
     """
     Stop all live simulation sessions for a specific user.
     
-    Use this to:
-    - Stop all user's strategies at once
-    - Clean up when user logs out
-    - Emergency stop for user account
+    This will:
+    1. Exit all open positions (if exit_positions=True)
+    2. Stop all SSE sessions
+    3. Clear event queues
+    4. Remove sessions from manager
+    
+    Args:
+        user_id: User ID
+        exit_positions: If True, exit all open positions before stopping (default: True)
     
     Returns:
         {
             "user_id": str,
             "sessions_stopped": int,
+            "positions_exited": int,
             "stopped_sessions": [session_id, ...]
         }
     """
@@ -2317,9 +2323,49 @@ async def stop_user_sessions(user_id: str):
         return {
             "user_id": user_id,
             "sessions_stopped": 0,
+            "positions_exited": 0,
             "stopped_sessions": [],
             "message": "No active sessions found for this user"
         }
+    
+    positions_exited_count = 0
+    
+    # Exit positions if requested
+    if exit_positions:
+        print(f"🛑 [STOP] Exiting all positions for user {user_id}")
+        try:
+            # Get tick processor to access contexts
+            tick_processor = instance_manager.get_or_create_tick_processor("admin_tester")
+            
+            # Exit positions for each session
+            for session_id in user_sessions:
+                session = sse_manager.get_session(session_id)
+                if session and hasattr(session, 'strategy_id'):
+                    strategy_id = session.strategy_id
+                    
+                    # Get context for this strategy
+                    context = tick_processor.get_context(strategy_id)
+                    if context:
+                        # Get all open positions
+                        positions = context.get('positions', [])
+                        open_positions = [p for p in positions if p.get('status') == 'open']
+                        
+                        if open_positions:
+                            print(f"  📤 Exiting {len(open_positions)} positions for strategy {strategy_id}")
+                            
+                            # Exit each position
+                            for position in open_positions:
+                                position['status'] = 'closed'
+                                position['exit_reason'] = 'manual_stop'
+                                position['exit_timestamp'] = context.get('current_timestamp')
+                                positions_exited_count += 1
+                            
+                            # Update context
+                            context['positions'] = positions
+        except Exception as e:
+            print(f"⚠️ [STOP] Error exiting positions: {e}")
+            import traceback
+            traceback.print_exc()
     
     # Stop each session
     stopped_sessions = []
@@ -2338,11 +2384,14 @@ async def stop_user_sessions(user_id: str):
             sse_manager.remove_session(session_id)
             stopped_sessions.append(session_id)
     
+    print(f"✅ [STOP] Stopped {len(stopped_sessions)} sessions, exited {positions_exited_count} positions")
+    
     return {
         "user_id": user_id,
         "sessions_stopped": len(stopped_sessions),
+        "positions_exited": positions_exited_count,
         "stopped_sessions": stopped_sessions,
-        "message": f"Stopped {len(stopped_sessions)} session(s) for user {user_id}"
+        "message": f"Stopped {len(stopped_sessions)} session(s), exited {positions_exited_count} position(s)"
     }
 
 
