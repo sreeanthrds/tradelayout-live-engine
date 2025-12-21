@@ -3078,12 +3078,12 @@ async def execute_queue(
     """Execute all queued strategies - returns immediately, processes in background"""
     # Validate queue type
     if queue_type not in strategy_queues:
-        raise HTTPException(status_code=400, detail=f"Invalid queue_type: {queue_type}")
+        return {"executed": False, "error": f"Invalid queue_type: {queue_type}"}
     
     # Get queue entries 
     with queue_locks[queue_type]:
         if len(strategy_queues[queue_type]) == 0:
-            raise HTTPException(status_code=400, detail=f"No strategies in {queue_type} queue")
+            return {"executed": False, "error": f"No strategies in {queue_type} queue"}
         
         queue_entries = list(strategy_queues[queue_type].values())
     
