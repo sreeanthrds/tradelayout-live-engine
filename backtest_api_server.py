@@ -3075,51 +3075,31 @@ async def execute_queue(
     queue_type: str = "admin_tester",
     trigger_type: str = "manual"
 ):
-    """
-    Execute all queued strategies (admin/manual trigger).
-    
-    Phase 1 MVP: Testing queue only with historical data.
-    
-    Steps:
-    1. Get queue entries
-    2. Subscribe strategies to cache (shared via GlobalInstanceManager)
-    3. Aggregate requirements (DataManager aggregation)
-    4. Preprocess data (load 500 candles + indicators)
-    5. Start tick processor (historical ticks from ClickHouse)
-    6. Clear queue
-    
-    Args:
-        queue_type: 'admin_tester' (Phase 1), 'production' (Phase 2+)
-        backtest_date: Historical date for testing (YYYY-MM-DD)
-        speed_multiplier: Playback speed (default 500x)
-        trigger_type: 'manual' (admin) or 'scheduled' (future)
-    
-    Returns:
-        Execution result
-    """
+    """Execute all queued strategies - returns immediately, processes in background"""
     # Validate queue type
     if queue_type not in strategy_queues:
         raise HTTPException(status_code=400, detail=f"Invalid queue_type: {queue_type}")
     
-    # Check if already processing
-    if active_processing[queue_type]:
-        raise HTTPException(
-            status_code=400,
-            detail=f"{queue_type} queue is already being processed"
-        )
-    
-    # Get queue entries - returns immediately if empty
+    # Get queue entries 
     with queue_locks[queue_type]:
         if len(strategy_queues[queue_type]) == 0:
-            raise HTTPException(
-                status_code=400,
-                detail=f"No strategies in {queue_type} queue"
-            )
+            raise HTTPException(status_code=400, detail=f"No strategies in {queue_type} queue")
         
-        # Convert dict values to list for processing
         queue_entries = list(strategy_queues[queue_type].values())
-        active_processing[queue_type] = True
     
+    # Return immediately - processing happens in background
+    asyncio.create_task(_execute_queue_background(queue_type, queue_entries))
+    
+    return {
+        "executed": True,
+        "queue_type": queue_type,
+        "strategy_count": len(queue_entries),
+        "message": "Execution started in background"
+    }
+
+
+async def _execute_queue_background(queue_type: str, queue_entries: list):
+    """Background task for queue execution"""
     try:
         # Cleanup old session folders before new execution (Point 10)
         # Remove all existing session folders for this user to start fresh
