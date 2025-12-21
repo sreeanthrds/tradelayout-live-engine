@@ -3367,10 +3367,14 @@ async def validate_strategy_ready(request: dict):
                 "broker_status": "unknown"
             }
     
-    # Validate broker connection status from Supabase
-    try:
-        print(f"🔍 Validating broker: {broker_connection_id}")
-        broker_response = supabase.table('broker_connections').select('status, broker_type').eq('id', broker_connection_id).execute()
+    # Validate broker connection status from Supabase (in thread pool to avoid blocking)
+    import asyncio
+    from concurrent.futures import ThreadPoolExecutor
+    
+    def validate_broker_sync():
+        try:
+            print(f"🔍 Validating broker: {broker_connection_id}")
+            broker_response = supabase.table('broker_connections').select('status, broker_type').eq('id', broker_connection_id).execute()
         
         print(f"📊 Broker response: {broker_response.data}")
         
@@ -3405,22 +3409,27 @@ async def validate_strategy_ready(request: dict):
             }
         
         # All checks passed
-        return {
-            "ready": True,
-            "reason": "Ready for execution",
-            "broker_status": broker_status,
-            "broker_type": broker_type
-        }
-        
-    except Exception as e:
-        print(f"❌ Error validating broker connection: {e}")
-        import traceback
-        traceback.print_exc()
-        return {
-            "ready": False,
-            "reason": f"Validation error: {str(e)}",
-            "broker_status": "error"
-        }
+            return {
+                "ready": True,
+                "reason": "All validations passed",
+                "broker_status": broker_status,
+                "broker_type": broker_type
+            }
+        except Exception as e:
+            import traceback
+            print(f"❌ Validation error: {str(e)}")
+            traceback.print_exc()
+            return {
+                "ready": False,
+                "reason": f"Validation failed: {str(e)}",
+                "broker_status": "error"
+            }
+    
+    # Run in thread pool to avoid blocking event loop
+    loop = asyncio.get_event_loop()
+    with ThreadPoolExecutor() as executor:
+        result = await loop.run_in_executor(executor, validate_broker_sync)
+    return result
 
 
 @app.get("/api/queue/status/{queue_type}")
