@@ -3309,9 +3309,8 @@ async def execute_queue(
                     session_id=session_id,
                     strategy_id=strategy_id,
                     user_id=user_id,
-                    backtest_date=backtest_date,
-                    speed_multiplier=speed_multiplier,
-                    scale=scale
+                    start_date=backtest_date,
+                    speed_multiplier=speed_multiplier
                 )
             )
             print(f"🚀 Launched live backtest for {strategy_id[:8]}... in session {session_id}")
