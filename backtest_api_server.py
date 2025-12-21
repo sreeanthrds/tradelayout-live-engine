@@ -3290,44 +3290,44 @@ async def execute_queue(
         # Clear queue after successful processing
         with queue_locks[queue_type]:
             strategy_queues[queue_type].clear()
-            active_processing[queue_type] = False
         
-        # Queue processed - ready for ticks
+        print(f"✅ Queue cleared, starting execution...")
         
-        # Launch live backtest for each strategy (same as /api/v1/live/start)
-        # This ensures View Trades modal gets proper position/trade data
-        # session_ids and queue_entries are in same order, so zip them
-        for entry, session_id in zip(queue_entries, session_ids):
+        # Step 3: Launch live backtesting for each strategy in background
+        for entry in queue_entries:
             user_id = entry['user_id']
             strategy_id = entry['strategy_id']
+            broker_connection_id = entry['broker_connection_id']
+            scale = entry.get('scale', 1)
             
-            # Launch backtest using the WORKING LiveBacktestRunner approach
+            # Generate session ID (same as above)
+            session_id = f"{strategy_id}_{broker_connection_id}"
+            
+            # Launch live backtest runner in background (non-blocking)
             asyncio.create_task(
                 run_live_backtest(
                     session_id=session_id,
                     strategy_id=strategy_id,
                     user_id=user_id,
-                    start_date=backtest_date,
-                    speed_multiplier=speed_multiplier
+                    backtest_date=backtest_date,
+                    speed_multiplier=speed_multiplier,
+                    scale=scale
                 )
             )
             print(f"🚀 Launched live backtest for {strategy_id[:8]}... in session {session_id}")
         
+        # Return immediately - don't wait for backtest completion
+        # Frontend will track progress via SSE
         return {
-            "started": True,
+            "executed": True,
             "queue_type": queue_type,
-            "trigger_type": trigger_type,
-            "user_count": len(queue_entries),
-            "strategy_count": total_strategies,
-            "symbols_count": len(symbols_timeframes),
-            "indicator_count": len(indicator_reqs),
-            "option_count": len(option_reqs),
-            "preprocessing_complete": True,
             "mode": "historical_simulation",
             "backtest_date": backtest_date,
             "speed_multiplier": speed_multiplier,
             "session_ids": session_ids,
-            "stream_url": f"/api/live-trading/stream/{queue_entries[0]['user_id']}" if queue_entries else None
+            "strategy_count": len(session_ids),
+            "stream_url": f"/api/live-trading/stream/{queue_entries[0]['user_id']}" if queue_entries else None,
+            "message": "Execution started in background. Monitor progress via SSE."
         }
         
     except Exception as e:
