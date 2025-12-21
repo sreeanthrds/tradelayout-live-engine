@@ -3136,7 +3136,16 @@ async def execute_queue(
         
         queue_entries = list(strategy_queues[queue_type].values())
     
-    # Return immediately - processing happens in background
+    # CRITICAL FIX: Create session IDs NOW (before background task)
+    # Frontend needs these immediately to update UI
+    session_ids = []
+    for entry in queue_entries:
+        strategy_id = entry['strategy_id']
+        broker_connection_id = entry['broker_connection_id']
+        session_id = f"{strategy_id}_{broker_connection_id}"
+        session_ids.append(session_id)
+    
+    # Launch background task
     print(f"🚀 [EXECUTE] Launching background task for {len(queue_entries)} strategies")
     asyncio.create_task(_execute_queue_background(queue_type, queue_entries))
     
@@ -3144,6 +3153,7 @@ async def execute_queue(
         "executed": True,
         "queue_type": queue_type,
         "strategy_count": len(queue_entries),
+        "session_ids": session_ids,  # CRITICAL: Return session IDs immediately
         "message": "Execution started in background"
     }
     print(f"✅ [EXECUTE] Returning response immediately: {response}")
