@@ -5,7 +5,7 @@ Provides comprehensive JSON data with diagnostic text for UI dashboard
 
 import os
 import sys
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Body
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import StreamingResponse, FileResponse
@@ -2424,8 +2424,8 @@ async def get_live_status_v2(session_id: str):
 @app.post("/api/queue/submit")
 async def submit_to_queue(
     user_id: str,
-    strategies: List[Dict[str, Any]],
-    queue_type: str = "testing"
+    queue_type: str = "testing",
+    request: Dict[str, Any] = Body(...)
 ):
     """
     Submit strategies to queue for batch processing.
@@ -2451,6 +2451,9 @@ async def submit_to_queue(
     # Normalize to admin_tester for backward compatibility
     if queue_type == 'testing':
         queue_type = 'admin_tester'
+    
+    # Extract strategies from request body
+    strategies = request.get('strategies', [])
     
     # Validate strategies list
     if not strategies or len(strategies) == 0:
