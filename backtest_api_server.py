@@ -3105,7 +3105,7 @@ async def execute_queue(
             detail=f"{queue_type} queue is already being processed"
         )
     
-    # Get queue entries
+    # Get queue entries - returns immediately if empty
     with queue_locks[queue_type]:
         if len(strategy_queues[queue_type]) == 0:
             raise HTTPException(
