@@ -3118,6 +3118,24 @@ async def execute_queue(
         active_processing[queue_type] = True
     
     try:
+        # Cleanup old session folders before new execution (Point 10)
+        # Remove all existing session folders for this user to start fresh
+        import shutil
+        from pathlib import Path
+        
+        if len(queue_entries) > 0:
+            user_id = queue_entries[0]['user_id']
+            user_output_dir = Path("backtest_data") / user_id
+            
+            if user_output_dir.exists():
+                print(f"🧹 Cleaning up old session folders for user {user_id[:8]}...")
+                try:
+                    # Remove entire user directory
+                    shutil.rmtree(user_output_dir)
+                    print(f"✅ Removed {user_output_dir}")
+                except Exception as e:
+                    print(f"⚠️ Failed to cleanup old folders: {e}")
+        
         # Get singleton instances
         cache = instance_manager.get_or_create_cache(queue_type)
         data_manager = instance_manager.get_or_create_data_manager(queue_type)
@@ -3320,6 +3338,91 @@ async def execute_queue(
         raise HTTPException(status_code=500, detail=f"Processing failed: {str(e)}")
 
 
+@app.post("/api/live-trading/validate-ready")
+async def validate_strategy_ready(request: dict):
+    """
+    Validate if a strategy is READY for execution.
+    
+    READY means:
+    1. No duplicate strategy_id + broker_connection_id combination in current strategies
+    2. Broker connection is valid and connected
+    
+    Args:
+        request: {
+            "user_id": str,
+            "strategy_id": str,
+            "broker_connection_id": str,
+            "existing_combinations": [[strategy_id, broker_id], ...] // Already assigned combos
+        }
+    
+    Returns:
+        {
+            "ready": bool,
+            "reason": str, // If not ready
+            "broker_status": str
+        }
+    """
+    user_id = request.get('user_id')
+    strategy_id = request.get('strategy_id')
+    broker_connection_id = request.get('broker_connection_id')
+    existing_combinations = request.get('existing_combinations', [])
+    
+    if not strategy_id or not broker_connection_id:
+        return {
+            "ready": False,
+            "reason": "Missing strategy or broker connection",
+            "broker_status": "unknown"
+        }
+    
+    # Check for duplicates in existing combinations
+    current_combo = f"{strategy_id}_{broker_connection_id}"
+    for combo in existing_combinations:
+        existing_combo = f"{combo[0]}_{combo[1]}"
+        if existing_combo == current_combo:
+            return {
+                "ready": False,
+                "reason": "Duplicate: This strategy + broker combination already exists",
+                "broker_status": "unknown"
+            }
+    
+    # Validate broker connection status from Supabase
+    try:
+        broker_response = supabase.table('broker_connections').select('status, broker_type').eq('id', broker_connection_id).execute()
+        
+        if not broker_response.data or len(broker_response.data) == 0:
+            return {
+                "ready": False,
+                "reason": "Broker connection not found",
+                "broker_status": "not_found"
+            }
+        
+        broker_status = broker_response.data[0].get('status', 'disconnected')
+        broker_type = broker_response.data[0].get('broker_type', 'unknown')
+        
+        if broker_status != 'connected':
+            return {
+                "ready": False,
+                "reason": f"Broker is {broker_status}. Please connect first.",
+                "broker_status": broker_status
+            }
+        
+        # All checks passed
+        return {
+            "ready": True,
+            "reason": "Ready for execution",
+            "broker_status": broker_status,
+            "broker_type": broker_type
+        }
+        
+    except Exception as e:
+        print(f"❌ Error validating broker connection: {e}")
+        return {
+            "ready": False,
+            "reason": f"Error checking broker: {str(e)}",
+            "broker_status": "error"
+        }
+
+
 @app.get("/api/queue/status/{queue_type}")
 async def get_queue_status(queue_type: str):
     """
@@ -3354,6 +3457,74 @@ async def get_queue_status(queue_type: str):
         "total_strategies": total_strategies,
         "is_processing": active_processing[queue_type],
         "entries": detailed_entries
+    }
+
+
+@app.get("/api/live-trading/session-status/{user_id}/{strategy_id}/{broker_connection_id}")
+async def get_session_status(user_id: str, strategy_id: str, broker_connection_id: str):
+    """
+    Get detailed status for a specific strategy session (Point 8).
+    
+    Returns session state:
+    - "not_submitted": Not in queue, no session folder
+    - "queued": In queue but not running yet
+    - "running": Currently executing
+    - "completed": Finished execution, results available
+    
+    Args:
+        user_id: User ID
+        strategy_id: Strategy ID
+        broker_connection_id: Broker connection ID
+    
+    Returns:
+        {
+            "status": str,
+            "session_id": str,
+            "has_results": bool,
+            "queued": bool,
+            "running": bool
+        }
+    """
+    session_id = f"{strategy_id}_{broker_connection_id}"
+    
+    # Check if in queue
+    queued = False
+    for queue_type in strategy_queues:
+        with queue_locks[queue_type]:
+            if strategy_id in strategy_queues[queue_type]:
+                entry = strategy_queues[queue_type][strategy_id]
+                if entry['broker_connection_id'] == broker_connection_id:
+                    queued = True
+                    break
+    
+    # Check if session exists (running or completed)
+    session = sse_manager.get_session(session_id)
+    session_exists = session is not None
+    session_running = session_exists and session.status == "running"
+    session_completed = session_exists and session.status == "completed"
+    
+    # Check if results folder exists
+    from pathlib import Path
+    session_folder = Path("backtest_data") / user_id / session_id[:27]  # Truncated folder name
+    has_results = session_folder.exists() and any(session_folder.iterdir())
+    
+    # Determine status
+    if session_running:
+        status = "running"
+    elif session_completed or has_results:
+        status = "completed"
+    elif queued:
+        status = "queued"
+    else:
+        status = "not_submitted"
+    
+    return {
+        "status": status,
+        "session_id": session_id,
+        "has_results": has_results,
+        "queued": queued,
+        "running": session_running,
+        "completed": session_completed or has_results
     }
 
 
