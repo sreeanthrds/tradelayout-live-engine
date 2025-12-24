@@ -204,6 +204,10 @@ class CentralizedTickProcessor:
         if 'output_writer' in strategy_state:
             context['output_writer'] = strategy_state['output_writer']
         
+        # Add session_id for SSE streaming (if available)
+        if 'session_id' in strategy_state:
+            context['session_id'] = strategy_state['session_id']
+        
         # Step 2: Reset visited flags (prepare for new node tree traversal)
         for node_id in strategy_state['node_states']:
             strategy_state['node_states'][node_id]['visited'] = False
@@ -216,6 +220,65 @@ class CentralizedTickProcessor:
         
         try:
             result = start_node.execute(context)
+            
+            # Stream LTP and Position updates for dashboard (if SSE session exists)
+            session_id = context.get('session_id')
+            if session_id:
+                try:
+                    from live_simulation_sse import sse_manager
+                    sse_session = sse_manager.get_session(session_id)
+                    if sse_session:
+                        # 1. LTP store snapshot (dashboard needs this)
+                        ltp_store = context.get('ltp_store', {})
+                        if ltp_store:
+                            sse_session.add_ltp_snapshot(ltp_store, context.get('current_timestamp'))
+                        
+                        # 2. Position store snapshot (dashboard needs P&L every tick)
+                        # Try direct GPS reference first, fallback to context_manager
+                        gps = context.get('gps')
+                        if not gps:
+                            context_manager = context.get('context_manager')
+                            if context_manager and hasattr(context_manager, 'gps'):
+                                gps = context_manager.gps
+                        
+                        if gps:
+                            # Get all positions (dict of position_id -> position_data)
+                            all_positions = gps.get_all_positions()
+                            
+                            # Get P&L summary
+                            pnl_summary = gps.get_total_pnl(ltp_store)
+                            
+                            # Convert positions dict to list for SSE
+                            positions_list = []
+                            for pos_id, pos_data in all_positions.items():
+                                positions_list.append({
+                                    'position_id': pos_id,
+                                    'symbol': pos_data.get('symbol', pos_data.get('instrument', 'N/A')),
+                                    'quantity': pos_data.get('quantity', 0),
+                                    'entry_price': pos_data.get('entry_price', 0),
+                                    'pnl': pos_data.get('pnl', 0),
+                                    'status': pos_data.get('transactions', [{}])[-1].get('status', 'unknown') if pos_data.get('transactions') else 'unknown'
+                                })
+                            
+                            # Send position update with proper structure
+                            sse_session.add_position_update({
+                                'timestamp': str(context.get('current_timestamp')),
+                                'positions': positions_list,
+                                'total_unrealized_pnl': pnl_summary.get('unrealized', 0),
+                                'total_realized_pnl': pnl_summary.get('realized', 0),
+                                'total_pnl': pnl_summary.get('overall', 0)
+                            })
+                        else:
+                            # GPS not available - send empty position update so dashboard knows
+                            sse_session.add_position_update({
+                                'timestamp': str(context.get('current_timestamp')),
+                                'positions': [],
+                                'total_unrealized_pnl': 0,
+                                'total_realized_pnl': 0,
+                                'total_pnl': 0
+                            })
+                except Exception as e:
+                    log_warning(f"Failed to stream to SSE: {e}")
             
             # Step 4: Check termination
             if context.get('strategy_ended') or context.get('strategy_terminated'):

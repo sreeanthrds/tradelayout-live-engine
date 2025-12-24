@@ -9,10 +9,12 @@ from datetime import datetime, timedelta
 from typing import Optional, Dict, Any, List
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException, Body
+from fastapi import FastAPI, HTTPException, Body, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 from supabase import create_client, Client
+from sse_starlette.sse import EventSourceResponse
 
 # Initialize FastAPI
 app = FastAPI(title="Live Trading API")
@@ -26,13 +28,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Supabase client
-SUPABASE_URL = os.getenv("SUPABASE_URL", "https://your-project.supabase.co")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY", "your-anon-key")
+# Supabase client - set credentials
+if 'SUPABASE_URL' not in os.environ:
+    os.environ['SUPABASE_URL'] = 'https://oonepfqgzpdssfzvokgk.supabase.co'
+if 'SUPABASE_SERVICE_ROLE_KEY' not in os.environ:
+    os.environ['SUPABASE_SERVICE_ROLE_KEY'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9vbmVwZnFnenBkc3NmenZva2drIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MDE5OTkxNCwiZXhwIjoyMDY1Nzc1OTE0fQ.qmUNhAh3oVhPW2lcAkw7E2Z19MenEIoWCBXCR9Hq6Kg'
+
+SUPABASE_URL = os.environ['SUPABASE_URL']
+SUPABASE_KEY = os.environ['SUPABASE_SERVICE_ROLE_KEY']
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # Global session registry (in-memory, shared across all users)
 live_sessions: Dict[str, Dict[str, Any]] = {}
+
+# Import SSE components
+from src.live_trading.live_session_manager import live_session_manager
+from live_simulation_sse import sse_manager
 
 # Base directory for live results
 LIVE_RESULTS_DIR = Path("live_results")
@@ -229,18 +240,26 @@ async def delete_session(session_id: str):
 
 @app.get("/api/v1/live/sessions")
 async def get_all_sessions(user_id: Optional[str] = None, enabled_only: bool = False):
-    """Get all sessions (optionally filtered by user or enabled status)"""
-    sessions = list(live_sessions.values())
+    """Get all sessions (optionally filtered by user or enabled status) - PER USER"""
+    # Use LiveSessionManager for SSE-enabled sessions
+    sse_sessions = live_session_manager.list_sessions(user_id)
+    
+    # Also include legacy sessions from in-memory dict
+    legacy_sessions = list(live_sessions.values())
     
     if user_id:
-        sessions = [s for s in sessions if s.get("user_id") == user_id]
+        legacy_sessions = [s for s in legacy_sessions if s.get("user_id") == user_id]
     
     if enabled_only:
-        sessions = [s for s in sessions if s.get("enabled")]
+        legacy_sessions = [s for s in legacy_sessions if s.get("enabled")]
+        sse_sessions = [s for s in sse_sessions if s.get("status") == "running"]
+    
+    # Combine both
+    all_sessions = sse_sessions + legacy_sessions
     
     return {
-        "sessions": sessions,
-        "total": len(sessions)
+        "sessions": all_sessions,
+        "total": len(all_sessions)
     }
 
 
@@ -338,6 +357,162 @@ async def get_session_diagnostics(session_id: str):
         data = json.loads(gzip.decompress(f.read()).decode('utf-8'))
     
     return data
+
+
+@app.post("/api/v1/live/session/start-sse")
+async def start_sse_session(
+    user_id: str = Body(...),
+    sessions: Dict[str, Dict[str, str]] = Body(...)
+):
+    """
+    Start SSE-enabled live simulation sessions.
+    
+    Request body:
+    {
+        "user_id": "user_123",
+        "sessions": {
+            "session_id_1": {
+                "strategy_id": "5708424d-...",
+                "broker_connection_id": "conn_123"
+            },
+            "session_id_2": {
+                "strategy_id": "d70ec04a-...",
+                "broker_connection_id": "conn_456"
+            }
+        }
+    }
+    """
+    created_sessions = []
+    errors = []
+    
+    for session_id, session_config in sessions.items():
+        try:
+            # Load broker connection to get metadata
+            broker_conn = load_broker_connection(session_config["broker_connection_id"])
+            if not broker_conn:
+                errors.append({
+                    "session_id": session_id,
+                    "error": f"Broker connection not found: {session_config['broker_connection_id']}"
+                })
+                continue
+            
+            # Create session
+            session_metadata = live_session_manager.create_session(
+                user_id=user_id,
+                strategy_id=session_config["strategy_id"],
+                broker_connection_id=session_config["broker_connection_id"],
+                broker_metadata=broker_conn.get("broker_metadata", {}),
+                session_id=session_id
+            )
+            
+            created_sessions.append(session_metadata)
+            
+            # Start execution in background thread
+            import threading
+            from src.live_trading.session_executor import execute_session_async
+            
+            thread = threading.Thread(
+                target=execute_session_async,
+                args=(session_id,),
+                daemon=True
+            )
+            thread.start()
+            
+            # Store thread reference
+            session_data = live_session_manager.get_session(session_id)
+            if session_data:
+                session_data['thread'] = thread
+            
+        except Exception as e:
+            errors.append({
+                "session_id": session_id,
+                "error": str(e)
+            })
+    
+    return {
+        "success": len(created_sessions) > 0,
+        "created_sessions": created_sessions,
+        "errors": errors,
+        "total_created": len(created_sessions)
+    }
+
+
+@app.get("/api/v1/live/session/{session_id}/stream")
+async def stream_session_events(session_id: str):
+    """
+    SSE endpoint - streams real-time events for a session.
+    Compatible with existing Live Trade UI.
+    
+    Event types:
+    - node_event: Node execution/completion
+    - trade_event: Position opened/closed
+    - position_update: P&L updates
+    - ltp_snapshot: LTP store updates
+    - candle_update: Candle completions
+    """
+    sse_session = sse_manager.get_session(session_id)
+    if not sse_session:
+        raise HTTPException(status_code=404, detail=f"Session {session_id} not found")
+    
+    async def event_generator():
+        """Generate SSE events from session queue"""
+        last_seq = 0
+        
+        try:
+            while True:
+                # Get new events since last sequence
+                events = sse_session.get_events('all', since_seq=last_seq)
+                
+                for event in events:
+                    # Format as SSE event
+                    event_type = event.get('event_type', 'message')
+                    event_data = event.get('data', {})
+                    
+                    yield {
+                        "event": event_type,
+                        "data": json.dumps(event_data)
+                    }
+                    
+                    # Update last sequence
+                    last_seq = max(last_seq, event.get('seq', 0))
+                
+                # Sleep briefly to avoid busy loop
+                await asyncio.sleep(0.1)  # 10 updates/second
+                
+        except asyncio.CancelledError:
+            # Client disconnected
+            pass
+    
+    return EventSourceResponse(event_generator())
+
+
+@app.post("/api/v1/live/session/{session_id}/stop")
+async def stop_session(session_id: str):
+    """Stop a running SSE session"""
+    session_data = live_session_manager.get_session(session_id)
+    if not session_data:
+        raise HTTPException(status_code=404, detail=f"Session {session_id} not found")
+    
+    # Update status to stopped
+    live_session_manager.update_session_status(session_id, "stopped")
+    
+    # Note: Thread cleanup handled by session manager
+    
+    return {
+        "success": True,
+        "session_id": session_id,
+        "status": "stopped"
+    }
+
+
+@app.get("/api/v1/live/session/{session_id}/status")
+async def get_session_status(session_id: str):
+    """Get current status of a session"""
+    session_data = live_session_manager.get_session(session_id)
+    if not session_data:
+        raise HTTPException(status_code=404, detail=f"Session {session_id} not found")
+    
+    return session_data['metadata']
 
 
 if __name__ == "__main__":
