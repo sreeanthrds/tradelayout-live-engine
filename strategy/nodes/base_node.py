@@ -219,6 +219,13 @@ class BaseNode:
         diagnostics = context.get('diagnostics')
         
         if is_active_result:
+            # Generate execution ID BEFORE logic execution so GPS operations can access it
+            parent_execution_id = self._get_node_state(context).get('parent_execution_id')
+            execution_id = self._generate_execution_id(context)
+            
+            # Store in node state BEFORE logic execution
+            self._set_node_state(context, {'execution_id': execution_id})
+            
             # Execute node logic (nodes will mark_pending themselves if needed)
             node_result = self._execute_node_logic(context)
             
@@ -242,13 +249,7 @@ class BaseNode:
                         )
                     
             elif node_result.get('logic_completed', False):
-                # SUCCESS: Generate execution ID and record in diagnostics
-                # Get parent execution ID (stored in node state when mark_active was called)
-                parent_execution_id = self._get_node_state(context).get('parent_execution_id')
-                
-                # Generate unique execution ID for THIS execution
-                execution_id = self._generate_execution_id(context)
-                
+                # SUCCESS: execution ID already generated, now record in diagnostics
                 # Store in node_result for access by children
                 node_result['execution_id'] = execution_id
                 node_result['parent_execution_id'] = parent_execution_id

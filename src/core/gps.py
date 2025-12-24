@@ -83,14 +83,17 @@ class GlobalPositionStore:
         # Add position_num to entry_data
         entry_data['position_num'] = position_num
         
-        # Validate and calculate actual quantity (quantity × multiplier) for P&L
+        # Get quantity and multiplier from entry_data
         multiplier = entry_data.get("multiplier", 1)
         quantity = entry_data.get("quantity", 1)
-        actual_quantity = quantity * multiplier  # Always calculate to ensure correctness
         
-        # Verify entry_data['actual_quantity'] matches calculation, or override
-        if entry_data.get("actual_quantity", 0) != actual_quantity:
-            log_info(f"GPS: Correcting actual_quantity from {entry_data.get('actual_quantity', 0)} to {actual_quantity} (quantity={quantity} × multiplier={multiplier})")
+        # Use actual_quantity from entry_data if provided (includes scale)
+        # EntryNode calculates: actual_qty = int(quantity * multiplier * strategy_scale)
+        actual_quantity = entry_data.get("actual_quantity")
+        
+        if actual_quantity is None:
+            # Fallback: calculate without scale for backward compatibility
+            actual_quantity = quantity * multiplier
             entry_data['actual_quantity'] = actual_quantity
 
         # Initialize container if new position
@@ -138,6 +141,7 @@ class GlobalPositionStore:
             "order_id": entry_data.get("order_id"),  # Order ID from broker
             "broker_order_id": entry_data.get("broker_order_id"),  # Broker's order ID
             "node_id": entry_data.get("node_id"),  # Node that created this order
+            "execution_id": entry_data.get("execution_id"),  # Execution ID for flow tracking
             "reEntryNum": entry_data.get("reEntryNum", 0),
             "position_num": position_num,  # Sequential position number
             "symbol": entry_data.get("symbol", ""),  # Traded symbol
@@ -149,6 +153,7 @@ class GlobalPositionStore:
             "entry_price": entry_data.get("price", 0),  # Entry price
             "entry": entry_data,  # Full entry data
             "exit": None,
+            "exit_execution_id": None,  # Will be set on exit
             "status": "open",  # Order completion status
             "entry_time": entry_timestamp.isoformat() if hasattr(entry_timestamp, 'isoformat') else str(entry_timestamp),
             "exit_time": None,
@@ -220,6 +225,7 @@ class GlobalPositionStore:
 
         # Close transaction
         last_txn["exit"] = exit_data
+        last_txn["exit_execution_id"] = exit_data.get("execution_id")  # Store exit execution ID for flow tracking
         last_txn["status"] = "closed"
         last_txn["exit_time"] = exit_timestamp.isoformat() if hasattr(exit_timestamp, 'isoformat') else str(exit_timestamp)
         log_info(f"GPS: close_position {position_id} reEntryNum={last_txn.get('reEntryNum')} txns_count={len(position['transactions'])}")
@@ -262,6 +268,35 @@ class GlobalPositionStore:
         
         # Update overall GPS PNL after closing position
         self._update_overall_pnl()
+        
+        # Push to SSE if session exists (live simulation mode)
+        # Check if context is available (stored during add_position or update_position_prices)
+        if hasattr(self, '_context') and self._context and 'session_id' in self._context:
+            try:
+                # Import here to avoid circular dependency
+                from live_simulation_sse import sse_manager
+                
+                session = sse_manager.get_session(self._context['session_id'])
+                if session:
+                    # Build trade data payload
+                    trade_payload = {
+                        'trade_id': position_id,
+                        'symbol': position.get('symbol'),
+                        'side': position.get('side'),
+                        'quantity': position.get('actual_quantity'),
+                        'entry_price': position.get('entry_price'),
+                        'entry_time': position.get('entry_time'),
+                        'exit_price': position.get('exit_price'),
+                        'exit_time': position.get('exit_time'),
+                        'pnl': position.get('pnl'),
+                        'status': 'closed'
+                    }
+                    
+                    # Push trade update to SSE (session.emit_trade_update handles sequence increment)
+                    session.emit_trade_update(trade_payload)
+                    log_info(f"📡 SSE push: trade closed {position_id} (session: {self._context['session_id']})")
+            except Exception as e:
+                log_error(f"Failed to push trade to SSE: {e}")
 
     def update_position_prices(self, current_ltp_store: Dict[str, Any]):
         """

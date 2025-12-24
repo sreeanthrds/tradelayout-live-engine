@@ -808,8 +808,12 @@ class EntryNode(BaseNode):
                 'node_variables': node_variables_snapshot
             }
             
+            # Get execution_id from context (set by BaseNode when this node executed successfully)
+            execution_id = context.get('_current_execution_id') or self._get_node_state(context).get('execution_id')
+            
             entry_data = {
                 'node_id': self.id,
+                'execution_id': execution_id,  # Store execution ID for flow tracking
                 'instrument': self.instrument,  # Keep underlying for reference
                 'symbol': order.get('symbol', self.instrument),  # Actual traded symbol (option contract)
                 'exchange': order.get('exchange', 'NSE'),  # Exchange for exit orders

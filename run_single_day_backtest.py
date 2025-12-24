@@ -5,6 +5,7 @@ Run single-day backtest with detailed tracking including underlying prices
 import os
 import sys
 import json
+import gzip
 from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -70,6 +71,7 @@ def track_add(self, pos_id, entry_data, tick_time=None):
     position_record = {
         'position_id': pos_id,
         'entry_node_id': entry_data.get('node_id', 'N/A'),
+        'entry_execution_id': entry_data.get('execution_id'),  # Store entry execution ID
         'entry_time': entry_data.get('entry_time', 'N/A'),
         'entry_timestamp': entry_data.get('entry_time', 'N/A').split('T')[1] if 'T' in str(entry_data.get('entry_time', '')) else 'N/A',
         'instrument': entry_data.get('instrument', 'N/A'),
@@ -89,7 +91,9 @@ def track_add(self, pos_id, entry_data, tick_time=None):
         'nifty_spot_at_exit': 0,  # Will be filled on exit
         'exchange': entry_data.get('exchange', 'N/A'),
         'product_type': entry_data.get('product_type', 'intraday'),
-        'status': 'OPEN'
+        'status': 'OPEN',
+        'entry_flow_ids': [],  # Will be built from execution chain
+        'exit_flow_ids': []  # Will be built on exit
     }
     
     dashboard_data['positions'].append(position_record)
@@ -136,6 +140,7 @@ def track_close(self, pos_id, exit_data, tick_time=None):
         position_record.update({
             'status': 'CLOSED',
             'exit_node_id': exit_data.get('node_id', 'N/A'),
+            'exit_execution_id': exit_data.get('execution_id'),  # Store exit execution ID
             'exit_time': exit_time_str,
             'exit_timestamp': exit_time_str.split('T')[1] if 'T' in str(exit_time_str) else 'N/A',
             'exit_price': exit_price,
@@ -163,6 +168,46 @@ config = BacktestConfig(
 # Run backtest
 engine = CentralizedBacktestEngine(config)
 results = engine.run()
+
+# Build flow chains from execution IDs
+def build_flow_chain(execution_id, events_history):
+    """Build execution flow chain by following parent_execution_id"""
+    if not execution_id or execution_id not in events_history:
+        return []
+    
+    chain = [execution_id]
+    current_id = execution_id
+    max_depth = 50
+    depth = 0
+    
+    while depth < max_depth:
+        event = events_history.get(current_id)
+        if not event:
+            break
+        
+        parent_id = event.get('parent_execution_id')
+        if not parent_id or parent_id in chain:
+            break
+        
+        chain.append(parent_id)
+        current_id = parent_id
+        depth += 1
+    
+    return list(reversed(chain))
+
+# Get diagnostics from engine context
+events_history = engine.context.get('node_events_history', {})
+
+# Build flow chains for each position
+for position in dashboard_data['positions']:
+    entry_exec_id = position.get('entry_execution_id')
+    exit_exec_id = position.get('exit_execution_id')
+    
+    if entry_exec_id:
+        position['entry_flow_ids'] = build_flow_chain(entry_exec_id, events_history)
+    
+    if exit_exec_id:
+        position['exit_flow_ids'] = build_flow_chain(exit_exec_id, events_history)
 
 # Calculate summary
 closed_positions = [p for p in dashboard_data['positions'] if p['status'] == 'CLOSED']
@@ -204,7 +249,7 @@ summary = {
 
 dashboard_data['summary'] = summary
 
-# Save to date-specific JSON file
+# Save to date-specific JSON file (uncompressed)
 output_file = f'backtest_dashboard_data_{BACKTEST_DATE}.json'
 with open(output_file, 'w') as f:
     json.dump(dashboard_data, f, indent=2)
@@ -212,6 +257,28 @@ with open(output_file, 'w') as f:
 print(f"\n✅ Saved: {output_file}")
 print(f"   Positions: {len(dashboard_data['positions'])}")
 print(f"   Total P&L: ₹{summary['total_pnl']}")
+
+# Export diagnostics for flow visualization (uncompressed)
+diagnostics_output = 'diagnostics_export.json'
+diagnostics_data = {
+    'events_history': events_history
+}
+with open(diagnostics_output, 'w') as f:
+    json.dump(diagnostics_data, f, indent=2, default=str)
+
+print(f"✅ Saved: {diagnostics_output}")
+print(f"   Events: {len(events_history)}")
+
+# Also save compressed versions for dashboard compatibility
+trades_daily_gz = 'trades_daily.json.gz'
+with gzip.open(trades_daily_gz, 'wt', encoding='utf-8') as f:
+    json.dump(dashboard_data, f, indent=2)
+print(f"✅ Saved: {trades_daily_gz}")
+
+diagnostics_gz = 'diagnostics_export.json.gz'
+with gzip.open(diagnostics_gz, 'wt', encoding='utf-8') as f:
+    json.dump(diagnostics_data, f, indent=2, default=str)
+print(f"✅ Saved: {diagnostics_gz}")
 
 # Restore original methods
 GlobalPositionStore.add_position = orig_add

@@ -829,8 +829,12 @@ class ExitNode(BaseNode):
                 'close_reason': self.exit_config.get('reason', 'condition_met')
             }
             
+            # Get execution_id from context (set by BaseNode when this node executed successfully)
+            execution_id = context.get('_current_execution_id') or self._get_node_state(context).get('execution_id')
+            
             exit_data = {
                 'node_id': self.id,
+                'execution_id': execution_id,  # Store execution ID for flow tracking
                 'price': fill_price,  # Actual average fill price
                 'reason': 'exit_condition_met',
                 'reason_detail': self.exit_config.get('reason', 'condition_met'),

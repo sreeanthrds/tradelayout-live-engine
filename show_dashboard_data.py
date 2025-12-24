@@ -56,6 +56,7 @@ def track_add(self, pos_id, entry_data, tick_time=None):
     position_entry = {
         'position_id': pos_id,
         'entry_node_id': entry_data.get('node_id', 'N/A'),
+        'entry_execution_id': entry_data.get('execution_id'),
         'entry_time': tick_time.isoformat() if hasattr(tick_time, 'isoformat') else str(tick_time),
         'entry_timestamp': tick_time.strftime('%H:%M:%S') if hasattr(tick_time, 'strftime') else str(tick_time),
         'instrument': entry_data.get('instrument', 'N/A'),
@@ -76,6 +77,7 @@ def track_add(self, pos_id, entry_data, tick_time=None):
         'product_type': entry_data.get('product_type', 'INTRADAY'),
         'status': 'OPEN',
         'exit_node_id': None,
+        'exit_execution_id': None,
         'exit_time': None,
         'exit_timestamp': None,
         'exit_price': None,
@@ -83,7 +85,9 @@ def track_add(self, pos_id, entry_data, tick_time=None):
         'duration_seconds': None,
         'duration_minutes': None,
         'pnl': None,
-        'pnl_percentage': None
+        'pnl_percentage': None,
+        'entry_flow_ids': [],
+        'exit_flow_ids': []
     }
     
     dashboard_data['positions'].append(position_entry)
@@ -140,6 +144,7 @@ def track_close(self, pos_id, exit_data, tick_time=None):
             # Update position entry with exit details
             position_entry['status'] = 'CLOSED'
             position_entry['exit_node_id'] = exit_data.get('node_id', 'N/A')
+            position_entry['exit_execution_id'] = exit_data.get('execution_id')
             position_entry['exit_time'] = exit_time.isoformat() if hasattr(exit_time, 'isoformat') else str(exit_time)
             position_entry['exit_timestamp'] = exit_time.strftime('%H:%M:%S') if hasattr(exit_time, 'strftime') else str(exit_time)
             position_entry['exit_price'] = xp
@@ -153,6 +158,31 @@ def track_close(self, pos_id, exit_data, tick_time=None):
 
 GlobalPositionStore.add_position = track_add
 GlobalPositionStore.close_position = track_close
+
+def _build_flow_chain(execution_id, events_history):
+    """Build execution flow chain by following parent_execution_id"""
+    if not execution_id or execution_id not in events_history:
+        return []
+    
+    chain = [execution_id]
+    current_id = execution_id
+    max_depth = 50
+    depth = 0
+    
+    while depth < max_depth:
+        event = events_history.get(current_id)
+        if not event:
+            break
+        
+        parent_id = event.get('parent_execution_id')
+        if not parent_id or parent_id in chain:
+            break
+        
+        chain.append(parent_id)
+        current_id = parent_id
+        depth += 1
+    
+    return list(reversed(chain))
 
 def run_dashboard_backtest(strategy_id: str, backtest_date, strategy_scale: float = 1.0):
     """
@@ -250,6 +280,21 @@ def run_dashboard_backtest(strategy_id: str, backtest_date, strategy_scale: floa
     
     dashboard_data['diagnostics'] = diagnostics_export
     
+    # Build flow chains from execution IDs
+    events_history = diagnostics_export.get('events_history', {})
+    for position in dashboard_data['positions']:
+        entry_exec_id = position.get('entry_execution_id')
+        exit_exec_id = position.get('exit_execution_id')
+        
+        if entry_exec_id:
+            position['entry_flow_ids'] = _build_flow_chain(entry_exec_id, events_history)
+        
+        if exit_exec_id:
+            position['exit_flow_ids'] = _build_flow_chain(exit_exec_id, events_history)
+    
+    # Enrich positions with entry/exit conditions and variables from diagnostics
+    _enrich_positions_with_diagnostics(dashboard_data['positions'], diagnostics_export)
+    
     # Calculate summary statistics
     positions = dashboard_data['positions']
     closed_positions = [p for p in positions if p['status'] == 'CLOSED']
@@ -266,6 +311,7 @@ def run_dashboard_backtest(strategy_id: str, backtest_date, strategy_scale: floa
     
     dashboard_data['summary'] = {
         'total_positions': len(positions),
+        'total_trades': len(positions),  # Alias for frontend compatibility
         'closed_positions': len(closed_positions),
         'open_positions': len(open_positions),
         'total_pnl': round(total_pnl, 2),
@@ -301,6 +347,83 @@ def format_value_for_display(value, expr_str):
     if isinstance(value, (int, float)):
         return f"{value:.2f}" if isinstance(value, float) else str(value)
     return str(value)
+
+def _enrich_positions_with_diagnostics(positions, diagnostics):
+    """
+    Enrich position objects with entry/exit conditions and node variables from diagnostics.
+    Adds fields expected by UI: entry_conditions, exit_conditions, node_variables.
+    """
+    if not diagnostics or 'events_history' not in diagnostics:
+        return
+    
+    events = diagnostics['events_history']
+    
+    for pos in positions:
+        pos_id = pos['position_id']
+        
+        # Find entry event for this position
+        entry_events = [e for e in events.values() 
+                       if e.get('node_type') == 'EntryNode' 
+                       and e.get('position', {}).get('position_id') == pos_id]
+        
+        if entry_events:
+            entry_event = entry_events[0]
+            parent_exec_id = entry_event.get('parent_execution_id')
+            
+            # Get parent EntrySignalNode for conditions
+            if parent_exec_id and parent_exec_id in events:
+                signal_event = events[parent_exec_id]
+                eval_conds = signal_event.get('evaluated_conditions', {}).get('conditions_evaluated', [])
+                
+                if eval_conds:
+                    # Combine all conditions into single original/substituted strings
+                    original_parts = []
+                    substituted_parts = []
+                    
+                    for i, cond in enumerate(eval_conds):
+                        original_parts.append(cond.get('raw', ''))
+                        substituted_parts.append(cond.get('evaluated', ''))
+                        
+                        # Add AND between conditions (except last)
+                        if i < len(eval_conds) - 1:
+                            original_parts.append(' AND ')
+                            substituted_parts.append(' AND ')
+                    
+                    pos['entry_conditions'] = {
+                        'original': ''.join(original_parts),
+                        'substituted': ''.join(substituted_parts)
+                    }
+        
+        # Find exit event for this position
+        exit_events = [e for e in events.values()
+                      if e.get('node_type') == 'ExitNode'
+                      and e.get('position', {}).get('position_id') == pos_id]
+        
+        if exit_events:
+            exit_event = exit_events[0]
+            parent_exec_id = exit_event.get('parent_execution_id')
+            
+            # Get parent ExitSignalNode for conditions (if exists)
+            if parent_exec_id and parent_exec_id in events:
+                signal_event = events[parent_exec_id]
+                eval_conds = signal_event.get('evaluated_conditions', {}).get('conditions_evaluated', [])
+                
+                if eval_conds:
+                    original_parts = []
+                    substituted_parts = []
+                    
+                    for i, cond in enumerate(eval_conds):
+                        original_parts.append(cond.get('raw', ''))
+                        substituted_parts.append(cond.get('evaluated', ''))
+                        
+                        if i < len(eval_conds) - 1:
+                            original_parts.append(' AND ')
+                            substituted_parts.append(' AND ')
+                    
+                    pos['exit_conditions'] = {
+                        'original': ''.join(original_parts),
+                        'substituted': ''.join(substituted_parts)
+                    }
 
 def substitute_condition_values(preview_str, diagnostic_data):
     """
@@ -361,6 +484,7 @@ if __name__ == "__main__":
 
     dashboard_data['summary'] = {
         'total_positions': len(positions),
+        'total_trades': len(positions),  # Alias for frontend compatibility
         'closed_positions': len(closed_positions),
         'open_positions': len(open_positions),
         'total_pnl': round(total_pnl, 2),
