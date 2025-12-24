@@ -135,6 +135,20 @@ class NodeDiagnostics:
         # Store event with execution_id as key (direct assignment, not append!)
         history[execution_id] = event
         
+        # Push to SSE if session exists (live simulation mode)
+        if 'session_id' in context:
+            try:
+                # Import here to avoid circular dependency
+                from live_simulation_sse import sse_manager
+                
+                session = sse_manager.get_session(context['session_id'])
+                if session:
+                    # Push event to SSE queue (session.add_node_event handles sequence increment)
+                    session.add_node_event(execution_id, event)
+                    logger.debug(f"📡 SSE push: {execution_id} (session: {context['session_id']})")
+            except Exception as e:
+                logger.warning(f"Failed to push event to SSE: {e}")
+        
         logger.debug(f"📝 Event recorded: {execution_id} (node: {node_id}) - {event_type}")
     
     def update_current_state(
@@ -346,3 +360,92 @@ class NodeDiagnostics:
                 children_info.append({'id': child_id})
         
         return children_info
+    
+    def capture_tick_snapshot(self, context: Dict[str, Any]) -> None:
+        """
+        Capture per-tick snapshot of LTP store and candle store.
+        Called on every tick to provide complete market data visibility.
+        
+        Args:
+            context: Execution context with tick data, ltp_store, candle_df_dict
+        """
+        tick_data = context.get('current_tick', {})
+        timestamp = context.get('current_timestamp')
+        
+        if not timestamp:
+            return
+        
+        # Get or create tick_events storage
+        if 'tick_events' not in context:
+            context['tick_events'] = {}
+        
+        tick_events = context['tick_events']
+        tick_key = str(timestamp)
+        
+        # Capture LTP store snapshot
+        ltp_store = context.get('ltp_store', {})
+        ltp_snapshot = {}
+        if ltp_store:
+            try:
+                for sym, ltp_data in ltp_store.items():
+                    try:
+                        # Handle both dict format and float format
+                        if isinstance(ltp_data, dict):
+                            # Dict format: {'ltp': 24270.2, 'timestamp': ..., 'volume': 0, 'oi': 0}
+                            ltp_snapshot[sym] = float(ltp_data.get('ltp', 0))
+                        elif isinstance(ltp_data, (int, float)):
+                            # Float format: 24270.2
+                            ltp_snapshot[sym] = float(ltp_data)
+                    except (ValueError, TypeError):
+                        pass  # Skip invalid LTP values
+            except Exception as e:
+                logger.warning(f"Error capturing LTP snapshot: {e}")
+        
+        # Capture candle store snapshot (ALL 20 candles with indicators)
+        candle_snapshot = {}
+        candle_df_dict = context.get('candle_df_dict', {})
+        for key, candle_data in candle_df_dict.items():
+            try:
+                if isinstance(candle_data, list) and len(candle_data) > 0:
+                    # List of candle dicts - capture ALL candles (full buffer)
+                    candle_snapshot[key] = []
+                    for candle in candle_data:
+                        candle_snapshot[key].append({
+                            'timestamp': str(candle.get('timestamp', '')),
+                            'open': float(candle.get('open', 0)),
+                            'high': float(candle.get('high', 0)),
+                            'low': float(candle.get('low', 0)),
+                            'close': float(candle.get('close', 0)),
+                            'volume': int(candle.get('volume', 0)),
+                            'indicators': candle.get('indicators', {})
+                        })
+                elif hasattr(candle_data, 'tail') and len(candle_data) > 0:
+                    # DataFrame - capture all candles
+                    all_candles = candle_data.to_dict('records')
+                    candle_snapshot[key] = []
+                    for candle in all_candles:
+                        candle_snapshot[key].append({
+                            'timestamp': str(candle.get('timestamp', '')),
+                            'open': float(candle.get('open', 0)),
+                            'high': float(candle.get('high', 0)),
+                            'low': float(candle.get('low', 0)),
+                            'close': float(candle.get('close', 0)),
+                            'volume': int(candle.get('volume', 0)),
+                            'indicators': candle.get('indicators', {})
+                        })
+            except Exception as e:
+                logger.warning(f"Error capturing candle snapshot for {key}: {e}")
+        
+        # Store tick snapshot
+        tick_events[tick_key] = {
+            'timestamp': str(timestamp),
+            'tick_data': {
+                'symbol': tick_data.get('symbol'),
+                'ltp': float(tick_data.get('ltp', 0)) if tick_data.get('ltp') else None,
+                'volume': int(tick_data.get('volume', 0)) if tick_data.get('volume') else None
+            },
+            'ltp_store': ltp_snapshot,
+            'candle_store': candle_snapshot
+        }
+        
+        logger.debug(f"📸 Tick snapshot: {tick_key} (LTP: {len(ltp_snapshot)} symbols, Candles: {len(candle_snapshot)} keys)")

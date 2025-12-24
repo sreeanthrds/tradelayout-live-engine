@@ -1,399 +1,265 @@
 """
-Live Simulation SSE Module
-Maintains in-memory diagnostics_export and trades_daily structures
-Emits three event types: node_events, trade_update, tick_update
+Live Simulation SSE Manager
+
+Provides real-time event streaming for live simulation sessions.
+Handles node events, trades, positions, LTP updates, and candle updates.
 """
 
+from typing import Dict, Any, Optional, List
+from collections import deque
+import threading
+import logging
 import json
-import gzip
-import base64
-import asyncio
-from datetime import datetime, date
-from typing import Dict, Any, List, Optional
-from collections import defaultdict
+from datetime import datetime
+
+logger = logging.getLogger(__name__)
 
 
-class DateTimeEncoder(json.JSONEncoder):
-    """Custom JSON encoder that converts datetime objects to ISO format strings."""
-    def default(self, obj):
-        if isinstance(obj, (datetime, date)):
-            return obj.isoformat()
-        if hasattr(obj, 'isoformat'):
-            return obj.isoformat()
-        return super().default(obj)
-
-
-class LiveSimulationState:
+class SSESession:
     """
-    Maintains live simulation state matching backtesting JSON structures exactly.
+    Manages SSE event queues for a single live simulation session.
+    Thread-safe for concurrent access.
     """
     
-    def __init__(self, session_id: str, strategy_id: str, user_id: str, start_date: str):
+    def __init__(self, session_id: str, max_queue_size: int = 1000):
+        """
+        Initialize SSE session.
+        
+        Args:
+            session_id: Unique session identifier
+            max_queue_size: Maximum events to buffer per queue
+        """
         self.session_id = session_id
-        self.strategy_id = strategy_id
-        self.user_id = user_id
-        self.start_date = start_date
+        self.max_queue_size = max_queue_size
         
-        # Diagnostics (matches diagnostics_export.json exactly)
-        self.diagnostics = {
-            "events_history": {},  # { execution_id: event_payload }
-            "current_state": {}    # { node_id: latest_state_payload }
-        }
+        # Event queues (separate for different event types)
+        self.node_events = deque(maxlen=max_queue_size)  # Node execution events
+        self.trade_events = deque(maxlen=max_queue_size)  # Trade open/close events
+        self.position_updates = deque(maxlen=max_queue_size)  # Position P&L updates
+        self.ltp_snapshots = deque(maxlen=max_queue_size)  # LTP store snapshots
+        self.candle_updates = deque(maxlen=max_queue_size)  # Candle completions
         
-        # Trades (matches trades_daily.json exactly)
-        self.trades = {
-            "date": start_date,
-            "summary": {
-                "total_trades": 0,
-                "total_pnl": "0.00",
-                "winning_trades": 0,
-                "losing_trades": 0,
-                "win_rate": "0.00"
-            },
-            "trades": []
-        }
+        # Sequence counters (for client-side ordering)
+        self.node_seq = 0
+        self.trade_seq = 0
+        self.position_seq = 0
+        self.ltp_seq = 0
+        self.candle_seq = 0
         
-        # Tick-level state
-        self.tick_state = {
-            "timestamp": "",
-            "current_time": "",
-            "progress": {
-                "ticks_processed": 0,
-                "total_ticks": 0,
-                "progress_percentage": 0.0
-            },
-            "active_nodes": [],
-            "pending_nodes": [],
-            "completed_nodes_this_tick": [],
-            "open_positions": [],
-            "pnl_summary": {
-                "realized_pnl": "0.00",
-                "unrealized_pnl": "0.00",
-                "total_pnl": "0.00",
-                "closed_trades": 0,
-                "open_trades": 0,
-                "winning_trades": 0,
-                "losing_trades": 0,
-                "win_rate": "0.00"
-            },
-            "ltp_store": {},
-            "candle_data": {}
-        }
+        # Lock for thread safety
+        self._lock = threading.Lock()
         
-        # Event queues
-        self.event_queue = asyncio.Queue()
-        self.status = "initialized"
-        self.error = None
-        
-        print(f"[LiveSimulationState] Initialized for session {session_id}")
-        
-    def add_node_event(self, execution_id: str, event_payload: Dict[str, Any]):
-        """
-        Add node execution event to history.
-        Event payload must match exact structure from diagnostics_export.json
-        Emits ONLY the single new event (not entire history).
-        """
-        # Add to events_history (immutable append)
-        self.diagnostics["events_history"][execution_id] = event_payload
-        
-        # Update current_state (mutable snapshot per node_id)
-        node_id = event_payload.get("node_id")
-        if node_id:
-            # Copy event payload and add status
-            current_state_payload = event_payload.copy()
-            # Status should come from the event or default to a computed value
-            if "status" not in current_state_payload:
-                current_state_payload["status"] = self._compute_node_status(event_payload)
-            
-            self.diagnostics["current_state"][node_id] = current_state_payload
-            
-        # Queue SINGLE event emission (not entire diagnostics)
-        try:
-            self.event_queue.put_nowait({
-                "type": "node_events",
-                "data": {execution_id: event_payload}  # Only the new event
-            })
-        except asyncio.QueueFull:
-            pass  # Skip if queue is full
+        # Session metadata
+        self.created_at = datetime.now()
+        self.last_activity = datetime.now()
     
-    def add_trade(self, trade_payload: Dict[str, Any]):
+    def add_node_event(self, execution_id: str, event_data: Dict[str, Any]):
         """
-        Add completed trade.
-        Trade payload must match exact structure from trades_daily.json
+        Add node execution event (from NodeDiagnostics.record_event).
+        
+        Args:
+            execution_id: Unique execution ID
+            event_data: Event data from NodeDiagnostics
         """
-        self.trades["trades"].append(trade_payload)
+        with self._lock:
+            self.node_seq += 1
+            self.node_events.append({
+                'seq': self.node_seq,
+                'event_type': 'node_event',
+                'execution_id': execution_id,
+                'timestamp': datetime.now().isoformat(),
+                'data': event_data
+            })
+            self.last_activity = datetime.now()
+            logger.debug(f"📡 SSE [{self.session_id}]: Node event #{self.node_seq} ({execution_id})")
+    
+    def add_trade_event(self, trade_data: Dict[str, Any]):
+        """
+        Add trade event (position opened/closed).
         
-        # Update summary
-        self._update_trade_summary()
+        Args:
+            trade_data: Trade details (entry/exit)
+        """
+        with self._lock:
+            self.trade_seq += 1
+            self.trade_events.append({
+                'seq': self.trade_seq,
+                'event_type': 'trade_event',
+                'timestamp': datetime.now().isoformat(),
+                'data': trade_data
+            })
+            self.last_activity = datetime.now()
+            logger.debug(f"📡 SSE [{self.session_id}]: Trade event #{self.trade_seq}")
+    
+    def add_position_update(self, position_data: Dict[str, Any]):
+        """
+        Add position P&L update (per-tick).
         
-        # Queue trade_update emission (will be gzipped)
-        asyncio.create_task(self.event_queue.put({
-            "type": "trade_update",
-            "data": self.trades.copy()
-        }))
+        Args:
+            position_data: Position snapshot with current P&L
+        """
+        with self._lock:
+            self.position_seq += 1
+            self.position_updates.append({
+                'seq': self.position_seq,
+                'event_type': 'position_update',
+                'timestamp': datetime.now().isoformat(),
+                'data': position_data
+            })
+            self.last_activity = datetime.now()
+    
+    def add_ltp_snapshot(self, ltp_store: Dict[str, Any], timestamp: Any):
+        """
+        Add LTP store snapshot (configurable frequency).
+        
+        Args:
+            ltp_store: Current LTP store dict
+            timestamp: Tick timestamp
+        """
+        with self._lock:
+            self.ltp_seq += 1
+            self.ltp_snapshots.append({
+                'seq': self.ltp_seq,
+                'event_type': 'ltp_snapshot',
+                'timestamp': timestamp.isoformat() if hasattr(timestamp, 'isoformat') else str(timestamp),
+                'data': ltp_store
+            })
+            self.last_activity = datetime.now()
+    
+    def add_candle_update(self, candle_data: Dict[str, Any]):
+        """
+        Add candle completion event.
+        
+        Args:
+            candle_data: Completed candle data
+        """
+        with self._lock:
+            self.candle_seq += 1
+            self.candle_updates.append({
+                'seq': self.candle_seq,
+                'event_type': 'candle_update',
+                'timestamp': datetime.now().isoformat(),
+                'data': candle_data
+            })
+            self.last_activity = datetime.now()
+    
+    def get_events(self, event_type: str = 'all', since_seq: int = 0) -> List[Dict[str, Any]]:
+        """
+        Get events for SSE streaming.
+        
+        Args:
+            event_type: Event type to fetch ('all', 'node', 'trade', 'position', 'ltp', 'candle')
+            since_seq: Return events with seq > since_seq
+            
+        Returns:
+            List of events
+        """
+        with self._lock:
+            if event_type == 'all':
+                # Combine all events, sorted by timestamp
+                all_events = (
+                    list(self.node_events) +
+                    list(self.trade_events) +
+                    list(self.position_updates) +
+                    list(self.ltp_snapshots) +
+                    list(self.candle_updates)
+                )
+                return sorted(all_events, key=lambda e: e.get('timestamp', ''))
+            
+            elif event_type == 'node':
+                return [e for e in self.node_events if e['seq'] > since_seq]
+            
+            elif event_type == 'trade':
+                return [e for e in self.trade_events if e['seq'] > since_seq]
+            
+            elif event_type == 'position':
+                return [e for e in self.position_updates if e['seq'] > since_seq]
+            
+            elif event_type == 'ltp':
+                return [e for e in self.ltp_snapshots if e['seq'] > since_seq]
+            
+            elif event_type == 'candle':
+                return [e for e in self.candle_updates if e['seq'] > since_seq]
+            
+            return []
     
     def emit_trade_update(self, trade_payload: Dict[str, Any]):
         """
-        Emit single trade update event (when position closes).
-        This is called for each individual trade closure.
-        
-        Trade includes entry_flow_ids and exit_flow_ids.
-        UI looks up events from its cached node_events (sent separately).
-        """
-        # Add to trades list
-        self.trades["trades"].append(trade_payload)
-        
-        # Update summary
-        self._update_trade_summary()
-        
-        # Emit trade with flow IDs only (UI resolves from cached events)
-        try:
-            self.event_queue.put_nowait({
-                "type": "trade_update",
-                "data": {
-                    "trade": trade_payload,
-                    "summary": self.trades["summary"]
-                }
-            })
-        except asyncio.QueueFull:
-            pass  # Skip if queue is full
-    
-    def update_tick_state(self, tick_data: Dict[str, Any]):
-        """
-        Update tick-level state.
-        Tick data includes active_nodes, pending_nodes, positions, pnl, etc.
-        
-        NOTE: tick_data should already be JSON-serialized (all datetime objects converted to strings)
-        by the caller (LiveBacktestEngineWithSSE._serialize_for_json)
-        """
-        # Update internal state for tracking
-        self.tick_state.update(tick_data)
-        
-        # Queue tick_update emission using the INCOMING serialized data (not internal state copy)
-        # This avoids any datetime serialization issues
-        try:
-            self.event_queue.put_nowait({
-                "type": "tick_update",
-                "data": tick_data  # Use incoming serialized data directly
-            })
-            # Debug: Log first few events
-            if self.event_queue.qsize() <= 5:
-                print(f"[SSE Queue] Added tick_update event (queue size: {self.event_queue.qsize()})")
-        except Exception as e:
-            print(f"[SSE Queue Error] Failed to queue tick_update: {e}")
-            import traceback
-            traceback.print_exc()
-    
-    def _compute_node_status(self, event_payload: Dict[str, Any]) -> str:
-        """
-        Compute node status from event payload.
-        Returns: "active", "pending", "completed", "failed"
-        """
-        event_type = event_payload.get("event_type")
-        node_type = event_payload.get("node_type")
-        
-        # Logic based on event characteristics
-        if event_type == "logic_completed":
-            # Check if node has ongoing work
-            if node_type in ["EntrySignalNode", "ExitSignalNode"]:
-                return "active"  # Signal nodes stay active
-            elif node_type in ["EntryNode", "ExitNode", "SquareOffNode"]:
-                return "completed"  # Action nodes complete after execution
-            elif node_type == "ReEntrySignalNode":
-                return "completed"  # Re-entry signals complete after emitting
-            else:
-                return "completed"
-        
-        return "active"  # Default
-    
-    def _update_trade_summary(self):
-        """Update trades summary based on current trades list"""
-        trades = self.trades["trades"]
-        total_trades = len(trades)
-        
-        if total_trades == 0:
-            return
-        
-        total_pnl = sum(float(t.get("pnl", "0")) for t in trades)
-        winning_trades = sum(1 for t in trades if float(t.get("pnl", "0")) > 0)
-        losing_trades = sum(1 for t in trades if float(t.get("pnl", "0")) < 0)
-        win_rate = (winning_trades / total_trades * 100) if total_trades > 0 else 0
-        
-        self.trades["summary"] = {
-            "total_trades": total_trades,
-            "total_pnl": f"{total_pnl:.2f}",
-            "winning_trades": winning_trades,
-            "losing_trades": losing_trades,
-            "win_rate": f"{win_rate:.2f}"
-        }
-    
-    def emit_diagnostics_snapshot(self, snapshot_data: Dict[str, Any]):
-        """
-        Emit full diagnostics snapshot (same format as backtest output).
-        
-        Triggered when:
-        1. Any node completes logic in current tick
-        2. Client requests full diagnostics (refresh/on-demand)
+        Emit trade update (alias for add_trade_event for GPS compatibility).
         
         Args:
-            snapshot_data: {
-                'diagnostics': {'events_history': {...}},
-                'trades': {'summary': {...}, 'trades': [...]}
-            }
+            trade_payload: Trade data
         """
-        try:
-            # Update internal state
-            if 'diagnostics' in snapshot_data:
-                self.diagnostics.update(snapshot_data['diagnostics'])
-            
-            if 'trades' in snapshot_data:
-                self.trades.update(snapshot_data['trades'])
-            
-            # Queue diagnostics_snapshot emission (with gzip compression)
-            self.event_queue.put_nowait({
-                "type": "diagnostics_snapshot",
-                "data": {
-                    "diagnostics": self.diagnostics.copy(),
-                    "trades": self.trades.copy()
-                }
-            })
-            
-            print(f"[LiveSimulation] Emitted diagnostics snapshot: {len(self.diagnostics['events_history'])} events, {len(self.trades['trades'])} trades")
-        except asyncio.QueueFull:
-            print(f"[LiveSimulation] Queue full, skipped diagnostics snapshot")
-        except Exception as e:
-            print(f"[LiveSimulation] Error emitting diagnostics snapshot: {e}")
+        self.add_trade_event(trade_payload)
 
 
-class LiveSimulationSSEManager:
+class SSEManager:
     """
-    Manages active SSE sessions and event streaming.
+    Global SSE session manager.
+    Singleton pattern for managing all active SSE sessions.
     """
     
     def __init__(self):
-        self.sessions: Dict[str, LiveSimulationState] = {}
-        
-    def create_session(self, session_id: str, strategy_id: str, user_id: str, start_date: str) -> LiveSimulationState:
-        """Create new simulation session"""
-        session = LiveSimulationState(session_id, strategy_id, user_id, start_date)
-        self.sessions[session_id] = session
-        return session
+        """Initialize SSE manager."""
+        self.sessions: Dict[str, SSESession] = {}
+        self._lock = threading.Lock()
+        logger.info("📡 SSE Manager initialized")
     
-    def get_session(self, session_id: str) -> Optional[LiveSimulationState]:
-        """Get existing session"""
+    def create_session(self, session_id: str, max_queue_size: int = 1000) -> SSESession:
+        """
+        Create new SSE session.
+        
+        Args:
+            session_id: Unique session identifier
+            max_queue_size: Maximum events per queue
+            
+        Returns:
+            SSESession instance
+        """
+        with self._lock:
+            if session_id in self.sessions:
+                logger.warning(f"SSE session {session_id} already exists, returning existing")
+                return self.sessions[session_id]
+            
+            session = SSESession(session_id, max_queue_size)
+            self.sessions[session_id] = session
+            logger.info(f"✅ SSE session created: {session_id}")
+            return session
+    
+    def get_session(self, session_id: str) -> Optional[SSESession]:
+        """
+        Get existing SSE session.
+        
+        Args:
+            session_id: Session identifier
+            
+        Returns:
+            SSESession or None if not found
+        """
         return self.sessions.get(session_id)
     
     def remove_session(self, session_id: str):
-        """Remove session"""
-        if session_id in self.sessions:
-            del self.sessions[session_id]
+        """
+        Remove SSE session.
+        
+        Args:
+            session_id: Session identifier
+        """
+        with self._lock:
+            if session_id in self.sessions:
+                del self.sessions[session_id]
+                logger.info(f"🗑️  SSE session removed: {session_id}")
     
-    async def stream_events(self, session_id: str):
+    def list_sessions(self) -> List[str]:
         """
-        SSE event generator.
-        Yields events in SSE format with proper compression.
+        List all active session IDs.
+        
+        Returns:
+            List of session IDs
         """
-        session = self.get_session(session_id)
-        if not session:
-            yield {
-                "event": "error",
-                "data": json.dumps({"error": "Session not found"}, cls=DateTimeEncoder)
-            }
-            return
-        
-        # Send initial state (diagnostics + trades)
-        yield {
-            "event": "initial_state",
-            "data": json.dumps({
-                "diagnostics": session.diagnostics,
-                "trades": session.trades
-            }, cls=DateTimeEncoder)
-        }
-        
-        # Stream events
-        try:
-            while session.status in ["initialized", "running"]:
-                try:
-                    # Wait for event with timeout
-                    event = await asyncio.wait_for(
-                        session.event_queue.get(),
-                        timeout=1.0
-                    )
-                    
-                    event_type = event["type"]
-                    event_data = event["data"]
-                    
-                    # Send all events as plain JSON (no compression)
-                    # With incremental design, payloads are small (1-5 KB)
-                    # Compression overhead not worth it
-                    yield {
-                        "event": event_type,
-                        "data": json.dumps(event_data, cls=DateTimeEncoder)
-                    }
-                        
-                except asyncio.TimeoutError:
-                    # Send heartbeat
-                    yield {
-                        "event": "heartbeat",
-                        "data": json.dumps({"timestamp": datetime.now().isoformat()}, cls=DateTimeEncoder)
-                    }
-                    continue
-            
-            # Session completed - send final snapshot and close
-            if session.status == "completed":
-                yield {
-                    "event": "session_complete",
-                    "data": json.dumps({
-                        "session_id": session_id,
-                        "status": "completed",
-                        "final_summary": {
-                            "total_trades": session.trades["summary"]["total_trades"],
-                            "total_pnl": session.trades["summary"]["total_pnl"],
-                            "win_rate": session.trades["summary"]["win_rate"]
-                        },
-                        "events_count": len(session.diagnostics["events_history"]),
-                        "timestamp": datetime.now().isoformat()
-                    }, cls=DateTimeEncoder)
-                }
-                print(f"[SSE] Session {session_id} completed - closing SSE connection")
-                    
-        except asyncio.CancelledError:
-            # Client disconnected
-            print(f"[SSE] Client disconnected from session {session_id}")
-            raise
-        except Exception as e:
-            yield {
-                "event": "error",
-                "data": json.dumps({"error": str(e)}, cls=DateTimeEncoder)
-            }
-        finally:
-            # Keep completed sessions in memory for testing/debugging
-            # Sessions will be manually cleaned up or expire after 30 minutes
-            if session.status == "completed":
-                print(f"[SSE] Session {session_id} completed - keeping in memory for reconnection")
-                # Don't remove - allow clients to connect and view completed data
-                pass
-    
-    def _compress_json(self, data: Dict[str, Any]) -> str:
-        """
-        Compress JSON data with gzip and base64 encode.
-        Returns base64-encoded gzip-compressed JSON string.
-        """
-        # Use custom encoder to handle datetime objects
-        from datetime import datetime
-        
-        class DateTimeEncoder(json.JSONEncoder):
-            def default(self, obj):
-                if hasattr(obj, 'isoformat'):
-                    return obj.isoformat()
-                return super().default(obj)
-        
-        json_str = json.dumps(data, ensure_ascii=False, cls=DateTimeEncoder)
-        json_bytes = json_str.encode('utf-8')
-        compressed = gzip.compress(json_bytes, compresslevel=6)
-        base64_encoded = base64.b64encode(compressed).decode('ascii')
-        return base64_encoded
+        with self._lock:
+            return list(self.sessions.keys())
 
 
-# Global manager instance
-sse_manager = LiveSimulationSSEManager()
+# Global singleton instance
+sse_manager = SSEManager()

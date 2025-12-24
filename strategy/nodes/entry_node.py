@@ -558,6 +558,41 @@ class EntryNode(BaseNode):
                         'fill_time': None,
                         'fill_price': None
                     }
+                    
+                    # Store position in GPS with transaction details
+                    gps = context.get('context_manager').gps if context.get('context_manager') else None
+                    if gps:
+                        position_id = position_config.get('vpi') or position_config.get('id') or f"pos_{self.id}"
+                        gps.store_position(
+                            position_id=position_id,
+                            entry_time=current_timestamp,
+                            entry_price=price,
+                            quantity=actual_qty,  # Use scaled quantity
+                            side=position_type.upper(),
+                            symbol=trading_symbol,
+                            exchange=trading_exchange,
+                            node_id=self.id,
+                            transaction_type='ENTRY',
+                            order_id=entry_order['order_id'] if entry_order else None
+                        )
+                        log_info(f"✅ POSITION STORED: {position_id}")
+                        log_info(f"   Symbol: {trading_symbol}")
+                        log_info(f"   Quantity: {actual_qty}")
+                        log_info(f"   Entry Price: {price:.2f}")
+                    output_writer = context.get('output_writer')
+                    if output_writer:
+                        output_writer.write_event({
+                            'event_type': 'ENTRY',
+                            'timestamp': current_timestamp.isoformat() if hasattr(current_timestamp, 'isoformat') else str(current_timestamp),
+                            'node_id': self.id,
+                            'position_id': position_id,
+                            'symbol': trading_symbol,
+                            'side': position_type.upper(),
+                            'quantity': actual_qty,
+                            'entry_price': price,
+                            'order_type': order_type,
+                            'product_type': product_type
+                        })
                 else:
                     log_error(f"❌ Failed to place live order: {order_result}")
                     log_error(f"   Order status: {order_result.get('status') if order_result else 'None'}")

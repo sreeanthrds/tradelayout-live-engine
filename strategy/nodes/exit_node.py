@@ -858,6 +858,23 @@ class ExitNode(BaseNode):
 
             # Close position in GPS (with tick time)
             self.close_position(context, position_id, exit_data)
+            
+            # Write EXIT event to JSONL
+            output_writer = context.get('output_writer')
+            if output_writer:
+                output_writer.write_event({
+                    'event_type': 'EXIT',
+                    'timestamp': exit_time.isoformat() if exit_time and hasattr(exit_time, 'isoformat') else str(exit_time),
+                    'node_id': self.id,
+                    'position_id': position_id,
+                    'symbol': position.get('symbol', ''),
+                    'side': exit_order.get('side', ''),
+                    'quantity': exit_order.get('quantity', 0),
+                    'exit_price': fill_price,
+                    'order_type': exit_order.get('order_type', 'MARKET'),
+                    'exit_reason': exit_data.get('reason_detail', 'condition_met'),
+                    'pnl': exit_data.get('pnl', 0)
+                })
 
             return {
                 'success': True,

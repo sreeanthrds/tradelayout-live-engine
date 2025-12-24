@@ -286,7 +286,8 @@ class StrategySubscriptionManager:
         strategy_id: str,
         account_id: str,
         strategy_config: Dict[str, Any],
-        strategy_metadata: Optional[Any] = None
+        strategy_metadata: Optional[Any] = None,
+        session_id: Optional[str] = None
     ) -> bool:
         """Create a strategy subscription for backtesting and sync it immediately.
 
@@ -302,6 +303,7 @@ class StrategySubscriptionManager:
             account_id: Logical account identifier (e.g. 'backtest_account')
             strategy_config: Raw strategy config JSON (for backward compatibility)
             strategy_metadata: StrategyMetadata object with optimized instrument_configs dict
+            session_id: Optional session ID for live simulation (for file persistence and SSE)
 
         Returns:
             True if sync succeeded, False otherwise
@@ -313,13 +315,14 @@ class StrategySubscriptionManager:
             'instance_id': instance_id,
             'config': strategy_config,
             'metadata': strategy_metadata,  # ✅ Store optimized metadata!
+            'session_id': session_id,  # ✅ Store session_id for ContextManager
             'status': 'active',
             'subscribed_at': datetime.now().isoformat()
         }
 
         # Store in cache and immediately sync using existing flow
         self.cache.set_strategy_subscription(instance_id, subscription_data)
-        log_info(f"📡 Backtest subscription created: {instance_id}")
+        log_info(f"📡 Backtest subscription created: {instance_id} (session: {session_id})")
 
         return self.sync_single_strategy(instance_id)
     
@@ -402,10 +405,11 @@ class StrategySubscriptionManager:
         """
         strategy_config = subscription['config']
         strategy_metadata = subscription.get('metadata')  # May be None for old subscriptions
+        session_id = subscription.get('session_id')  # Get session_id from subscription
         
         # Create ContextManager for this strategy (manages GPS and state)
         context_manager = ContextManager(
-            session_id=None,
+            session_id=session_id,  # ✅ Pass session_id for file persistence
             user_id=subscription['user_id'],
             connection_id=None,
             strategy_id=subscription['strategy_id']
@@ -431,6 +435,10 @@ class StrategySubscriptionManager:
             'positions': {},
             'context': {
                 'context_manager': context_manager,  # ✅ Add context_manager with GPS
+                'gps': context_manager.gps,  # ✅ CRITICAL: Direct GPS reference for nodes
+                'session_id': session_id,  # ✅ Session ID for file persistence
+                'user_id': subscription['user_id'],  # ✅ User ID for SSE filtering
+                'strategy_id': subscription['strategy_id'],  # ✅ Strategy ID for SSE filtering
                 'diagnostics': diagnostics,  # ✅ Add diagnostics system
                 'node_events_history': node_events_history,  # ✅ Event history storage
                 'node_current_state': node_current_state  # ✅ Current state storage

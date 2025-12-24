@@ -13,7 +13,7 @@ os.environ['CLICKHOUSE_HOST'] = 'localhost'
 os.environ['CLICKHOUSE_PORT'] = '8123'
 os.environ['CLICKHOUSE_USER'] = 'default'
 os.environ['CLICKHOUSE_PASSWORD'] = ''
-os.environ['CLICKHOUSE_DATABASE'] = 'tradelayout'
+os.environ['CLICKHOUSE_DATABASE'] = 'default'
 os.environ['CLICKHOUSE_SECURE'] = 'false'
 
 from show_dashboard_data import run_dashboard_backtest, dashboard_data

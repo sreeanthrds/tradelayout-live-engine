@@ -1,9 +1,9 @@
 {
   "events_history": {
-    "exec_strategy-controller_20241029_091500_73da06": {
-      "execution_id": "exec_strategy-controller_20241029_091500_73da06",
+    "exec_strategy-controller_20241029_091500_44711d": {
+      "execution_id": "exec_strategy-controller_20241029_091500_44711d",
       "parent_execution_id": null,
-      "timestamp": "2024-10-29 09:15:00+05:30",
+      "timestamp": "2024-10-29 09:15:00",
       "event_type": "logic_completed",
       "node_id": "strategy-controller",
       "node_name": "Start",
@@ -30,10 +30,10 @@
         "end_conditions_configured": 0
       }
     },
-    "exec_entry-condition-1_20241029_091900_f1a35a": {
-      "execution_id": "exec_entry-condition-1_20241029_091900_f1a35a",
-      "parent_execution_id": "exec_strategy-controller_20241029_091500_73da06",
-      "timestamp": "2024-10-29 09:19:00+05:30",
+    "exec_entry-condition-1_20241029_091900_93746d": {
+      "execution_id": "exec_entry-condition-1_20241029_091900_93746d",
+      "parent_execution_id": "exec_strategy-controller_20241029_091500_44711d",
+      "timestamp": "2024-10-29 09:19:00",
       "event_type": "logic_completed",
       "node_id": "entry-condition-1",
       "node_name": "Entry condition - Bullish",
@@ -59,7 +59,7 @@
             "lhs_value": 1730173740.0,
             "rhs_value": 1730173620.0,
             "operator": ">=",
-            "timestamp": "2024-10-29 09:19:00+05:30",
+            "timestamp": "2024-10-29 09:19:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -85,7 +85,7 @@
             "lhs_value": 26.968018597059825,
             "rhs_value": 30.0,
             "operator": "<",
-            "timestamp": "2024-10-29 09:19:00+05:30",
+            "timestamp": "2024-10-29 09:19:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -110,7 +110,7 @@
             "lhs_value": 24272.2,
             "rhs_value": 24272.0,
             "operator": ">",
-            "timestamp": "2024-10-29 09:19:00+05:30",
+            "timestamp": "2024-10-29 09:19:00",
             "tick_count": 241,
             "result": true,
             "result_icon": "\u2713",
@@ -124,7 +124,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 09:19:00+05:30",
+              "timestamp": "2024-10-29 09:19:00",
               "open": 24270.2,
               "high": 24272.2,
               "low": 24270.2,
@@ -132,7 +132,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 09:18:00+05:30",
+              "timestamp": "2024-10-29 09:18:00",
               "open": 24271.7,
               "high": 24272.0,
               "low": 24252.6,
@@ -145,7 +145,7 @@
           }
         }
       },
-      "signal_time": "2024-10-29 09:19:00+05:30",
+      "signal_time": "2024-10-29 09:19:00",
       "variables_calculated": [
         "SignalLow"
       ],
@@ -164,10 +164,10 @@
         }
       }
     },
-    "exec_entry-2_20241029_091900_e9d538": {
-      "execution_id": "exec_entry-2_20241029_091900_e9d538",
-      "parent_execution_id": "exec_entry-condition-1_20241029_091900_f1a35a",
-      "timestamp": "2024-10-29 09:19:00+05:30",
+    "exec_entry-2_20241029_091900_8f7450": {
+      "execution_id": "exec_entry-2_20241029_091900_8f7450",
+      "parent_execution_id": "exec_entry-condition-1_20241029_091900_93746d",
+      "timestamp": "2024-10-29 09:19:00",
       "event_type": "logic_completed",
       "node_id": "entry-2",
       "node_name": "Entry 2 -Bullish",
@@ -183,11 +183,11 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-2_20251220_182625",
+        "order_id": "ENTRY_entry-2_20251224_070134",
         "symbol": "NIFTY:2024-11-07:OPT:24250:PE",
         "side": "SELL",
         "quantity": 75,
-        "price": "181.60",
+        "price": 181.6,
         "order_type": "MARKET",
         "exchange": "NFO",
         "status": "COMPLETE"
@@ -197,8 +197,8 @@
         "symbol": "NIFTY:2024-11-07:OPT:24250:PE",
         "side": "sell",
         "quantity": 1,
-        "entry_price": "181.60",
-        "entry_time": "2024-10-29T09:19:00+05:30",
+        "entry_price": 181.6,
+        "entry_time": "2024-10-29T09:19:00",
         "node_id": "entry-2"
       },
       "entry_config": {
@@ -214,10 +214,10 @@
         ]
       }
     },
-    "exec_exit-condition-2_20241029_104800_8cf6d8": {
-      "execution_id": "exec_exit-condition-2_20241029_104800_8cf6d8",
-      "parent_execution_id": "exec_entry-2_20241029_091900_e9d538",
-      "timestamp": "2024-10-29 10:48:00+05:30",
+    "exec_exit-condition-2_20241029_104800_aabcbe": {
+      "execution_id": "exec_exit-condition-2_20241029_104800_aabcbe",
+      "parent_execution_id": "exec_entry-2_20241029_091900_8f7450",
+      "timestamp": "2024-10-29 10:48:00",
       "event_type": "logic_completed",
       "node_id": "exit-condition-2",
       "node_name": "Exit condition - SL",
@@ -251,7 +251,7 @@
             "lhs_value": 27.238778302941157,
             "rhs_value": 30.0,
             "operator": "<",
-            "timestamp": "2024-10-29 10:48:00+05:30",
+            "timestamp": "2024-10-29 10:48:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -276,7 +276,7 @@
             "lhs_value": 24144.45,
             "rhs_value": 24252.6,
             "operator": "<",
-            "timestamp": "2024-10-29 10:48:00+05:30",
+            "timestamp": "2024-10-29 10:48:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -289,7 +289,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 10:48:00+05:30",
+              "timestamp": "2024-10-29 10:48:00",
               "open": 24145.0,
               "high": 24145.0,
               "low": 24145.0,
@@ -297,7 +297,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 10:47:00+05:30",
+              "timestamp": "2024-10-29 10:47:00",
               "open": 24153.0,
               "high": 24153.75,
               "low": 24140.85,
@@ -311,7 +311,7 @@
         }
       },
       "exit_signal_data": {
-        "exit_signal_time": "2024-10-29 10:48:00+05:30",
+        "exit_signal_time": "2024-10-29 10:48:00",
         "exit_signal_price": 0,
         "exit_reason": "condition_met",
         "node_id": "exit-condition-2",
@@ -374,10 +374,10 @@
         }
       }
     },
-    "exec_exit-3_20241029_104800_85a2ba": {
-      "execution_id": "exec_exit-3_20241029_104800_85a2ba",
-      "parent_execution_id": "exec_exit-condition-2_20241029_104800_8cf6d8",
-      "timestamp": "2024-10-29 10:48:00+05:30",
+    "exec_exit-3_20241029_104800_8d8eb7": {
+      "execution_id": "exec_exit-3_20241029_104800_8d8eb7",
+      "parent_execution_id": "exec_exit-condition-2_20241029_104800_aabcbe",
+      "timestamp": "2024-10-29 10:48:00",
       "event_type": "logic_completed",
       "node_id": "exit-3",
       "node_name": "Exit 3 - SL",
@@ -400,15 +400,15 @@
           "symbol": "NIFTY:2024-11-07:OPT:24250:PE",
           "side": "sell",
           "quantity": 1,
-          "entry_price": "181.60",
-          "current_price": "181.60"
+          "entry_price": 181.6,
+          "current_price": 181.6
         }
       },
       "exit_result": {
         "positions_closed": 1,
-        "exit_price": "260.05",
-        "pnl": "-5883.75",
-        "exit_time": "2024-10-29 10:48:00+05:30"
+        "exit_price": 260.05,
+        "pnl": -5883.750000000001,
+        "exit_time": "2024-10-29 10:48:00"
       },
       "exit_config": {
         "target_position_vpi": "entry-2-pos1",
@@ -422,10 +422,10 @@
         "positions_closed": 1
       }
     },
-    "exec_exit-condition-1_20241029_114000_4ca5a6": {
-      "execution_id": "exec_exit-condition-1_20241029_114000_4ca5a6",
-      "parent_execution_id": "exec_entry-2_20241029_091900_e9d538",
-      "timestamp": "2024-10-29 11:40:00+05:30",
+    "exec_exit-condition-1_20241029_114000_18fdb0": {
+      "execution_id": "exec_exit-condition-1_20241029_114000_18fdb0",
+      "parent_execution_id": "exec_entry-2_20241029_091900_8f7450",
+      "timestamp": "2024-10-29 11:40:00",
       "event_type": "logic_completed",
       "node_id": "exit-condition-1",
       "node_name": "Exit condition - Target",
@@ -459,7 +459,7 @@
             "lhs_value": 70.2446351872398,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 11:40:00+05:30",
+            "timestamp": "2024-10-29 11:40:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -472,7 +472,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 11:40:00+05:30",
+              "timestamp": "2024-10-29 11:40:00",
               "open": 24226.35,
               "high": 24226.4,
               "low": 24226.35,
@@ -480,7 +480,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 11:39:00+05:30",
+              "timestamp": "2024-10-29 11:39:00",
               "open": 24220.5,
               "high": 24236.35,
               "low": 24220.5,
@@ -494,7 +494,7 @@
         }
       },
       "exit_signal_data": {
-        "exit_signal_time": "2024-10-29 11:40:00+05:30",
+        "exit_signal_time": "2024-10-29 11:40:00",
         "exit_signal_price": 0,
         "exit_reason": "condition_met",
         "node_id": "exit-condition-1",
@@ -534,10 +534,10 @@
         }
       }
     },
-    "exec_exit-2_20241029_114000_e17122": {
-      "execution_id": "exec_exit-2_20241029_114000_e17122",
-      "parent_execution_id": "exec_exit-condition-1_20241029_114000_4ca5a6",
-      "timestamp": "2024-10-29 11:40:00+05:30",
+    "exec_exit-2_20241029_114000_5bf237": {
+      "execution_id": "exec_exit-2_20241029_114000_5bf237",
+      "parent_execution_id": "exec_exit-condition-1_20241029_114000_18fdb0",
+      "timestamp": "2024-10-29 11:40:00",
       "event_type": "logic_completed",
       "node_id": "exit-2",
       "node_name": "Exit 2 -Target",
@@ -569,10 +569,10 @@
         "positions_closed": 0
       }
     },
-    "exec_entry-condition-2_20241029_114200_b57dec": {
-      "execution_id": "exec_entry-condition-2_20241029_114200_b57dec",
-      "parent_execution_id": "exec_strategy-controller_20241029_091500_73da06",
-      "timestamp": "2024-10-29 11:42:00+05:30",
+    "exec_entry-condition-2_20241029_114200_03b30f": {
+      "execution_id": "exec_entry-condition-2_20241029_114200_03b30f",
+      "parent_execution_id": "exec_strategy-controller_20241029_091500_44711d",
+      "timestamp": "2024-10-29 11:42:00",
       "event_type": "logic_completed",
       "node_id": "entry-condition-2",
       "node_name": "Entry condition - Bearish",
@@ -598,7 +598,7 @@
             "lhs_value": 1730182320.0,
             "rhs_value": 1730173620.0,
             "operator": ">",
-            "timestamp": "2024-10-29 11:42:00+05:30",
+            "timestamp": "2024-10-29 11:42:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -624,7 +624,7 @@
             "lhs_value": 72.53191944216664,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 11:42:00+05:30",
+            "timestamp": "2024-10-29 11:42:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -649,7 +649,7 @@
             "lhs_value": 24233.8,
             "rhs_value": 24236.1,
             "operator": "<",
-            "timestamp": "2024-10-29 11:42:00+05:30",
+            "timestamp": "2024-10-29 11:42:00",
             "tick_count": 8757,
             "result": true,
             "result_icon": "\u2713",
@@ -663,7 +663,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 11:42:00+05:30",
+              "timestamp": "2024-10-29 11:42:00",
               "open": 24234.7,
               "high": 24234.7,
               "low": 24233.8,
@@ -671,7 +671,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 11:41:00+05:30",
+              "timestamp": "2024-10-29 11:41:00",
               "open": 24236.7,
               "high": 24246.25,
               "low": 24236.1,
@@ -684,7 +684,7 @@
           }
         }
       },
-      "signal_time": "2024-10-29 11:42:00+05:30",
+      "signal_time": "2024-10-29 11:42:00",
       "variables_calculated": [
         "SignalHigh"
       ],
@@ -703,10 +703,10 @@
         }
       }
     },
-    "exec_entry-3_20241029_114200_50a69d": {
-      "execution_id": "exec_entry-3_20241029_114200_50a69d",
-      "parent_execution_id": "exec_entry-condition-2_20241029_114200_b57dec",
-      "timestamp": "2024-10-29 11:42:00+05:30",
+    "exec_entry-3_20241029_114200_c9496f": {
+      "execution_id": "exec_entry-3_20241029_114200_c9496f",
+      "parent_execution_id": "exec_entry-condition-2_20241029_114200_03b30f",
+      "timestamp": "2024-10-29 11:42:00",
       "event_type": "logic_completed",
       "node_id": "entry-3",
       "node_name": "Entry 3 -Barish",
@@ -722,11 +722,11 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251220_182629",
+        "order_id": "ENTRY_entry-3_20251224_070137",
         "symbol": "NIFTY:2024-11-07:OPT:24250:CE",
         "side": "SELL",
         "quantity": 75,
-        "price": "262.05",
+        "price": 262.05,
         "order_type": "MARKET",
         "exchange": "NFO",
         "status": "COMPLETE"
@@ -736,8 +736,8 @@
         "symbol": "NIFTY:2024-11-07:OPT:24250:CE",
         "side": "sell",
         "quantity": 1,
-        "entry_price": "262.05",
-        "entry_time": "2024-10-29T11:42:00+05:30",
+        "entry_price": 262.05,
+        "entry_time": "2024-10-29T11:42:00",
         "node_id": "entry-3"
       },
       "entry_config": {
@@ -753,10 +753,10 @@
         ]
       }
     },
-    "exec_exit-condition-4_20241029_120400_cee1a3": {
-      "execution_id": "exec_exit-condition-4_20241029_120400_cee1a3",
-      "parent_execution_id": "exec_entry-3_20241029_114200_50a69d",
-      "timestamp": "2024-10-29 12:04:00+05:30",
+    "exec_exit-condition-4_20241029_120400_681b65": {
+      "execution_id": "exec_exit-condition-4_20241029_120400_681b65",
+      "parent_execution_id": "exec_entry-3_20241029_114200_c9496f",
+      "timestamp": "2024-10-29 12:04:00",
       "event_type": "logic_completed",
       "node_id": "exit-condition-4",
       "node_name": "Exit condition - SL",
@@ -790,7 +790,7 @@
             "lhs_value": 74.30993955966228,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 12:04:00+05:30",
+            "timestamp": "2024-10-29 12:04:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -815,7 +815,7 @@
             "lhs_value": 24282.3,
             "rhs_value": 24246.25,
             "operator": ">",
-            "timestamp": "2024-10-29 12:04:00+05:30",
+            "timestamp": "2024-10-29 12:04:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -828,7 +828,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 12:04:00+05:30",
+              "timestamp": "2024-10-29 12:04:00",
               "open": 24285.1,
               "high": 24285.55,
               "low": 24285.1,
@@ -836,7 +836,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 12:03:00+05:30",
+              "timestamp": "2024-10-29 12:03:00",
               "open": 24267.45,
               "high": 24286.9,
               "low": 24266.65,
@@ -850,7 +850,7 @@
         }
       },
       "exit_signal_data": {
-        "exit_signal_time": "2024-10-29 12:04:00+05:30",
+        "exit_signal_time": "2024-10-29 12:04:00",
         "exit_signal_price": 0,
         "exit_reason": "condition_met",
         "node_id": "exit-condition-4",
@@ -913,10 +913,10 @@
         }
       }
     },
-    "exec_exit-6_20241029_120400_6550b6": {
-      "execution_id": "exec_exit-6_20241029_120400_6550b6",
-      "parent_execution_id": "exec_exit-condition-4_20241029_120400_cee1a3",
-      "timestamp": "2024-10-29 12:04:00+05:30",
+    "exec_exit-6_20241029_120400_251475": {
+      "execution_id": "exec_exit-6_20241029_120400_251475",
+      "parent_execution_id": "exec_exit-condition-4_20241029_120400_681b65",
+      "timestamp": "2024-10-29 12:04:00",
       "event_type": "logic_completed",
       "node_id": "exit-6",
       "node_name": "Exit 6 - SL",
@@ -939,15 +939,15 @@
           "symbol": "NIFTY:2024-11-07:OPT:24250:CE",
           "side": "sell",
           "quantity": 1,
-          "entry_price": "262.05",
-          "current_price": "262.05"
+          "entry_price": 262.05,
+          "current_price": 262.05
         }
       },
       "exit_result": {
         "positions_closed": 1,
-        "exit_price": "287.80",
-        "pnl": "-1931.25",
-        "exit_time": "2024-10-29 12:04:00+05:30"
+        "exit_price": 287.8,
+        "pnl": -1931.25,
+        "exit_time": "2024-10-29 12:04:00"
       },
       "exit_config": {
         "target_position_vpi": "entry-3-pos1",
@@ -961,10 +961,10 @@
         "positions_closed": 1
       }
     },
-    "exec_re-entry-signal-4_20241029_120508_dacaf0": {
-      "execution_id": "exec_re-entry-signal-4_20241029_120508_dacaf0",
-      "parent_execution_id": "exec_exit-6_20241029_120400_6550b6",
-      "timestamp": "2024-10-29 12:05:08+05:30",
+    "exec_re-entry-signal-4_20241029_120508_f89029": {
+      "execution_id": "exec_re-entry-signal-4_20241029_120508_f89029",
+      "parent_execution_id": "exec_exit-6_20241029_120400_251475",
+      "timestamp": "2024-10-29 12:05:08",
       "event_type": "logic_completed",
       "node_id": "re-entry-signal-4",
       "node_name": "Re-Entry node - SL",
@@ -997,7 +997,7 @@
             "lhs_value": 73.48956700109761,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 12:05:08+05:30",
+            "timestamp": "2024-10-29 12:05:08",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -1022,7 +1022,7 @@
             "lhs_value": 24277.0,
             "rhs_value": 24277.1,
             "operator": "<",
-            "timestamp": "2024-10-29 12:05:08+05:30",
+            "timestamp": "2024-10-29 12:05:08",
             "tick_count": 10139,
             "result": true,
             "result_icon": "\u2713",
@@ -1036,7 +1036,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 12:05:00+05:30",
+              "timestamp": "2024-10-29 12:05:00",
               "open": 24281.0,
               "high": 24281.45,
               "low": 24276.45,
@@ -1044,7 +1044,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 12:04:00+05:30",
+              "timestamp": "2024-10-29 12:04:00",
               "open": 24285.1,
               "high": 24285.9,
               "low": 24277.1,
@@ -1080,10 +1080,10 @@
         }
       }
     },
-    "exec_entry-3_20241029_120509_ed3820": {
-      "execution_id": "exec_entry-3_20241029_120509_ed3820",
-      "parent_execution_id": "exec_re-entry-signal-4_20241029_120508_dacaf0",
-      "timestamp": "2024-10-29 12:05:09+05:30",
+    "exec_entry-3_20241029_120509_d39055": {
+      "execution_id": "exec_entry-3_20241029_120509_d39055",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_120508_f89029",
+      "timestamp": "2024-10-29 12:05:09",
       "event_type": "logic_completed",
       "node_id": "entry-3",
       "node_name": "Entry 3 -Barish",
@@ -1099,11 +1099,11 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251220_182630",
+        "order_id": "ENTRY_entry-3_20251224_070138",
         "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
         "side": "SELL",
         "quantity": 75,
-        "price": "254.65",
+        "price": 254.65,
         "order_type": "MARKET",
         "exchange": "NFO",
         "status": "COMPLETE"
@@ -1113,8 +1113,8 @@
         "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
         "side": "sell",
         "quantity": 1,
-        "entry_price": "254.65",
-        "entry_time": "2024-10-29T12:05:09+05:30",
+        "entry_price": 254.65,
+        "entry_time": "2024-10-29T12:05:09",
         "node_id": "entry-3"
       },
       "entry_config": {
@@ -1130,10 +1130,10 @@
         ]
       }
     },
-    "exec_exit-condition-4_20241029_121500_e0e82f": {
-      "execution_id": "exec_exit-condition-4_20241029_121500_e0e82f",
-      "parent_execution_id": "exec_entry-3_20241029_120509_ed3820",
-      "timestamp": "2024-10-29 12:15:00+05:30",
+    "exec_exit-condition-4_20241029_121500_11c639": {
+      "execution_id": "exec_exit-condition-4_20241029_121500_11c639",
+      "parent_execution_id": "exec_entry-3_20241029_120509_d39055",
+      "timestamp": "2024-10-29 12:15:00",
       "event_type": "logic_completed",
       "node_id": "exit-condition-4",
       "node_name": "Exit condition - SL",
@@ -1167,7 +1167,7 @@
             "lhs_value": 70.5323821085447,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 12:15:00+05:30",
+            "timestamp": "2024-10-29 12:15:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -1192,7 +1192,7 @@
             "lhs_value": 24293.75,
             "rhs_value": 24285.9,
             "operator": ">",
-            "timestamp": "2024-10-29 12:15:00+05:30",
+            "timestamp": "2024-10-29 12:15:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -1205,7 +1205,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 12:15:00+05:30",
+              "timestamp": "2024-10-29 12:15:00",
               "open": 24293.6,
               "high": 24293.6,
               "low": 24292.6,
@@ -1213,7 +1213,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 12:14:00+05:30",
+              "timestamp": "2024-10-29 12:14:00",
               "open": 24278.05,
               "high": 24294.55,
               "low": 24277.8,
@@ -1227,7 +1227,7 @@
         }
       },
       "exit_signal_data": {
-        "exit_signal_time": "2024-10-29 12:15:00+05:30",
+        "exit_signal_time": "2024-10-29 12:15:00",
         "exit_signal_price": 0,
         "exit_reason": "condition_met",
         "node_id": "exit-condition-4",
@@ -1290,10 +1290,10 @@
         }
       }
     },
-    "exec_exit-6_20241029_121500_840285": {
-      "execution_id": "exec_exit-6_20241029_121500_840285",
-      "parent_execution_id": "exec_exit-condition-4_20241029_121500_e0e82f",
-      "timestamp": "2024-10-29 12:15:00+05:30",
+    "exec_exit-6_20241029_121500_a6d3b3": {
+      "execution_id": "exec_exit-6_20241029_121500_a6d3b3",
+      "parent_execution_id": "exec_exit-condition-4_20241029_121500_11c639",
+      "timestamp": "2024-10-29 12:15:00",
       "event_type": "logic_completed",
       "node_id": "exit-6",
       "node_name": "Exit 6 - SL",
@@ -1316,15 +1316,15 @@
           "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
           "side": "sell",
           "quantity": 1,
-          "entry_price": "254.65",
-          "current_price": "254.65"
+          "entry_price": 254.65,
+          "current_price": 254.65
         }
       },
       "exit_result": {
         "positions_closed": 1,
-        "exit_price": "263.45",
-        "pnl": "-2591.25",
-        "exit_time": "2024-10-29 12:15:00+05:30"
+        "exit_price": 263.45,
+        "pnl": -2591.2499999999986,
+        "exit_time": "2024-10-29 12:15:00"
       },
       "exit_config": {
         "target_position_vpi": "entry-3-pos1",
@@ -1338,10 +1338,10 @@
         "positions_closed": 2
       }
     },
-    "exec_re-entry-signal-4_20241029_121752_3c778f": {
-      "execution_id": "exec_re-entry-signal-4_20241029_121752_3c778f",
-      "parent_execution_id": "exec_exit-6_20241029_121500_840285",
-      "timestamp": "2024-10-29 12:17:52+05:30",
+    "exec_re-entry-signal-4_20241029_121752_7cd92b": {
+      "execution_id": "exec_re-entry-signal-4_20241029_121752_7cd92b",
+      "parent_execution_id": "exec_exit-6_20241029_121500_a6d3b3",
+      "timestamp": "2024-10-29 12:17:52",
       "event_type": "logic_completed",
       "node_id": "re-entry-signal-4",
       "node_name": "Re-Entry node - SL",
@@ -1374,7 +1374,7 @@
             "lhs_value": 72.23439565696997,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 12:17:52+05:30",
+            "timestamp": "2024-10-29 12:17:52",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -1399,7 +1399,7 @@
             "lhs_value": 24293.0,
             "rhs_value": 24293.05,
             "operator": "<",
-            "timestamp": "2024-10-29 12:17:52+05:30",
+            "timestamp": "2024-10-29 12:17:52",
             "tick_count": 10899,
             "result": true,
             "result_icon": "\u2713",
@@ -1413,7 +1413,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 12:17:00+05:30",
+              "timestamp": "2024-10-29 12:17:00",
               "open": 24300.2,
               "high": 24300.25,
               "low": 24293.0,
@@ -1421,7 +1421,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 12:16:00+05:30",
+              "timestamp": "2024-10-29 12:16:00",
               "open": 24293.05,
               "high": 24303.45,
               "low": 24293.05,
@@ -1457,10 +1457,10 @@
         }
       }
     },
-    "exec_entry-3_20241029_121753_539987": {
-      "execution_id": "exec_entry-3_20241029_121753_539987",
-      "parent_execution_id": "exec_re-entry-signal-4_20241029_121752_3c778f",
-      "timestamp": "2024-10-29 12:17:53+05:30",
+    "exec_entry-3_20241029_121753_821282": {
+      "execution_id": "exec_entry-3_20241029_121753_821282",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_121752_7cd92b",
+      "timestamp": "2024-10-29 12:17:53",
       "event_type": "logic_completed",
       "node_id": "entry-3",
       "node_name": "Entry 3 -Barish",
@@ -1476,11 +1476,11 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251220_182630",
+        "order_id": "ENTRY_entry-3_20251224_070138",
         "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
         "side": "SELL",
         "quantity": 75,
-        "price": "262.70",
+        "price": 262.7,
         "order_type": "MARKET",
         "exchange": "NFO",
         "status": "COMPLETE"
@@ -1490,8 +1490,8 @@
         "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
         "side": "sell",
         "quantity": 1,
-        "entry_price": "262.70",
-        "entry_time": "2024-10-29T12:17:53+05:30",
+        "entry_price": 262.7,
+        "entry_time": "2024-10-29T12:17:53",
         "node_id": "entry-3"
       },
       "entry_config": {
@@ -1507,10 +1507,10 @@
         ]
       }
     },
-    "exec_exit-condition-4_20241029_125200_edf27c": {
-      "execution_id": "exec_exit-condition-4_20241029_125200_edf27c",
-      "parent_execution_id": "exec_entry-3_20241029_121753_539987",
-      "timestamp": "2024-10-29 12:52:00+05:30",
+    "exec_exit-condition-4_20241029_125200_56c879": {
+      "execution_id": "exec_exit-condition-4_20241029_125200_56c879",
+      "parent_execution_id": "exec_entry-3_20241029_121753_821282",
+      "timestamp": "2024-10-29 12:52:00",
       "event_type": "logic_completed",
       "node_id": "exit-condition-4",
       "node_name": "Exit condition - SL",
@@ -1544,7 +1544,7 @@
             "lhs_value": 70.62154791904747,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 12:52:00+05:30",
+            "timestamp": "2024-10-29 12:52:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -1569,7 +1569,7 @@
             "lhs_value": 24323.3,
             "rhs_value": 24303.45,
             "operator": ">",
-            "timestamp": "2024-10-29 12:52:00+05:30",
+            "timestamp": "2024-10-29 12:52:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -1582,7 +1582,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 12:52:00+05:30",
+              "timestamp": "2024-10-29 12:52:00",
               "open": 24322.75,
               "high": 24323.9,
               "low": 24322.75,
@@ -1590,7 +1590,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 12:51:00+05:30",
+              "timestamp": "2024-10-29 12:51:00",
               "open": 24312.7,
               "high": 24325.15,
               "low": 24312.7,
@@ -1604,7 +1604,7 @@
         }
       },
       "exit_signal_data": {
-        "exit_signal_time": "2024-10-29 12:52:00+05:30",
+        "exit_signal_time": "2024-10-29 12:52:00",
         "exit_signal_price": 0,
         "exit_reason": "condition_met",
         "node_id": "exit-condition-4",
@@ -1667,10 +1667,10 @@
         }
       }
     },
-    "exec_exit-6_20241029_125200_4089f5": {
-      "execution_id": "exec_exit-6_20241029_125200_4089f5",
-      "parent_execution_id": "exec_exit-condition-4_20241029_125200_edf27c",
-      "timestamp": "2024-10-29 12:52:00+05:30",
+    "exec_exit-6_20241029_125200_60addb": {
+      "execution_id": "exec_exit-6_20241029_125200_60addb",
+      "parent_execution_id": "exec_exit-condition-4_20241029_125200_56c879",
+      "timestamp": "2024-10-29 12:52:00",
       "event_type": "logic_completed",
       "node_id": "exit-6",
       "node_name": "Exit 6 - SL",
@@ -1693,15 +1693,15 @@
           "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
           "side": "sell",
           "quantity": 1,
-          "entry_price": "262.70",
-          "current_price": "262.70"
+          "entry_price": 262.7,
+          "current_price": 262.7
         }
       },
       "exit_result": {
         "positions_closed": 1,
-        "exit_price": "274.75",
-        "pnl": "-3495.00",
-        "exit_time": "2024-10-29 12:52:00+05:30"
+        "exit_price": 274.75,
+        "pnl": -3494.9999999999995,
+        "exit_time": "2024-10-29 12:52:00"
       },
       "exit_config": {
         "target_position_vpi": "entry-3-pos1",
@@ -1715,10 +1715,10 @@
         "positions_closed": 3
       }
     },
-    "exec_re-entry-signal-4_20241029_125348_8b7a01": {
-      "execution_id": "exec_re-entry-signal-4_20241029_125348_8b7a01",
-      "parent_execution_id": "exec_exit-6_20241029_125200_4089f5",
-      "timestamp": "2024-10-29 12:53:48+05:30",
+    "exec_re-entry-signal-4_20241029_125348_007b99": {
+      "execution_id": "exec_re-entry-signal-4_20241029_125348_007b99",
+      "parent_execution_id": "exec_exit-6_20241029_125200_60addb",
+      "timestamp": "2024-10-29 12:53:48",
       "event_type": "logic_completed",
       "node_id": "re-entry-signal-4",
       "node_name": "Re-Entry node - SL",
@@ -1751,7 +1751,7 @@
             "lhs_value": 71.68539195682075,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 12:53:48+05:30",
+            "timestamp": "2024-10-29 12:53:48",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -1776,7 +1776,7 @@
             "lhs_value": 24322.3,
             "rhs_value": 24322.65,
             "operator": "<",
-            "timestamp": "2024-10-29 12:53:48+05:30",
+            "timestamp": "2024-10-29 12:53:48",
             "tick_count": 13047,
             "result": true,
             "result_icon": "\u2713",
@@ -1790,7 +1790,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 12:53:00+05:30",
+              "timestamp": "2024-10-29 12:53:00",
               "open": 24325.7,
               "high": 24330.35,
               "low": 24322.3,
@@ -1798,7 +1798,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 12:52:00+05:30",
+              "timestamp": "2024-10-29 12:52:00",
               "open": 24322.75,
               "high": 24329.65,
               "low": 24322.65,
@@ -1834,10 +1834,10 @@
         }
       }
     },
-    "exec_entry-3_20241029_125349_b81f5e": {
-      "execution_id": "exec_entry-3_20241029_125349_b81f5e",
-      "parent_execution_id": "exec_re-entry-signal-4_20241029_125348_8b7a01",
-      "timestamp": "2024-10-29 12:53:49+05:30",
+    "exec_entry-3_20241029_125349_4a115d": {
+      "execution_id": "exec_entry-3_20241029_125349_4a115d",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_125348_007b99",
+      "timestamp": "2024-10-29 12:53:49",
       "event_type": "logic_completed",
       "node_id": "entry-3",
       "node_name": "Entry 3 -Barish",
@@ -1853,11 +1853,11 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251220_182631",
+        "order_id": "ENTRY_entry-3_20251224_070139",
         "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
         "side": "SELL",
         "quantity": 75,
-        "price": "275.50",
+        "price": 275.5,
         "order_type": "MARKET",
         "exchange": "NFO",
         "status": "COMPLETE"
@@ -1867,8 +1867,8 @@
         "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
         "side": "sell",
         "quantity": 1,
-        "entry_price": "275.50",
-        "entry_time": "2024-10-29T12:53:49+05:30",
+        "entry_price": 275.5,
+        "entry_time": "2024-10-29T12:53:49",
         "node_id": "entry-3"
       },
       "entry_config": {
@@ -1884,10 +1884,10 @@
         ]
       }
     },
-    "exec_exit-condition-4_20241029_130300_4b692c": {
-      "execution_id": "exec_exit-condition-4_20241029_130300_4b692c",
-      "parent_execution_id": "exec_entry-3_20241029_125349_b81f5e",
-      "timestamp": "2024-10-29 13:03:00+05:30",
+    "exec_exit-condition-4_20241029_130300_bebf4c": {
+      "execution_id": "exec_exit-condition-4_20241029_130300_bebf4c",
+      "parent_execution_id": "exec_entry-3_20241029_125349_4a115d",
+      "timestamp": "2024-10-29 13:03:00",
       "event_type": "logic_completed",
       "node_id": "exit-condition-4",
       "node_name": "Exit condition - SL",
@@ -1921,7 +1921,7 @@
             "lhs_value": 70.88970515955685,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 13:03:00+05:30",
+            "timestamp": "2024-10-29 13:03:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -1946,7 +1946,7 @@
             "lhs_value": 24338.6,
             "rhs_value": 24329.65,
             "operator": ">",
-            "timestamp": "2024-10-29 13:03:00+05:30",
+            "timestamp": "2024-10-29 13:03:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -1959,7 +1959,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 13:03:00+05:30",
+              "timestamp": "2024-10-29 13:03:00",
               "open": 24338.7,
               "high": 24339.05,
               "low": 24338.7,
@@ -1967,7 +1967,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 13:02:00+05:30",
+              "timestamp": "2024-10-29 13:02:00",
               "open": 24333.95,
               "high": 24341.35,
               "low": 24327.65,
@@ -1981,7 +1981,7 @@
         }
       },
       "exit_signal_data": {
-        "exit_signal_time": "2024-10-29 13:03:00+05:30",
+        "exit_signal_time": "2024-10-29 13:03:00",
         "exit_signal_price": 0,
         "exit_reason": "condition_met",
         "node_id": "exit-condition-4",
@@ -2044,10 +2044,10 @@
         }
       }
     },
-    "exec_exit-6_20241029_130300_fb66b0": {
-      "execution_id": "exec_exit-6_20241029_130300_fb66b0",
-      "parent_execution_id": "exec_exit-condition-4_20241029_130300_4b692c",
-      "timestamp": "2024-10-29 13:03:00+05:30",
+    "exec_exit-6_20241029_130300_9ceaee": {
+      "execution_id": "exec_exit-6_20241029_130300_9ceaee",
+      "parent_execution_id": "exec_exit-condition-4_20241029_130300_bebf4c",
+      "timestamp": "2024-10-29 13:03:00",
       "event_type": "logic_completed",
       "node_id": "exit-6",
       "node_name": "Exit 6 - SL",
@@ -2070,15 +2070,15 @@
           "symbol": "NIFTY:2024-11-07:OPT:24300:CE",
           "side": "sell",
           "quantity": 1,
-          "entry_price": "275.50",
-          "current_price": "275.50"
+          "entry_price": 275.5,
+          "current_price": 275.5
         }
       },
       "exit_result": {
         "positions_closed": 1,
-        "exit_price": "288.70",
-        "pnl": "-4485.00",
-        "exit_time": "2024-10-29 13:03:00+05:30"
+        "exit_price": 288.7,
+        "pnl": -4484.999999999998,
+        "exit_time": "2024-10-29 13:03:00"
       },
       "exit_config": {
         "target_position_vpi": "entry-3-pos1",
@@ -2092,10 +2092,10 @@
         "positions_closed": 4
       }
     },
-    "exec_re-entry-signal-4_20241029_130549_f4cc41": {
-      "execution_id": "exec_re-entry-signal-4_20241029_130549_f4cc41",
-      "parent_execution_id": "exec_exit-6_20241029_130300_fb66b0",
-      "timestamp": "2024-10-29 13:05:49+05:30",
+    "exec_re-entry-signal-4_20241029_130549_48531c": {
+      "execution_id": "exec_re-entry-signal-4_20241029_130549_48531c",
+      "parent_execution_id": "exec_exit-6_20241029_130300_9ceaee",
+      "timestamp": "2024-10-29 13:05:49",
       "event_type": "logic_completed",
       "node_id": "re-entry-signal-4",
       "node_name": "Re-Entry node - SL",
@@ -2128,7 +2128,7 @@
             "lhs_value": 73.39865662598233,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 13:05:49+05:30",
+            "timestamp": "2024-10-29 13:05:49",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -2153,7 +2153,7 @@
             "lhs_value": 24336.4,
             "rhs_value": 24337.8,
             "operator": "<",
-            "timestamp": "2024-10-29 13:05:49+05:30",
+            "timestamp": "2024-10-29 13:05:49",
             "tick_count": 13759,
             "result": true,
             "result_icon": "\u2713",
@@ -2167,7 +2167,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 13:05:00+05:30",
+              "timestamp": "2024-10-29 13:05:00",
               "open": 24344.5,
               "high": 24346.8,
               "low": 24336.4,
@@ -2175,7 +2175,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 13:04:00+05:30",
+              "timestamp": "2024-10-29 13:04:00",
               "open": 24338.4,
               "high": 24344.9,
               "low": 24337.8,
@@ -2211,10 +2211,10 @@
         }
       }
     },
-    "exec_entry-3_20241029_130550_555e21": {
-      "execution_id": "exec_entry-3_20241029_130550_555e21",
-      "parent_execution_id": "exec_re-entry-signal-4_20241029_130549_f4cc41",
-      "timestamp": "2024-10-29 13:05:50+05:30",
+    "exec_entry-3_20241029_130550_d38926": {
+      "execution_id": "exec_entry-3_20241029_130550_d38926",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_130549_48531c",
+      "timestamp": "2024-10-29 13:05:50",
       "event_type": "logic_completed",
       "node_id": "entry-3",
       "node_name": "Entry 3 -Barish",
@@ -2230,11 +2230,11 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251220_182631",
+        "order_id": "ENTRY_entry-3_20251224_070139",
         "symbol": "NIFTY:2024-11-07:OPT:24350:CE",
         "side": "SELL",
         "quantity": 75,
-        "price": "254.00",
+        "price": 254.0,
         "order_type": "MARKET",
         "exchange": "NFO",
         "status": "COMPLETE"
@@ -2244,8 +2244,8 @@
         "symbol": "NIFTY:2024-11-07:OPT:24350:CE",
         "side": "sell",
         "quantity": 1,
-        "entry_price": "254.00",
-        "entry_time": "2024-10-29T13:05:50+05:30",
+        "entry_price": 254.0,
+        "entry_time": "2024-10-29T13:05:50",
         "node_id": "entry-3"
       },
       "entry_config": {
@@ -2261,10 +2261,10 @@
         ]
       }
     },
-    "exec_exit-condition-4_20241029_140300_ee8d97": {
-      "execution_id": "exec_exit-condition-4_20241029_140300_ee8d97",
-      "parent_execution_id": "exec_entry-3_20241029_130550_555e21",
-      "timestamp": "2024-10-29 14:03:00+05:30",
+    "exec_exit-condition-4_20241029_140300_c23d7f": {
+      "execution_id": "exec_exit-condition-4_20241029_140300_c23d7f",
+      "parent_execution_id": "exec_entry-3_20241029_130550_d38926",
+      "timestamp": "2024-10-29 14:03:00",
       "event_type": "logic_completed",
       "node_id": "exit-condition-4",
       "node_name": "Exit condition - SL",
@@ -2298,7 +2298,7 @@
             "lhs_value": 77.13533234829717,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 14:03:00+05:30",
+            "timestamp": "2024-10-29 14:03:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -2323,7 +2323,7 @@
             "lhs_value": 24364.2,
             "rhs_value": 24344.9,
             "operator": ">",
-            "timestamp": "2024-10-29 14:03:00+05:30",
+            "timestamp": "2024-10-29 14:03:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -2336,7 +2336,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 14:03:00+05:30",
+              "timestamp": "2024-10-29 14:03:00",
               "open": 24365.35,
               "high": 24366.95,
               "low": 24365.35,
@@ -2344,7 +2344,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 14:02:00+05:30",
+              "timestamp": "2024-10-29 14:02:00",
               "open": 24334.35,
               "high": 24365.4,
               "low": 24332.7,
@@ -2358,7 +2358,7 @@
         }
       },
       "exit_signal_data": {
-        "exit_signal_time": "2024-10-29 14:03:00+05:30",
+        "exit_signal_time": "2024-10-29 14:03:00",
         "exit_signal_price": 0,
         "exit_reason": "condition_met",
         "node_id": "exit-condition-4",
@@ -2421,10 +2421,10 @@
         }
       }
     },
-    "exec_exit-6_20241029_140300_610ed1": {
-      "execution_id": "exec_exit-6_20241029_140300_610ed1",
-      "parent_execution_id": "exec_exit-condition-4_20241029_140300_ee8d97",
-      "timestamp": "2024-10-29 14:03:00+05:30",
+    "exec_exit-6_20241029_140300_41d07c": {
+      "execution_id": "exec_exit-6_20241029_140300_41d07c",
+      "parent_execution_id": "exec_exit-condition-4_20241029_140300_c23d7f",
+      "timestamp": "2024-10-29 14:03:00",
       "event_type": "logic_completed",
       "node_id": "exit-6",
       "node_name": "Exit 6 - SL",
@@ -2447,15 +2447,15 @@
           "symbol": "NIFTY:2024-11-07:OPT:24350:CE",
           "side": "sell",
           "quantity": 1,
-          "entry_price": "254.00",
-          "current_price": "254.00"
+          "entry_price": 254.0,
+          "current_price": 254.0
         }
       },
       "exit_result": {
         "positions_closed": 1,
-        "exit_price": "265.35",
-        "pnl": "-5336.25",
-        "exit_time": "2024-10-29 14:03:00+05:30"
+        "exit_price": 265.35,
+        "pnl": -5336.25,
+        "exit_time": "2024-10-29 14:03:00"
       },
       "exit_config": {
         "target_position_vpi": "entry-3-pos1",
@@ -2469,10 +2469,10 @@
         "positions_closed": 5
       }
     },
-    "exec_re-entry-signal-4_20241029_141324_f11322": {
-      "execution_id": "exec_re-entry-signal-4_20241029_141324_f11322",
-      "parent_execution_id": "exec_exit-6_20241029_140300_610ed1",
-      "timestamp": "2024-10-29 14:13:24+05:30",
+    "exec_re-entry-signal-4_20241029_141324_e16bf3": {
+      "execution_id": "exec_re-entry-signal-4_20241029_141324_e16bf3",
+      "parent_execution_id": "exec_exit-6_20241029_140300_41d07c",
+      "timestamp": "2024-10-29 14:13:24",
       "event_type": "logic_completed",
       "node_id": "re-entry-signal-4",
       "node_name": "Re-Entry node - SL",
@@ -2505,7 +2505,7 @@
             "lhs_value": 81.64310909451706,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 14:13:24+05:30",
+            "timestamp": "2024-10-29 14:13:24",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -2530,7 +2530,7 @@
             "lhs_value": 24408.1,
             "rhs_value": 24408.35,
             "operator": "<",
-            "timestamp": "2024-10-29 14:13:24+05:30",
+            "timestamp": "2024-10-29 14:13:24",
             "tick_count": 17779,
             "result": true,
             "result_icon": "\u2713",
@@ -2544,7 +2544,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 14:13:00+05:30",
+              "timestamp": "2024-10-29 14:13:00",
               "open": 24411.3,
               "high": 24417.95,
               "low": 24408.1,
@@ -2552,7 +2552,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 14:12:00+05:30",
+              "timestamp": "2024-10-29 14:12:00",
               "open": 24409.1,
               "high": 24414.2,
               "low": 24408.35,
@@ -2588,10 +2588,10 @@
         }
       }
     },
-    "exec_entry-3_20241029_141325_6dac7d": {
-      "execution_id": "exec_entry-3_20241029_141325_6dac7d",
-      "parent_execution_id": "exec_re-entry-signal-4_20241029_141324_f11322",
-      "timestamp": "2024-10-29 14:13:25+05:30",
+    "exec_entry-3_20241029_141325_0b9a1e": {
+      "execution_id": "exec_entry-3_20241029_141325_0b9a1e",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_141324_e16bf3",
+      "timestamp": "2024-10-29 14:13:25",
       "event_type": "logic_completed",
       "node_id": "entry-3",
       "node_name": "Entry 3 -Barish",
@@ -2607,11 +2607,11 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251220_182633",
+        "order_id": "ENTRY_entry-3_20251224_070141",
         "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
         "side": "SELL",
         "quantity": 75,
-        "price": "267.00",
+        "price": 267.0,
         "order_type": "MARKET",
         "exchange": "NFO",
         "status": "COMPLETE"
@@ -2621,8 +2621,8 @@
         "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
         "side": "sell",
         "quantity": 1,
-        "entry_price": "267.00",
-        "entry_time": "2024-10-29T14:13:25+05:30",
+        "entry_price": 267.0,
+        "entry_time": "2024-10-29T14:13:25",
         "node_id": "entry-3"
       },
       "entry_config": {
@@ -2638,10 +2638,10 @@
         ]
       }
     },
-    "exec_exit-condition-4_20241029_141500_364d3d": {
-      "execution_id": "exec_exit-condition-4_20241029_141500_364d3d",
-      "parent_execution_id": "exec_entry-3_20241029_141325_6dac7d",
-      "timestamp": "2024-10-29 14:15:00+05:30",
+    "exec_exit-condition-4_20241029_141500_b7a51e": {
+      "execution_id": "exec_exit-condition-4_20241029_141500_b7a51e",
+      "parent_execution_id": "exec_entry-3_20241029_141325_0b9a1e",
+      "timestamp": "2024-10-29 14:15:00",
       "event_type": "logic_completed",
       "node_id": "exit-condition-4",
       "node_name": "Exit condition - SL",
@@ -2675,7 +2675,7 @@
             "lhs_value": 82.88533335294804,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 14:15:00+05:30",
+            "timestamp": "2024-10-29 14:15:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -2700,7 +2700,7 @@
             "lhs_value": 24417.5,
             "rhs_value": 24414.2,
             "operator": ">",
-            "timestamp": "2024-10-29 14:15:00+05:30",
+            "timestamp": "2024-10-29 14:15:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -2713,7 +2713,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 14:15:00+05:30",
+              "timestamp": "2024-10-29 14:15:00",
               "open": 24417.0,
               "high": 24417.0,
               "low": 24416.7,
@@ -2721,7 +2721,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 14:14:00+05:30",
+              "timestamp": "2024-10-29 14:14:00",
               "open": 24409.15,
               "high": 24418.75,
               "low": 24409.15,
@@ -2735,7 +2735,7 @@
         }
       },
       "exit_signal_data": {
-        "exit_signal_time": "2024-10-29 14:15:00+05:30",
+        "exit_signal_time": "2024-10-29 14:15:00",
         "exit_signal_price": 0,
         "exit_reason": "condition_met",
         "node_id": "exit-condition-4",
@@ -2798,10 +2798,10 @@
         }
       }
     },
-    "exec_exit-6_20241029_141500_818e2f": {
-      "execution_id": "exec_exit-6_20241029_141500_818e2f",
-      "parent_execution_id": "exec_exit-condition-4_20241029_141500_364d3d",
-      "timestamp": "2024-10-29 14:15:00+05:30",
+    "exec_exit-6_20241029_141500_306442": {
+      "execution_id": "exec_exit-6_20241029_141500_306442",
+      "parent_execution_id": "exec_exit-condition-4_20241029_141500_b7a51e",
+      "timestamp": "2024-10-29 14:15:00",
       "event_type": "logic_completed",
       "node_id": "exit-6",
       "node_name": "Exit 6 - SL",
@@ -2824,15 +2824,15 @@
           "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
           "side": "sell",
           "quantity": 1,
-          "entry_price": "267.00",
-          "current_price": "267.00"
+          "entry_price": 267.0,
+          "current_price": 267.0
         }
       },
       "exit_result": {
         "positions_closed": 1,
-        "exit_price": "272.90",
-        "pnl": "-5778.75",
-        "exit_time": "2024-10-29 14:15:00+05:30"
+        "exit_price": 272.9,
+        "pnl": -5778.749999999998,
+        "exit_time": "2024-10-29 14:15:00"
       },
       "exit_config": {
         "target_position_vpi": "entry-3-pos1",
@@ -2846,10 +2846,10 @@
         "positions_closed": 6
       }
     },
-    "exec_re-entry-signal-4_20241029_141931_3828e1": {
-      "execution_id": "exec_re-entry-signal-4_20241029_141931_3828e1",
-      "parent_execution_id": "exec_exit-6_20241029_141500_818e2f",
-      "timestamp": "2024-10-29 14:19:31+05:30",
+    "exec_re-entry-signal-4_20241029_141931_807978": {
+      "execution_id": "exec_re-entry-signal-4_20241029_141931_807978",
+      "parent_execution_id": "exec_exit-6_20241029_141500_306442",
+      "timestamp": "2024-10-29 14:19:31",
       "event_type": "logic_completed",
       "node_id": "re-entry-signal-4",
       "node_name": "Re-Entry node - SL",
@@ -2882,7 +2882,7 @@
             "lhs_value": 84.60124326764722,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 14:19:31+05:30",
+            "timestamp": "2024-10-29 14:19:31",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -2907,7 +2907,7 @@
             "lhs_value": 24425.85,
             "rhs_value": 24428.55,
             "operator": "<",
-            "timestamp": "2024-10-29 14:19:31+05:30",
+            "timestamp": "2024-10-29 14:19:31",
             "tick_count": 18146,
             "result": true,
             "result_icon": "\u2713",
@@ -2921,7 +2921,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 14:19:00+05:30",
+              "timestamp": "2024-10-29 14:19:00",
               "open": 24437.45,
               "high": 24439.75,
               "low": 24425.85,
@@ -2929,7 +2929,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 14:18:00+05:30",
+              "timestamp": "2024-10-29 14:18:00",
               "open": 24428.85,
               "high": 24435.45,
               "low": 24428.55,
@@ -2965,10 +2965,10 @@
         }
       }
     },
-    "exec_entry-3_20241029_141932_31e026": {
-      "execution_id": "exec_entry-3_20241029_141932_31e026",
-      "parent_execution_id": "exec_re-entry-signal-4_20241029_141931_3828e1",
-      "timestamp": "2024-10-29 14:19:32+05:30",
+    "exec_entry-3_20241029_141932_b937f0": {
+      "execution_id": "exec_entry-3_20241029_141932_b937f0",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_141931_807978",
+      "timestamp": "2024-10-29 14:19:32",
       "event_type": "logic_completed",
       "node_id": "entry-3",
       "node_name": "Entry 3 -Barish",
@@ -2984,11 +2984,11 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251220_182633",
+        "order_id": "ENTRY_entry-3_20251224_070141",
         "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
         "side": "SELL",
         "quantity": 75,
-        "price": "276.00",
+        "price": 276.0,
         "order_type": "MARKET",
         "exchange": "NFO",
         "status": "COMPLETE"
@@ -2998,8 +2998,8 @@
         "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
         "side": "sell",
         "quantity": 1,
-        "entry_price": "276.00",
-        "entry_time": "2024-10-29T14:19:32+05:30",
+        "entry_price": 276.0,
+        "entry_time": "2024-10-29T14:19:32",
         "node_id": "entry-3"
       },
       "entry_config": {
@@ -3015,10 +3015,10 @@
         ]
       }
     },
-    "exec_exit-condition-4_20241029_150800_a08d28": {
-      "execution_id": "exec_exit-condition-4_20241029_150800_a08d28",
-      "parent_execution_id": "exec_entry-3_20241029_141932_31e026",
-      "timestamp": "2024-10-29 15:08:00+05:30",
+    "exec_exit-condition-4_20241029_150800_fd4c69": {
+      "execution_id": "exec_exit-condition-4_20241029_150800_fd4c69",
+      "parent_execution_id": "exec_entry-3_20241029_141932_b937f0",
+      "timestamp": "2024-10-29 15:08:00",
       "event_type": "logic_completed",
       "node_id": "exit-condition-4",
       "node_name": "Exit condition - SL",
@@ -3052,7 +3052,7 @@
             "lhs_value": 70.28633532372862,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 15:08:00+05:30",
+            "timestamp": "2024-10-29 15:08:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -3077,7 +3077,7 @@
             "lhs_value": 24481.1,
             "rhs_value": 24435.45,
             "operator": ">",
-            "timestamp": "2024-10-29 15:08:00+05:30",
+            "timestamp": "2024-10-29 15:08:00",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -3090,7 +3090,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 15:08:00+05:30",
+              "timestamp": "2024-10-29 15:08:00",
               "open": 24481.65,
               "high": 24481.65,
               "low": 24481.45,
@@ -3098,7 +3098,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 15:07:00+05:30",
+              "timestamp": "2024-10-29 15:07:00",
               "open": 24475.55,
               "high": 24484.3,
               "low": 24473.4,
@@ -3112,7 +3112,7 @@
         }
       },
       "exit_signal_data": {
-        "exit_signal_time": "2024-10-29 15:08:00+05:30",
+        "exit_signal_time": "2024-10-29 15:08:00",
         "exit_signal_price": 0,
         "exit_reason": "condition_met",
         "node_id": "exit-condition-4",
@@ -3175,10 +3175,10 @@
         }
       }
     },
-    "exec_exit-6_20241029_150800_266ee3": {
-      "execution_id": "exec_exit-6_20241029_150800_266ee3",
-      "parent_execution_id": "exec_exit-condition-4_20241029_150800_a08d28",
-      "timestamp": "2024-10-29 15:08:00+05:30",
+    "exec_exit-6_20241029_150800_a15c69": {
+      "execution_id": "exec_exit-6_20241029_150800_a15c69",
+      "parent_execution_id": "exec_exit-condition-4_20241029_150800_fd4c69",
+      "timestamp": "2024-10-29 15:08:00",
       "event_type": "logic_completed",
       "node_id": "exit-6",
       "node_name": "Exit 6 - SL",
@@ -3201,15 +3201,15 @@
           "symbol": "NIFTY:2024-11-07:OPT:24400:CE",
           "side": "sell",
           "quantity": 1,
-          "entry_price": "276.00",
-          "current_price": "276.00"
+          "entry_price": 276.0,
+          "current_price": 276.0
         }
       },
       "exit_result": {
         "positions_closed": 1,
-        "exit_price": "294.00",
-        "pnl": "-7128.75",
-        "exit_time": "2024-10-29 15:08:00+05:30"
+        "exit_price": 294.0,
+        "pnl": -7128.749999999998,
+        "exit_time": "2024-10-29 15:08:00"
       },
       "exit_config": {
         "target_position_vpi": "entry-3-pos1",
@@ -3223,10 +3223,10 @@
         "positions_closed": 7
       }
     },
-    "exec_re-entry-signal-4_20241029_150924_8cb5fc": {
-      "execution_id": "exec_re-entry-signal-4_20241029_150924_8cb5fc",
-      "parent_execution_id": "exec_exit-6_20241029_150800_266ee3",
-      "timestamp": "2024-10-29 15:09:24+05:30",
+    "exec_re-entry-signal-4_20241029_150924_f407cc": {
+      "execution_id": "exec_re-entry-signal-4_20241029_150924_f407cc",
+      "parent_execution_id": "exec_exit-6_20241029_150800_a15c69",
+      "timestamp": "2024-10-29 15:09:24",
       "event_type": "logic_completed",
       "node_id": "re-entry-signal-4",
       "node_name": "Re-Entry node - SL",
@@ -3259,7 +3259,7 @@
             "lhs_value": 71.04640280883702,
             "rhs_value": 70.0,
             "operator": ">",
-            "timestamp": "2024-10-29 15:09:24+05:30",
+            "timestamp": "2024-10-29 15:09:24",
             "condition_type": "non_live",
             "result": true,
             "result_icon": "\u2713",
@@ -3284,7 +3284,7 @@
             "lhs_value": 24478.95,
             "rhs_value": 24479.15,
             "operator": "<",
-            "timestamp": "2024-10-29 15:09:24+05:30",
+            "timestamp": "2024-10-29 15:09:24",
             "tick_count": 21115,
             "result": true,
             "result_icon": "\u2713",
@@ -3298,7 +3298,7 @@
         "candle_data": {
           "NIFTY": {
             "current": {
-              "timestamp": "2024-10-29 15:09:00+05:30",
+              "timestamp": "2024-10-29 15:09:00",
               "open": 24483.0,
               "high": 24483.3,
               "low": 24478.95,
@@ -3306,7 +3306,7 @@
               "volume": 0
             },
             "previous": {
-              "timestamp": "2024-10-29 15:08:00+05:30",
+              "timestamp": "2024-10-29 15:08:00",
               "open": 24481.65,
               "high": 24484.5,
               "low": 24479.15,
@@ -3342,10 +3342,10 @@
         }
       }
     },
-    "exec_entry-3_20241029_150925_0e98f4": {
-      "execution_id": "exec_entry-3_20241029_150925_0e98f4",
-      "parent_execution_id": "exec_re-entry-signal-4_20241029_150924_8cb5fc",
-      "timestamp": "2024-10-29 15:09:25+05:30",
+    "exec_entry-3_20241029_150925_1922ed": {
+      "execution_id": "exec_entry-3_20241029_150925_1922ed",
+      "parent_execution_id": "exec_re-entry-signal-4_20241029_150924_f407cc",
+      "timestamp": "2024-10-29 15:09:25",
       "event_type": "logic_completed",
       "node_id": "entry-3",
       "node_name": "Entry 3 -Barish",
@@ -3361,11 +3361,11 @@
       "action": {
         "type": "place_order",
         "action_type": "entry",
-        "order_id": "ENTRY_entry-3_20251220_182634",
+        "order_id": "ENTRY_entry-3_20251224_070143",
         "symbol": "NIFTY:2024-11-07:OPT:24500:CE",
         "side": "SELL",
         "quantity": 75,
-        "price": "234.35",
+        "price": 234.35,
         "order_type": "MARKET",
         "exchange": "NFO",
         "status": "COMPLETE"
@@ -3375,8 +3375,8 @@
         "symbol": "NIFTY:2024-11-07:OPT:24500:CE",
         "side": "sell",
         "quantity": 1,
-        "entry_price": "234.35",
-        "entry_time": "2024-10-29T15:09:25+05:30",
+        "entry_price": 234.35,
+        "entry_time": "2024-10-29T15:09:25",
         "node_id": "entry-3"
       },
       "entry_config": {
@@ -3392,10 +3392,10 @@
         ]
       }
     },
-    "exec_square-off-1_20241029_152500_508b7a": {
-      "execution_id": "exec_square-off-1_20241029_152500_508b7a",
-      "parent_execution_id": "exec_strategy-controller_20241029_091500_73da06",
-      "timestamp": "2024-10-29 15:25:00+05:30",
+    "exec_square-off-1_20241029_152500_bb5f25": {
+      "execution_id": "exec_square-off-1_20241029_152500_bb5f25",
+      "parent_execution_id": "exec_strategy-controller_20241029_091500_44711d",
+      "timestamp": "2024-10-29 15:25:00",
       "event_type": "logic_completed",
       "node_id": "square-off-1",
       "node_name": "Square off off",
@@ -3410,7 +3410,7 @@
         "exit_type": "time_based",
         "trigger_values": {
           "trigger_time": null,
-          "current_time": "2024-10-29 15:25:00+05:30",
+          "current_time": "2024-10-29 15:25:00",
           "time_type": "market_close",
           "exit_time_configured": "15:25:00"
         },
@@ -3439,7 +3439,7 @@
         }
       },
       "timestamp_info": {
-        "current_time": "2024-10-29 15:25:00+05:30",
+        "current_time": "2024-10-29 15:25:00",
         "strategy_symbol": "NIFTY"
       }
     }

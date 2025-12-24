@@ -38,7 +38,7 @@ from src.backtesting.backtest_config import BacktestConfig
 from src.backtesting.centralized_backtest_engine import CentralizedBacktestEngine
 
 
-def main():
+async def main():
     """
     Run backtest with production-ready centralized processor.
     """
@@ -48,11 +48,14 @@ def main():
     print("Using: CentralizedBacktestEngine (matches live trading)")
     print()
     
-    # Configuration
+    # Configuration - Test 2 strategies together
     config = BacktestConfig(
-        strategy_ids=['5708424d-5962-4629-978c-05b3a174e104'],  # List of strategy IDs
+        strategy_ids=[
+            '5708424d-5962-4629-978c-05b3a174e104',
+            'd70ec04a-1025-46c5-94c4-3e6bff499644'
+        ],
         backtest_date=datetime(2024, 10, 29),
-        debug_mode=None  # 'snapshots', 'breakpoint', or None
+        debug_mode=None
     )
     
     print(f"📅 Date: {config.backtest_date.date()}")
@@ -61,7 +64,7 @@ def main():
     
     # Run backtest
     engine = CentralizedBacktestEngine(config)
-    results = engine.run()
+    results = await engine.run()
     
     # Print results
     print()
@@ -77,4 +80,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    import asyncio
+    asyncio.run(main())

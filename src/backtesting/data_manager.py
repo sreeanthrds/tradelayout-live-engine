@@ -77,12 +77,6 @@ class DataManager:
         # Clickhouse client (will be initialized during initialize())
         self.clickhouse_client = None
         
-        # Candle builders per symbol (unified format)
-        self.candle_builders: Dict[str, Dict[str, Any]] = {}
-        
-        # LTP store
-        self.ltp_store: Dict[str, float] = {}
-        
         # Indicator key mappings: database_key → generated_key
         # Format: {"NIFTY:1m": {"rsi_1764509210372": "rsi(14,close)", ...}}
         self.indicator_key_mappings: Dict[str, Dict[str, str]] = {}
@@ -752,6 +746,9 @@ class DataManager:
         
         # 2. Initialize ClickHouse
         self._initialize_clickhouse()
+
+        if self.clickhouse_client is None:
+            logger.warning("   ⚠️  ClickHouse client not initialized; running in backtest-only mode (no ClickHouse queries)")
         
         # 3. Initialize option loader and pattern resolver
         self._initialize_option_components()
@@ -953,24 +950,35 @@ class DataManager:
                 password=ClickHouseConfig.PASSWORD,
                 secure=ClickHouseConfig.SECURE,
                 database=ClickHouseConfig.DATABASE,
-                server_host_name='UTC'  # Force UTC timezone - data is stored in UTC
             )
-            
-            # Test if required table exists
-            result = client.command("EXISTS TABLE nse_ohlcv_indices")
-            if result == 1:
-                self.clickhouse_client = client
-                logger.info("   ✅ ClickHouse client initialized with data tables")
-            else:
-                logger.warning("   ⚠️  ClickHouse connected but nse_ohlcv_indices table not found")
-                logger.warning("   ⚠️  Running in backtest-only mode (using pre-loaded data)")
-                self.clickhouse_client = None
+            self.clickhouse_client = client
+            try:
+                ohlcv_exists = client.command("EXISTS TABLE nse_ohlcv_indices")
+                ticks_exists = client.command("EXISTS TABLE nse_ticks_indices")
+                opt_ticks_exists = client.command("EXISTS TABLE nse_ticks_options")
+
+                if ohlcv_exists != 1:
+                    logger.warning("   ⚠️  ClickHouse connected but nse_ohlcv_indices table not found")
+                if ticks_exists != 1:
+                    logger.warning("   ⚠️  ClickHouse connected but nse_ticks_indices table not found")
+                if opt_ticks_exists != 1:
+                    logger.warning("   ⚠️  ClickHouse connected but nse_ticks_options table not found")
+
+                logger.info("   ✅ ClickHouse client initialized")
+            except Exception as e:
+                logger.warning(f"   ⚠️  ClickHouse table existence check failed: {e}")
                 
         except Exception as e:
             logger.warning(f"   ⚠️  ClickHouse connection failed: {e}")
             logger.warning("   ⚠️  Running in backtest-only mode (no live ClickHouse queries)")
             self.clickhouse_client = None
             # Backtesting with pre-loaded data will still work
+
+    def _require_clickhouse_client(self):
+        if self.clickhouse_client is None:
+            raise RuntimeError(
+                "ClickHouse client not initialized. Ensure ClickHouse is running and CLICKHOUSE_HOST/CLICKHOUSE_USER/CLICKHOUSE_PASSWORD/CLICKHOUSE_DATABASE are set."
+            )
     
     def _initialize_option_components(self):
         """Initialize lazy option loader and pattern resolver."""
@@ -1469,6 +1477,7 @@ class DataManager:
         Returns:
             List of tick dictionaries
         """
+        self._require_clickhouse_client()
         trading_day = date.strftime('%Y-%m-%d')
         logger.info(f"📥 Loading raw ticks from ClickHouse for {trading_day}...")
 
@@ -1526,6 +1535,7 @@ class DataManager:
         Returns:
             List of aggregated tick dictionaries (OHLC format)
         """
+        self._require_clickhouse_client()
         from src.config.clickhouse_config import ClickHouseConfig
         
         trading_day = date.strftime('%Y-%m-%d')
@@ -1601,6 +1611,7 @@ class DataManager:
         Returns:
             List of option tick dictionaries
         """
+        self._require_clickhouse_client()
         if not tickers:
             logger.info("ℹ️  load_option_ticks called with empty ticker list; returning []")
             return []
@@ -1662,6 +1673,7 @@ class DataManager:
         Returns:
             List of aggregated option tick dictionaries (one per symbol per second)
         """
+        self._require_clickhouse_client()
         if not tickers:
             logger.info("ℹ️  load_option_ticks_aggregated called with empty ticker list; returning []")
             return []

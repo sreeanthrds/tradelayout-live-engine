@@ -200,11 +200,15 @@ class CentralizedTickProcessor:
         if 'strategy_scale' in strategy_state:
             context['strategy_scale'] = strategy_state['strategy_scale']
         
+        # Add output_writer for JSONL event generation (if available)
+        if 'output_writer' in strategy_state:
+            context['output_writer'] = strategy_state['output_writer']
+        
         # Step 2: Reset visited flags (prepare for new node tree traversal)
         for node_id in strategy_state['node_states']:
             strategy_state['node_states'][node_id]['visited'] = False
         
-        # Step 3: Execute strategy (start node traverses entire tree)
+        # Step 4: Execute strategy (start node traverses entire tree)
         start_node = strategy_state.get('start_node')
         if not start_node:
             log_warning(f"⚠️ No start_node found for strategy {instance_id}")

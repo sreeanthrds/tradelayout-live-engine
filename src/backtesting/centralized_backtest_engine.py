@@ -18,6 +18,7 @@ from typing import Dict, Any, List
 from src.backtesting.backtest_engine import BacktestEngine
 from src.backtesting.backtest_config import BacktestConfig
 from src.backtesting.results_manager import BacktestResults
+from src.backtesting.strategy_output_writer import StrategyOutputWriter
 from src.core.cache_manager import CacheManager
 from src.core.centralized_tick_processor import CentralizedTickProcessor
 
@@ -65,6 +66,9 @@ class CentralizedBacktestEngine(BacktestEngine):
         # Centralized components
         self.cache_manager: CacheManager = None
         self.centralized_processor: CentralizedTickProcessor = None
+        
+        # Output writers for JSONL event generation (per strategy)
+        self.output_writers: Dict[str, StrategyOutputWriter] = {}
         
         # Live simulation support
         self.live_simulation_session = live_simulation_session
@@ -167,7 +171,26 @@ class CentralizedBacktestEngine(BacktestEngine):
         await self._process_ticks_centralized(ticks)
         end_time = datetime.now()
         
-        # Step 10: Finalize and return results
+        # Step 10: Flush all event writers (write diagnostics_export.json.gz and trades_daily.json.gz)
+        print("\n📝 Flushing event writers...")
+        active_strategies = self.centralized_processor.strategy_manager.get_active_strategies()
+        
+        for instance_id, output_writer in self.output_writers.items():
+            try:
+                # Get strategy context with node_events_history
+                strategy_state = active_strategies.get(instance_id)
+                if strategy_state and 'context' in strategy_state:
+                    context = strategy_state['context']
+                    output_writer.set_context(context)
+                
+                output_writer.flush_batch()
+                print(f"   ✅ {instance_id}: Events written to {output_writer.output_dir}")
+            except Exception as e:
+                logger.error(f"Failed to flush events for {instance_id}: {e}")
+                import traceback
+                logger.error(traceback.format_exc())
+        
+        # Step 11: Finalize and return results
         self._finalize()
         self.centralized_processor.print_status()
         
@@ -390,11 +413,28 @@ class CentralizedBacktestEngine(BacktestEngine):
         
         print(f"   ✅ Strategy subscribed: {instance_id}")
         
+        # Initialize StrategyOutputWriter for JSONL event generation
+        output_writer = StrategyOutputWriter(
+            user_id=strategy.user_id,
+            strategy_id=strategy.strategy_id,
+            broker_connection_id='backtest',
+            mode=self.mode,  # "backtest" or "live_simulation"
+            base_dir="backtest_data"
+        )
+        self.output_writers[instance_id] = output_writer
+        print(f"   ✅ Output writer initialized: {output_writer.output_dir}")
+        
         # Sync strategy immediately (simulating API call)
         success = self.centralized_processor.sync_single_strategy(instance_id)
         
         if success:
-            print(f"   ✅ Strategy synced immediately")
+            # Inject output_writer into strategy_state after sync
+            active_strategies = self.centralized_processor.strategy_manager.get_active_strategies()
+            if instance_id in active_strategies:
+                active_strategies[instance_id]['output_writer'] = output_writer
+                print(f"   ✅ Strategy synced immediately (with event writer)")
+            else:
+                print(f"   ⚠️  Strategy synced but not found in active strategies")
         else:
             print(f"   ❌ Strategy sync failed")
     

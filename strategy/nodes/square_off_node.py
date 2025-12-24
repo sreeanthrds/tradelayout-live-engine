@@ -225,6 +225,22 @@ class SquareOffNode(BaseNode):
                 # Use BaseNode helper to ensure reEntryNum is attached
                 self.close_position(context, position_id, exit_data)
                 closed_count += 1
+                
+                # Write SQUARE_OFF event to JSONL for each position
+                output_writer = context.get('output_writer')
+                if output_writer:
+                    output_writer.write_event({
+                        'event_type': 'SQUARE_OFF',
+                        'timestamp': context.get('current_timestamp').isoformat() if context.get('current_timestamp') else None,
+                        'node_id': self.id,
+                        'position_id': position_id,
+                        'symbol': position_symbol,
+                        'side': position.get('side'),
+                        'quantity': position.get('actual_quantity', position.get('quantity', 0)),
+                        'exit_price': exit_price,
+                        'reason': reason,
+                        're_entry_num': re_entry_num
+                    })
 
         # Step 3: Mark every node as Inactive
         node_states = context.get('node_states', {})

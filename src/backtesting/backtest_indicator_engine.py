@@ -76,6 +76,11 @@ class BacktestIndicatorEngine:
         timestamp = candle['timestamp']
         close = candle['close']
         
+        # DEBUG: Log first few callbacks
+        tick_count = candle.get('tick_count', 0)
+        if tick_count <= 5:
+            print(f"[BacktestIndicatorEngine] on_candle_complete called for {symbol}:{timeframe} at {timestamp}")
+        
         # Calculate all registered indicators for this symbol+timeframe
         for key, config in self.indicators.items():
             if config['symbol'] == symbol and config['timeframe'] == timeframe:

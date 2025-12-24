@@ -107,6 +107,9 @@ class ReEntrySignalNode(BaseNode):
             if max_re_entries == 0 or next_val <= max_re_entries:
                 self._set_node_state(context, {'reEntryNum': next_val})
                 log_info(f"ReEntrySignalNode {self.id}: reEntryNum incremented to {next_val} after conditions met")
+                
+                # Activate children (entry node)
+                self._activate_children(context)
             else:
                 log_warning(f"ReEntrySignalNode {self.id}: cannot increment reEntryNum beyond max {max_re_entries}")
         except Exception as e:

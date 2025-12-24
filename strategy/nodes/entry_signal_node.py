@@ -99,6 +99,13 @@ class EntrySignalNode(BaseNode):
         signal_emitted = self._evaluate_conditions(context)
 
         if signal_emitted:
+            # All conditions passed - trigger signal
+            self.signal_triggered = True
+            self.last_trigger_time = context.get('current_timestamp')
+            
+            # Activate children (entry node)
+            self._activate_children(context)
+
             # Signal triggered - calculate variables and mark as triggered
             log_info(f"🚨 SIGNAL TRIGGERED: {self.id} at {current_timestamp}, activating {len(self.children)} children")
 

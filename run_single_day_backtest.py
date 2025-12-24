@@ -21,8 +21,8 @@ from src.core.gps import GlobalPositionStore
 # Configuration
 STRATEGY_ID = '5708424d-5962-4629-978c-05b3a174e104'
 
-# Try multiple dates to find trades
-test_dates = ['2024-10-01', '2024-10-03', '2024-10-04', '2024-10-07', '2024-10-08']
+# Test date
+test_dates = ['2024-10-29']
 all_results = []
 
 for BACKTEST_DATE in test_dates:
@@ -165,9 +165,26 @@ config = BacktestConfig(
     debug_mode=None
 )
 
-# Run backtest
+# Run backtest (async engine - needs proper execution)
 engine = CentralizedBacktestEngine(config)
-results = engine.run()
+
+import asyncio
+import threading
+import concurrent.futures
+
+def run_engine_in_thread():
+    """Run async engine in a new event loop in separate thread"""
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        return loop.run_until_complete(engine.run())
+    finally:
+        loop.close()
+
+# Execute in thread pool
+with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+    future = executor.submit(run_engine_in_thread)
+    future.result()
 
 # Build flow chains from execution IDs
 def build_flow_chain(execution_id, events_history):
@@ -195,8 +212,26 @@ def build_flow_chain(execution_id, events_history):
     
     return list(reversed(chain))
 
-# Get diagnostics from engine context
-events_history = engine.context.get('node_events_history', {})
+# Get diagnostics from engine (same logic as show_dashboard_data.py)
+events_history = {}
+if hasattr(engine, 'centralized_processor') and engine.centralized_processor:
+    try:
+        active_strategies = engine.centralized_processor.strategy_manager.active_strategies
+        if active_strategies:
+            strategy_state = list(active_strategies.values())[0]
+            diagnostics = strategy_state.get('diagnostics')
+            if diagnostics:
+                events_history = diagnostics.get_all_events({
+                    'node_events_history': strategy_state.get('node_events_history', {})
+                })
+    except Exception as e:
+        print(f"Warning: Could not extract diagnostics: {e}")
+elif hasattr(engine, 'context_adapter'):
+    try:
+        diagnostics = engine.context_adapter.diagnostics
+        events_history = diagnostics.get_all_events({'node_events_history': engine.context_adapter.node_events_history})
+    except Exception as e:
+        print(f"Warning: Could not extract diagnostics: {e}")
 
 # Build flow chains for each position
 for position in dashboard_data['positions']:

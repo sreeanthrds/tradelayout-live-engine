@@ -25,22 +25,28 @@ class ContextAdapter:
     
     def __init__(
         self,
-        data_writer,
-        cache,
-        ltp_store,
-        persistence,
-        candle_builders=None
+        data_writer: Any,
+        cache: Any,
+        ltp_store: Dict[str, Any],
+        persistence: Any,
+        candle_builders: Optional[Dict] = None,
+        session_id: Optional[str] = None,
+        user_id: Optional[str] = None,
+        strategy_id: Optional[str] = None
     ):
         """
-        Initialize context adapter.
+        Initialize Context Adapter for multi-strategy execution.
         
         Args:
             data_writer: DataFrameWriter instance
-            cache: DictCache instance
-            ltp_store: InstrumentLTPStore instance
-            persistence: InMemoryPersistence instance
-            candle_builders: Dict of candle builders {timeframe: builder}
-        
+            cache: Cache instance (DictCache)
+            ltp_store: LTP store dictionary
+            persistence: Persistence layer
+            candle_builders: Candle builders dictionary
+            session_id: Session ID for SSE push (live simulation mode)
+            user_id: User ID for SSE push (live simulation mode)
+            strategy_id: Strategy ID for SSE push (live simulation mode)
+            
         Note:
             strategy_config is NOT stored here - each strategy creates its own
             via StartNode.execute() dynamically at runtime.
@@ -51,8 +57,14 @@ class ContextAdapter:
         self.persistence = persistence
         self.candle_builders = candle_builders or {}
         
+        # SSE identifiers (for live simulation)
+        self.session_id = session_id
+        self.user_id = user_id
+        self.strategy_id = strategy_id
+        
         # Initialize GPS
         self.gps = GlobalPositionStore()
+        self.gps.session_id = session_id  # Store reference in GPS for SSE push
         
         # ClickHouse client (will be set externally for F&O resolution)
         self.clickhouse_client = None
@@ -89,6 +101,11 @@ class ContextAdapter:
             # Mode
             'mode': 'backtesting',
             
+            # SSE identifiers (for live simulation)
+            'session_id': self.session_id,
+            'user_id': self.user_id,
+            'strategy_id': self.strategy_id,
+            
             # Candle DataFrames (unified key)
             'candle_df_dict': self._get_candle_df_dict(),
             
@@ -121,6 +138,10 @@ class ContextAdapter:
             'node_events_history': self.node_events_history,
             'node_current_state': self.node_current_state,
         }
+        
+        # Store context reference in GPS for SSE push (live simulation mode)
+        if self.session_id:
+            self.gps._context = context
         
         return context
     

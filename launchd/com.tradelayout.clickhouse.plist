@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.tradelayout.clickhouse</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/bin/bash</string>
+      <string>-lc</string>
+      <string>export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"; exec clickhouse server --config-file="$HOME/clickhouse_config/config.xml"</string>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/sreenathreddy/clickhouse_data/logs/launchd-clickhouse.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/sreenathreddy/clickhouse_data/logs/launchd-clickhouse.err.log</string>
+
+    <key>HardResourceLimits</key>
+    <dict>
+      <key>NumberOfFiles</key>
+      <integer>65536</integer>
+    </dict>
+
+    <key>SoftResourceLimits</key>
+    <dict>
+      <key>NumberOfFiles</key>
+      <integer>65536</integer>
+    </dict>
+  </dict>
+</plist>
