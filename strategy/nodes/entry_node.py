@@ -420,6 +420,13 @@ class EntryNode(BaseNode):
         strategy_scale = context.get('strategy_scale', 1.0)
         # Calculate actual quantity: quantity × multiplier × scale
         actual_qty = int(quantity * multiplier * strategy_scale)
+        
+        # Log quantity calculation for debugging
+        log_info(f"[EntryNode {self.id}] Quantity calculation:")
+        log_info(f"   Config quantity/lots: {quantity}")
+        log_info(f"   Multiplier: {multiplier}")
+        log_info(f"   Strategy scale: {strategy_scale}")
+        log_info(f"   Final actual_qty: {actual_qty}")
         position_type = position_config.get('positionType', 'sell')
         order_type = position_config.get('orderType', 'market')
         product_type = position_config.get('productType', 'intraday')

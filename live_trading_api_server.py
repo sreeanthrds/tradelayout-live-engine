@@ -6,7 +6,7 @@ Multi-strategy live trading system with broker connection management
 import json
 import os
 from datetime import datetime, timedelta
-from typing import Optional, Dict, Any, List
+from typing import Dict, List, Optional, Any
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Body, Query
@@ -359,10 +359,112 @@ async def get_session_diagnostics(session_id: str):
     return data
 
 
+@app.post("/api/v1/live/session/configure")
+async def configure_session(
+    session_id: str = Body(...),
+    strategy_id: str = Body(...),
+    broker_connection_id: str = Body(...),
+    scale: float = Body(1.0)
+):
+    """
+    Configure or update a session with strategy, broker connection, and scale.
+    This stores the configuration that will be used when starting SSE sessions.
+    
+    Request body:
+    {
+        "session_id": "my_session_1",
+        "strategy_id": "d70ec04a-1025-46c5-94c4-3e6bff499644",
+        "broker_connection_id": "acf98a95-1547-4a72-b824-3ce7068f05b4",
+        "scale": 2.0
+    }
+    """
+    # Validate broker connection exists
+    broker_conn = load_broker_connection(broker_connection_id)
+    if not broker_conn:
+        raise HTTPException(status_code=404, detail=f"Broker connection not found: {broker_connection_id}")
+    
+    # Store configuration (will be used when starting session)
+    session_config = {
+        "session_id": session_id,
+        "strategy_id": strategy_id,
+        "broker_connection_id": broker_connection_id,
+        "scale": scale,
+        "configured_at": datetime.now().isoformat()
+    }
+    
+    # Store in live_sessions dict for reference
+    if session_id not in live_sessions:
+        live_sessions[session_id] = {}
+    
+    live_sessions[session_id].update(session_config)
+    
+    return {
+        "success": True,
+        "session_id": session_id,
+        "configuration": session_config
+    }
+
+
+@app.get("/api/v1/live/session/{session_id}/configuration")
+async def get_session_configuration(session_id: str):
+    """
+    Get the configuration for a specific session.
+    
+    Returns the session configuration including strategy_id, broker_connection_id, and scale.
+    """
+    if session_id not in live_sessions:
+        raise HTTPException(status_code=404, detail=f"Session '{session_id}' not found")
+    
+    session = live_sessions[session_id]
+    
+    return {
+        "session_id": session_id,
+        "configuration": {
+            "strategy_id": session.get("strategy_id"),
+            "broker_connection_id": session.get("broker_connection_id"),
+            "scale": session.get("scale", 1.0),
+            "configured_at": session.get("configured_at"),
+            "status": session.get("status", "not_started")
+        }
+    }
+
+
+@app.get("/api/v1/live/sessions/configurations")
+async def get_all_configurations(user_id: Optional[str] = Query(None)):
+    """
+    Get all session configurations, optionally filtered by user_id.
+    
+    Returns:
+        List of all session configurations with their scale settings.
+    """
+    all_configs = []
+    
+    for session_id, session_data in live_sessions.items():
+        # Filter by user_id if provided
+        if user_id and session_data.get("user_id") != user_id:
+            continue
+        
+        all_configs.append({
+            "session_id": session_id,
+            "user_id": session_data.get("user_id"),
+            "strategy_id": session_data.get("strategy_id"),
+            "broker_connection_id": session_data.get("broker_connection_id"),
+            "scale": session_data.get("scale", 1.0),
+            "status": session_data.get("status", "not_started"),
+            "configured_at": session_data.get("configured_at"),
+            "created_at": session_data.get("created_at")
+        })
+    
+    return {
+        "configurations": all_configs,
+        "total": len(all_configs)
+    }
+
+
 @app.post("/api/v1/live/session/start-sse")
 async def start_sse_session(
     user_id: str = Body(...),
-    sessions: Dict[str, Dict[str, str]] = Body(...)
+    sessions: Dict[str, Dict[str, Any]] = Body(...)
 ):
     """
     Start SSE-enabled live simulation sessions.
@@ -373,11 +475,13 @@ async def start_sse_session(
         "sessions": {
             "session_id_1": {
                 "strategy_id": "5708424d-...",
-                "broker_connection_id": "conn_123"
+                "broker_connection_id": "conn_123",
+                "scale": 2.0  // Optional, defaults to 1.0
             },
             "session_id_2": {
                 "strategy_id": "d70ec04a-...",
-                "broker_connection_id": "conn_456"
+                "broker_connection_id": "conn_456",
+                "scale": 1.5
             }
         }
     }
@@ -396,12 +500,21 @@ async def start_sse_session(
                 })
                 continue
             
+            # Get broker metadata and merge with scale from request
+            broker_metadata = broker_conn.get("broker_metadata", {}).copy()
+            
+            # Override scale with value from request if provided
+            if "scale" in session_config:
+                broker_metadata["scale"] = float(session_config["scale"])
+            elif "scale" not in broker_metadata:
+                broker_metadata["scale"] = 1.0  # Default scale
+            
             # Create session
             session_metadata = live_session_manager.create_session(
                 user_id=user_id,
                 strategy_id=session_config["strategy_id"],
                 broker_connection_id=session_config["broker_connection_id"],
-                broker_metadata=broker_conn.get("broker_metadata", {}),
+                broker_metadata=broker_metadata,
                 session_id=session_id
             )
             
