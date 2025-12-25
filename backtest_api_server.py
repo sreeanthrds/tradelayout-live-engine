@@ -238,6 +238,110 @@ async def validate_ready(request: ValidateReadyRequest):
         "missing": []
     }
 
+@app.post("/api/queue/execute")
+async def execute_queue(queue_type: str, trigger_type: str):
+    """
+    Execute all strategies in the queue.
+    Starts all queued strategies that match the queue_type.
+    
+    Query params:
+        queue_type: Queue type (e.g., 'admin_tester')
+        trigger_type: Trigger type (e.g., 'manual')
+    
+    Returns list of started sessions.
+    """
+    import requests
+    
+    started = []
+    errors = []
+    
+    # Get execution queue
+    if not hasattr(app.state, 'execution_queue'):
+        return {
+            "success": False,
+            "message": "No strategies in queue",
+            "started": [],
+            "errors": [],
+            "total_started": 0
+        }
+    
+    queue = app.state.execution_queue
+    
+    # Filter by queue_type and status
+    to_execute = [
+        (session_id, session_data) 
+        for session_id, session_data in queue.items()
+        if session_data.get('queue_type') == queue_type 
+        and session_data.get('status') == 'queued'
+        and session_data.get('in_execution') == True
+    ]
+    
+    if not to_execute:
+        return {
+            "success": False,
+            "message": f"No queued strategies found for queue_type: {queue_type}",
+            "started": [],
+            "errors": [],
+            "total_started": 0
+        }
+    
+    # Start each session by calling live trading API
+    for session_id, session_data in to_execute:
+        try:
+            # Prepare session config for live trading API
+            session_config = {
+                session_id: {
+                    "strategy_id": session_data['strategy_id'],
+                    "broker_connection_id": session_data['broker_connection_id'],
+                    "scale": session_data.get('scale', 1.0)
+                }
+            }
+            
+            # Call live trading API to start session
+            response = requests.post(
+                'http://localhost:8001/api/v1/live/session/start-sse',
+                json={
+                    "user_id": session_data['user_id'],
+                    "sessions": session_config
+                },
+                timeout=10
+            )
+            
+            if response.status_code == 200:
+                # Update queue status
+                session_data['status'] = 'running'
+                session_data['started_at'] = datetime.now().isoformat()
+                
+                started.append({
+                    "session_id": session_id,
+                    "strategy_id": session_data['strategy_id'],
+                    "strategy_name": session_data.get('strategy_name'),
+                    "broker_name": session_data.get('broker_name'),
+                    "scale": session_data.get('scale', 1.0),
+                    "status": "running"
+                })
+            else:
+                errors.append({
+                    "session_id": session_id,
+                    "error": f"Failed to start: {response.status_code}"
+                })
+        
+        except Exception as e:
+            errors.append({
+                "session_id": session_id,
+                "error": str(e)
+            })
+    
+    return {
+        "success": len(started) > 0,
+        "message": f"Started {len(started)} sessions",
+        "started": started,
+        "errors": errors,
+        "total_started": len(started),
+        "total_errors": len(errors),
+        "trigger_type": trigger_type
+    }
+
 @app.post("/api/queue/submit")
 async def submit_to_queue(request: QueueSubmitRequest, user_id: str, queue_type: str):
     """
