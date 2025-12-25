@@ -304,6 +304,109 @@ async def check_session_status(
         "message": f"No session found for strategy {strategy_id}"
     }
 
+@app.get("/api/live-trading/session-status/{user_id}/{strategy_id}/{broker_connection_id}")
+async def get_session_status_path(
+    user_id: str,
+    strategy_id: str,
+    broker_connection_id: str
+):
+    """
+    Alternative endpoint with path parameters (UI preference).
+    Same as /api/live-trading/session/check but with path params instead of query params.
+    """
+    # Reuse the logic from check_session_status
+    session_id = f"{user_id}_{strategy_id}_{broker_connection_id}"
+    
+    if not hasattr(app.state, 'execution_queue'):
+        return {
+            "found": False,
+            "message": "No sessions in queue"
+        }
+    
+    queue = app.state.execution_queue
+    
+    if session_id in queue:
+        session_data = queue[session_id]
+        
+        live_status = None
+        if session_data.get('status') == 'running':
+            try:
+                import requests
+                response = requests.get(
+                    f'http://localhost:8001/api/v1/live/session/{session_id}/status',
+                    timeout=2
+                )
+                if response.status_code == 200:
+                    live_status = response.json()
+            except:
+                pass
+        
+        return {
+            "found": True,
+            "session_id": session_id,
+            "status": session_data.get('status'),
+            "strategy_id": session_data.get('strategy_id'),
+            "strategy_name": session_data.get('strategy_name'),
+            "broker_name": session_data.get('broker_name'),
+            "scale": session_data.get('scale', 1.0),
+            "submitted_at": session_data.get('submitted_at'),
+            "started_at": session_data.get('started_at'),
+            "queue_type": session_data.get('queue_type'),
+            "live_status": live_status
+        }
+    
+    return {
+        "found": False,
+        "message": f"No session found for strategy {strategy_id}"
+    }
+
+@app.get("/api/queue/status/{queue_type}")
+async def get_queue_status(queue_type: str):
+    """
+    Get status of all sessions in a specific queue.
+    
+    Path params:
+        queue_type: Queue type (e.g., 'admin_tester')
+    
+    Returns list of sessions and counts.
+    """
+    if not hasattr(app.state, 'execution_queue'):
+        return {
+            "queue_type": queue_type,
+            "sessions": [],
+            "total": 0,
+            "queued": 0,
+            "running": 0
+        }
+    
+    queue = app.state.execution_queue
+    queue_sessions = [
+        {
+            "session_id": session_id,
+            "user_id": data.get('user_id'),
+            "strategy_id": data.get('strategy_id'),
+            "strategy_name": data.get('strategy_name'),
+            "broker_name": data.get('broker_name'),
+            "status": data.get('status'),
+            "scale": data.get('scale', 1.0),
+            "submitted_at": data.get('submitted_at'),
+            "started_at": data.get('started_at')
+        }
+        for session_id, data in queue.items()
+        if data.get('queue_type') == queue_type
+    ]
+    
+    queued_count = sum(1 for s in queue_sessions if s['status'] == 'queued')
+    running_count = sum(1 for s in queue_sessions if s['status'] == 'running')
+    
+    return {
+        "queue_type": queue_type,
+        "sessions": queue_sessions,
+        "total": len(queue_sessions),
+        "queued": queued_count,
+        "running": running_count
+    }
+
 @app.get("/api/live-trading/stream/{user_id}")
 async def stream_user_sessions(user_id: str):
     """
