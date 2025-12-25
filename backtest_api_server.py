@@ -147,6 +147,16 @@ class ValidateReadyRequest(BaseModel):
     strategy_id: str
     broker_connection_id: Optional[str] = None
 
+class StrategyQueueItem(BaseModel):
+    """Individual strategy in queue submission"""
+    strategy_id: str
+    broker_connection_id: str
+    scale: Optional[float] = 1.0
+
+class QueueSubmitRequest(BaseModel):
+    """Request model for queue submission"""
+    strategies: List[StrategyQueueItem]
+
 # ============================================================================
 # BASIC ENDPOINTS
 # ============================================================================
@@ -226,6 +236,106 @@ async def validate_ready(request: ValidateReadyRequest):
         "ready": True,
         "message": "Strategy is ready to start",
         "missing": []
+    }
+
+@app.post("/api/queue/submit")
+async def submit_to_queue(request: QueueSubmitRequest, user_id: str, queue_type: str):
+    """
+    Submit strategies to execution queue.
+    This endpoint adds strategies to the execution dictionary for later execution.
+    
+    Query params:
+        user_id: User ID
+        queue_type: Queue type (e.g., 'admin_tester')
+    
+    Request body:
+    {
+        "strategies": [
+            {
+                "strategy_id": "d70ec04a-...",
+                "broker_connection_id": "acf98a95-...",
+                "scale": 1.0
+            }
+        ]
+    }
+    """
+    submitted = []
+    errors = []
+    
+    for strategy_item in request.strategies:
+        try:
+            # Validate strategy exists
+            strategy_response = supabase.table('strategies').select('*').eq('id', strategy_item.strategy_id).execute()
+            if not strategy_response.data or len(strategy_response.data) == 0:
+                errors.append({
+                    "strategy_id": strategy_item.strategy_id,
+                    "error": "Strategy not found"
+                })
+                continue
+            
+            strategy_data = strategy_response.data[0]
+            
+            # Validate broker connection exists
+            broker_response = supabase.table('broker_connections').select('*').eq('id', strategy_item.broker_connection_id).execute()
+            if not broker_response.data or len(broker_response.data) == 0:
+                errors.append({
+                    "strategy_id": strategy_item.strategy_id,
+                    "error": "Broker connection not found"
+                })
+                continue
+            
+            broker_data = broker_response.data[0]
+            
+            # Generate session ID
+            session_id = f"{user_id}_{strategy_item.strategy_id}_{strategy_item.broker_connection_id}"
+            
+            # Add to execution queue (in-memory dict for now)
+            # In production, this would go to Redis or database
+            queue_entry = {
+                "session_id": session_id,
+                "user_id": user_id,
+                "strategy_id": strategy_item.strategy_id,
+                "strategy_name": strategy_data.get('name', 'Unknown'),
+                "broker_connection_id": strategy_item.broker_connection_id,
+                "broker_name": broker_data.get('broker_name', 'Unknown'),
+                "scale": strategy_item.scale or 1.0,
+                "queue_type": queue_type,
+                "status": "queued",
+                "in_execution": True,
+                "submitted_at": datetime.now().isoformat(),
+                "broker_metadata": {
+                    "scale": strategy_item.scale or 1.0
+                }
+            }
+            
+            # Store in in-memory dict (would be Redis in production)
+            if not hasattr(app.state, 'execution_queue'):
+                app.state.execution_queue = {}
+            
+            app.state.execution_queue[session_id] = queue_entry
+            
+            submitted.append({
+                "session_id": session_id,
+                "strategy_id": strategy_item.strategy_id,
+                "strategy_name": strategy_data.get('name'),
+                "broker_name": broker_data.get('broker_name'),
+                "scale": strategy_item.scale or 1.0,
+                "status": "queued"
+            })
+            
+        except Exception as e:
+            errors.append({
+                "strategy_id": strategy_item.strategy_id,
+                "error": str(e)
+            })
+    
+    return {
+        "success": len(submitted) > 0,
+        "message": f"Submitted {len(submitted)} strategies to queue",
+        "submitted": submitted,
+        "errors": errors,
+        "total_submitted": len(submitted),
+        "total_errors": len(errors)
     }
 
 # ============================================================================
