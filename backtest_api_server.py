@@ -6,7 +6,7 @@ Clean version with all live trading code removed
 import os
 import sys
 import asyncio
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import StreamingResponse, FileResponse
@@ -406,6 +406,188 @@ async def get_queue_status(queue_type: str):
         "queued": queued_count,
         "running": running_count
     }
+
+@app.get("/api/simple/live/initial-state/{user_id}/{strategy_id}")
+async def get_live_initial_state(
+    user_id: str,
+    strategy_id: str,
+    backtest_date: Optional[str] = Query(None),
+    broker_connection_id: Optional[str] = Query(None)
+):
+    """
+    Get initial state for live trading session.
+    Returns initial data in backtest-compatible format.
+    """
+    import requests
+    
+    # Find session for this strategy
+    if not hasattr(app.state, 'execution_queue'):
+        return {
+            "trades": [],
+            "events_history": {},
+            "summary": {
+                "total_trades": 0,
+                "total_pnl": "0.00",
+                "winning_trades": 0,
+                "losing_trades": 0,
+                "win_rate": "0.0"
+            },
+            "ltp_store": {},
+            "positions": [],
+            "status": "not_found"
+        }
+    
+    queue = app.state.execution_queue
+    
+    # Find matching session
+    session_id = None
+    for sid, sdata in queue.items():
+        if sdata.get('user_id') == user_id and sdata.get('strategy_id') == strategy_id:
+            session_id = sid
+            break
+    
+    if not session_id:
+        return {
+            "trades": [],
+            "events_history": {},
+            "summary": {
+                "total_trades": 0,
+                "total_pnl": "0.00",
+                "winning_trades": 0,
+                "losing_trades": 0,
+                "win_rate": "0.0"
+            },
+            "ltp_store": {},
+            "positions": [],
+            "status": "not_found"
+        }
+    
+    # Fetch initial data from live trading API
+    try:
+        # Get trades
+        trades_resp = requests.get(
+            f'http://localhost:8001/api/v1/live/session/{session_id}/trades',
+            timeout=2
+        )
+        
+        # Get diagnostics
+        diag_resp = requests.get(
+            f'http://localhost:8001/api/v1/live/session/{session_id}/diagnostics',
+            timeout=2
+        )
+        
+        trades_data = trades_resp.json() if trades_resp.status_code == 200 else {}
+        diag_data = diag_resp.json() if diag_resp.status_code == 200 else {}
+        
+        return {
+            "trades": trades_data.get('trades', []),
+            "events_history": diag_data.get('events_history', {}),
+            "summary": trades_data.get('summary', {
+                "total_trades": 0,
+                "total_pnl": "0.00",
+                "winning_trades": 0,
+                "losing_trades": 0,
+                "win_rate": "0.0"
+            }),
+            "ltp_store": {},
+            "positions": [],
+            "status": "running",
+            "session_id": session_id
+        }
+    except Exception as e:
+        return {
+            "trades": [],
+            "events_history": {},
+            "summary": {
+                "total_trades": 0,
+                "total_pnl": "0.00",
+                "winning_trades": 0,
+                "losing_trades": 0,
+                "win_rate": "0.0"
+            },
+            "ltp_store": {},
+            "positions": [],
+            "status": "error",
+            "error": str(e)
+        }
+
+@app.get("/api/simple/live/stream/{session_id}")
+async def stream_live_session(session_id: str):
+    """
+    SSE stream for a specific live trading session.
+    Matches backtest stream format for UI compatibility.
+    """
+    import asyncio
+    import requests
+    import sseclient
+    
+    async def event_generator():
+        """Generate SSE events matching backtest format"""
+        try:
+            while True:
+                try:
+                    # Connect to live trading API stream
+                    response = requests.get(
+                        f'http://localhost:8001/api/v1/live/session/{session_id}/stream',
+                        stream=True,
+                        timeout=3
+                    )
+                    
+                    if response.status_code == 200:
+                        client = sseclient.SSEClient(response)
+                        for event in client.events():
+                            if event.event == 'data':
+                                live_data = json.loads(event.data)
+                                
+                                # Transform to backtest format
+                                transformed = {
+                                    "accumulated": {
+                                        "trades": live_data.get('accumulated', {}).get('trades', []),
+                                        "events_history": live_data.get('accumulated', {}).get('events_history', {}),
+                                        "summary": live_data.get('accumulated', {}).get('summary', {})
+                                    },
+                                    "current_time": live_data.get('current_time'),
+                                    "status": live_data.get('status', 'running'),
+                                    "ltp_store": live_data.get('ltp_updates', {}),
+                                    "positions": live_data.get('position_updates', [])
+                                }
+                                
+                                yield {
+                                    "event": "data",
+                                    "data": json.dumps(transformed, default=str)
+                                }
+                            
+                            elif event.event == 'completed':
+                                yield {
+                                    "event": "completed",
+                                    "data": event.data
+                                }
+                                return
+                            
+                            # Only process first event per cycle
+                            break
+                        
+                        # Close stream
+                        try:
+                            response.close()
+                        except:
+                            pass
+                    
+                    # Wait before next poll
+                    await asyncio.sleep(2)
+                    
+                except Exception as e:
+                    # Send error event
+                    yield {
+                        "event": "error",
+                        "data": json.dumps({"error": str(e)})
+                    }
+                    await asyncio.sleep(2)
+                    
+        except asyncio.CancelledError:
+            pass
+    
+    return EventSourceResponse(event_generator())
 
 @app.get("/api/live-trading/stream/{user_id}")
 async def stream_user_sessions(user_id: str):
