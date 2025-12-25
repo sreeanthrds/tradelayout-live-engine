@@ -481,16 +481,74 @@ async def stream_user_sessions(user_id: str):
                     # Try to get live data from live trading API if running
                     if session_data.get('status') == 'running':
                         try:
-                            # Get session status from live trading API
+                            # Fetch from live trading API on port 8001
+                            # Try to get a single SSE event to get current state
+                            import sseclient
+                            from io import BytesIO
+                            
                             response = requests.get(
-                                f'http://localhost:8001/api/v1/live/session/{session_id}/status',
-                                timeout=2
+                                f'http://localhost:8001/api/v1/live/session/{session_id}/stream',
+                                stream=True,
+                                timeout=3
                             )
+                            
                             if response.status_code == 200:
-                                live_status = response.json()
-                                session_info['live_status'] = live_status
-                        except:
-                            pass
+                                # Read first event from SSE stream
+                                client = sseclient.SSEClient(response)
+                                for event in client.events():
+                                    if event.event == 'data':
+                                        live_data = json.loads(event.data)
+                                        
+                                        # Extract relevant data
+                                        session_info['live_data'] = {
+                                            'trades': live_data.get('accumulated', {}).get('trades', []),
+                                            'events_history': live_data.get('accumulated', {}).get('events_history', {}),
+                                            'summary': live_data.get('accumulated', {}).get('summary', {}),
+                                            'ltp_store': live_data.get('ltp_updates', {}),
+                                            'positions': live_data.get('position_updates', []),
+                                            'current_time': live_data.get('current_time'),
+                                            'status': live_data.get('status')
+                                        }
+                                        break
+                                    
+                                    # Only read first event
+                                    break
+                                
+                                # Close the stream
+                                try:
+                                    response.close()
+                                except:
+                                    pass
+                        except Exception as e:
+                            # Fallback: try to construct from separate endpoints
+                            try:
+                                # Get trades
+                                trades_resp = requests.get(
+                                    f'http://localhost:8001/api/v1/live/session/{session_id}/trades',
+                                    timeout=1
+                                )
+                                
+                                # Get diagnostics (events)
+                                events_resp = requests.get(
+                                    f'http://localhost:8001/api/v1/live/session/{session_id}/diagnostics',
+                                    timeout=1
+                                )
+                                
+                                if trades_resp.status_code == 200:
+                                    trades_data = trades_resp.json()
+                                    events_data = events_resp.json() if events_resp.status_code == 200 else {}
+                                    
+                                    session_info['live_data'] = {
+                                        'trades': trades_data.get('trades', []),
+                                        'summary': trades_data.get('summary', {}),
+                                        'events_history': events_data.get('events_history', {}),
+                                        'ltp_store': {},  # Not available from REST endpoints
+                                        'positions': [],
+                                        'current_time': None,
+                                        'status': 'running'
+                                    }
+                            except:
+                                pass
                         
                         aggregated_data['running_count'] += 1
                     else:
