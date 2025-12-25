@@ -238,6 +238,112 @@ async def validate_ready(request: ValidateReadyRequest):
         "missing": []
     }
 
+@app.get("/api/live-trading/stream/{user_id}")
+async def stream_user_sessions(user_id: str):
+    """
+    SSE stream for all of a user's live trading sessions.
+    Aggregates data from all running sessions and streams updates.
+    
+    Path params:
+        user_id: User ID
+    """
+    import asyncio
+    import requests
+    
+    async def event_generator():
+        """Generate SSE events for all user sessions"""
+        try:
+            while True:
+                # Get all sessions for this user from execution queue
+                if not hasattr(app.state, 'execution_queue'):
+                    yield {
+                        "event": "status",
+                        "data": json.dumps({
+                            "message": "No active sessions",
+                            "user_id": user_id,
+                            "sessions": []
+                        })
+                    }
+                    await asyncio.sleep(2)
+                    continue
+                
+                queue = app.state.execution_queue
+                user_sessions = [
+                    (session_id, session_data)
+                    for session_id, session_data in queue.items()
+                    if session_data.get('user_id') == user_id
+                    and session_data.get('status') in ['queued', 'running']
+                ]
+                
+                if not user_sessions:
+                    yield {
+                        "event": "status",
+                        "data": json.dumps({
+                            "message": "No active sessions",
+                            "user_id": user_id,
+                            "sessions": []
+                        })
+                    }
+                    await asyncio.sleep(2)
+                    continue
+                
+                # Aggregate session data
+                aggregated_data = {
+                    "user_id": user_id,
+                    "timestamp": datetime.now().isoformat(),
+                    "sessions": [],
+                    "total_sessions": len(user_sessions),
+                    "running_count": 0,
+                    "queued_count": 0
+                }
+                
+                for session_id, session_data in user_sessions:
+                    session_info = {
+                        "session_id": session_id,
+                        "strategy_id": session_data.get('strategy_id'),
+                        "strategy_name": session_data.get('strategy_name'),
+                        "broker_name": session_data.get('broker_name'),
+                        "status": session_data.get('status'),
+                        "scale": session_data.get('scale', 1.0),
+                        "submitted_at": session_data.get('submitted_at'),
+                        "started_at": session_data.get('started_at')
+                    }
+                    
+                    # Try to get live data from live trading API if running
+                    if session_data.get('status') == 'running':
+                        try:
+                            # Get session status from live trading API
+                            response = requests.get(
+                                f'http://localhost:8001/api/v1/live/session/{session_id}/status',
+                                timeout=2
+                            )
+                            if response.status_code == 200:
+                                live_status = response.json()
+                                session_info['live_status'] = live_status
+                        except:
+                            pass
+                        
+                        aggregated_data['running_count'] += 1
+                    else:
+                        aggregated_data['queued_count'] += 1
+                    
+                    aggregated_data['sessions'].append(session_info)
+                
+                # Send aggregated update
+                yield {
+                    "event": "data",
+                    "data": json.dumps(aggregated_data, default=str)
+                }
+                
+                # Update every 2 seconds
+                await asyncio.sleep(2)
+                
+        except asyncio.CancelledError:
+            # Client disconnected
+            pass
+    
+    return EventSourceResponse(event_generator())
+
 @app.post("/api/queue/execute")
 async def execute_queue(queue_type: str, trigger_type: str):
     """
