@@ -39,12 +39,25 @@ class SSESession:
         self.ltp_snapshots = deque(maxlen=max_queue_size)  # LTP store snapshots
         self.candle_updates = deque(maxlen=max_queue_size)  # Candle completions
         
-        # Sequence counters (for client-side ordering)
+        # Sequence counters (for client-side ordering and catchup)
         self.node_seq = 0
         self.trade_seq = 0
         self.position_seq = 0
         self.ltp_seq = 0
         self.candle_seq = 0
+        self.global_seq = 0  # Global sequence for catchup_id
+        
+        # Accumulated state (for UI backtest-format compatibility)
+        self.accumulated_trades = []  # All closed trades
+        self.accumulated_events_history = {}  # All node execution events
+        self.current_summary = {  # Current summary stats
+            'total_trades': 0,
+            'total_pnl': '0.00',
+            'winning_trades': 0,
+            'losing_trades': 0,
+            'win_rate': '0.0'
+        }
+        self.current_time = None  # Current backtest time
         
         # Lock for thread safety
         self._lock = threading.Lock()
@@ -52,6 +65,7 @@ class SSESession:
         # Session metadata
         self.created_at = datetime.now()
         self.last_activity = datetime.now()
+        self.status = 'running'  # running | completed | error
     
     def add_node_event(self, execution_id: str, event_data: Dict[str, Any]):
         """
@@ -63,9 +77,17 @@ class SSESession:
         """
         with self._lock:
             self.node_seq += 1
+            self.global_seq += 1
+            
+            # Add to accumulated events_history (UI format)
+            self.accumulated_events_history[execution_id] = event_data
+            
+            # Add to event queue
             self.node_events.append({
                 'seq': self.node_seq,
                 'event_type': 'node_event',
+                'session_id': self.session_id,
+                'catchup_id': f"evt_{self.global_seq:06d}",
                 'execution_id': execution_id,
                 'timestamp': datetime.now().isoformat(),
                 'data': event_data
@@ -82,9 +104,20 @@ class SSESession:
         """
         with self._lock:
             self.trade_seq += 1
+            self.global_seq += 1
+            
+            # Add to accumulated trades if it's a closed trade
+            if trade_data.get('exit_time') or trade_data.get('pnl') is not None:
+                # This is a closed trade
+                self.accumulated_trades.append(trade_data)
+                self._update_summary()
+            
+            # Add to event queue
             self.trade_events.append({
                 'seq': self.trade_seq,
                 'event_type': 'trade_event',
+                'session_id': self.session_id,
+                'catchup_id': f"evt_{self.global_seq:06d}",
                 'timestamp': datetime.now().isoformat(),
                 'data': trade_data
             })
@@ -100,9 +133,12 @@ class SSESession:
         """
         with self._lock:
             self.position_seq += 1
+            self.global_seq += 1
             self.position_updates.append({
                 'seq': self.position_seq,
                 'event_type': 'position_update',
+                'session_id': self.session_id,
+                'catchup_id': f"evt_{self.global_seq:06d}",
                 'timestamp': datetime.now().isoformat(),
                 'data': position_data
             })
@@ -118,10 +154,17 @@ class SSESession:
         """
         with self._lock:
             self.ltp_seq += 1
+            self.global_seq += 1
+            
+            # Update current backtest time
+            self.current_time = timestamp.isoformat() if hasattr(timestamp, 'isoformat') else str(timestamp)
+            
             self.ltp_snapshots.append({
                 'seq': self.ltp_seq,
                 'event_type': 'ltp_snapshot',
-                'timestamp': timestamp.isoformat() if hasattr(timestamp, 'isoformat') else str(timestamp),
+                'session_id': self.session_id,
+                'catchup_id': f"evt_{self.global_seq:06d}",
+                'timestamp': self.current_time,
                 'data': ltp_store
             })
             self.last_activity = datetime.now()
@@ -182,6 +225,54 @@ class SSESession:
                 return [e for e in self.candle_updates if e['seq'] > since_seq]
             
             return []
+    
+    def _update_summary(self):
+        """
+        Update summary statistics from accumulated trades.
+        Must be called with lock held.
+        """
+        if not self.accumulated_trades:
+            return
+        
+        total_trades = len(self.accumulated_trades)
+        winning_trades = sum(1 for t in self.accumulated_trades if float(t.get('pnl', 0)) > 0)
+        losing_trades = total_trades - winning_trades
+        total_pnl = sum(float(t.get('pnl', 0)) for t in self.accumulated_trades)
+        win_rate = (winning_trades / total_trades * 100) if total_trades > 0 else 0
+        
+        self.current_summary = {
+            'total_trades': total_trades,
+            'total_pnl': f"{total_pnl:.2f}",
+            'winning_trades': winning_trades,
+            'losing_trades': losing_trades,
+            'win_rate': f"{win_rate:.1f}"
+        }
+    
+    def get_accumulated_state(self) -> Dict[str, Any]:
+        """
+        Get accumulated state for SSE streaming (UI backtest format).
+        
+        Returns:
+            Dict with trades, events_history, summary, current_time
+        """
+        with self._lock:
+            return {
+                'trades': self.accumulated_trades.copy(),
+                'events_history': self.accumulated_events_history.copy(),
+                'summary': self.current_summary.copy(),
+                'current_time': self.current_time
+            }
+    
+    def set_status(self, status: str):
+        """
+        Set session status.
+        
+        Args:
+            status: 'running' | 'completed' | 'error'
+        """
+        with self._lock:
+            self.status = status
+            logger.info(f"📊 SSE [{self.session_id}]: Status changed to {status}")
     
     def emit_trade_update(self, trade_payload: Dict[str, Any]):
         """

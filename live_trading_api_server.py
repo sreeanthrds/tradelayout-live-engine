@@ -84,13 +84,26 @@ class LiveTradingStartRequest(BaseModel):
     trigger_user_id: str  # User who triggered the start
 
 
+class AddToExecutionRequest(BaseModel):
+    """Request to add session to execution dictionary (toggle ON)"""
+    user_id: str = Field(..., description="User ID")
+    strategy_id: str = Field(..., description="Strategy ID")
+    broker_connection_id: str = Field(..., description="Broker connection ID")
+    scale: float = Field(1.0, description="Position scale multiplier")
+
+
+class RemoveFromExecutionRequest(BaseModel):
+    """Request to remove session from execution dictionary (toggle OFF)"""
+    session_id: str = Field(..., description="Session ID to remove")
+
+
 # =====================================================================
 # Helper Functions
 # =====================================================================
 
-def get_session_id(strategy_id: str, broker_connection_id: str) -> str:
-    """Generate session ID from strategy and broker connection"""
-    return f"{strategy_id}_{broker_connection_id}"
+def get_session_id(user_id: str, strategy_id: str, broker_connection_id: str) -> str:
+    """Generate session ID from user, strategy and broker connection"""
+    return f"{user_id}_{strategy_id}_{broker_connection_id}"
 
 
 def get_session_dir(user_id: str, session_id: str) -> Path:
@@ -158,7 +171,7 @@ async def register_session(request: SessionRequest):
     Register a new session (strategy + broker connection)
     Validates uniqueness and stores in global registry
     """
-    session_id = get_session_id(request.strategy_id, request.broker_connection_id)
+    session_id = get_session_id(request.user_id, request.strategy_id, request.broker_connection_id)
     
     # Check if session already exists
     if session_id in live_sessions:
@@ -359,6 +372,194 @@ async def get_session_diagnostics(session_id: str):
     return data
 
 
+@app.post("/api/v1/live/session/add-to-execution")
+async def add_session_to_execution(request: AddToExecutionRequest):
+    """
+    Add a session to the execution dictionary (toggle ON - Submit to Queue).
+    This marks the session as ready for execution.
+    
+    Session ID format: {user_id}_{strategy_id}_{broker_connection_id}
+    
+    Request body:
+    {
+        "user_id": "user_123",
+        "strategy_id": "d70ec04a-1025-46c5-94c4-3e6bff499644",
+        "broker_connection_id": "acf98a95-1547-4a72-b824-3ce7068f05b4",
+        "scale": 2.0
+    }
+    """
+    # Generate session ID
+    session_id = get_session_id(
+        request.user_id,
+        request.strategy_id,
+        request.broker_connection_id
+    )
+    
+    # Validate broker connection exists
+    try:
+        broker_conn = load_broker_connection(request.broker_connection_id)
+        if not broker_conn:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Broker connection not found: {request.broker_connection_id}"
+            )
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error loading broker connection: {str(e)}"
+        )
+    
+    # Validate strategy exists
+    try:
+        strategy = load_strategy(request.strategy_id)
+        if not strategy:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Strategy not found: {request.strategy_id}"
+            )
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error loading strategy: {str(e)}"
+        )
+    
+    # Check if session already in execution
+    if session_id in live_sessions:
+        existing = live_sessions[session_id]
+        if existing.get("in_execution"):
+            return {
+                "success": False,
+                "message": "Session already in execution queue",
+                "session_id": session_id,
+                "status": existing.get("status", "unknown")
+            }
+    
+    # Prepare broker metadata with scale
+    broker_metadata = broker_conn.get("broker_metadata", {}).copy()
+    broker_metadata["scale"] = request.scale
+    
+    # Create/update session configuration
+    session_config = {
+        "session_id": session_id,
+        "user_id": request.user_id,
+        "strategy_id": request.strategy_id,
+        "broker_connection_id": request.broker_connection_id,
+        "scale": request.scale,
+        "strategy_name": strategy.get("name", "Unknown"),
+        "broker_name": broker_conn.get("broker_name", "Unknown"),
+        "broker_metadata": broker_metadata,
+        "in_execution": True,
+        "status": "queued",
+        "added_to_execution_at": datetime.now().isoformat(),
+        "created_at": live_sessions.get(session_id, {}).get("created_at", datetime.now().isoformat())
+    }
+    
+    # Store in live_sessions dict
+    live_sessions[session_id] = session_config
+    
+    return {
+        "success": True,
+        "message": "Session added to execution queue",
+        "session_id": session_id,
+        "status": "queued",
+        "configuration": {
+            "user_id": request.user_id,
+            "strategy_id": request.strategy_id,
+            "strategy_name": session_config["strategy_name"],
+            "broker_connection_id": request.broker_connection_id,
+            "broker_name": session_config["broker_name"],
+            "scale": request.scale
+        }
+    }
+
+
+@app.post("/api/v1/live/session/remove-from-execution")
+async def remove_session_from_execution(request: RemoveFromExecutionRequest):
+    """
+    Remove a session from the execution dictionary (toggle OFF).
+    This stops the session from being executed.
+    
+    Request body:
+    {
+        "session_id": "user_123_strategy_456_broker_789"
+    }
+    """
+    session_id = request.session_id
+    
+    # Check if session exists
+    if session_id not in live_sessions:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Session not found: {session_id}"
+        )
+    
+    session = live_sessions[session_id]
+    
+    # Check if session is currently running
+    if session.get("status") == "running":
+        return {
+            "success": False,
+            "message": "Cannot remove running session. Stop the session first.",
+            "session_id": session_id,
+            "status": "running"
+        }
+    
+    # Mark as removed from execution
+    session["in_execution"] = False
+    session["status"] = "removed"
+    session["removed_from_execution_at"] = datetime.now().isoformat()
+    
+    # Update in dict (keep for history, but mark as removed)
+    live_sessions[session_id] = session
+    
+    return {
+        "success": True,
+        "message": "Session removed from execution queue",
+        "session_id": session_id,
+        "status": "removed"
+    }
+
+
+@app.get("/api/v1/live/session/{session_id}/execution-status")
+async def get_execution_status(session_id: str):
+    """
+    Get the execution status of a session.
+    
+    Returns:
+        - in_execution: bool (is it in the execution queue?)
+        - status: queued | running | completed | removed | error
+        - configuration: session config if exists
+    """
+    if session_id not in live_sessions:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Session not found: {session_id}"
+        )
+    
+    session = live_sessions[session_id]
+    
+    return {
+        "session_id": session_id,
+        "in_execution": session.get("in_execution", False),
+        "status": session.get("status", "unknown"),
+        "configuration": {
+            "user_id": session.get("user_id"),
+            "strategy_id": session.get("strategy_id"),
+            "strategy_name": session.get("strategy_name"),
+            "broker_connection_id": session.get("broker_connection_id"),
+            "broker_name": session.get("broker_name"),
+            "scale": session.get("scale", 1.0)
+        },
+        "timestamps": {
+            "created_at": session.get("created_at"),
+            "added_to_execution_at": session.get("added_to_execution_at"),
+            "removed_from_execution_at": session.get("removed_from_execution_at"),
+            "started_at": session.get("started_at"),
+            "completed_at": session.get("completed_at")
+        }
+    }
+
+
 @app.post("/api/v1/live/session/configure")
 async def configure_session(
     session_id: str = Body(...),
@@ -553,44 +754,92 @@ async def start_sse_session(
 @app.get("/api/v1/live/session/{session_id}/stream")
 async def stream_session_events(session_id: str):
     """
-    SSE endpoint - streams real-time events for a session.
-    Compatible with existing Live Trade UI.
+    SSE endpoint - streams real-time events for a session with accumulated state.
+    Compatible with existing Live Trade UI and backtest report format.
     
-    Event types:
-    - node_event: Node execution/completion
-    - trade_event: Position opened/closed
-    - position_update: P&L updates
-    - ltp_snapshot: LTP store updates
-    - candle_update: Candle completions
+    Sends 'data' events with:
+    - session_id: Session identifier
+    - catchup_id: Unique event ID for catchup/reconnection
+    - timestamp: Server timestamp
+    - current_time: Current backtest/simulation time
+    - status: running | completed | error
+    - accumulated: Full state (trades, events_history, summary)
+    - ltp_updates: Latest LTP changes (optional)
+    - position_updates: Latest position changes (optional)
     """
+    import asyncio
+    
     sse_session = sse_manager.get_session(session_id)
     if not sse_session:
         raise HTTPException(status_code=404, detail=f"Session {session_id} not found")
     
     async def event_generator():
-        """Generate SSE events from session queue"""
-        last_seq = 0
+        """Generate SSE events with accumulated state"""
+        last_global_seq = 0
         
         try:
             while True:
-                # Get new events since last sequence
-                events = sse_session.get_events('all', since_seq=last_seq)
+                # Get accumulated state
+                accumulated_state = sse_session.get_accumulated_state()
                 
-                for event in events:
-                    # Format as SSE event
-                    event_type = event.get('event_type', 'message')
-                    event_data = event.get('data', {})
+                # Get latest events since last check
+                new_events = sse_session.get_events('all', since_seq=last_global_seq)
+                
+                # Extract LTP and position updates from recent events
+                ltp_updates = {}
+                position_updates = []
+                
+                for event in new_events:
+                    if event.get('event_type') == 'ltp_snapshot':
+                        ltp_updates = event.get('data', {})
+                    elif event.get('event_type') == 'position_update':
+                        position_updates.append(event.get('data', {}))
                     
+                    # Update last global sequence
+                    if 'catchup_id' in event:
+                        last_global_seq = sse_session.global_seq
+                
+                # Build consolidated SSE event (backtest-compatible format)
+                event_data = {
+                    'session_id': session_id,
+                    'catchup_id': f"evt_{sse_session.global_seq:06d}",
+                    'timestamp': datetime.now().isoformat(),
+                    'current_time': accumulated_state.get('current_time'),
+                    'status': sse_session.status,
+                    
+                    # Full accumulated state (for UI backtest report)
+                    'accumulated': {
+                        'trades': accumulated_state.get('trades', []),
+                        'events_history': accumulated_state.get('events_history', {}),
+                        'summary': accumulated_state.get('summary', {})
+                    },
+                    
+                    # Latest updates (for real-time dashboard)
+                    'ltp_updates': ltp_updates if ltp_updates else None,
+                    'position_updates': position_updates if position_updates else None
+                }
+                
+                # Send as SSE 'data' event
+                yield {
+                    "event": "data",
+                    "data": json.dumps(event_data, default=str)
+                }
+                
+                # Check if session completed
+                if sse_session.status == 'completed':
+                    # Send final completed event
                     yield {
-                        "event": event_type,
-                        "data": json.dumps(event_data)
+                        "event": "completed",
+                        "data": json.dumps({
+                            'session_id': session_id,
+                            'accumulated': event_data['accumulated'],
+                            'timestamp': datetime.now().isoformat()
+                        }, default=str)
                     }
-                    
-                    # Update last sequence
-                    last_seq = max(last_seq, event.get('seq', 0))
+                    break
                 
-                # Sleep briefly to avoid busy loop
-                await asyncio.sleep(0.1)  # 10 updates/second
+                # Sleep briefly to avoid busy loop (10 updates/second)
+                await asyncio.sleep(0.1)
                 
         except asyncio.CancelledError:
             # Client disconnected
