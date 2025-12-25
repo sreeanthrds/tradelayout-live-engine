@@ -238,6 +238,72 @@ async def validate_ready(request: ValidateReadyRequest):
         "missing": []
     }
 
+@app.get("/api/live-trading/session/check")
+async def check_session_status(
+    user_id: str,
+    strategy_id: str,
+    broker_connection_id: str
+):
+    """
+    Check if a session exists for the given strategy and broker connection.
+    Used by UI to determine if "View Trades" should show the modal or trades.
+    
+    Query params:
+        user_id: User ID
+        strategy_id: Strategy ID
+        broker_connection_id: Broker connection ID
+    
+    Returns session details if found, otherwise returns not_found status.
+    """
+    # Generate session ID
+    session_id = f"{user_id}_{strategy_id}_{broker_connection_id}"
+    
+    # Check execution queue
+    if not hasattr(app.state, 'execution_queue'):
+        return {
+            "found": False,
+            "message": "No sessions in queue"
+        }
+    
+    queue = app.state.execution_queue
+    
+    # Look for session
+    if session_id in queue:
+        session_data = queue[session_id]
+        
+        # Get live status if running
+        live_status = None
+        if session_data.get('status') == 'running':
+            try:
+                import requests
+                response = requests.get(
+                    f'http://localhost:8001/api/v1/live/session/{session_id}/status',
+                    timeout=2
+                )
+                if response.status_code == 200:
+                    live_status = response.json()
+            except:
+                pass
+        
+        return {
+            "found": True,
+            "session_id": session_id,
+            "status": session_data.get('status'),
+            "strategy_id": session_data.get('strategy_id'),
+            "strategy_name": session_data.get('strategy_name'),
+            "broker_name": session_data.get('broker_name'),
+            "scale": session_data.get('scale', 1.0),
+            "submitted_at": session_data.get('submitted_at'),
+            "started_at": session_data.get('started_at'),
+            "queue_type": session_data.get('queue_type'),
+            "live_status": live_status
+        }
+    
+    return {
+        "found": False,
+        "message": f"No session found for strategy {strategy_id}"
+    }
+
 @app.get("/api/live-trading/stream/{user_id}")
 async def stream_user_sessions(user_id: str):
     """
