@@ -662,30 +662,104 @@ async def get_all_configurations(user_id: Optional[str] = Query(None)):
     }
 
 
+@app.post("/api/v1/live/session/start-all")
+async def start_all_queued_sessions(user_id: Optional[str] = Body(None)):
+    """
+    Start ALL sessions marked for execution (in_execution=True).
+    This is the "Start All" button that executes all queued sessions.
+    
+    Optionally filter by user_id.
+    
+    Request body:
+    {
+        "user_id": "user_123"  // Optional - if provided, only start this user's sessions
+    }
+    """
+    import threading
+    from src.live_trading.session_executor import execute_session_async
+    
+    started_sessions = []
+    errors = []
+    
+    # Get all sessions marked for execution
+    for session_id, session_data in live_sessions.items():
+        # Skip if not marked for execution
+        if not session_data.get("in_execution"):
+            continue
+        
+        # Skip if status is already running or completed
+        if session_data.get("status") in ["running", "completed"]:
+            continue
+        
+        # Filter by user_id if provided
+        if user_id and session_data.get("user_id") != user_id:
+            continue
+        
+        try:
+            # Get configuration from execution dict
+            strategy_id = session_data.get("strategy_id")
+            broker_connection_id = session_data.get("broker_connection_id")
+            broker_metadata = session_data.get("broker_metadata", {})
+            
+            # Create live session with scale from execution dict
+            session_metadata = live_session_manager.create_session(
+                user_id=session_data.get("user_id"),
+                strategy_id=strategy_id,
+                broker_connection_id=broker_connection_id,
+                broker_metadata=broker_metadata,
+                session_id=session_id
+            )
+            
+            # Update status to running
+            session_data["status"] = "running"
+            session_data["started_at"] = datetime.now().isoformat()
+            
+            # Start execution in background thread
+            thread = threading.Thread(
+                target=execute_session_async,
+                args=(session_id,),
+                daemon=True
+            )
+            thread.start()
+            
+            # Store thread reference
+            session_data["thread"] = thread
+            
+            started_sessions.append({
+                "session_id": session_id,
+                "user_id": session_data.get("user_id"),
+                "strategy_id": strategy_id,
+                "strategy_name": session_data.get("strategy_name"),
+                "broker_name": session_data.get("broker_name"),
+                "scale": broker_metadata.get("scale", 1.0),
+                "status": "running"
+            })
+            
+        except Exception as e:
+            errors.append({
+                "session_id": session_id,
+                "error": str(e)
+            })
+    
+    return {
+        "success": len(started_sessions) > 0,
+        "message": f"Started {len(started_sessions)} sessions",
+        "started_sessions": started_sessions,
+        "errors": errors,
+        "total_started": len(started_sessions)
+    }
+
+
 @app.post("/api/v1/live/session/start-sse")
 async def start_sse_session(
     user_id: str = Body(...),
     sessions: Dict[str, Dict[str, Any]] = Body(...)
 ):
     """
-    Start SSE-enabled live simulation sessions.
+    DEPRECATED: Use add-to-execution + start-all instead.
     
-    Request body:
-    {
-        "user_id": "user_123",
-        "sessions": {
-            "session_id_1": {
-                "strategy_id": "5708424d-...",
-                "broker_connection_id": "conn_123",
-                "scale": 2.0  // Optional, defaults to 1.0
-            },
-            "session_id_2": {
-                "strategy_id": "d70ec04a-...",
-                "broker_connection_id": "conn_456",
-                "scale": 1.5
-            }
-        }
-    }
+    Legacy endpoint for backward compatibility.
+    Directly starts sessions without execution dictionary.
     """
     created_sessions = []
     errors = []
