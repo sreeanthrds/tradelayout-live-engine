@@ -540,16 +540,32 @@ async def stream_live_session(session_id: str):
                                 live_data = json.loads(event.data)
                                 
                                 # Transform to backtest format
+                                accumulated = live_data.get('accumulated', {})
+                                ltp_updates = live_data.get('ltp_updates') or {}
+                                position_updates = live_data.get('position_updates') or []
+                                
                                 transformed = {
                                     "accumulated": {
-                                        "trades": live_data.get('accumulated', {}).get('trades', []),
-                                        "events_history": live_data.get('accumulated', {}).get('events_history', {}),
-                                        "summary": live_data.get('accumulated', {}).get('summary', {})
+                                        "trades": accumulated.get('trades', []),
+                                        "events_history": accumulated.get('events_history', {}),
+                                        "summary": accumulated.get('summary', {})
                                     },
                                     "current_time": live_data.get('current_time'),
                                     "status": live_data.get('status', 'running'),
-                                    "ltp_store": live_data.get('ltp_updates', {}),
-                                    "positions": live_data.get('position_updates', [])
+                                    "ltp_store": ltp_updates if ltp_updates else None,
+                                    "positions": position_updates if position_updates else None,
+                                    
+                                    # Add metadata to show it's alive
+                                    "session_id": live_data.get('session_id', session_id),
+                                    "last_update": live_data.get('timestamp', datetime.now().isoformat()),
+                                    "catchup_id": live_data.get('catchup_id', 'evt_000000'),
+                                    
+                                    # Helper fields for UI
+                                    "is_running": live_data.get('status') == 'running',
+                                    "has_ltp_data": bool(ltp_updates),
+                                    "has_position_data": bool(position_updates),
+                                    "trade_count": len(accumulated.get('trades', [])),
+                                    "event_count": len(accumulated.get('events_history', {}))
                                 }
                                 
                                 yield {
