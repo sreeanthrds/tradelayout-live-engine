@@ -141,6 +141,12 @@ class BacktestStartRequest(BaseModel):
     scale: Optional[float] = Field(1.0, description="Quantity scale multiplier")
     use_modular: Optional[bool] = Field(False, description="Use modular live_strategy_executor (with JSONL events)")
 
+class ValidateReadyRequest(BaseModel):
+    """Request model for validate-ready endpoint"""
+    user_id: str
+    strategy_id: str
+    broker_connection_id: Optional[str] = None
+
 # ============================================================================
 # BASIC ENDPOINTS
 # ============================================================================
@@ -166,6 +172,60 @@ async def health_check():
         "status": "healthy",
         "service": "backtest-api",
         "timestamp": datetime.now().isoformat()
+    }
+
+@app.post("/api/live-trading/validate-ready")
+async def validate_ready(request: ValidateReadyRequest):
+    """
+    Validate if a strategy is ready to start live trading.
+    Checks if strategy exists and broker connection is valid.
+    
+    Returns:
+        ready: bool - Whether the strategy is ready to start
+        message: str - Status message
+        missing: list - List of missing requirements
+    """
+    missing = []
+    
+    # Check if strategy exists in Supabase
+    try:
+        strategy_response = supabase.table('strategies').select('*').eq('id', request.strategy_id).execute()
+        if not strategy_response.data or len(strategy_response.data) == 0:
+            missing.append("strategy")
+    except Exception as e:
+        return {
+            "ready": False,
+            "message": f"Error validating strategy: {str(e)}",
+            "missing": ["strategy"]
+        }
+    
+    # Check if broker connection is provided and valid
+    if request.broker_connection_id:
+        try:
+            broker_response = supabase.table('broker_connections').select('*').eq('id', request.broker_connection_id).execute()
+            if not broker_response.data or len(broker_response.data) == 0:
+                missing.append("broker_connection")
+        except Exception as e:
+            return {
+                "ready": False,
+                "message": f"Error validating broker connection: {str(e)}",
+                "missing": ["broker_connection"]
+            }
+    else:
+        missing.append("broker_connection")
+    
+    # Return validation result
+    if missing:
+        return {
+            "ready": False,
+            "message": f"Missing: {', '.join(missing)}",
+            "missing": missing
+        }
+    
+    return {
+        "ready": True,
+        "message": "Strategy is ready to start",
+        "missing": []
     }
 
 # ============================================================================
